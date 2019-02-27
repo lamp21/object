@@ -88,9 +88,20 @@
             <!-- 内容开始 -->       
                 <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
                     <div class="row">
+                        <br>
+                        <!-- 显示错误信息 -->
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                         @section('content')
-
-
                         @show
                     </div>
                     <div class="col-md-7"></div>    
