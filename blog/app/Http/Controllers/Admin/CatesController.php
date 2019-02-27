@@ -18,7 +18,7 @@ class CatesController extends Controller
             // echo $n;
             // 重复 使用一个字符串
             $cates_data[$key]->cname = str_repeat('|----',$n).$value->cname;
-
+            dump($cates_data);
         }
         return $cates_data;
     }
@@ -31,7 +31,7 @@ class CatesController extends Controller
     {   
         $count = $request->input('count',5);
         $search = $request->input('search','');
-        //dump($search);
+        dump($search);
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
         //显示模板
         return view('admin.cates.index',['cates_data'=>$fy_data]);

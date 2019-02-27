@@ -17,11 +17,11 @@
                 			<div class="dataTables_length" id="dataTables-example_length">
                 				<label>显示：
                 					<select name="count" aria-controls="dataTables-example" class="form-control input-sm">
-                					<option value="5">5</option>
-                					<option value="10">10</option>
-                					<option value="25">25</option>
-                					<option value="50">50</option>
-                					<option value="100">100</option>
+                					<option value="5" @if(isset($request['count']) && $request['count'] == 5) selected @endif>5</option>
+                					<option value="10" @if(isset($request['count']) && $request['count'] == 10) selected @endif>10</option>
+                					<option value="25" @if(isset($request['count']) && $request['count'] == 25) selected @endif>25</option>
+                					<option value="50" @if(isset($request['count']) && $request['count'] == 50) selected @endif>50</option>
+                					<option value="100" @if(isset($request['count']) && $request['count'] == 100) selected @endif>100</option>
                 				</select> 条
                 			</label>
                 			</div>
@@ -29,7 +29,7 @@
                 			<div class="col-sm-6">
                 				<div id="dataTables-example_filter" class="dataTables_filter" style="float:right;">
                 					<label text="align:righ" >关键字: 
-                						<input type="text" class="form-control input-sm" name="search" aria-controls="dataTables-example">
+                						<input type="text" class="form-control input-sm" name="search" aria-controls="dataTables-example" value="{{ $request['search'] or ''}}">
                 					</label>
                 						<input type="submit" value="搜索" class="btn btn-info">
                 				</div>
