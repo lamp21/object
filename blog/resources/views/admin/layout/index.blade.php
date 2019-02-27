@@ -14,7 +14,7 @@
     <link href="/admin_public/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
     <link href="/admin_public/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
+    <!-- Custom Styles-->      
     <link href="/admin_public/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -74,6 +74,18 @@
                             </li>
                             <li>
                                 <a href="/admin/users/create">用户添加</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="icon-users"></i>分类管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/cates">分类列表</a>
+                            </li>
+                            <li>
+                                <a href="/admin/cates/create">分类添加</a>
                             </li>
                         </ul>
                     </li>
