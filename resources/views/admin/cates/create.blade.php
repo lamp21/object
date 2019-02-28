@@ -36,7 +36,7 @@
 	    <div class="form-group">
 	        <div class="col-sm-offset-2 col-sm-10">
 	            <button type="submit" class="btn btn-default btn btn-info">提交</button>
-	            <button type="reset" class="btn btn-default">设置</button>
+	            <button type="reset" class="btn btn-default">重置</button>
 	        </div>
 	    </div>
 	</form>

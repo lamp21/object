@@ -15,10 +15,10 @@ class CatesController extends Controller
         foreach($cates_data as $key => $value){
             // 统计 path 中的,符号 出现的次数
             $n = substr_count($value->path,',');
-            //echo $n;
+            // echo $n;
             // 重复 使用一个字符串
             $cates_data[$key]->cname = str_repeat('|----',$n).$value->cname;
-
+            dump($cates_data);
         }
         return $cates_data;
     }
@@ -31,8 +31,9 @@ class CatesController extends Controller
     {   
         $count = $request->input('count',5);
         $search = $request->input('search','');
-        //dump($search);
+        // dump($search);
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
+        // dd($fy_data);
         //显示模板
         return view('admin.cates.index',['cates_data'=>$fy_data]);
     }
