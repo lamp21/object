@@ -36,7 +36,6 @@
         <i class="fa fa-bars icon"></i> 
         </div>
             </div>
-
             <ul class="nav navbar-top-links navbar-right">
                     <ul class="dropdown-menu dropdown-messages">
                         <li class="divider"></li>
@@ -57,12 +56,9 @@
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
             </ul>
         </nav>
-        <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
@@ -92,10 +88,7 @@
                 </ul>
             </div>
         </nav>
-        <!-- /. NAV SIDE  -->
-      
         <div id="page-wrapper">
-
           <div class="header">
             <!-- 内容开始 -->       
                 <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
@@ -116,7 +109,7 @@
                         @section('content')
                         @show
                     </div>
-                    <div class="col-md-7"></div>    
+                    <div class="col-md-7"></div>   
             </div>  
         </div>
             <div class="row">
@@ -132,7 +125,6 @@
                 </div>
                 <div class="row">
                 <div class="col-md-12">
-                
                     </div>      
                 </div>  
                 <!-- /. ROW  -->
@@ -140,7 +132,6 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">
                     </div>
                     <div class="col-md-8 col-sm-12 col-xs-12">
-
                         <div class="panel panel-default">
                         </div>
 
