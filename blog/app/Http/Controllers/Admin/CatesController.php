@@ -31,8 +31,9 @@ class CatesController extends Controller
     {   
         $count = $request->input('count',5);
         $search = $request->input('search','');
-        dump($search);
+        // dump($search);
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
+        // dd($fy_data);
         //显示模板
         return view('admin.cates.index',['cates_data'=>$fy_data]);
     }
