@@ -115,19 +115,19 @@ p {
       <ul id="starlist">
         <li><a href="index.html">首页</a></li>
           @foreach($cates_data as $k=>$v)
-        <li class="menu"><a href="list2.html">{{ $v->cname }}</a>
-          <ul class="sub">   
-          @foreach($v['sub'] as $kk=>$vv)     
-            <li><a href="/8">{{ $vv->cname }}</a>
-            <ul>
-          @foreach($vv['sub'] as $kkk=>$vvv)     
-              <li><a href="/8">{{ $vvv->cname }}</a></li>
-          @endforeach
-            </ul>
-            </li>
-          @endforeach
-          </ul>
-        </li>
+              <li class="menu"><a href="list2.html">{{ $v->cname }}</a>
+                  <ul class="sub">   
+                  @foreach($v['sub'] as $kk=>$vv)     
+                    <li><a href="/8">{{ $vv->cname }}</a>
+                    <ul>
+                  @foreach($vv['sub'] as $kkk=>$vvv)     
+                      <li><a href="/8">{{ $vvv->cname }}</a></li>
+                  @endforeach
+                    </ul>
+                    </li>
+                  @endforeach
+                  </ul>
+              </li>
           @endforeach
       </ul>
     </nav>

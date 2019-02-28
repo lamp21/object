@@ -59,7 +59,7 @@ class CatesController extends Controller
     {
         //接收数据
         $data = $request->all();
-
+ 
         // 处理 分类路径
         // 分类
         if($data['pid'] == 0){
