@@ -51,15 +51,8 @@
         <td>{{ $v->created_at }}</td>
         <td>
         	<abbr title="{{ $v->usersinfo->description }}">
-<<<<<<< HEAD
-	        <p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{ $v->usersinfo->description }}</p>
-	    </abbr>
-        	
-
-=======
->>>>>>> remotes/origin/changgao
-        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{ $v->usersinfo->description }}</p>
-        	</abbr>
+	        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{ $v->usersinfo->description }}</p>
+	    	</abbr>
         </td>
         <td>
         	<a href="/admin/users/{{ $v->id }}/edit" class="btn btn-success">修改</a>
@@ -67,7 +60,6 @@
         		{{ csrf_field() }}
         		{{ method_field('DELETE') }}
         		<input type="submit" value="删除" name="" class="btn btn-danger">
-        		
         	</form>
         </td>
     </tr>

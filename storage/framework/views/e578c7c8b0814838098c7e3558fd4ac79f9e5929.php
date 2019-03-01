@@ -32,10 +32,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
-                
                 <div id="sideNav">
                     <i class="fa fa-bars icon"></i> 
                 </div>
+            </div>
             </div>
             <ul class="nav navbar-top-links navbar-right">
                     <ul class="dropdown-menu dropdown-messages">
@@ -100,6 +100,18 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="#"><i class="icon-users"></i>广告管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/advert">广告列表</a>
+                            </li>
+                            <li>
+                                <a href="/admin/advert/create">广告添加</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -120,25 +132,31 @@
                             </div>
                         <?php endif; ?>
 
-
                         <?php if(session('error')): ?>
                             <div class="alert alert-danger">
                                 <?php echo e(session('error')); ?>
 
                             </div>
                         <?php endif; ?>
-
+                        <!-- 内容开始 -->
                         <?php $__env->startSection('content'); ?>
-
 
                         <?php echo $__env->yieldSection(); ?>
                     </div>  
+                    </div>
+                    <div class="col-md-7"></div>    
             </div>  
         </div>
             <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12">
+
+
             </div>
                 </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="panel-body">
                                 <div id="morris-donut-chart"></div>
@@ -148,7 +166,11 @@
                 </div>
                 <div class="row">    
                 </div>  
-
+                <div class="row">
+                <div class="col-md-12">
+                
+                    </div>      
+                </div>  
                 <!-- /. ROW  -->
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
@@ -166,14 +188,15 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
 
-
     <!-- jQuery Js -->
     <script src="/admin_public/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
     <script src="/admin_public/assets/js/bootstrap.min.js"></script>
      
+    <!-- Metis Menu Js -->
 
-     
+
+    <!-- Metis Menu Js -->
     <script src="/admin_public/assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="/admin_public/assets/js/morris/raphael-2.1.0.min.js"></script>

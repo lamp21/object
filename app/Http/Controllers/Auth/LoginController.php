@@ -1,12 +1,8 @@
 <?php
-<<<<<<< HEAD
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-=======
-
->>>>>>> remotes/origin/changgao
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -33,16 +29,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-<<<<<<< HEAD
+
 
     protected $redirectTo = '/home';
 
     protected $redirectTo = '/admin';
     protected $redirectTo = '/admin';
-=======
     protected $redirectTo = '/admin';
-
->>>>>>> remotes/origin/changgao
     /**
      * Create a new controller instance.
      *
@@ -50,14 +43,12 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-<<<<<<< HEAD
 
         $this->middleware('guest')->except('logout');
     }
 }
 
-=======
->>>>>>> remotes/origin/changgao
+
         $this->middleware('guest:admin')->except('logout');
     }
 
@@ -98,27 +89,7 @@ class LoginController extends Controller
         if ($usernameLogin) {
             return true;
         }
-    //     // 验证手机号登录方式
-    //     $mobileLogin = $this->guard()->attempt(
-    //         ['mobile' => $username, 'password' => $password], $request->has('remember')
-    //     );
-    //     if ($mobileLogin) {
-    //         return true;
-    //     }
 
-<<<<<<< HEAD
-=======
-    //     // 验证邮箱登录方式
-    //     $emailLogin = $this->guard()->attempt(
-    //         ['email' => $username, 'password' => $password], $request->has('remember')
-    //     );
-    //     if ($emailLogin) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
->>>>>>> remotes/origin/changgao
     protected function validateLogin(Request $request)
     {
         $request->validate([
@@ -131,8 +102,7 @@ class LoginController extends Controller
     {
         return 'username';
     }
-<<<<<<< HEAD
 
-=======
+
 }
->>>>>>> remotes/origin/changgao
+

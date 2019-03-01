@@ -21,10 +21,6 @@ class CatesController extends Controller
         return $cates_data;
     }
 
-        }
-        return $cates_data;
-    }
-
     /**
      * Display a listing of the resource.
      *
