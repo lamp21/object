@@ -33,6 +33,8 @@ class CatesController extends Controller
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
 
 
+        // dump($search);
+        $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
         //显示模板
         return view('admin.cates.index',['cates_data'=>$fy_data]);
     }
@@ -48,10 +50,6 @@ class CatesController extends Controller
         return view('admin.cates.create',['id'=>$id,'cates_data'=>self::getCates()]);
     }
 
-
-
-
-
     /**
      * Store a newly created resource in storage.
      *
@@ -62,6 +60,7 @@ class CatesController extends Controller
     {
         //接收数据
         $data = $request->all();
+
         // 处理 分类路径
         // 分类
         if($data['pid'] == 0){
@@ -108,9 +107,6 @@ class CatesController extends Controller
     {
         //
     }
-
-
-
 
 
     /**

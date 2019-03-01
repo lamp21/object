@@ -20,12 +20,22 @@ Route::get('/', function () {
 加载后台模板
 */
 Route::get('admin','Admin\IndexController@index');
+<<<<<<< HEAD
 Route::get('admin/users/setdata','Admin\UserController@setdata');
 
 //用户管理
 Route::resource('admin/users','Admin\UserController');
 
 
+=======
+
+Route::get('admin/users/setdata','Admin\UserController@setdata');
+
+
+//用户管理
+Route::resource('admin/users','Admin\UserController');
+
+>>>>>>> remotes/origin/changgao
 //子分类
 Route::get('admin/cates/create/{id}','Admin\catesController@create');
 
@@ -34,6 +44,11 @@ Route::get('admin/cates/create/{id}','Admin\catesController@create');
 Route::resource('admin/cates','Admin\CatesController');
 
 
+<<<<<<< HEAD
+=======
+// 前台 分类
+Route::resource('home/index','Home\IndexController');
+>>>>>>> remotes/origin/changgao
 
 
 
@@ -46,6 +61,40 @@ Route::resource('admin/cates','Admin\CatesController');
 
 
 
+<<<<<<< HEAD
+
+
+
+
+
+=======
+Route::prefix('admin')->namespace('Admin')->group(function () {
+    //后台首页
+    $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
+    $this->post('login', 'LoginController@login');
+    $this->post('logout', 'LoginController@logout')->name('admin.logout');
+});
+
+Route::prefix('admin')->namespace('Admin')->group(function () {
+    //后台首页
+    $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
+    $this->post('login', 'LoginController@login');
+    $this->post('logout', 'LoginController@logout')->name('admin.logout');
+    Route::middleware('auth.admin:admin')->name('admin.')->group(function () {
+        Route::get('/', 'LoginController@index');
+    });
+});
+
+// 后台登录
+Route::resource('admin/login','Admin\LoginController');
+
+// gg
+// Route::get('admin/advert/create','Admin\catesController@create');
+
+// 广告
+
+Route::resource('admin/advert','Admin\AdvertController');
+>>>>>>> remotes/origin/changgao
 
 
 
@@ -55,11 +104,7 @@ Route::resource('admin/cates','Admin\CatesController');
 
 
 
-
-
-
-
-
+<<<<<<< HEAD
 
 
 
@@ -141,3 +186,5 @@ Route::resource('home/index','Home\IndexController');
 //友情链接管理
 Route::resource('admin/link','Admin\LinkController');
 
+=======
+>>>>>>> remotes/origin/changgao

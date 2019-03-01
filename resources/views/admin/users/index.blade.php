@@ -51,8 +51,8 @@
         <td>{{ $v->created_at }}</td>
         <td>
         	<abbr title="{{ $v->usersinfo->description }}">
-        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{ $v->usersinfo->description }}</p>
-        </abbr>
+	        <p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{ $v->usersinfo->description }}</p></abbr>
+        	
         </td>
         <td>
         	<a href="/admin/users/{{ $v->id }}/edit" class="btn btn-success">修改</a>

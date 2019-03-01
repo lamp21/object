@@ -3,7 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+<<<<<<< HEAD
 
+=======
+use View;
+use App\Http\Controllers\Home\IndexController;
+>>>>>>> remotes/origin/changgao
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +18,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+<<<<<<< HEAD
         //
+=======
+        // 共享 数据
+        View::share('common_cates_data',IndexController::getPidCates());
+>>>>>>> remotes/origin/changgao
     }
 
     /**
