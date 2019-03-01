@@ -91,4 +91,17 @@ class IndexController extends Controller
     {
         //
     }
+
+
+    //登录
+    public function login(){
+        return view('home.login.login');
+    }
+
+
+    public function dologin(Request $request){
+        // dump($request->all());
+        $data = $request->except(['_token']);
+        dump($data);
+    }
 }

@@ -141,12 +141,6 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                     </div>
-                    <div class="col-md-8 col-sm-12 col-xs-12">
-
-                        <div class="panel panel-default">
-                        </div>
-
-                    </div>
                 </div>
                 <!-- /. ROW  -->
             </div>

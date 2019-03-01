@@ -18,7 +18,7 @@ class CatesController extends Controller
             // echo $n;
             // 重复 使用一个字符串
             $cates_data[$key]->cname = str_repeat('|----',$n).$value->cname;
-            dump($cates_data);
+            // dump($cates_data);
         }
         return $cates_data;
     }

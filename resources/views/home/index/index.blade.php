@@ -110,45 +110,44 @@ p {
 <header id="header">
   <div class="navbox">
     <h2 id="mnavh"><span class="navicon"></span></h2>
-    <div class="logo"><a href="http://www.yangqq.com">Homie action Blog</a></div>
+    <div class="logo"><a href="">Homie action Blog</a></div>
     <nav>
-      <ul id="starlist">
+      <ul id="starlist" style="font-size: 18px;">
         <li><a href="index.html">首页</a></li>
           @foreach($cates_data as $k=>$v)
               <li class="menu"><a href="list2.html">{{ $v->cname }}</a>
                   <ul class="sub">   
-                  @foreach($v['sub'] as $kk=>$vv)     
-                    <li><a href="/8">{{ $vv->cname }}</a>
-                    <ul>
-                  @foreach($vv['sub'] as $kkk=>$vvv)     
-                      <li><a href="/8">{{ $vvv->cname }}</a></li>
-                  @endforeach
-                    </ul>
-                    </li>
-                  @endforeach
+                      @foreach($v['sub'] as $kk=>$vv)     
+                        <li><a href="/8">{{ $vv->cname }}</a>
+                            <ul>
+                              @foreach($vv['sub'] as $kkk=>$vvv)     
+                              <li><a href="/8">{{ $vvv->cname }}</a></li>
+                              @endforeach
+                            </ul>
+                        </li>
+                      @endforeach
                   </ul>
               </li>
           @endforeach
+          <li><a href="/home/login">登录</a></li>
+          <li><a href="">注册</a></li>
+        </div>
       </ul>
     </nav>
     <div class="searchico"></div>
-    <div>
-    <a href="">登录</a>
-    <a href="">注册</a>
-    </div>
   </div>
-    <div class="kf">
-  <h2><span id="closed" class="searchclose"></span>客服在线</h2>
-  <ul>
-    <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=476847113&amp;site=qq&amp;menu=yes" target="_blank" class="qqservice_list_link">QQ客服</a></li>
-  </ul>
-  <ul class="kfdh">
-    <p class="kftext">客服微信扫码</p>
-    <p class="kfnum"><img src="https://www.yangqq.com/skin/jxhx/images/wx.png"></p>
-  </ul>
-  <p class="kftext">服务时间</p>
-  <p class="kftime">周一至周日 9:00-21:00</p>
-</div>   
+   <!--  <div class="kf">
+      <h2><span id="closed" class="searchclose"></span>客服在线</h2>
+      <ul>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=476847113&amp;site=qq&amp;menu=yes" target="_blank" class="qqservice_list_link">QQ客服</a></li>
+      </ul>
+      <ul class="kfdh">
+        <p class="kftext">客服微信扫码</p>
+        <p class="kfnum"><img src="https://www.yangqq.com/skin/jxhx/images/wx.png"></p>
+      </ul>
+      <p class="kftext">服务时间</p>
+      <p class="kftime">周一至周日 9:00-21:00</p>
+    </div>   --> 
 </header>
 <div class="searchbox">
   <div class="search">
