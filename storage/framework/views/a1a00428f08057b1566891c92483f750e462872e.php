@@ -49,7 +49,7 @@
         <td>
         	<abbr title="<?php echo e($v->usersinfo->description); ?>">
         	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; "><?php echo e($v->usersinfo->description); ?></p>
-        	</abbr>
+        </abbr>
         </td>
         <td>
         	<a href="/admin/users/<?php echo e($v->id); ?>/edit" class="btn btn-success">修改</a>

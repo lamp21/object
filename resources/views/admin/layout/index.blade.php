@@ -32,12 +32,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
-                <a class="navbar-brand" href="index.html"><strong><i class="icon 
-        <div id="sideNav" href="">
-        <i class="fa fa-bars icon"></i> 
-        </div>
+                
+                <div id="sideNav">
+                    <i class="fa fa-bars icon"></i> 
+                </div>
             </div>
-
             <ul class="nav navbar-top-links navbar-right">
                     <ul class="dropdown-menu dropdown-messages">
                         <li class="divider"></li>
