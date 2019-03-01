@@ -31,21 +31,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-<<<<<<< HEAD
+
                 <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
                 
                 <div id="sideNav">
                     <i class="fa fa-bars icon"></i> 
                 </div>
             </div>
-=======
+
                 <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>
         <div id="sideNav" href="">
         <i class="fa fa-bars icon"></i> 
         </div>
             </div>
 
->>>>>>> remotes/origin/changgao
             <ul class="nav navbar-top-links navbar-right">
                     <ul class="dropdown-menu dropdown-messages">
                         <li class="divider"></li>
@@ -99,6 +98,7 @@
                         </ul>
                     </li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                      <li>
                         <a href="#"><i class="icon-users"></i>友情链接管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -110,7 +110,6 @@
                             </li>
                         </ul>
                     </li>
-=======
 
                     <li>
                         <a href="#"><i class="icon-users"></i>广告管理<span class="fa arrow"></span></a>
@@ -123,8 +122,6 @@
                             </li>
                         </ul>
                     </li>
-
->>>>>>> remotes/origin/changgao
                 </ul>
             </div>
         </nav>
@@ -144,39 +141,35 @@
                             </div>
                         @endif
 
-<<<<<<< HEAD
 
-=======
->>>>>>> remotes/origin/changgao
                         @if (session('error'))
                             <div class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
-<<<<<<< HEAD
 
                         @section('content')
 
 
                         @show
                     </div>  
-=======
                         @section('content')
                         @show
                     </div>
                     <div class="col-md-7"></div>    
->>>>>>> remotes/origin/changgao
+
             </div>  
         </div>
             <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12">
-<<<<<<< HEAD
+
             </div>
                 </div>
-=======
                     </div>
                     </div>
->>>>>>> remotes/origin/changgao
+
+                    </div>
+                    </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="panel-body">
                                 <div id="morris-donut-chart"></div>
@@ -184,17 +177,14 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <div class="row">    
                 </div>  
 
-=======
                 <div class="row">
                 <div class="col-md-12">
                 
                     </div>      
                 </div>  
->>>>>>> remotes/origin/changgao
                 <!-- /. ROW  -->
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
@@ -203,10 +193,6 @@
 
                         <div class="panel panel-default">
                         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> remotes/origin/changgao
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -215,24 +201,19 @@
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
-<<<<<<< HEAD
-
-
-=======
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
->>>>>>> remotes/origin/changgao
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="/admin_public/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
     <script src="/admin_public/assets/js/bootstrap.min.js"></script>
      
-<<<<<<< HEAD
-
-     
-=======
     <!-- Metis Menu Js -->
->>>>>>> remotes/origin/changgao
+
+    <!-- Metis Menu Js -->
+
     <script src="/admin_public/assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="/admin_public/assets/js/morris/raphael-2.1.0.min.js"></script>

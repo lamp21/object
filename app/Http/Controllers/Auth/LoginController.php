@@ -1,17 +1,13 @@
 <?php
-
-<<<<<<< HEAD
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-=======
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
->>>>>>> remotes/origin/changgao
 
 class LoginController extends Controller
 {
@@ -33,12 +29,11 @@ class LoginController extends Controller
      *
      * @var string
      */
-<<<<<<< HEAD
-    protected $redirectTo = '/home';
-=======
-    protected $redirectTo = '/admin';
->>>>>>> remotes/origin/changgao
 
+    protected $redirectTo = '/home';
+
+    protected $redirectTo = '/admin';
+    protected $redirectTo = '/admin';
     /**
      * Create a new controller instance.
      *
@@ -46,11 +41,11 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-<<<<<<< HEAD
+
         $this->middleware('guest')->except('logout');
     }
 }
-=======
+
         $this->middleware('guest:admin')->except('logout');
     }
 
@@ -99,16 +94,6 @@ class LoginController extends Controller
     //         return true;
     //     }
 
-    //     // 验证邮箱登录方式
-    //     $emailLogin = $this->guard()->attempt(
-    //         ['email' => $username, 'password' => $password], $request->has('remember')
-    //     );
-    //     if ($emailLogin) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
     protected function validateLogin(Request $request)
     {
         $request->validate([
@@ -121,5 +106,4 @@ class LoginController extends Controller
     {
         return 'username';
     }
-}
->>>>>>> remotes/origin/changgao
+

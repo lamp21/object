@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
 class IndexController extends Controller
-<<<<<<< HEAD
-{
-=======
 {   
 
     public static function getPidCates($pid = 0){
@@ -21,17 +18,14 @@ class IndexController extends Controller
         }
         return $array;
     }
->>>>>>> remotes/origin/changgao
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-<<<<<<< HEAD
     {
-        //
-        //echo "首页";
         $cates_data = Cates::where('pid',0)->get();
         foreach($cates_data as $key => $value){
             $value['sub'] = Cates::where('pid',$value->id)->get();
@@ -40,11 +34,14 @@ class IndexController extends Controller
             }
         }
         return view('home.index.index',['cates_data'=>$cates_data]);
-=======
+
     {    
         // 显示 模板
         return view('home.index.index');
->>>>>>> remotes/origin/changgao
+
+    {    
+        // 显示 模板
+        return view('home.index.index');
     }
 
     /**
@@ -54,11 +51,7 @@ class IndexController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        
-=======
-        //
->>>>>>> remotes/origin/changgao
+
     }
 
     /**
@@ -83,6 +76,7 @@ class IndexController extends Controller
         //
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -93,6 +87,7 @@ class IndexController extends Controller
     {
         //
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -106,6 +101,7 @@ class IndexController extends Controller
         //
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -116,8 +112,6 @@ class IndexController extends Controller
     {
         //
     }
-<<<<<<< HEAD
-
 
     //登录
     public function login(){
@@ -128,8 +122,7 @@ class IndexController extends Controller
     public function dologin(Request $request){
         // dump($request->all());
         $data = $request->except(['_token']);
-        dump($data);
+        // dump($data);
     }
-=======
->>>>>>> remotes/origin/changgao
+
 }

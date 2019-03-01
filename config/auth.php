@@ -40,15 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
-<<<<<<< HEAD
-=======
         'admin' => [
         'driver' => 'session',
         'provider' => 'admins',
     ],
 
->>>>>>> remotes/origin/changgao
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -78,14 +74,11 @@ return [
             'model' => App\User::class,
         ],
 
-<<<<<<< HEAD
-=======
         'admins' => [
         'driver' => 'eloquent',
         'model' => App\Models\Admin::class,
     ]
         
->>>>>>> remotes/origin/changgao
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

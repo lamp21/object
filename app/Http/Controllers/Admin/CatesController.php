@@ -9,7 +9,7 @@ use DB;
 class CatesController extends Controller
 {   
     public static function getCates(){
-        //$cates_data = DB::select("select *,concat(path,',',id) as paths from cates order by paths");
+
         $cates_data = Cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->get();
         foreach($cates_data as $key => $value){
             // 统计 path 中的,符号 出现的次数
@@ -20,6 +20,7 @@ class CatesController extends Controller
         }
         return $cates_data;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,11 +31,7 @@ class CatesController extends Controller
         $count = $request->input('count',5);
         $search = $request->input('search','');
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
-        $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
 
-
-        // dump($search);
-        $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
         //显示模板
         return view('admin.cates.index',['cates_data'=>$fy_data]);
     }
@@ -73,7 +70,6 @@ class CatesController extends Controller
             
         }
 
-
         $cate = new Cates;
         $cate->cname = $data['cname'];
         $cate->pid = $data['pid'];
@@ -107,7 +103,6 @@ class CatesController extends Controller
     {
         //
     }
-
 
     /**
      * Update the specified resource in storage.

@@ -1,7 +1,7 @@
-
 @extends('home.layout.index')
 
 @section('content')
+
 <!doctype html>
 <html>
 <head>
@@ -14,9 +14,13 @@
 <link href="/home_public/css/m.css" rel="stylesheet">
 <script src="/home_public/js/jquery-1.8.3.min.js" ></script>
 <script src="/home_public/js/comm.js"></script>
+
 </head>
 <body>
 
+
+</head>
+<body>
 
 <!--top begin-->
 <header id="header">
@@ -48,7 +52,6 @@
   </div>
 </header>
 
-
 <div class="searchbox">
   <div class="search">
     <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
@@ -63,9 +66,7 @@
 </div>
 
 
-<!--top end-->
 <article> 
-  <!--lbox begin-->
   <div class="lbox"> 
     <!--banbox begin-->
     <div class="banbox">
@@ -122,14 +123,23 @@
             <li>
               <i></i>
               <a href="/">安静地做一个爱设计的女子</a>
+
+            <li><i></i><a href="/">个人博客，属于我的小世界！</a>
+              <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
+            </li>
+            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
+
               <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
             </li>
             <li><i></i><a href="/">我是怎么评价自己的？</a>
               <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
             </li>
+
             <li>
               <i></i>
               <a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
+
+            <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
               <p>不管你是学前端的还是后端的，作为一个程序员，做一个自己的博客，那是必然的。咱们的圈子就这么大，想让更多的人了解你，看看你的技术多牛逼，扔一个博客地址就行了</p>
             </li>
             <li><i></i><a href="/">做个人博客如何用帝国cms美化留言增加头像选择</a>
@@ -283,8 +293,10 @@
           <a href="/" class="viewmore">阅读更多</a> </li>
         <li>
           <h3 class="blogtitle"><a href="/" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则?</a></h3>
+
           <span class="blogpic imgscale"><i><a href="/">设计制作</a></i>
             <a href="/" title=""><img src="/home_public/images/b04.jpg" alt=""></a></span>
+          <span class="blogpic imgscale"><i><a href="/">设计制作</a></i><a href="/" title=""><img src="/home_public/images/b04.jpg" alt=""></a></span>
           <p class="blogtext">就拿我自己来说吧，有时候会很矛盾，设计好的作品，不把它分享出来，会觉得待在自己电脑里面实在是没有意义。干脆就发布出去吧。我也害怕收到大家不好的评论，有些评论，可能说者无意，但是对于每一个用心的站长来说，都会受很深的影响，愤怒，恼羞。... </p>
           <p class="bloginfo"><i class="avatar"><img src="/home_public/images/avatar.jpg"></i><span>杨青青</span><span>2018-10-28</span><span>【<a href="/">设计制作</a>】</span></p>
           <a href="/" class="viewmore">阅读更多</a> </li>
@@ -334,7 +346,6 @@
         <li id="weixin"><a href="#" target="_blank" class="iconfont icon-weixin" title="关注我的微信"></a><i><img src="/home_public/images/wx.png"></i></li>
       </ul>
     </div>
-
     <div class="whitebg notice">
       <h2 class="htitle">网站公告</h2>
       <ul>
@@ -393,7 +404,6 @@
     <div class="whitebg wenzi">
 
 
-      
       <h2 class="htitle">猜你喜欢</h2>
       <ul>
         <li><a href="/">十条设计原则教你学会如何设计网页布局!</a></li>
@@ -432,6 +442,7 @@
     </div>
   </div>
 </article>
+
 @endsection
 
 
@@ -446,6 +457,8 @@
 
 
 <!-- 页脚 -->
+=======
+>>>>>>> remotes/origin/changgao
 <footer>
   <div class="box">
     <div class="wxbox">
