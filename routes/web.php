@@ -128,7 +128,6 @@ Route::resource('admin/cates','Admin\CatesController');
 
 
 
-
 Route::get('home/login','Home\IndexController@login');
 
 Route::post('home/index/dologin','Home\IndexController@dologin');
@@ -137,3 +136,8 @@ Route::post('home/index/dologin','Home\IndexController@dologin');
 Route::resource('home/register','Home\RegisterController');
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
+
+
+//友情链接管理
+Route::resource('admin/link','Admin\LinkController');
+

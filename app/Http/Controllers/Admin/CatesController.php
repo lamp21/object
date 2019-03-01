@@ -9,7 +9,6 @@ use DB;
 class CatesController extends Controller
 {   
     public static function getCates(){
-        //$cates_data = Cates::all();
         //$cates_data = DB::select("select *,concat(path,',',id) as paths from cates order by paths");
         $cates_data = Cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->get();
         foreach($cates_data as $key => $value){
@@ -18,7 +17,6 @@ class CatesController extends Controller
             // echo $n;
             // 重复 使用一个字符串
             $cates_data[$key]->cname = str_repeat('|----',$n).$value->cname;
-            // dump($cates_data);
         }
         return $cates_data;
     }
@@ -31,9 +29,10 @@ class CatesController extends Controller
     {   
         $count = $request->input('count',5);
         $search = $request->input('search','');
-        // dump($search);
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
-        // dd($fy_data);
+        $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
+
+
         //显示模板
         return view('admin.cates.index',['cates_data'=>$fy_data]);
     }
@@ -49,6 +48,10 @@ class CatesController extends Controller
         return view('admin.cates.create',['id'=>$id,'cates_data'=>self::getCates()]);
     }
 
+
+
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -59,7 +62,6 @@ class CatesController extends Controller
     {
         //接收数据
         $data = $request->all();
-
         // 处理 分类路径
         // 分类
         if($data['pid'] == 0){
@@ -71,6 +73,7 @@ class CatesController extends Controller
             $data['path'] = $parent_data->path.','.$parent_data->id;
             
         }
+
 
         $cate = new Cates;
         $cate->cname = $data['cname'];
@@ -105,6 +108,10 @@ class CatesController extends Controller
     {
         //
     }
+
+
+
+
 
     /**
      * Update the specified resource in storage.

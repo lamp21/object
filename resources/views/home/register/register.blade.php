@@ -20,7 +20,7 @@
 <body>
 	<div class='login'>
 	  <div class='login_title'>
-	    <h1 class="text-center" style="font-size: 25px;top: 10px">Homie action用户登录</h1>
+	    <h1 class="text-center" style="font-size: 30px;">注&nbsp;&nbsp;册</h1>
 	  </div>
 	  <div class='login_fields'>
 	  	<form action="/home/index/dologin" method="post">
@@ -54,7 +54,7 @@
 		    </div>
 		    <div class='login_fields__submit' style="float:left;padding: 35px;">
 		      <!-- <input type="submit" class="btn btn-info" style="width:264px;margin: auto;" value='登录'> -->
-		    <input type="submit" class="btn btn-success" value="注册" />
+		    <input type="submit" class="btn btn-success" value="注册" style="width:250px;" />
 		    </div>
 		  </div>
 	  </form>
