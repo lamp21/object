@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> remotes/origin/changgao
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +23,7 @@ Route::get('/', function () {
 加载后台模板
 */
 Route::get('admin','Admin\IndexController@index');
+<<<<<<< HEAD
 Route::get('admin/users/setdata','Admin\UserController@setdata');
 
 //用户管理
@@ -30,6 +35,8 @@ Route::resource('admin/users','Admin\UserController');
 
 
 
+=======
+>>>>>>> remotes/origin/changgao
 
 Route::get('admin/users/setdata','Admin\UserController@setdata');
 
@@ -37,7 +44,10 @@ Route::get('admin/users/setdata','Admin\UserController@setdata');
 //用户管理
 Route::resource('admin/users','Admin\UserController');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> remotes/origin/changgao
 //子分类
 Route::get('admin/cates/create/{id}','Admin\catesController@create');
 
@@ -55,10 +65,13 @@ Route::resource('home/index','Home\IndexController');
 
 
 
+<<<<<<< HEAD
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
 
 
+=======
+>>>>>>> remotes/origin/changgao
 
 
 
@@ -99,6 +112,7 @@ Route::resource('admin/advert','Admin\AdvertController');
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -167,3 +181,5 @@ Route::resource('home/index','Home\IndexController');
 
 //友情链接管理
 Route::resource('admin/link','Admin\LinkController');
+=======
+>>>>>>> remotes/origin/changgao

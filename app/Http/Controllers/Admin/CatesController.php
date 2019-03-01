@@ -9,7 +9,6 @@ use DB;
 class CatesController extends Controller
 {   
     public static function getCates(){
-
         $cates_data = Cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->get();
         foreach($cates_data as $key => $value){
             // 统计 path 中的,符号 出现的次数
@@ -17,6 +16,11 @@ class CatesController extends Controller
             // echo $n;
             // 重复 使用一个字符串
             $cates_data[$key]->cname = str_repeat('|----',$n).$value->cname;
+
+        }
+        return $cates_data;
+    }
+
         }
         return $cates_data;
     }
@@ -30,6 +34,7 @@ class CatesController extends Controller
     {   
         $count = $request->input('count',5);
         $search = $request->input('search','');
+
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
 
         //显示模板

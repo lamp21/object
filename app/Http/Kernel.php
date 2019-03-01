@@ -58,6 +58,9 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'auth.admin' => \App\Http\Middleware\AdminAuthMiddleware::class,
+<<<<<<< HEAD
         'auth.admin' => \App\Http\Middleware\AdminAuthMiddleware::class,
+=======
+>>>>>>> remotes/origin/changgao
     ];
 }

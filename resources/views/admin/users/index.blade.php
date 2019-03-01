@@ -51,10 +51,13 @@
         <td>{{ $v->created_at }}</td>
         <td>
         	<abbr title="{{ $v->usersinfo->description }}">
+<<<<<<< HEAD
 	        <p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{ $v->usersinfo->description }}</p>
 	    </abbr>
         	
 
+=======
+>>>>>>> remotes/origin/changgao
         	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{ $v->usersinfo->description }}</p>
         	</abbr>
         </td>

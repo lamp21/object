@@ -18,7 +18,6 @@ class IndexController extends Controller
         }
         return $array;
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -34,14 +33,6 @@ class IndexController extends Controller
             }
         }
         return view('home.index.index',['cates_data'=>$cates_data]);
-
-    {    
-        // 显示 模板
-        return view('home.index.index');
-
-    {    
-        // 显示 模板
-        return view('home.index.index');
     }
 
     /**
@@ -51,6 +42,7 @@ class IndexController extends Controller
      */
     public function create()
     {
+
 
     }
 
@@ -76,7 +68,6 @@ class IndexController extends Controller
         //
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -87,7 +78,6 @@ class IndexController extends Controller
     {
         //
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -100,7 +90,6 @@ class IndexController extends Controller
     {
         //
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -120,9 +109,7 @@ class IndexController extends Controller
 
 
     public function dologin(Request $request){
-        // dump($request->all());
         $data = $request->except(['_token']);
-        // dump($data);
     }
 
 }

@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> remotes/origin/changgao
         'admin' => [
         'driver' => 'session',
         'provider' => 'admins',
