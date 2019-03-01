@@ -128,9 +128,12 @@ Route::resource('admin/cates','Admin\CatesController');
 
 
 
-//登录 注册
+
 Route::get('home/login','Home\IndexController@login');
-Route::get('home/register','Home\IndexController@register');
+
 Route::post('home/index/dologin','Home\IndexController@dologin');
+
+//前台  注册
+Route::resource('home/register','Home\RegisterController');
 // 前台 分类
 Route::resource('home/index','Home\IndexController');

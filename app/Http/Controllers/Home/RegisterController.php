@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Cates;
-class IndexController extends Controller
+
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +14,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        //
-        //echo "首页";
-        $cates_data = Cates::where('pid',0)->get();
-        foreach($cates_data as $key => $value){
-            $value['sub'] = Cates::where('pid',$value->id)->get();
-            foreach($value['sub'] as $key2 => $value2){
-                $value2['sub'] = Cates::where('pid',$value2->id)->get();
-            }
-        }
-        return view('home.index.index',['cates_data'=>$cates_data]);
+        return view('home.register.register');
     }
 
     /**
@@ -33,7 +24,7 @@ class IndexController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -90,18 +81,5 @@ class IndexController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-
-    //登录
-    public function login(){
-        return view('home.login.login');
-    }
-
-
-    public function dologin(Request $request){
-        // dump($request->all());
-        $data = $request->except(['_token']);
-        dump($data);
     }
 }
