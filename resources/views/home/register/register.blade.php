@@ -10,7 +10,7 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0"> 
-	<title>登录界面</title>
+	<title>注册界面</title>
     <link href="/home_public/css/default.css" rel="stylesheet" type="text/css" />
 	<!--必要样式-->
     <link href="/home_public/css/styles.css" rel="stylesheet" type="text/css" />
@@ -18,64 +18,72 @@
     <link href="/home_public/css/loaders.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div class='login'>
-	  <div class='login_title'>
-	    <h1 class="text-center" style="font-size: 30px;">注&nbsp;&nbsp;册</h1>
-	  </div>
-	  <div class='login_fields'>
-	  	<form action="/home/index/dologin" method="post">
-	  		{{ csrf_field() }}
-		    <div class='login_fields__user'>
-		      <div class='icon'>
-		        <img alt="" src='/home_public/images/img/user_icon_copy.png'>
-		      </div>
-		      <input name="uname" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value=""/>
-		        <div class='validation'>
-		          <img alt="" src='/home_public/images/img/tick.png'>
-		        </div>
-		    </div>
-		    <div class='login_fields__password'>
-		      <div class='icon'>
-		        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
-		      </div>
-		      <input name="pwd" placeholder='密码' maxlength="16" type='password' autocomplete="off">
-		      <div class='validation'>
-		        <img alt="" src='/home_public/images/img/tick.png'>
-		      </div>
-		    </div>
-		    <div class='login_fields__password'>
-		      <div class='icon'>
-		        <img alt="" src='/home_public/images/img/key.png'>
-		      </div>
-		      <input name="code" placeholder='验证码' maxlength="4" type='text' name="ValidateNum" autocomplete="off">
-		      <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
-	          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
-		      </div>
-		    </div>
-		    <div class='login_fields__submit' style="float:left;padding: 35px;">
-		      <!-- <input type="submit" class="btn btn-info" style="width:264px;margin: auto;" value='登录'> -->
-		    <input type="submit" class="btn btn-success" value="注册" style="width:250px;" />
-		    </div>
+	<div class='login' style="position: absolute;height: 350px;">
+		<div class="content">
+		  <div class='login_title' style="height: 40px;">
+		    <center style="position: absolute;top: 60PX;left: 110PX;"><h1 style="font-size: 30px;width: 58px;bottom: 10px;">注&nbsp;&nbsp;册</h1></center>
 		  </div>
-	  </form>
-	  <!-- <div class='login_fields__submit' style="float:left;padding: 35px;">
-		    <a href="/home/index"><input style="position: absolute;top:117px;left:130px;" type="submit" class="btn btn-success" value="注册" /></a>
-		    </div> -->
-	  <div class='success'>
-	  </div>
-	  <div class='disclaimer'>
-	    <p style="font-size: 18px;margin: 10px;float: left;">Homie action&nbsp;&nbsp;&nbsp;<a href="/home/index/register" style="color:lightblue;">首页</a></p>
-	  </div>
-	</div>
-	<div class='authent'>
-	  <div class="loader" style="height: 44px;width: 44px;margin-left: 28px;">
-        <div class="loader-inner ball-clip-rotate-multiple">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        </div>
-	  <p>认证中...</p>
+		  <div class='login_fields'>
+		  	<form action="/home/index/dologin" method="post">
+		  		{{ csrf_field() }}
+			    <div class='login_fields__user'>
+			      <div class='icon'>
+			        <img alt="" src='/home_public/images/img/user_icon_copy.png'>
+			      </div>
+			      <input name="phone" placeholder='手机号' maxlength="11" type='text' autocomplete="on" value=""/>
+			        <div class='validation'>
+			          <img alt="" src='/home_public/images/img/tick.png'>
+			        </div>
+			    </div>
+			    <div class='login_fields__password'>
+			      <div class='icon'>
+			        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
+			      </div>
+			      <input name="pwd" placeholder='密码' type='password'>
+			      <div class='validation'>
+			        <img alt="" src='/home_public/images/img/tick.png'>
+			      </div>
+			    </div>
+			    <div class='login_fields__password'>
+			      <div class='icon'>
+			        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
+			      </div>
+			      <input name="repassword" placeholder='确认密码' type='password'>
+			      <div class='validation'>
+			        <img alt="" src='/home_public/images/img/tick.png'>
+			      </div>
+			    </div>
+			    <div class='login_fields__password'>
+			      <div class='icon'>
+			        <img alt="" src='/home_public/images/img/key.png'>
+			      </div>
+			      <input name="code" placeholder='验证码' maxlength="4" type='text' name="ValidateNum" autocomplete="off">
+			      <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
+		          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
+			      </div>
+			    </div>
+			    <div class='login_fields__submit' style="float:left;left: 31px;top: 43px;">
+			    <input type="submit" class="btn btn-success" value="注册" style="width:250px;top: 100px;" />
+			    </div>
+			  </form>
+			</div>
+		  <div class='success'>
+		  </div>
+		</div>
+		  <div class='disclaimer'>
+		    <p style="font-size: 18px;margin: 10px;float: left;">Homie action&nbsp;&nbsp;&nbsp;<a href="/home/index" style="color:lightblue;">首页</a></p>
+		  </div>
+		</div>
+		<div class='authent'>
+		  <div class="loader" style="height: 44px;width: 44px;margin-left: 28px;">
+	        <div class="loader-inner ball-clip-rotate-multiple">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	        </div>
+		  <p>认证中...</p>
+		</div>
 	</div>
 	<div class="OverWindows"></div>
 	
