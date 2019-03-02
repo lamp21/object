@@ -279,11 +279,9 @@
     <!--bloglist end--> 
   </div>
   <div class="rbox">
-    <div class="card">
-      <h2>联系我们</h2>
     <div class="card"> 
       <h2>联系我们</h2>
-      <!-- <h3 style="position:relative;top:-10px;left:100px;z-index:2;"><a href="" style="color:white;">------&nbsp;&nbsp;&nbsp;关于我们</a></h3> -->
+      <h3 style="position:relative;top:-10px;left:100px;z-index:2;"><a href="" style="color:white;">------&nbsp;&nbsp;&nbsp;关于我们</a></h3>
       <p>团队：兄弟出征</p>
       <p>职业：编程小白</p>
       <p>现居：广州</p>
