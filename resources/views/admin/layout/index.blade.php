@@ -100,7 +100,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li>
                         <a href="#"><i class="icon-users"></i>广告管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -147,8 +146,6 @@
         </div>
             <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12">
-
-
             </div>
                 </div>
                     </div>
