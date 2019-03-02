@@ -101,7 +101,7 @@ class IndexController extends Controller
     {
         //
     }
-
+ 
     //登录
     public function login(){
         return view('home.login.login');

@@ -1,58 +1,7 @@
 @extends('home.layout.index')
 
 @section('content')
-
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>首页-Homie action Blog</title>
-<meta name="keywords" content="blog" />
-<meta name="description" content="blog" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="/home_public/css/base.css" rel="stylesheet">
-<link href="/home_public/css/m.css" rel="stylesheet">
-<script src="/home_public/js/jquery-1.8.3.min.js" ></script>
-<script src="/home_public/js/comm.js"></script>
-<<<<<<< HEAD
-
-</head>
-<body>
-
-
-</head>
-<body>
-</head>
-<body>
-<!--top begin-->
-<header id="header">
-  <div class="navbox">
-    <h2 id="mnavh"><span class="navicon"></span></h2>
-    <div class="logo"><a href="http://www.ydma.com">兄弟连 \ <em style="font-size: 18px; color:cyan;">无兄弟 不编程</em></a></div>
-    <nav>
-      <ul id="starlist" style="font-size: 18px;">
-        <li><a href="index.html">网站首页</a></li>
-          @foreach($common_cates_data as $k=>$v)
-        <li class="menu"><a href="list2.html">{{ $v->cname }}</a>
-          <ul class="sub">   
-          @foreach($v['sub'] as $kk=>$vv)     
-            <li><a href="/8">{{ $vv->cname }}</a>
-            <ul>
-          @foreach($vv['sub'] as $kkk=>$vvv)     
-              <li><a href="/8">{{ $vvv->cname }}</a></li>
-          @endforeach
-            </ul>
-            </li>
-          @endforeach
-          </ul>
-        </li>
-          @endforeach
-      </ul>
-    </nav>
-    <div class="searchico"></div>
-  </div>
-</header>
-
+<!-- 头部开始 -->
 <div class="searchbox">
   <div class="search">
     <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
@@ -66,8 +15,6 @@
   <div class="searchclose"></div>
 </div>
 
-
-<article> 
 <!--top end-->
 <article> 
   <!--lbox begin-->
@@ -298,9 +245,6 @@
           <a href="/" class="viewmore">阅读更多</a> </li>
         <li>
           <h3 class="blogtitle"><a href="/" target="_blank">
-
-          <span class="blogpic imgscale"><i><a href="/">设计制作</a></i>
-            <a href="/" title=""><img src="/home_public/images/b04.jpg" alt=""></a></span>
           <span class="blogpic imgscale"><i><a href="/">设计制作</a></i><a href="/" title=""><img src="/home_public/images/b04.jpg" alt=""></a></span>
           <p class="blogtext">就拿我自己来说吧，有时候会很矛盾，设计好的作品，不把它分享出来，会觉得待在自己电脑里面实在是没有意义。干脆就发布出去吧。我也害怕收到大家不好的评论，有些评论，可能说者无意，但是对于每一个用心的站长来说，都会受很深的影响，愤怒，恼羞。... </p>
           <p class="bloginfo"><i class="avatar"><img src="/home_public/images/avatar.jpg"></i><span>杨青青</span><span>2018-10-28</span><span>【<a href="/">设计制作</a>】</span></p>
@@ -447,40 +391,3 @@
 </article>
 
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 页脚 -->
-=======
->>>>>>> remotes/origin/changgao
-=======
->>>>>>> remotes/origin/changgao
-<footer>
-  <div class="box">
-    <div class="wxbox">
-      <ul>
-        <li><img src="/home_public/images/wxgzh.jpg"><span>微信公众号</span></li>
-        <li><img src="/home_public/images/wx.png"><span>我的微信</span></li>
-      </ul>
-    </div>
-    <div class="endnav">
-      <p><b>站点声明：</b></p>
-      <p>1、本站个人博客模板，均为杨青青本人设计，个人可以使用，但是未经许可不得用于任何商业目的。</p>
-      <p>2、所有文章未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=HHh9cn95b3F1cHVye1xtbTJ-c3E" target="_blank">dacesmiling@qq.com</a></p>
-      <p>Copyright © <a href="http://www.yangqq.com" target="_blank">www.yangqq.com</a> All Rights Reserved. 备案号：<a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备11002373号-1</a></p>
-    </div>
-  </div>
-  <a href="#">
-  <div class="top"></div>
-  </a> </footer>
-</body>
-</html>
