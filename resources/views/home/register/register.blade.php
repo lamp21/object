@@ -24,7 +24,7 @@
 		    <center style="position: absolute;top: 60PX;left: 110PX;"><h1 style="font-size: 30px;width: 58px;bottom: 10px;">注&nbsp;&nbsp;册</h1></center>
 		  </div>
 		  <div class='login_fields'>
-		  	<form action="/home/index/dologin" method="post">
+		  	<form action="/home/register" method="post">
 		  		{{ csrf_field() }}
 			    <div class='login_fields__user'>
 			      <div class='icon'>
