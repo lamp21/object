@@ -21,11 +21,20 @@
 	<div class='login' style="position: absolute;height: 350px;">
 		<div class="content">
 		  <div class='login_title' style="height: 40px;">
-		    <center style="position: absolute;top: 60PX;left: 110PX;"><h1 style="font-size: 30px;width: 58px;bottom: 10px;">注&nbsp;&nbsp;册</h1></center>
+		    <center style="position: absolute;top: 50PX;left: 110PX;"><h1 style="font-size: 30px;width: 58px;bottom: 10px;">注&nbsp;&nbsp;册</h1></center>
 		  </div>
 		  <div class='login_fields'>
 		  	<form action="/home/register" method="post">
 		  		{{ csrf_field() }}
+		  		<div class='login_fields__user'>
+			      <div class='icon'>
+			        <img alt="" src='/home_public/images/img/user_icon_copy.png'>
+			      </div>
+			      <input name="uname" placeholder='用户名' maxlength="11" type='text' autocomplete="on" value=""/>
+			        <div class='validation'>
+			          <img alt="" src='/home_public/images/img/tick.png'>
+			        </div>
+			    </div>
 			    <div class='login_fields__user'>
 			      <div class='icon'>
 			        <img alt="" src='/home_public/images/img/user_icon_copy.png'>
@@ -39,7 +48,7 @@
 			      <div class='icon'>
 			        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
 			      </div>
-			      <input name="pwd" placeholder='密码' type='password'>
+			      <input name="upass" placeholder='密码' autocomplete="new-password" type='password'>
 			      <div class='validation'>
 			        <img alt="" src='/home_public/images/img/tick.png'>
 			      </div>
@@ -48,7 +57,7 @@
 			      <div class='icon'>
 			        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
 			      </div>
-			      <input name="repassword" placeholder='确认密码' type='password'>
+			      <input name="repassword" placeholder='确认密码' autocomplete="new-password" type='password'>
 			      <div class='validation'>
 			        <img alt="" src='/home_public/images/img/tick.png'>
 			      </div>
@@ -62,7 +71,7 @@
 		          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
 			      </div>
 			    </div>
-			    <div class='login_fields__submit' style="float:left;left: 31px;top: 43px;">
+			    <div class='login_fields__submit' style="float:left;left: 31px;top: 30px;">
 			    <input type="submit" class="btn btn-success" value="注册" style="width:250px;top: 100px;" />
 			    </div>
 			  </form>
@@ -71,7 +80,8 @@
 		  </div>
 		</div>
 		  <div class='disclaimer'>
-		    <p style="font-size: 18px;margin: 10px;float: left;">Homie action&nbsp;&nbsp;&nbsp;<a href="/home/index" style="color:lightblue;">首页</a></p>
+		    <p style="font-size: 18px;margin: 10px;float: left;">Homie action&nbsp;&nbsp;&nbsp;<a href="/home/index" style="color:lightblue;">首页</a>
+		    	&nbsp;&nbsp;&nbsp;<a href="/home/index/login" style="color:lightblue;">登录</a></p>
 		  </div>
 		</div>
 		<div class='authent'>
@@ -101,8 +111,8 @@
 		var ajaxmockjax = 1;//是否启用虚拟Ajax的请求响 0 不启用  1 启用
 		//默认账号密码
 		
-		var truelogin = "123456";
-		var truepwd = "123456";
+		// var truephone = "";
+		// var trueupass = "";
 		
 		var CodeVal = 0;
 	    Code();
@@ -127,7 +137,7 @@
 	    $(document).keypress(function (e) {
 	        // 回车键事件  
 	        if (e.which == 13) {
-	            $('input[type="button"]').click();
+	            $('input[type="submit"]').click();
 	        }
 	    });
 	    //粒子背景特效
@@ -135,16 +145,19 @@
 	        dotColor: '#E8DFE8',
 	        lineColor: '#133b88'
 	    });
-	    $('input[name="pwd"]').focus(function () {
-	        $(this).attr('type', 'password');
-	    });
-	    $('input[type="text"]').focus(function () {
+	    $('input[type="uname"]').focus(function () {
 	        $(this).prev().animate({ 'opacity': '1' }, 200);
 	    });
-	    $('input[type="text"],input[type="password"]').blur(function () {
+	    $('input[name="upass"]').focus(function () {
+	        $(this).attr('type', 'password');
+	    });
+	    $('input[type="phone"]').focus(function () {
+	        $(this).prev().animate({ 'opacity': '1' }, 200);
+	    });
+	    $('input[type="phone"],input[type="password"]').blur(function () {
 	        $(this).prev().animate({ 'opacity': '.5' }, 200);
 	    });
-	    $('input[name="login"],input[name="pwd"]').keyup(function () {
+	    $('input[name="phone"],input[name="upass"]').keyup(function () {
 	        var Len = $(this).val().length;
 	        if (!$(this).val() == '' && Len >= 5) {
 	            $(this).next().animate({
@@ -166,13 +179,32 @@
 			// 	color: '#777'
 			// }); 
 	        //非空验证
-	        $('input[type="button"]').click(function () {
-	            var login = $('input[name="login"]').val();
-	            var pwd = $('input[name="pwd"]').val();
+	        $('input[type="submit"]').click(function () {
+	            var uname = $('input[name="uname"]').val();
+	            var phone = $('input[name="phone"]').val();
+	            var upass = $('input[name="upass"]').val();
 	            var code = $('input[name="code"]').val();
-	            if (login == '') {
-	                ErroAlert('请输入您的账号');
-	            } else if (pwd == '') {
+	            //验证格式是否正确
+	            var uname_grep = /^[a-zA-Z]{1}[\w]{7,15}$/;
+	            var phone_grep = /^1{1}[3456789]{1}[0-9]{9}$/;
+	            var upass_grep = /^1{1}[3-9][\d]{9}$/;
+	            var repassword_grep = /^1{1}[3-9][\d]{9}$/;
+	            if(!uname_grep.test(uname)){
+					ErroAlert('请输入正确的昵称');
+				}else if(!phone_grep.test(phone)){
+					ErroAlert('请输入正确的手机号格式');
+				}else if(!upass_grep.test(upass)){
+					ErroAlert('请输入6~12位');
+				}else if(!repassword_grep.test(repassword)){
+					ErroAlert('请输入6~12位');
+				};
+
+				//空值验证
+	            if (uname == '') {
+	                ErroAlert('请输入昵称');
+	            } else if (phone == '') {
+	                ErroAlert('请输入手机号');
+	            }else if (upass == '') {
 	                ErroAlert('请输入密码');
 	            } else if (code == '' || code.length != 4) {
 	                ErroAlert('输入验证码');
@@ -196,11 +228,12 @@
 	                }, 500);
 
 	                //登录
-	                var JsonData = { login: login, pwd: pwd, code: code };
+	                var JsonData = {uname: uname, phone: phone, upass: upass, code: code };
 					//此处做为ajax内部判断
+					// console.log(JsonData);
 					var url = "";
-					if(JsonData.login == truelogin && JsonData.pwd == truepwd && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
-						url = "Ajax/Login";
+					if(JsonData.uname == trueuname && JsonData.phone == truephone && JsonData.upass == trueupass && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
+						url = "/home/index";
 					}else{
 						url = "Ajax/LoginFalse";
 					}
@@ -257,7 +290,7 @@
 	    }  
 		if(ajaxmockjax == 1){
 			$.mockjax({  
-				url: 'Ajax/Login',  
+				url: '/home/index',  
 				status: 200,  
 				responseTime: 50,          
 				responseText: {"Status":"ok","Text":"登录成功<br /><br />欢迎回来"}  
@@ -266,7 +299,7 @@
 				url: 'Ajax/LoginFalse',  
 				status: 200,  
 				responseTime: 50,          
-				responseText: {"Status":"Erro","Erro":"账号名或密码或验证码有误"}
+				responseText: {"Status":"Erro","Erro":"手机号或密码或验证码有误"}
 			});   
 		}
     </script>

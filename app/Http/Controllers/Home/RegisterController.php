@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\UserStoreRequest;
+use App\Models\Users;
+use Hash;
+use DB;
 class RegisterController extends Controller
 {
     /**
@@ -33,9 +36,28 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        // dump($request->all());
+
+        /**
+        *开启事务
+        */
+        DB::beginTransaction();
+        //接收数据
+        $data = $request->except(['_token','code','repassword']);
+        $users = new Users;
+        $users->uname = $data['uname'];
+        $users->upass = Hash::make($data['upass']);
+        $users->phone = $data['phone'];
+        $res = $users->save();
+        
+        if($res){
+            DB::commit();
+            return redirect('home/index')->with('success','注册成功');
+        }else{
+            DB::rollBack();
+            return back()->with('error','注册失败');
+        }
     }
 
     /**
