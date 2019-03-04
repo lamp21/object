@@ -10,11 +10,13 @@
 <link href="/home_public/css/m.css" rel="stylesheet">
 <script src="/home_public/js/jquery-1.8.3.min.js" ></script>
 <script src="/home_public/js/comm.js"></script>
+<link href="/home_public/css/bootstrap.css" rel="stylesheet">
+<script src="/home_public/js/bootstrap.js"></script>
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
-.kf {
+/*.kf {
     position: fixed;
     right: 20px;
     top: 30%;
@@ -33,9 +35,9 @@
     width: 25px;
     height: 25px;
     float: right;
-}
+}*/
 
-h2 {
+/*h2 {
     display: block;
     font-size: 15px;
     margin-block-start: 0.83em;
@@ -44,14 +46,14 @@ h2 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
-
-.kfdh {
+*/
+/*.kfdh {
     border-top: 1px solid #222222;
     border-bottom: 1px solid #222222;
     margin: 10px 0;
-}
+}*/
 
-.kfnum img {
+/*.kfnum img {
     margin: 10px auto 0;
 }
 
@@ -59,27 +61,27 @@ img {
     border: 0;
     display: block;
     width:160px;
-    height:160px;
+    height:96px;
 }
-
-* {
+*/
+/** {
     margin: 0;
     padding: 0;
 }
 
 div {
     display: block; 
-}
+}*/
 body {
-    font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    /*font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;*/
     color: #333;
     background: #E9EAED;
     line-height: 1.5;
     overflow-x: hidden;
 }
 
-a.qqservice_list_link {
-    width: 80%;
+/*a.qqservice_list_link {
+    width: 90%;
     display: block;
     text-align: center;
     margin: auto;
@@ -92,16 +94,16 @@ a.qqservice_list_link {
 a {
     text-decoration: none;
     color: #333;
-}
+}*/
 
-p { 
+/*p { 
     font-size: 10px;
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-}
+}*/
   
 </style>
 </head>

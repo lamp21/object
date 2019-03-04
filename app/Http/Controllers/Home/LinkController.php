@@ -4,20 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Cates;
-class IndexController extends Controller
-{   
-
-    public static function getPidCates($pid = 0){
-        //echo "aaa";
-        $cates_data = Cates::where('pid',$pid)->get();//一级分类
-        $array = [];
-        foreach($cates_data as $key => $value){
-            $value['sub'] = self::getPidCates($value->id);
-            $array[] = $value;
-        }
-        return $array;
-    }
+use DB;
+class LinkController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +14,11 @@ class IndexController extends Controller
      */
     public function index()
     {
+        //加载页面
+        //echo "aaaa";
+        $link_list = DB::table('link')->get();
         $a = Controller::cates_data();
-
-        return view('home.index.index',['cates_data'=>$a]);
+        return view('home.link.link_list',['cates_data'=>$a,'link_list'=>$link_list]);
     }
 
     /**
@@ -37,8 +28,16 @@ class IndexController extends Controller
      */
     public function create()
     {
-
-
+        //加载页面
+        /*
+             DB::table('users')->insert([
+            'name' => str_random(10),
+            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('secret'),
+         */
+       
+        $a = Controller::cates_data();
+        return view('home.link.link_add',['cates_data'=>$a]);
     }
 
     /**
@@ -49,7 +48,24 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //开启事务
+        DB::beginTransaction();
+         //dump($request->all());
+        //添加数据到数据库
+        $link_add = DB::table('link')->insert([
+            'link_name' => $request->input('link_name'),
+            'link_adr' => $request->input('link_adr'),
+            'link_email' => $request->input('link_email'),
+            'link_des' => $request->input('link_des')
+            ]);
+        if ($link_add) {
+           // 执行 添加 
+            DB::commit();
+            return redirect('/home/link')->with('success','添加成功');
+        }else{
+            DB::rollBack();
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -96,15 +112,4 @@ class IndexController extends Controller
     {
         //
     }
- 
-    //登录
-    public function login(){
-        return view('home.login.login');
-    }
-
-
-    public function dologin(Request $request){
-        $data = $request->except(['_token']);
-    }
-
 }

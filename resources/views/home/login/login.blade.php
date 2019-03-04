@@ -38,7 +38,7 @@
 		      <div class='icon'>
 		        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
 		      </div>
-		      <input name="pwd" placeholder='密码' maxlength="16" type='password' autocomplete="off">
+		      <input name="upass" placeholder='密码' maxlength="16" type='password' autocomplete="off">
 		      <div class='validation'>
 		        <img alt="" src='/home_public/images/img/tick.png'>
 		      </div>

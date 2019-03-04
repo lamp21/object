@@ -380,9 +380,14 @@
       </ul>
     </div>
     <div class="links whitebg">
-      <h2 class="htitle"><span class="sqlink"><a href="/">申请链接</a></span>友情链接</h2>
+      <h2 class="htitle">
+        <span class="sqlink">
+          <a href="/home/link/create">申请链接</a>
+        </span>
+          <a href="/home/link/">友情链接</a>
+      </h2>
       <ul>
-        <li><a href="http://www.yangqq.com" target="_blank">杨青青个人博客</a></li>
+        <li><a href="/home/link/" target="_blank">站长推荐</a></li>
       </ul>
     </div>
   </div>

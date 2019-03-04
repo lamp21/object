@@ -84,7 +84,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 Route::resource('admin/login','Admin\LoginController');
 
 // gg
-// Route::get('admin/advert/create','Admin\catesController@create');
+ Route::get('admin/advert/create','Admin\catesController@create');
 
 // 广告
 
@@ -162,4 +162,7 @@ Route::resource('home/index','Home\IndexController');
 
 //友情链接管理
 Route::resource('admin/link','Admin\LinkController');
+//前台友情链接列表
+Route::resource('home/link','Home\LinkController');
+
 
