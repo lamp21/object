@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
+use App\Http\Requests\UserLoginRequest;
+use Auth;
+use Session;
 class IndexController extends Controller
 {   
 
@@ -102,8 +105,19 @@ class IndexController extends Controller
     }
 
 
-    public function dologin(Request $request){
-        $data = $request->except(['_token']);
+    public function dologin(Requests\UserLoginRequest $request){
+        // 直接使用门面进行认证
+        if (\Auth::attempt([
+            'phone' => $request->get('phone'),
+            'upass' => $request->get('upass'),
+        ])){
+            // 认证成功 跳转到首页
+            return redirect('/home/index');
+        }else{
+            // 如果认证失败的话 使用session来提示错误
+            \Session::flash('user_login_failed', '账号或密码错误');
+            return redirect('/home/login')->withInput();
+        }
     }
 
 }
