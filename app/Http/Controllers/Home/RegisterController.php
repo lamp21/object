@@ -31,14 +31,25 @@ class RegisterController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 注册
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserStoreRequest $request)
+    public function store(Request $request)
     {
 
+        // $this->validate($request, [
+        //     'uname' => 'required',
+        //     'upass' => 'required',
+        //     'repassword' => 'required',
+        //     'phone' => 'required',
+        // ],[
+        //     'uname.require'=>'用户名必填',
+        //     'upass.require'=>'密码必填',
+        //     'repassword.require'=>'密码必填',
+        //     'phone.require'=>'手机号必填',
+        // ]);
         /**
         *开启事务
         */
@@ -53,10 +64,10 @@ class RegisterController extends Controller
         
         if($res){
             DB::commit();
-            return redirect('home/index')->with('success','注册成功');
+            return redirect('home/index');
         }else{
             DB::rollBack();
-            return back()->with('error','注册失败');
+            return back();
         }
     }
 

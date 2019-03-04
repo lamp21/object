@@ -24,7 +24,7 @@
 		    <center style="position: absolute;top: 50PX;left: 110PX;"><h1 style="font-size: 30px;width: 58px;bottom: 10px;">注&nbsp;&nbsp;册</h1></center>
 		  </div>
 		  <div class='login_fields'>
-		  	<form action="/home/register" method="post">
+		  	<form action="/home/login" method="post">
 		  		{{ csrf_field() }}
 		  		<div class='login_fields__user'>
 			      <div class='icon'>
@@ -48,7 +48,7 @@
 			      <div class='icon'>
 			        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
 			      </div>
-			      <input name="upass" placeholder='密码' autocomplete="new-password" type='password'>
+			      <input name="upass" placeholder='请输入6~12位有效密码' type='password'>
 			      <div class='validation'>
 			        <img alt="" src='/home_public/images/img/tick.png'>
 			      </div>
@@ -57,7 +57,7 @@
 			      <div class='icon'>
 			        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
 			      </div>
-			      <input name="repassword" placeholder='确认密码' autocomplete="new-password" type='password'>
+			      <input name="repassword" placeholder='请输入6~12位有效密码' type='password'>
 			      <div class='validation'>
 			        <img alt="" src='/home_public/images/img/tick.png'>
 			      </div>
@@ -111,8 +111,8 @@
 		var ajaxmockjax = 1;//是否启用虚拟Ajax的请求响 0 不启用  1 启用
 		//默认账号密码
 		
-		// var truephone = "";
-		// var trueupass = "";
+		var truephone = "";
+		var trueupass = "";
 		
 		var CodeVal = 0;
 	    Code();
@@ -157,7 +157,7 @@
 	    $('input[type="phone"],input[type="password"]').blur(function () {
 	        $(this).prev().animate({ 'opacity': '.5' }, 200);
 	    });
-	    $('input[name="phone"],input[name="upass"]').keyup(function () {
+	    $('input[name="phone"],input[name="upass"],input[name="uname"],input[name="repassword"]').keyup(function () {
 	        var Len = $(this).val().length;
 	        if (!$(this).val() == '' && Len >= 5) {
 	            $(this).next().animate({
@@ -191,12 +191,16 @@
 	            var repassword_grep = /^1{1}[3-9][\d]{9}$/;
 	            if(!uname_grep.test(uname)){
 					ErroAlert('请输入正确的昵称');
+					return false;
 				}else if(!phone_grep.test(phone)){
 					ErroAlert('请输入正确的手机号格式');
+					return false;
 				}else if(!upass_grep.test(upass)){
-					ErroAlert('请输入6~12位');
+					ErroAlert('请输入6~12位密码');
+					return false;
 				}else if(!repassword_grep.test(repassword)){
-					ErroAlert('请输入6~12位');
+					ErroAlert('请输入6~12位密码');
+					return false;
 				};
 
 				//空值验证
@@ -232,8 +236,8 @@
 					//此处做为ajax内部判断
 					// console.log(JsonData);
 					var url = "";
-					if(JsonData.uname == trueuname && JsonData.phone == truephone && JsonData.upass == trueupass && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
-						url = "/home/index";
+					if(JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
+						url = "Ajax/Login";
 					}else{
 						url = "Ajax/LoginFalse";
 					}
@@ -290,7 +294,7 @@
 	    }  
 		if(ajaxmockjax == 1){
 			$.mockjax({  
-				url: '/home/index',  
+				url: 'Ajax/Login',  
 				status: 200,  
 				responseTime: 50,          
 				responseText: {"Status":"ok","Text":"登录成功<br /><br />欢迎回来"}  
