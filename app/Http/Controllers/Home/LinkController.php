@@ -14,8 +14,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        //加载页面
-        //echo "aaaa";
+        //加载页面 获取数据
         $link_list = DB::table('link')->get();
         $a = Controller::cates_data();
         return view('home.link.link_list',['cates_data'=>$a,'link_list'=>$link_list]);
@@ -52,13 +51,13 @@ class LinkController extends Controller
         DB::beginTransaction();
          //dump($request->all());
         //添加数据到数据库
-        $link_add = DB::table('link')->insert([
+        $linkadd = DB::table('link')->insert([
             'link_name' => $request->input('link_name'),
             'link_adr' => $request->input('link_adr'),
             'link_email' => $request->input('link_email'),
             'link_des' => $request->input('link_des')
             ]);
-        if ($link_add) {
+        if ($linkadd) {
            // 执行 添加 
             DB::commit();
             return redirect('/home/link')->with('success','添加成功');
