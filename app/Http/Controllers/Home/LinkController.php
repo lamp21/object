@@ -13,10 +13,10 @@ class LinkController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //加载页面 获取数据
-        $link_list = DB::table('link')->get();
+    { 
         $a = Controller::cates_data();
+        //加载页面 获取数据
+        $link_list = DB::table('link')->where('link_agree', '1')->get();
         return view('home.link.link_list',['cates_data'=>$a,'link_list'=>$link_list]);
     }
 

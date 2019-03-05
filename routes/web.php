@@ -11,7 +11,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   echo '123';
 });
 
 /**
@@ -160,9 +160,15 @@ Route::resource('home/register','Home\RegisterController');
 Route::resource('home/index','Home\IndexController');
 
 
-//友情链接管理
+
+
+
+//后台友情链接管理
 Route::resource('admin/link','Admin\LinkController');
 //前台友情链接列表
 Route::resource('home/link','Home\LinkController');
 
-
+//前台发表文章
+Route::resource('home/article','Home\ArticleController');
+//前台精彩文章
+Route::resource('home/wonderful','Home\WonderfulController');

@@ -59,10 +59,14 @@
         		{{ csrf_field() }}
         		{{ method_field('DELETE')}}
 				<input type="submit" value="删除" class="btn btn-danger">
-        		
-        	</form>
+			</form>
         	@else
-        	<a href="/admin/link/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">通过审核</a>
+        	<a href="/admin/link/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">已通过审核</a>
+			<form action="/admin/link/{{$v->id}}" method="post" style="display: inline-block;">
+        		{{ csrf_field() }}
+        		{{ method_field('DELETE')}}
+				<input type="submit" value="删除" class="btn btn-danger">
+			</form>
         	@endif
         </td>
     </tr>

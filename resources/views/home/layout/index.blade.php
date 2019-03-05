@@ -12,6 +12,7 @@
 <script src="/home_public/js/comm.js"></script>
 <link href="/home_public/css/bootstrap.css" rel="stylesheet">
 <script src="/home_public/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="/home_public/css/bootstrap.css">
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
 <![endif]-->
@@ -64,14 +65,14 @@ img {
     height:96px;
 }
 */
-/** {
+* {
     margin: 0;
     padding: 0;
 }
 
 div {
     display: block; 
-}*/
+}
 body {
     /*font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;*/
     color: #333;
@@ -80,7 +81,7 @@ body {
     overflow-x: hidden;
 }
 
-/*a.qqservice_list_link {
+a.qqservice_list_link {
     width: 90%;
     display: block;
     text-align: center;
@@ -94,7 +95,7 @@ body {
 a {
     text-decoration: none;
     color: #333;
-}*/
+}
 
 /*p { 
     font-size: 10px;
@@ -110,14 +111,15 @@ a {
 <body>
 <!--top begin-->
 <header id="header">
-  <div class="navbox">
+   <div class="navbox">
     <h2 id="mnavh"><span class="navicon"></span></h2>
     <div class="logo"><a href="">Homie action Blog</a></div>
     <nav>
       <ul id="starlist" style="font-size: 18px;">
-        <li><a href="index.html">首页</a></li>
-          @foreach($cates_data as $k=>$v)
-              <li class="menu"><a href="list2.html">{{ $v->cname }}</a>
+        <li><a href="/home/index">首页</a></li>
+          
+              <li class="menu"><a href="list2.html" onclick="return false;">文章分类</a>
+                @foreach($cates_data as $k=>$v)
                   <ul class="sub">   
                       @foreach($v['sub'] as $kk=>$vv)     
                         <li><a href="/8">{{ $vv->cname }}</a>
@@ -131,6 +133,8 @@ a {
                   </ul>
               </li>
           @endforeach
+          <li><a href="/home/wonderful/">推荐文章</a></li>
+          <li><a href="/home/article/create"><b style="color: yellow;">+&nbsp;发布文章</b></a></li>
           <li><a href="/home/login">登录</a></li>
           <li><a href="">注册</a></li>
         </div>
