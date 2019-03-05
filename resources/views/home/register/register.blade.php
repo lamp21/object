@@ -10,7 +10,7 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0"> 
-	<title>登录界面</title>
+	<title>注册界面</title>
     <link href="/home_public/css/default.css" rel="stylesheet" type="text/css" />
 	<!--必要样式-->
     <link href="/home_public/css/styles.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
 <body>
 	<div class='login'>
 	  <div class='login_title'>
-	    <h1 class="text-center" style="font-size: 30px;">注&nbsp;&nbsp;册</h1>
+	    <h1 class="text-center" style="width:120px;font-size: 30px;line-height: 10px;padding: 10px 0px;">注&nbsp;&nbsp;册</h1>
 	  </div>
 	  <div class='login_fields'>
 	  	<form action="/home/index/dologin" method="post">
