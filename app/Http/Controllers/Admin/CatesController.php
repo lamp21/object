@@ -28,9 +28,11 @@ class CatesController extends Controller
      */
     public function index(Request $request)
     {   
+        // 显示页数
         $count = $request->input('count',5);
+        // 搜索
         $search = $request->input('search','');
-
+        // 搜索 + 分页
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
 
         //显示模板

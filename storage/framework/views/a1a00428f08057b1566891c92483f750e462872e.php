@@ -58,7 +58,7 @@
 
         		<?php echo e(method_field('DELETE')); ?>
 
-        		<input type="submit" value="删除" name="" class="btn btn-danger">
+        		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" name="" class="btn btn-danger">
         	</form>
         </td>
     </tr>

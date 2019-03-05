@@ -35,16 +35,21 @@ Route::resource('admin/users','Admin\UserController');
 Route::get('admin/users/setdata','Admin\UserController@setdata');
 
 
-//用户管理
+// 用户管理
 Route::resource('admin/users','Admin\UserController');
 
-//子分类
+
+
+// 子分类
 Route::get('admin/cates/create/{id}','Admin\CatesController@create');
+
+// 添加 分类
+Route::get('admin/cates/create','Admin\CatesController@create');
 
 // 查看 子分类
 Route::get('admin/cates/{id}','Admin\CatesController@index');
 
-//分类管理
+// 分类管理
 Route::resource('admin/cates','Admin\CatesController');
 
 
