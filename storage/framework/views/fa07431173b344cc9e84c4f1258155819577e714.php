@@ -32,7 +32,7 @@
 		    <th>ID</th>
 		    <th>用户名</th>
 		    <th>手机号</th>
-		    <th>邮箱</th>
+		    
 		    <th>创建时间</th>
 		    <th>用户简介</th>
 		    <th>操作</th>
@@ -44,12 +44,12 @@
         <td><?php echo e($v->id); ?></td>
         <td><?php echo e($v->uname); ?></td>
         <td><?php echo e($v->phone); ?></td>
-        <td><?php echo e($v->email); ?></td>
+        
         <td><?php echo e($v->created_at); ?></td>
         <td>
         	<abbr title="<?php echo e($v->usersinfo->description); ?>">
-        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; "><?php echo e($v->usersinfo->description); ?></p>
-        	</abbr>
+	        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; "><?php echo e($v->usersinfo->description); ?></p>
+	    	</abbr>
         </td>
         <td>
         	<a href="/admin/users/<?php echo e($v->id); ?>/edit" class="btn btn-success">修改</a>
@@ -58,8 +58,7 @@
 
         		<?php echo e(method_field('DELETE')); ?>
 
-        		<input type="submit" value="删除" name="" class="btn btn-danger">
-        		
+        		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" name="" class="btn btn-danger">
         	</form>
         </td>
     </tr>

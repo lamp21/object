@@ -54,15 +54,6 @@ Route::resource('home/index','Home\IndexController');
 
 
 
-
-// 前台 分类
-Route::resource('home/index','Home\IndexController');
-
-
-
-
-
-
 Route::prefix('admin')->namespace('Admin')->group(function () {
     //后台首页
     $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
@@ -80,18 +71,23 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     });
 });
 
+Route::group(['namespace' => 'Auth','prefix'=>'auth'],function(){ 
+    route::get('/login','AuthController@login'); 
+    route::get('/logout','AuthController@getlogout'); 
+    route::post('/login','AuthController@auth'); 
+});
+
 // 后台登录
 Route::resource('admin/login','Admin\LoginController');
 
-// gg
+// 广告列表
 Route::get('admin/advert/create','Admin\catesController@create');
 
 // 广告
-
 Route::resource('admin/advert','Admin\AdvertController');
 
-
-
+// 前台 广告  申请
+Route::resource('home/advert','Home\IndexController');
 
 
 
@@ -163,7 +159,3 @@ Route::resource('home/index','Home\IndexController');
 //友情链接管理
 Route::resource('admin/link','Admin\LinkController');
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

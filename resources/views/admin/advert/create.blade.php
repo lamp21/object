@@ -12,19 +12,26 @@
         </div>
     </div>
 
-	<form class="form-horizontal" action="/admin/advert/" method="post">
+	<form class="form-horizontal" action="/admin/advert" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 	    <div class="form-group">
 	        <label class="col-sm-2 control-label">图片</label>
 	        <div class="col-sm-10" style="width:600px;">
-	            <input type="file" class="form-control" placeholder="分类名称" name="pic">
+	            <input type="file" placeholder="广告图片" name="pic">
 	        </div>
 	    </div>
 
-	      <div class="form-group">
+	    <div class="form-group">
 	        <label class="col-sm-2 control-label">URL</label>
 	        <div class="col-sm-10" style="width:600px;">
-	            <input type="text" class="form-control" placeholder="分类名称" name="url">
+	            <input type="text" class="form-control" placeholder="广告网址" name="url">
+	        </div>
+	    </div>
+
+	    <div class="form-group">
+	        <label class="col-sm-2 control-label">内容</label>
+	        <div class="col-sm-10" style="width:600px;">
+	            <input type="text" class="form-control" placeholder="广告内容" name="content">
 	        </div>
 	    </div>
 	    

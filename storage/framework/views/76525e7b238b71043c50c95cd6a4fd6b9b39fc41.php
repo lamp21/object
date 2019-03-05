@@ -26,11 +26,11 @@
                 		</div>
                 			<div class="col-sm-6">
                 				<div id="dataTables-example_filter" class="dataTables_filter" style="float:right;">
-                					<label text="align:righ" >关键字: 
-                						<input type="text" class="form-control input-sm" name="search" aria-controls="dataTables-example" value="<?php echo e(isset($request['search']) ? $request['search'] : ''); ?>">
-                					</label>
-                						<input type="submit" value="搜索" class="btn btn-info">
-                				</div>
+                                    <label text="align:righ" >关键字: 
+                                        <input type="text" class="form-control input-sm" name="search" aria-controls="dataTables-example" value="<?php echo e(isset($request['search']) ? $request['search'] : ''); ?>">
+                                    </label>
+                                        <input type="submit" value="搜索" class="btn btn-info">
+                                </div>
                 			</div>
                 		</div>
                 	</form>
@@ -67,7 +67,7 @@
 
                             		<?php echo e(method_field('DELETE')); ?>
 
-									<input type="submit" value="删除" class="btn btn-danger">				
+									<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">				
 								</form>			
                             </td>
                         </tr>

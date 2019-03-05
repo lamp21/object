@@ -40,21 +40,16 @@ class RegisterController extends Controller
     {
 
         $this->validate($request, [
-            'uname' => 'required|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
-            'upass' => 'required|regex:/^1{1}[3-9][\d]{9}$/',
-            'repassword' => 'required|same:upass',
-            'phone' => 'required|regex:/^1{1}[3456789]{1}[0-9]{9}$/',
+            'uname' => 'required',
+            'upass' => 'required',
+            'repassword' => 'required',
+            'phone' => 'required',
         ],[
             'uname.require'=>'用户名必填',
-            'uname.regex'=>'用户名格式不正确',
             'upass.require'=>'密码必填',
-            'upass.regex'=>'密码不正确',
-            'repassword.require'=>'确认密码必填',
-            'repassword.same'=>'两次密码不一致',
+            'repassword.require'=>'密码必填',
             'phone.require'=>'手机号必填',
-            'phone.regex'=>'手机号必填',
         ]);
-        // dd($request->all());
         /**
         *开启事务
         */
@@ -66,7 +61,7 @@ class RegisterController extends Controller
         $users->upass = Hash::make($data['upass']);
         $users->phone = $data['phone'];
         $res = $users->save();
-        dd($request->all);
+        
         if($res){
             DB::commit();
             return redirect('home/index');

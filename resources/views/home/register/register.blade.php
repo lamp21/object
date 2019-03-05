@@ -101,7 +101,7 @@
 	
 	<script type="text/javascript" src="/home_public/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/home_public/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src='/home_public/js/stopExecutionOnTimeout.js?t=1'></script>
+	<script type="text/javascript" src='js/stopExecutionOnTimeout.js?t=1'></script>
     <script type="text/javascript" src="/home_public/layui/layui.js"></script>
     <script type="text/javascript" src="/home_public/js/Particleground.js"></script>
     <script type="text/javascript" src="/home_public/js/Treatment.js"></script>
@@ -109,6 +109,10 @@
 	<script type="text/javascript">
 		var canGetCookie = 0;//是否支持存储Cookie 0 不支持 1 支持
 		var ajaxmockjax = 1;//是否启用虚拟Ajax的请求响 0 不启用  1 启用
+		//默认账号密码
+		
+		var truephone = "";
+		var trueupass = "";
 		
 		var CodeVal = 0;
 	    Code();
@@ -180,7 +184,7 @@
 	            var phone = $('input[name="phone"]').val();
 	            var upass = $('input[name="upass"]').val();
 	            var code = $('input[name="code"]').val();
-	            //验证格式是否正确
+	           /* 验证格式是否正确
 	            var uname_grep = /^[a-zA-Z]{1}[\w]{7,15}$/;
 	            var phone_grep = /^1{1}[3456789]{1}[0-9]{9}$/;
 	            var upass_grep = /^1{1}[3-9][\d]{9}$/;
@@ -191,7 +195,13 @@
 				}else if(!phone_grep.test(phone)){
 					ErroAlert('请输入正确的手机号格式');
 					return false;
-				};
+				}else if(!upass_grep.test(upass)){
+					ErroAlert('请输入6~12位密码');
+					return false;
+				}else if(!repassword_grep.test(repassword)){
+					ErroAlert('请输入6~12位密码');
+					return false;
+				};*/
 
 				//空值验证
 	            if (uname == '') {

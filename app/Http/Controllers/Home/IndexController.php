@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
-use App\Http\Requests\UserLoginRequest;
-use Auth;
-use Session;
+use App\Models\Advert;
 class IndexController extends Controller
 {   
 
@@ -26,10 +24,13 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
-    {
+    {   
+        $data_advert = Advert::all();
+        //dump($data_advert);
         $data = Controller::cates_data();
-        return view('home.index.index',['cates_data'=>$data]);
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert]);
     }
 
     /**
@@ -63,6 +64,7 @@ class IndexController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -105,19 +107,8 @@ class IndexController extends Controller
     }
 
 
-    public function dologin(Requests\UserLoginRequest $request){
-        // 直接使用门面进行认证
-        if (\Auth::attempt([
-            'phone' => $request->get('phone'),
-            'upass' => $request->get('upass'),
-        ])){
-            // 认证成功 跳转到首页
-            return redirect('/home/index');
-        }else{
-            // 如果认证失败的话 使用session来提示错误
-            \Session::flash('user_login_failed', '账号或密码错误');
-            return redirect('/home/login')->withInput();
-        }
+    public function dologin(Request $request){
+        $data = $request->except(['_token']);
     }
 
 }

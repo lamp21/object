@@ -102,7 +102,18 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-  
+ 
+.aaa a{
+    display: inline;
+    float: left;
+    padding: 0 20px;
+    color:cyan;
+    font-size: 18px;
+    list-style: none;
+    text-decoration: none;
+    line-height: 50px;
+}
+
 </style>
 </head>
 <body>
@@ -129,11 +140,12 @@ p {
                   </ul>
               </li>
           @endforeach
-          <li><a href="/home/login">登录</a></li>
-          <li><a href="">注册</a></li>
+          
         </div>
       </ul>
     </nav>
+    <li class="aaa"><a href="/home/login">登录</a></li>
+    <li class="aaa"><a href="">注册</a></li>
     <div class="searchico"></div>
   </div>
    <!--  <div class="kf">
