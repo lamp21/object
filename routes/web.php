@@ -39,8 +39,10 @@ Route::get('admin/users/setdata','Admin\UserController@setdata');
 Route::resource('admin/users','Admin\UserController');
 
 //子分类
-Route::get('admin/cates/create/{id}','Admin\catesController@create');
+Route::get('admin/cates/create/{id}','Admin\CatesController@create');
 
+// 查看 子分类
+Route::get('admin/cates/{id}','Admin\CatesController@index');
 
 //分类管理
 Route::resource('admin/cates','Admin\CatesController');
@@ -86,8 +88,11 @@ Route::get('admin/advert/create','Admin\catesController@create');
 // 广告
 Route::resource('admin/advert','Admin\AdvertController');
 
-// 前台 广告  申请
-Route::resource('home/advert','Home\IndexController');
+// 前台 广告 申请
+Route::resource('home/create','Home\AdvertController');
+
+// 前台 广告 申请
+Route::resource('home/advert','Home\AdvertController');
 
 
 
@@ -115,6 +120,9 @@ Route::resource('home/advert','Home\IndexController');
 
 
 
+
+
+// lcgzexal110
 
 
 

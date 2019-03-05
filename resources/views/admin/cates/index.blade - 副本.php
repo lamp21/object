@@ -44,7 +44,7 @@
 
                             	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 208px;">分类名称</th>
 
-                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 116px;">所属分类ID</th>
+                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 194px;">所属分类ID</th>
 
                             	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 116px;">分类路径</th>
 
@@ -60,7 +60,7 @@
                             <td class=" ">{{ $v->pid }}</td>
                             <td class="center ">{{ $v->path }}</td>
                             <td class="center">
-                                <a href="/admin/cates/{{ $v->id }}" class="btn btn-info">查看子分类</a>
+                                <a href="/admin/cates/index/{{ $v->id }}" class="btn btn-info">查看子分类</a>
                             	<a href="/admin/cates/create/{{ $v->id }}" class="btn btn-info">添加子分类</a>
                             	<form action="/admin/cates/{{ $v->id }}" method="post" style="display: inline-block;">
                             		{{ csrf_field() }}
@@ -69,6 +69,22 @@
 								</form>			
                             </td>
                         </tr>
+                        @foreach($cates_data[$k]->two as $key=>$val)
+                        <tr class="gradeA odd">
+                            <td class="sorting_1">{{ $val->id }}</td>
+                            <td class=" ">|--{{ $val->cname }}</td>
+                            <td class=" ">{{ $val->pid }}</td>
+                            <td class="center ">{{ $val->path }}</td>
+                            <td class="center">
+                                <form action="/admin/cates/{{ $v->id }}" method="post" style="display: inline-block;">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">                
+                                </form>         
+                            </td>
+                        </tr>
+
+                        @endforeach
                         @endforeach
                     </tbody>
                 </table>
@@ -76,7 +92,7 @@
                 	<div class="col-sm-12">
                 		<div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
                 			<ul class="pagination" style="float:right;">
-                					{{ $cates_data->links() }}
+                                {{ $cates_data->links() }}
                 			</ul>
                 			</div>
                 		</div>

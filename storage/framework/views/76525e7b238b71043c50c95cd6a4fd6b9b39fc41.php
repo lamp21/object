@@ -42,11 +42,9 @@
 
                             	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 208px;">分类名称</th>
 
-                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 194px;">所属分类ID</th>
+                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 116px;">所属分类ID</th>
 
                             	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 116px;">分类路径</th>
-
-                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 82px;">状态</th>
 
 								<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 82px;">操作</th>
 
@@ -59,8 +57,8 @@
                             <td class=" "><?php echo e($v->cname); ?></td>
                             <td class=" "><?php echo e($v->pid); ?></td>
                             <td class="center "><?php echo e($v->path); ?></td>
-                            <td class="center "><?php echo e($v->status == 1 ? '激活' : '未激活'); ?></td>
                             <td class="center">
+                                <a href="/admin/cates/<?php echo e($v->id); ?>" class="btn btn-info">查看子分类</a>
                             	<a href="/admin/cates/create/<?php echo e($v->id); ?>" class="btn btn-info">添加子分类</a>
                             	<form action="/admin/cates/<?php echo e($v->id); ?>" method="post" style="display: inline-block;">
                             		<?php echo e(csrf_field()); ?>

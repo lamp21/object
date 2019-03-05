@@ -16,7 +16,7 @@
 <!--top end-->
 <article> 
   <!--lbox begin-->
-  <div class="lbox"> 
+  <div class="lbox">
     <!--banbox begin-->
     <div class="banbox">
       <div class="banner">
@@ -315,7 +315,7 @@
       </ul>
     </div>
     <div class="whitebg tuijian">
-      <h2 class="htitle"><span class="sqlink"><a href="/">申请广告</a></span>站长推荐</h2>
+      <h2 class="htitle"><span class="sqlink"><a href="/home/advert">申请广告</a></span>站长推荐</h2>
       <section class="topnews imgscale"><a href="/"><img src="/home_public/images/h2.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
       <ul>
         <?php $__currentLoopData = $data_advert; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

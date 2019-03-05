@@ -64,7 +64,6 @@ class IndexController extends Controller
     public function show($id)
     {
         //
-        
     }
 
     /**
