@@ -91,9 +91,6 @@
                                 <li>
                                     <a href="/admin/link">申请列表</a>
                                 </li>
-                                <li>
-                                    <a href="/admin/link/agree">通过审核列表</a>
-                                </li>
                             </ul>
                         </li>
                         <li>
@@ -115,6 +112,17 @@
                                 </li>
                                 <li>
                                     <a href="/admin/advert/create">公告告添加</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-users"></i>推荐文章管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/admin/wonderful">推荐文章列表</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/wonderful/create">文章添加</a>
                                 </li>
                             </ul>
                         </li>
