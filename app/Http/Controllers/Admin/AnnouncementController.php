@@ -13,9 +13,14 @@ class AnnouncementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        $count = $request->input('count',5);
+        $search = $request->input('search','');
+        $data = Announcement::where('announcement_title','like','%'.$search.'%')->paginate($count);
+        //加载视图
+        return view('admin.announcement.index',['data'=>$data,'request'=>$request->all()]);
     }
 
     /**
