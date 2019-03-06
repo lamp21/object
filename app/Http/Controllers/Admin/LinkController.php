@@ -101,6 +101,7 @@ class LinkController extends Controller
      */
     public function destroy($id)
     {
+     //dd($id);
      /**
         *开启事务
         */

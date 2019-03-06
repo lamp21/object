@@ -10,11 +10,15 @@
 <link href="/home_public/css/m.css" rel="stylesheet">
 <script src="/home_public/js/jquery-1.8.3.min.js" ></script>
 <script src="/home_public/js/comm.js"></script>
+<link href="/home_public/css/bootstrap.css" rel="stylesheet">
+<script src="/home_public/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="/home_public/css/bootstrap.css">
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
-.kf {
+<<<<<<< HEAD
+/*.kf {
     position: fixed;
     right: 20px;
     top: 30%;
@@ -33,9 +37,9 @@
     width: 25px;
     height: 25px;
     float: right;
-}
+}*/
 
-h2 {
+/*h2 {
     display: block;
     font-size: 15px;
     margin-block-start: 0.83em;
@@ -44,14 +48,14 @@ h2 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
-
-.kfdh {
+*/
+/*.kfdh {
     border-top: 1px solid #222222;
     border-bottom: 1px solid #222222;
     margin: 10px 0;
-}
+}*/
 
-.kfnum img {
+/*.kfnum img {
     margin: 10px auto 0;
 }
 
@@ -59,9 +63,13 @@ img {
     border: 0;
     display: block;
     width:160px;
-    height:160px;
+    height:96px;
 }
-
+*/
+=======
+.zhuanti li { float: left; width: 32.6%; border-bottom: #eee 1px solid; border-left: #eee 1px solid; overflow: hidden; padding: 25px; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease; }
+.card p { font-size: 15px; padding: 0 0 0 20px; line-height: 25px; text-shadow: 0px 1px 2px rgba(0,0,0,.5); color: #d0d2d4; -webkit-animation: animations2 5s ease-in-out 5s; -moz-animation: animations2 5s ease-in-out 5s; -o-animation: animations2 5s ease-in-out 5s; -ms-animation: animations2 5s ease-in-out 5s; animation: animations2 5s ease-in-out 5s; }
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
 * {
     margin: 0;
     padding: 0;
@@ -71,7 +79,7 @@ div {
     display: block; 
 }
 body {
-    font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    /*font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;*/
     color: #333;
     background: #E9EAED;
     line-height: 1.5;
@@ -79,7 +87,7 @@ body {
 }
 
 a.qqservice_list_link {
-    width: 80%;
+    width: 90%;
     display: block;
     text-align: center;
     margin: auto;
@@ -94,13 +102,15 @@ a {
     color: #333;
 }
 
-p { 
+<<<<<<< HEAD
+/*p { 
     font-size: 10px;
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+<<<<<<< HEAD
 }
  
 .aaa a{
@@ -114,19 +124,26 @@ p {
     line-height: 50px;
 }
 
+=======
+}*/
+=======
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
+  
+>>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 </style>
 </head>
 <body>
 <!--top begin-->
 <header id="header">
-  <div class="navbox">
+   <div class="navbox">
     <h2 id="mnavh"><span class="navicon"></span></h2>
     <div class="logo"><a href="">Homie action Blog</a></div>
     <nav>
       <ul id="starlist" style="font-size: 18px;">
-        <li><a href="index.html">首页</a></li>
-          @foreach($cates_data as $k=>$v)
-              <li class="menu"><a href="list2.html">{{ $v->cname }}</a>
+        <li><a href="/home/index">首页</a></li>
+          
+              <li class="menu"><a href="list2.html" onclick="return false;">文章分类</a>
+                @foreach($cates_data as $k=>$v)
                   <ul class="sub">   
                       @foreach($v['sub'] as $kk=>$vv)     
                         <li><a href="/8">{{ $vv->cname }}</a>
@@ -140,7 +157,14 @@ p {
                   </ul>
               </li>
           @endforeach
+<<<<<<< HEAD
           
+=======
+          <li><a href="/home/wonderful/">推荐文章</a></li>
+          <li><a href="/home/article/create"><b style="color: yellow;">+&nbsp;发布文章</b></a></li>
+          <li><a href="/home/login">登录</a></li>
+          <li><a href="">注册</a></li>
+>>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
         </div>
       </ul>
     </nav>
