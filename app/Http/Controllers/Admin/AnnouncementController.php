@@ -119,6 +119,19 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /**
+        *开启事务
+        */
+        // dump($_SERVER);exit;
+        DB::beginTransaction();
+
+        $res = Announcement::destroy($id);
+        if($res){
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        }else{
+            DB::rollBack();
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+        }
     }
 }

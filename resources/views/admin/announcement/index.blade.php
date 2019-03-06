@@ -52,8 +52,12 @@
 		          <td class="center ">{{ $v->created_at }}</td>
 		          <td class="center ">
 		          	<a href="/admin/announcement/{{ $v->id}}/edit" class="btn btn-warning">修改</a>
-		          	<a href="" class="btn btn-danger">删除</a>
-		          </td>
+		          	<form action="/admin/announcement/{{ $v->id }}" method="post" style="display: inline-block;">
+		          		{{ csrf_field()}}
+		          		{{ method_field('DELETE')}}
+		          		<input type="submit" value="删除" name="" class="btn btn-danger">
+		          	</form>
+		          	</td>
 		        </tr>
 				@endforeach
 		      </tbody>
