@@ -20,6 +20,7 @@
     <ul class="site_tj site_yx">
       @foreach($link_list as $key=>$v)
       <li><a href="{{$v->link_adr}}" target="_blank" title="{{$v->link_name}}">{{$v->link_name}}</a></li>
+<<<<<<< HEAD
      <!--  <li><a href="http://www.liangzl.com" target="_blank" title="id=12 梁钟霖个人博客">梁钟霖个人博客</a></li>
      <li><a href="http://www.dxblog.cn" target="_blank" title="id=16 东轩博客">东轩博客</a></li>
      <li><a href="http://www.xiaozhanfei.com" target="_blank" title="id=18 肖战飞博客">肖战飞博客</a></li>
@@ -130,6 +131,8 @@
      <li><a href="http://www.itlaiba.com" target="_blank" title="id=217 itlaiba">itlaiba</a></li>
      <li><a href="http://www.jzdlink.com" target="_blank" title="id=218 呆呆萌萌情侣博客">呆呆萌萌情侣博客</a></li>
      <li><a href="http://www.zhangwenhu.com" target="_blank" title="id=219 张文虎博客">张文虎博客</a></li> -->
+=======
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
      @endforeach
     </ul>
   </div>

@@ -11,7 +11,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   echo '123';
 });
 
 /**
@@ -74,6 +74,8 @@ Route::resource('home/create','Home\AdvertController');
 
 // 前台 广告 申请
 Route::resource('home/advert','Home\AdvertController');
+// gg
+ Route::get('admin/advert/create','Admin\catesController@create');
 
 
 
@@ -116,19 +118,17 @@ Route::resource('home/advert','Home\AdvertController');
 
 
 
-
-
-// 友情链接管理
+//后台友情链接管理
 Route::resource('admin/link','Admin\LinkController');
+//前台友情链接列表
+Route::resource('home/link','Home\LinkController');
 
-
-
-
-
-
-
-
-
+//前台发表文章
+Route::resource('home/article','Home\ArticleController');
+//前台精彩文章
+Route::resource('home/wonderful','Home\WonderfulController');
+//后台精彩文章
+Route::resource('admin/wonderful','Admin\WonderfulController');
 
 
 
@@ -180,19 +180,14 @@ Route::resource('admin/link','Admin\LinkController');
 
 // 后台 模板
 Route::get('admin','Admin\IndexController@index');
-
 // 后台 测试
 Route::get('admin/users/setdata','Admin\UserController@setdata');
-
-
 // 前台 登录
 Route::get('home/login','Home\IndexController@login');
-
-// 前台 注册
-Route::post('home/index/dologin','Home\IndexController@dologin');
-
 // 前台  注册
 Route::resource('home/register','Home\RegisterController');
-
 // 用户 管理
 Route::resource('admin/users','Admin\UserController');
+// 前台 分类
+Route::resource('home/index','Home\IndexController');
+

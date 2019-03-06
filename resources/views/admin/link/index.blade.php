@@ -32,37 +32,47 @@
     <thead>
         <div class="table-responsive">
 		  <tr role="row">
-		    <th>ID</th>
-		    <th>网站名称</th>
-		    <th>网址</th>
-		    <th>电子邮箱</th>
-		   	<th>网站介绍</th>
-		    <th  class="text-center">审核</th>
+		    <th class="text-center">ID</th>
+		    <th class="text-center">网站名称</th>
+		    <th class="text-center">网址</th>
+		    <th class="text-center">电子邮箱</th>
+		   	<th class="text-center">网站介绍</th>
+		    <th class="text-center">审核</th>
 		</tr>
     </thead>
     <tbody> 
     @foreach($data as $key=>$v)    
     <tr style="background:none;">
-        <td>{{$v->id}}</td>
-        <td>{{$v->link_name}}</td>
-        <td>{{$v->link_adr}}</td>
-        <td>{{$v->link_email}}</td>
-        <td>
+        <td class="text-center">{{$v->id}}</td>
+        <td class="text-center">{{$v->link_name}}</td>
+        <td class="text-center">{{$v->link_adr}}</td>
+        <td class="text-center">{{$v->link_email}}</td>
+        <td class="text-center">
         	<abbr title="{{$v->link_des}}">
         		<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; ">{{$v->link_des}}</p>
        		 </abbr>
         </td>
-        <td>
+        <td class="text-center">
         	@if($v->link_agree == 0) 
         	<a href="/admin/link/{{$v->id}}/edit" class="btn btn-success ">通过</a>
         	<form action="/admin/link/{{$v->id}}" method="post" style="display: inline-block;">
         		{{ csrf_field() }}
         		{{ method_field('DELETE')}}
+<<<<<<< HEAD
 				<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">
         		
         	</form>
+=======
+				<input type="submit" value="删除" class="btn btn-danger">
+			</form>
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
         	@else
-        	<a href="/admin/link/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">通过审核</a>
+        	<a href="/admin/link/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">已通过审核</a>
+			<form action="/admin/link/{{$v->id}}" method="post" style="display: inline-block;">
+        		{{ csrf_field() }}
+        		{{ method_field('DELETE')}}
+				<input type="submit" value="删除" class="btn btn-danger">
+			</form>
         	@endif
         </td>
     </tr>

@@ -17,6 +17,7 @@
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
+<<<<<<< HEAD
 /*.kf {
     position: fixed;
     right: 20px;
@@ -65,6 +66,10 @@ img {
     height:96px;
 }
 */
+=======
+.zhuanti li { float: left; width: 32.6%; border-bottom: #eee 1px solid; border-left: #eee 1px solid; overflow: hidden; padding: 25px; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease; }
+.card p { font-size: 15px; padding: 0 0 0 20px; line-height: 25px; text-shadow: 0px 1px 2px rgba(0,0,0,.5); color: #d0d2d4; -webkit-animation: animations2 5s ease-in-out 5s; -moz-animation: animations2 5s ease-in-out 5s; -o-animation: animations2 5s ease-in-out 5s; -ms-animation: animations2 5s ease-in-out 5s; animation: animations2 5s ease-in-out 5s; }
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
 * {
     margin: 0;
     padding: 0;
@@ -97,6 +102,7 @@ a {
     color: #333;
 }
 
+<<<<<<< HEAD
 /*p { 
     font-size: 10px;
     display: block;
@@ -105,6 +111,8 @@ a {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }*/
+=======
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
   
 </style>
 </head>

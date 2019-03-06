@@ -115,6 +115,18 @@
                                 </li>
                                 <li>
                                     <a href="/admin/advert/create">公告添加</a>
+                                    <a href="/admin/advert/create">公告添加</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-users"></i>推荐文章管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/admin/wonderful">推荐文章列表</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/wonderful/create">文章添加</a>
                                 </li>
                             </ul>
                         </li>
