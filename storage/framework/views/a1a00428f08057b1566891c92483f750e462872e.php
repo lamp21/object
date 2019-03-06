@@ -32,7 +32,7 @@
 		    <th>ID</th>
 		    <th>用户名</th>
 		    <th>手机号</th>
-		    <th>邮箱</th>
+		    
 		    <th>创建时间</th>
 		    <th>用户简介</th>
 		    <th>操作</th>
@@ -44,7 +44,7 @@
         <td><?php echo e($v->id); ?></td>
         <td><?php echo e($v->uname); ?></td>
         <td><?php echo e($v->phone); ?></td>
-        <td><?php echo e($v->email); ?></td>
+        
         <td><?php echo e($v->created_at); ?></td>
         <td>
         	<abbr title="<?php echo e($v->usersinfo->description); ?>">

@@ -35,7 +35,7 @@
 		    <th>ID</th>
 		    <th>用户名</th>
 		    <th>手机号</th>
-		    <th>邮箱</th>
+		    
 		    <th>创建时间</th>
 		    <th>用户简介</th>
 		    <th>操作</th>
@@ -47,7 +47,7 @@
         <td>{{ $v->id }}</td>
         <td>{{ $v->uname }}</td>
         <td>{{ $v->phone }}</td>
-        <td>{{ $v->email }}</td>
+        
         <td>{{ $v->created_at }}</td>
         <td>
         	<abbr title="{{ $v->usersinfo->description }}">
@@ -59,7 +59,7 @@
         	<form action="/admin/users/{{ $v->id }}" method="post" style="display: inline-block;">
         		{{ csrf_field() }}
         		{{ method_field('DELETE') }}
-        		<input type="submit" value="删除" name="" class="btn btn-danger">
+        		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" name="" class="btn btn-danger">
         	</form>
         </td>
     </tr>

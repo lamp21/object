@@ -33,8 +33,13 @@ class CatesController extends Controller
 
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
 
+        $bolg = DB::table('cates')->where('pid',0)->get();
+        foreach($bolg as $k=>$v){
+            $bolg[$k]->two=DB::table('cates')->where('pid',$v->id)->get();
+        }
+        // dd($bolg);
         //显示模板
-        return view('admin.cates.index',['cates_data'=>$fy_data,'request'=>$request->all()]);
+        return view('admin.cates.index',['cates_data'=>$bolg,'data'=>$fy_data,'request'=>$request->all()]);
     }
 
     /**

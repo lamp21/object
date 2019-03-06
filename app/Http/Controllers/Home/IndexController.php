@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
+use App\Models\Advert;
 class IndexController extends Controller
 {   
 
@@ -23,16 +24,13 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
-    {
-        $cates_data = Cates::where('pid',0)->get();
-        foreach($cates_data as $key => $value){
-            $value['sub'] = Cates::where('pid',$value->id)->get();
-            foreach($value['sub'] as $key2 => $value2){
-                $value2['sub'] = Cates::where('pid',$value2->id)->get();
-            }
-        }
-        return view('home.index.index',['cates_data'=>$cates_data]);
+    {   
+        $data_advert = Advert::all();
+        //dump($data_advert);
+        $data = Controller::cates_data();
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert]);
     }
 
     /**
@@ -101,7 +99,7 @@ class IndexController extends Controller
     {
         //
     }
-
+ 
     //登录
     public function login(){
         return view('home.login.login');

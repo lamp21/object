@@ -57,7 +57,6 @@ class UserController extends Controller
         $users = new Users;
         $users->uname = $data['uname'];
         $users->upass = Hash::make($data['upass']);
-        $users->email = $data['email'];
         $users->phone = $data['phone'];
         $res1 = $users->save();
         //接收返回的id

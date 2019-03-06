@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,14 +16,11 @@ class AdvertController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        $count = $request->input('count',5);
-        $search = $request->input('search','');
-        $data = Advert::where('content','like','%'.$search.'%')->paginate($count);
-
-        return view('admin.advert.advert',['data'=>$data,'request'=>$request->all()]);
+        $a = Controller::cates_data();
+        return view('home.advert.advert',['cates_data'=>$a]);
     }
 
     /**
@@ -34,7 +31,6 @@ class AdvertController extends Controller
     public function create()
     {
         //
-        return view('admin.advert.create');
     }
 
     /**
@@ -43,11 +39,10 @@ class AdvertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
     public function store(Request $request)
-    {   
-        //dd($request->all());
+    {
         //
+        //dd($request);
         DB::beginTransaction();
         
         $data = $request->except(['_token']);
@@ -64,15 +59,12 @@ class AdvertController extends Controller
         $advert->pic = $request->pic->store('');
         //dump($advert);
         if($advert->save()){
-        // 执行 添加 
-            
-            return redirect('/admin/advert')->with('success','添加成功');
+        // 执行 添加
+            return redirect('/home/index')->with('success','添加成功');
         }else{
-           
             return back()->with('error','添加失败');
-        }       
+        }
     }
-
 
     /**
      * Display the specified resource.
@@ -116,13 +108,6 @@ class AdvertController extends Controller
      */
     public function destroy($id)
     {
-       $res = Advert::destroy($id);
-       // $res
-       if($res){
-        // 执行 删除
-            return redirect('/admin/advert')->with('success','删除成功');
-        }else{
-            return back()->with('error','删除失败');
-        }
+        //
     }
 }

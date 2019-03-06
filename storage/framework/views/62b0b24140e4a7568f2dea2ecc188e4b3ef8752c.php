@@ -1,155 +1,5 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>首页-Homie action Blog</title>
-<meta name="keywords" content="blog" />
-<meta name="description" content="blog" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="/home_public/css/base.css" rel="stylesheet">
-<link href="/home_public/css/m.css" rel="stylesheet">
-<script src="/home_public/js/jquery-1.8.3.min.js" ></script>
-<script src="/home_public/js/comm.js"></script>
-<!--[if lt IE 9]>
-<script src="js/modernizr.js"></script>
-<![endif]-->
-<style>
-.kf {
-    position: fixed;
-    right: 20px;
-    top: 30%;
-    color: #fff;
-    z-index: 999;
-    background: #212121;
-    border: #1c2327 3px solid;
-    width: 175px;
-    border-radius: 3px;
-    text-align: center;
-}
-
-.kf h2 span {
-    
-    background: url(/home_public/images/close.png) no-repeat;
-    width: 25px;
-    height: 25px;
-    float: right;
-}
-
-h2 {
-    display: block;
-    font-size: 15px;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-}
-
-.kfdh {
-    border-top: 1px solid #222222;
-    border-bottom: 1px solid #222222;
-    margin: 10px 0;
-}
-
-.kfnum img {
-    margin: 10px auto 0;
-}
-
-img {
-    border: 0;
-    display: block;
-    width:160px;
-    height:160px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-div {
-    display: block; 
-}
-body {
-    font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;
-    color: #333;
-    background: #E9EAED;
-    line-height: 1.5;
-    overflow-x: hidden;
-}
-
-a.qqservice_list_link {
-    width: 80%;
-    display: block;
-    text-align: center;
-    margin: auto;
-    padding: 5px 0;
-    border-radius: 5px;
-    color: #fff;
-    background: linear-gradient(to right, #2e74e5 0%, #00c1de 100%);
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-p { 
-    font-size: 10px;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-  
-</style>
-</head>
-<body>
-<!--top begin-->
-<header id="header">
-  <div class="navbox">
-    <h2 id="mnavh"><span class="navicon"></span></h2>
-    <div class="logo"><a href="http://www.yangqq.com">Homie action Blog</a></div>
-    <nav>
-      <ul id="starlist">
-        <li><a href="index.html">首页</a></li>
-          <?php $__currentLoopData = $cates_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <li class="menu"><a href="list2.html"><?php echo e($v->cname); ?></a>
-          <ul class="sub">   
-          <?php $__currentLoopData = $v['sub']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kk=>$vv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>     
-            <li><a href="/8"><?php echo e($vv->cname); ?></a>
-            <ul>
-          <?php $__currentLoopData = $vv['sub']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kkk=>$vvv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>     
-              <li><a href="/8"><?php echo e($vvv->cname); ?></a></li>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </ul>
-            </li>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-          </ul>
-        </li>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-      </ul>
-    </nav>
-    <div class="searchico"></div>
-    <div>
-    <a href="">登录</a>
-    <a href="">注册</a>
-    </div>
-  </div>
-    <div class="kf">
-  <h2><span id="closed" class="searchclose"></span>客服在线</h2>
-  <ul>
-    <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=476847113&amp;site=qq&amp;menu=yes" target="_blank" class="qqservice_list_link">QQ客服</a></li>
-  </ul>
-  <ul class="kfdh">
-    <p class="kftext">客服微信扫码</p>
-    <p class="kfnum"><img src="https://www.yangqq.com/skin/jxhx/images/wx.png"></p>
-  </ul>
-  <p class="kftext">服务时间</p>
-  <p class="kftime">周一至周日 9:00-21:00</p>
-</div>   
-</header>
+<?php $__env->startSection('content'); ?>
+<!-- 头部开始 -->
 <div class="searchbox">
   <div class="search">
     <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
@@ -162,10 +12,11 @@ p {
   </div>
   <div class="searchclose"></div>
 </div>
+
 <!--top end-->
 <article> 
   <!--lbox begin-->
-  <div class="lbox"> 
+  <div class="lbox">
     <!--banbox begin-->
     <div class="banbox">
       <div class="banner">
@@ -191,6 +42,7 @@ p {
         <li><a href="/" title="个人网站做好了，百度不收录怎么办？来，看看他们怎么做的"><img src="/home_public/images/h2.jpg" alt="个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</span></a></li>
       </ul>
     </div>
+
     <!--headline end-->
     <div class="clearblank"></div>
     <div class="tab_box whitebg">
@@ -212,15 +64,31 @@ p {
             </ul>
           </div>
           <ul class="newslist">
+
+            <li>
+              <i></i>
+              <a href="/">个人博客，属于我的小世界！</a>
+              <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
+            </li>
+            <li>
+              <i></i>
+              <a href="/">安静地做一个爱设计的女子</a>
+
             <li><i></i><a href="/">个人博客，属于我的小世界！</a>
               <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
             </li>
             <li><i></i><a href="/">安静地做一个爱设计的女子</a>
+
               <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
             </li>
             <li><i></i><a href="/">我是怎么评价自己的？</a>
               <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
             </li>
+
+            <li>
+              <i></i>
+              <a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
+
             <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
               <p>不管你是学前端的还是后端的，作为一个程序员，做一个自己的博客，那是必然的。咱们的圈子就这么大，想让更多的人了解你，看看你的技术多牛逼，扔一个博客地址就行了</p>
             </li>
@@ -374,7 +242,7 @@ p {
           <p class="bloginfo"><i class="avatar"><img src="/home_public/images/avatar.jpg"></i><span>杨青青</span><span>2018-10-28</span><span>【<a href="/">快速建站</a>】</span></p>
           <a href="/" class="viewmore">阅读更多</a> </li>
         <li>
-          <h3 class="blogtitle"><a href="/" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则?</a></h3>
+          <h3 class="blogtitle"><a href="/" target="_blank">
           <span class="blogpic imgscale"><i><a href="/">设计制作</a></i><a href="/" title=""><img src="/home_public/images/b04.jpg" alt=""></a></span>
           <p class="blogtext">就拿我自己来说吧，有时候会很矛盾，设计好的作品，不把它分享出来，会觉得待在自己电脑里面实在是没有意义。干脆就发布出去吧。我也害怕收到大家不好的评论，有些评论，可能说者无意，但是对于每一个用心的站长来说，都会受很深的影响，愤怒，恼羞。... </p>
           <p class="bloginfo"><i class="avatar"><img src="/home_public/images/avatar.jpg"></i><span>杨青青</span><span>2018-10-28</span><span>【<a href="/">设计制作</a>】</span></p>
@@ -409,8 +277,9 @@ p {
     <!--bloglist end--> 
   </div>
   <div class="rbox">
-    <div class="card">
+    <div class="card"> 
       <h2>联系我们</h2>
+      <h3 style="position:relative;top:-10px;left:100px;z-index:2;"><a href="" style="color:white;">------&nbsp;&nbsp;&nbsp;关于我们</a></h3>
       <p>团队：兄弟出征</p>
       <p>职业：编程小白</p>
       <p>现居：广州</p>
@@ -446,30 +315,17 @@ p {
       </ul>
     </div>
     <div class="whitebg tuijian">
-      <h2 class="htitle">站长推荐</h2>
+      <h2 class="htitle"><span class="sqlink"><a href="/home/advert">申请广告</a></span>站长推荐</h2>
       <section class="topnews imgscale"><a href="/"><img src="/home_public/images/h2.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
       <ul>
-        <li><a href="/"><i><img src="/home_public/images/text01.jpg"></i>
-          <p>十条设计原则教你学会如何设计网页布局!</p>
-          </a></li>
-        <li><a href="/"><i><img src="/home_public/images/text02.jpg"></i>
-          <p>用js+css3来写一个手机栏目导航</p>
-          </a></li>
-        <li><a href="/"><i><img src="/home_public/images/text03.jpg"></i>
-          <p>6条网页设计配色原则,让你秒变配色高手</p>
-          </a></li>
-        <li><a href="/"><i><img src="/home_public/images/text04.jpg"></i>
-          <p>三步实现滚动条触动css动画效果</p>
-          </a></li>
-        <li><a href="/"><i><img src="/home_public/images/text05.jpg"></i>
-          <p>个人博客，属于我的小世界！</p>
-          </a></li>
-        <li><a href="/"><i><img src="/home_public/images/text06.jpg"></i>
-          <p>安静地做一个爱设计的女子</p>
-          </a></li>
-        <li><a href="/"><i><img src="/home_public/images/text07.jpg"></i>
-          <p>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</p>
-          </a></li>
+        <?php $__currentLoopData = $data_advert; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <li>
+          <a href="<?php echo e($v->url); ?>"><i><img src="<?php echo e(asset('/img')); ?><?php echo e('/'.$v->pic); ?>"></i>
+            <p><?php echo e($v->url); ?></p>
+            <p><?php echo e($v->content); ?></p>
+          </a>
+        </li>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </ul>
     </div>
     <div class="ad whitebg imgscale">
@@ -516,23 +372,6 @@ p {
     </div>
   </div>
 </article>
-<footer>
-  <div class="box">
-    <div class="wxbox">
-      <ul>
-        <li><img src="/home_public/images/wxgzh.jpg"><span>微信公众号</span></li>
-        <li><img src="/home_public/images/wx.png"><span>我的微信</span></li>
-      </ul>
-    </div>
-    <div class="endnav">
-      <p><b>站点声明：</b></p>
-      <p>1、本站个人博客模板，均为杨青青本人设计，个人可以使用，但是未经许可不得用于任何商业目的。</p>
-      <p>2、所有文章未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=HHh9cn95b3F1cHVye1xtbTJ-c3E" target="_blank">dacesmiling@qq.com</a></p>
-      <p>Copyright © <a href="http://www.yangqq.com" target="_blank">www.yangqq.com</a> All Rights Reserved. 备案号：<a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备11002373号-1</a></p>
-    </div>
-  </div>
-  <a href="#">
-  <div class="top"></div>
-  </a> </footer>
-</body>
-</html>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('home.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
