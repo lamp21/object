@@ -190,4 +190,5 @@ Route::resource('home/register','Home\RegisterController');
 Route::resource('admin/users','Admin\UserController');
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
-
+//后台 网站公告
+Route::resource('admin/announcement','Admin\AnnouncementController');
