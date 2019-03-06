@@ -12,6 +12,7 @@
 
 Route::get('/', function () {
    echo '123';
+    return view('welcome');
 });
 
 /**
@@ -48,7 +49,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
     $this->post('login', 'LoginController@login');
     $this->post('logout', 'LoginController@logout')->name('admin.logout');
-    Route::middleware('auth.admin:admin')->name('admin.')->group(function () {
+    Route::middleware('auth.login:login')->name('admin.login.login')->group(function () {
         Route::get('/', 'LoginController@index');
     });
 });
@@ -74,8 +75,7 @@ Route::resource('home/create','Home\AdvertController');
 
 // 前台 广告 申请
 Route::resource('home/advert','Home\AdvertController');
-// gg
- Route::get('admin/advert/create','Admin\catesController@create');
+
 
 
 
