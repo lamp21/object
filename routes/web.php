@@ -85,14 +85,6 @@ Route::resource('home/advert','Home\AdvertController');
 
 
 
-<<<<<<< HEAD
-=======
-//子分类
-Route::get('admin/cates/create/{id}','Admin\CatesController@create');
->>>>>>> remotes/origin/changgao
-
-// 查看 子分类
-Route::get('admin/cates/{id}','Admin\CatesController@index');
 
 
 
@@ -102,7 +94,6 @@ Route::get('admin/cates/{id}','Admin\CatesController@index');
 
 
 
-<<<<<<< HEAD
 
 
 
@@ -110,42 +101,13 @@ Route::get('admin/cates/{id}','Admin\CatesController@index');
 
 
 
-=======
-Route::prefix('admin')->namespace('Admin')->group(function () {
-    //后台首页
-    $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
-    $this->post('login', 'LoginController@login');
-    $this->post('logout', 'LoginController@logout')->name('admin.logout');
-});
->>>>>>> remotes/origin/changgao
-
-
-<<<<<<< HEAD
 
 
 
-=======
-Route::group(['namespace' => 'Auth','prefix'=>'auth'],function(){ 
-    route::get('/login','AuthController@login'); 
-    route::get('/logout','AuthController@getlogout'); 
-    route::post('/login','AuthController@auth'); 
-});
 
-// 后台登录
-Route::resource('admin/login','Admin\LoginController');
 
-// 广告列表
-Route::get('admin/advert/create','Admin\catesController@create');
 
-// 广告
-Route::resource('admin/advert','Admin\AdvertController');
->>>>>>> remotes/origin/changgao
 
-// 前台 广告 申请
-Route::resource('home/create','Home\AdvertController');
-
-// 前台 广告 申请
-Route::resource('home/advert','Home\AdvertController');
 
 
 
@@ -185,7 +147,6 @@ Route::resource('admin/link','Admin\LinkController');
 
 
 
-// lcgzexal110
 
 
 
@@ -222,6 +183,7 @@ Route::get('admin','Admin\IndexController@index');
 
 // 后台 测试
 Route::get('admin/users/setdata','Admin\UserController@setdata');
+
 
 // 前台 登录
 Route::get('home/login','Home\IndexController@login');

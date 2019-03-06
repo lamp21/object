@@ -50,39 +50,14 @@
                             </li>
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                             </li>
-<<<<<<< HEAD
                             <li class="divider"></li>
                             <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
-=======
-                        </ul>
-                    </li>
-                     <li>
-                        <a href="#"><i class="icon-users"></i>友情链接管理<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/admin/link">申请列表</a>
-                            </li>
-                            <li>
-                                <a href="/admin/link/agree">通过审核列表</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-users"></i>广告管理<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/admin/advert">广告列表</a>
-                            </li>
-                            <li>
-                                <a href="/admin/advert/create">广告添加</a>
->>>>>>> remotes/origin/changgao
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
                     <!-- /.dropdown -->
                 </ul>
-<<<<<<< HEAD
             </nav>
             <!--/. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
@@ -139,61 +114,11 @@
                                     <a href="/admin/advert">公告列表</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/advert/create">公告告添加</a>
+                                    <a href="/admin/advert/create">公告添加</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-=======
-            </div>
-        </nav>
-        <!-- /. NAV SIDE  -->
-      
-        <div id="page-wrapper">
-
-          <div class="header">
-            <!-- 内容开始 -->       
-                <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-                    <div class="row">
-                        <br>
-                        <!-- 显示错误信息 -->
-                        <?php if(session('success')): ?>
-                            <div class="alert alert-success">
-                                <?php echo e(session('success')); ?>
-
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if(session('error')): ?>
-                            <div class="alert alert-danger">
-                                <?php echo e(session('error')); ?>
-
-                            </div>
-                        <?php endif; ?>
-                        <!-- 内容开始 -->
-                        <?php $__env->startSection('content'); ?>
-
-                        <?php echo $__env->yieldSection(); ?>
-                    </div>  
-                    </div>
-                    <div class="col-md-7"></div>    
-            </div>  
-        </div>
-            <div class="row">
-                <div class="col-md-9 col-sm-12 col-xs-12">
-            </div>
-                </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
->>>>>>> remotes/origin/changgao
                 </div>
             </nav>
             <!-- /. NAV SIDE  -->

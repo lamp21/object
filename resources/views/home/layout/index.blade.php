@@ -14,7 +14,7 @@
 <script src="/home_public/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="/home_public/css/bootstrap.css">
 <!--[if lt IE 9]>
-<script src="/home_public/js/modernizr.js"></script>
+<script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
 /*.kf {
@@ -36,9 +36,7 @@
     width: 25px;
     height: 25px;
     float: right;
-
 }*/
-
 
 /*h2 {
     display: block;
@@ -49,7 +47,6 @@
     margin-inline-end: 0px;
     font-weight: bold;
 }
-
 */
 /*.kfdh {
     border-top: 1px solid #222222;
@@ -108,18 +105,7 @@ a {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }*/
- 
-.aaa a{
-    display: inline;
-    float: left;
-    padding: 0 20px;
-    color:cyan;
-    font-size: 18px;
-    list-style: none;
-    text-decoration: none;
-    line-height: 50px;
-}
-
+  
 </style>
 </head>
 <body>
@@ -131,6 +117,7 @@ a {
     <nav>
       <ul id="starlist" style="font-size: 18px;">
         <li><a href="/home/index">首页</a></li>
+          
               <li class="menu"><a href="list2.html" onclick="return false;">文章分类</a>
                 @foreach($cates_data as $k=>$v)
                   <ul class="sub">   
