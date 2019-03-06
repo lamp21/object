@@ -53,7 +53,7 @@
                             </tr>
                     	</thead>
                     <tbody>
-                    	@foreach($cate_data as $k=>$v)
+                    	@foreach($cates_data as $k=>$v)
                     	<tr class="gradeA odd">
                             <td class="sorting_1">{{ $v->id }}</td>
                             <td class=" ">{{ $v->cname }}</td>

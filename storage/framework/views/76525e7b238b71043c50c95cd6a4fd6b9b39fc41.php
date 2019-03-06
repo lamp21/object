@@ -54,7 +54,7 @@
                     	<?php $__currentLoopData = $cates_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     	<tr class="gradeA odd">
                             <td class="sorting_1"><?php echo e($v->id); ?></td>
-                            <td class=" "><?php echo e($v->cname); ?><?php echo e($v->pid); ?></td>
+                            <td class=" "><?php echo e($v->cname); ?></td>
                             <td class=" "><?php echo e($v->pid); ?></td>
                             <td class="center "><?php echo e($v->path); ?></td>
                             <td class="center text-center">
