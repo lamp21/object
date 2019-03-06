@@ -73,17 +73,9 @@
                                 </p>
                             </td>
                             <td class="center">
-                            	<a href="/admin/advert/create" class="btn btn-info">添加广告</a>
-<<<<<<< HEAD
-                            	<form action="/admin/advert/{{ $v->id }}" method="post" style="display: inline-block;">
-=======
-                                <br>
                                 <br>
                             	<form action="/admin/advert/{{ $v->id }}" method="post" style="display: inline-block;">
                                 <a href="/admin/advert/{{ $v->id}}/edit" class="btn btn-success">修改</a>
-                                    &nbsp;
-                                    &nbsp;
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
                             		{{ csrf_field() }}
                             		{{ method_field('DELETE') }}
 									<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">				

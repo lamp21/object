@@ -17,7 +17,6 @@
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
-<<<<<<< HEAD
 /*.kf {
     position: fixed;
     right: 20px;
@@ -102,7 +101,6 @@ a {
     color: #333;
 }
 
-<<<<<<< HEAD
 /*p { 
     font-size: 10px;
     display: block;
@@ -124,12 +122,8 @@ a {
     line-height: 50px;
 }
 
-=======
 }*/
-=======
->>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
   
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 </style>
 </head>
 <body>
@@ -157,19 +151,13 @@ a {
                   </ul>
               </li>
           @endforeach
-<<<<<<< HEAD
-          
-=======
           <li><a href="/home/wonderful/">推荐文章</a></li>
           <li><a href="/home/article/create"><b style="color: yellow;">+&nbsp;发布文章</b></a></li>
           <li><a href="/home/login">登录</a></li>
           <li><a href="">注册</a></li>
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
         </div>
       </ul>
     </nav>
-    <li class="aaa"><a href="/home/login">登录</a></li>
-    <li class="aaa"><a href="">注册</a></li>
     <div class="searchico"></div>
   </div>
    <!--  <div class="kf">

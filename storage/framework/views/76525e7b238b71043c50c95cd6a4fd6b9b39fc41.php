@@ -54,11 +54,10 @@
                     	<?php $__currentLoopData = $cates_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     	<tr class="gradeA odd">
                             <td class="sorting_1"><?php echo e($v->id); ?></td>
-                            <td class=" "><?php echo e($v->cname); ?></td>
+                            <td class=" "><?php echo e($v->cname); ?><?php echo e($v->pid); ?></td>
                             <td class=" "><?php echo e($v->pid); ?></td>
                             <td class="center "><?php echo e($v->path); ?></td>
-                            <td class="center">
-                                <a href="/admin/cates/<?php echo e($v->id); ?>" class="btn btn-info">查看子分类</a>
+                            <td class="center text-center">
                             	<a href="/admin/cates/create/<?php echo e($v->id); ?>" class="btn btn-info">添加子分类</a>
                             	<form action="/admin/cates/<?php echo e($v->id); ?>" method="post" style="display: inline-block;">
                             		<?php echo e(csrf_field()); ?>

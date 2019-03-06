@@ -20,61 +20,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <div id="wrapper">
-        <nav class="navbar navbar-default top-navbar" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
-                <div id="sideNav">
-                    <i class="fa fa-bars icon"></i> 
-                </div>
-            </div>
-            </div>
-            <ul class="nav navbar-top-links navbar-right">
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li class="divider"></li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>头像</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-        </nav>
-        <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-                    <li>
-                        <a href="#"><i class="icon-users"></i>用户管理<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/admin/users">用户列表</a>
-                            </li>
-                            <li>
-                                <a href="/admin/users/create">用户添加</a>
-                            </li>
-=======
         <br><br><br>
             <nav class="navbar navbar-default top-navbar" role="navigation" style="top:0px;">
                 <div class="navbar-header">
@@ -93,7 +38,6 @@
                 <ul class="nav navbar-top-links navbar-right">
                         <ul class="dropdown-menu dropdown-messages">
                             <li class="divider"></li>
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
                         </ul>
                         <!-- /.dropdown-messages -->
                     <!-- /.dropdown -->
@@ -112,32 +56,7 @@
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
-<<<<<<< HEAD
-                     <li>
-                        <a href="#"><i class="icon-users"></i>友情链接管理<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/admin/link">申请列表</a>
-                            </li>
-                            <li>
-                                <a href="/admin/link/agree">通过审核列表</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-users"></i>广告管理<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/admin/advert">广告列表</a>
-                            </li>
-                            <li>
-                                <a href="/admin/advert/create">广告添加</a>
-                            </li>
-                        </ul>
-                    </li>
-=======
                     <!-- /.dropdown -->
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
                 </ul>
             </nav>
             <!--/. NAV TOP  -->
@@ -196,7 +115,6 @@
                                 </li>
                                 <li>
                                     <a href="/admin/advert/create">公告添加</a>
-                                    <a href="/admin/advert/create">公告添加</a>
                                 </li>
                             </ul>
                         </li>
@@ -239,84 +157,10 @@
                             <!-- 内容开始 -->
                             <?php $__env->startSection('content'); ?>
 
-<<<<<<< HEAD
-                            </div>
-                        <?php endif; ?>
-                        <!-- 内容开始 -->
-                        <?php $__env->startSection('content'); ?>
-
-                        <?php echo $__env->yieldSection(); ?>
-                    </div>  
-                    </div>
-                    <div class="col-md-7"></div>    
-            </div>  
-        </div>
-            <div class="row">
-                <div class="col-md-9 col-sm-12 col-xs-12">
-            </div>
-                </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                            </div>
-=======
                             <?php echo $__env->yieldSection(); ?>
                         </div>  
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
                         </div>
                 </div>
-<<<<<<< HEAD
-                <div class="row">    
-                </div>  
-                <div class="row">
-                <div class="col-md-12">
-                
-                    </div>      
-                </div>  
-                <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                    </div>
-                    <div class="col-md-8 col-sm-12 col-xs-12">
-
-                        <div class="panel panel-default">
-                        </div>
-                    </div>
-                </div>
-                <!-- /. ROW  -->
-            </div>
-            <!-- /. PAGE INNER  -->
-        </div>
-        <!-- /. PAGE WRAPPER  -->
-    </div>
-
-    <!-- jQuery Js -->
-    <script src="/admin_public/assets/js/jquery-1.10.2.js"></script>
-    <!-- Bootstrap Js -->
-    <script src="/admin_public/assets/js/bootstrap.min.js"></script>
-     
-    <!-- Metis Menu Js -->
-
-
-    <!-- Metis Menu Js -->
-    <script src="/admin_public/assets/js/jquery.metisMenu.js"></script>
-    <!-- Morris Chart Js -->
-    <script src="/admin_public/assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="/admin_public/assets/js/morris/morris.js"></script>
-    
-    
-    <script src="/admin_public/assets/js/easypiechart.js"></script>
-    <script src="/admin_public/assets/js/easypiechart-data.js"></script>
-    
-     <script src="/admin_public/assets/js/Lightweight-Chart/jquery.chart.js"></script>
-    
-    <!-- Custom Js -->
-    <script src="/admin_public/assets/js/custom-scripts.js"></script>
-=======
         <!-- jQuery Js -->
         <script src="/admin_public/assets/js/jquery-1.10.2.js"></script>
         <!-- Bootstrap Js -->
@@ -338,7 +182,6 @@
         
         <!-- Custom Js -->
         <script src="/admin_public/assets/js/custom-scripts.js"></script>
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 
           
         <!-- Chart Js -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CatesStoreRequest;
 use App\Models\Cates;
 use DB;
 class CatesController extends Controller
@@ -56,7 +57,7 @@ class CatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CatesStoreRequest $request)
     {
         //接收数据
         $data = $request->all();

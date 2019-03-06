@@ -115,7 +115,6 @@
                                 </li>
                                 <li>
                                     <a href="/admin/advert/create">公告添加</a>
-                                    <a href="/admin/advert/create">公告添加</a>
                                 </li>
                             </ul>
                         </li>

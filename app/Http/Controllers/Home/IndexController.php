@@ -26,17 +26,11 @@ class IndexController extends Controller
      */
 
     public function index()
-<<<<<<< HEAD
-=======
-
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
     {   
         $data_advert = Advert::all();
         //dump($data_advert);
         $data = Controller::cates_data();
         return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert]);
-<<<<<<< HEAD
-=======
 
     {
         $a = Controller::cates_data();
@@ -44,7 +38,6 @@ class IndexController extends Controller
         return view('home.index.index',['cates_data'=>$a]);
 
         }
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
     }
 
     /**

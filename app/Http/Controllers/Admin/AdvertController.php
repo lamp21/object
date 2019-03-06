@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\AdvertStoreRequest;
 
 use App\Models\Advert;
 
@@ -44,11 +45,11 @@ class AdvertController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function store(Request $request)
+    public function store(AdvertStoreRequest $request)
     {   
         //dd($request->all());
         //
-        DB::beginTransaction();
+        // DB::beginTransaction();
         
         $data = $request->except(['_token']);
         //dump($data);

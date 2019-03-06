@@ -24,19 +24,19 @@ class AdvertStoreRequest extends FormRequest
     public function rules()
     {
         return [
-        'pic' => 'required|regex:/^/',
-        'url' => 'required|regex:/^[https://][http://]/',
+        'pic' => 'required',
+        'url' => 'required',
+        // 'url' => 'required|regex:/^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#])*[\w\-\@?^=%&/~\+#]?/$/',
         'content' => 'required',
-            //
         ];
     }
 
     public function messages()
     {
         return [
-            'uname.required'=>'图片必要',
+            'pic.required'=>'图片必要',
             'url.required'=>'网站必填',
-            'url.regex'=>'网站格式不正确',
+            // 'url.regex'=>'网站格式不正确',
             'content.required'=>'网站内容必填',  
         ];
     }

@@ -73,24 +73,15 @@
             <li>
               <i></i>
               <a href="/">安静地做一个爱设计的女子</a>
-<<<<<<< HEAD
-
-=======
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
             <li><i></i><a href="/">个人博客，属于我的小世界！</a>
               <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
             </li>
             <li><i></i><a href="/">安静地做一个爱设计的女子</a>
-
               <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
             </li>
             <li><i></i><a href="/">我是怎么评价自己的？</a>
               <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
             </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
             <li>
               <i></i>
               <a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
@@ -395,7 +386,6 @@
   <div class="rbox">
     <div class="card"> 
       <h2>联系我们</h2>
-      <h3 style="position:relative;top:-10px;left:100px;z-index:2;"><a href="" style="color:white;">------&nbsp;&nbsp;&nbsp;关于我们</a></h3>
       <p>团队：兄弟出征</p>
       <p>职业：编程小白</p>
       <p>现居：广州</p>
@@ -437,7 +427,6 @@
         <?php $__currentLoopData = $data_advert; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <li>
           <a href="<?php echo e($v->url); ?>"><i><img src="<?php echo e(asset('/img')); ?><?php echo e('/'.$v->pic); ?>"></i>
-            <p><?php echo e($v->url); ?></p>
             <p><?php echo e($v->content); ?></p>
           </a>
         </li>
@@ -493,9 +482,5 @@
     </div>
   </div>
 </article>
-<<<<<<< HEAD
-
-=======
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('home.layout.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

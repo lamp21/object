@@ -53,14 +53,13 @@
                             </tr>
                     	</thead>
                     <tbody>
-                    	@foreach($cates_data as $k=>$v)
+                    	@foreach($cate_data as $k=>$v)
                     	<tr class="gradeA odd">
                             <td class="sorting_1">{{ $v->id }}</td>
                             <td class=" ">{{ $v->cname }}</td>
                             <td class=" ">{{ $v->pid }}</td>
                             <td class="center ">{{ $v->path }}</td>
-                            <td class="center">
-                                <a href="/admin/cates/{{ $v->id }}" class="btn btn-info">查看子分类</a>
+                            <td class="center text-center">
                             	<a href="/admin/cates/create/{{ $v->id }}" class="btn btn-info">添加子分类</a>
                             	<form action="/admin/cates/{{ $v->id }}" method="post" style="display: inline-block;">
                             		{{ csrf_field() }}

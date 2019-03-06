@@ -429,7 +429,6 @@
         @foreach($data_advert as $k=>$v)
         <li>
           <a href="{{ $v->url }}"><i><img src="{{ asset('/img') }}{{'/'.$v->pic}}"></i>
-            <p>{{ $v->url }}</p>
             <p>{{ $v->content }}</p>
           </a>
         </li>

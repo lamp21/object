@@ -1,14 +1,23 @@
 @extends('admin.layout.index')
 
 @section('content')
-				
+		<!-- 显示错误信息 -->
+		@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<ul>
+			    @foreach ($errors->all() as $error)
+			        <li>{{ $error }}</li>
+			    @endforeach
+			</ul>
+		</div>
+		@endif		
 		<p></p>
 		<div class="col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                                     
         <div class="card-title">
-            <h2><div class="title">广告管理</div></h2>
+            <h2><div class="title">广告添加</div></h2>
         </div>
     </div>
 
@@ -29,11 +38,11 @@
 	    </div>
 
 	    <div class="form-group">
-	        <label class="col-sm-2 control-label">内容</label>
-	        <div class="col-sm-10" style="width:600px;">
-	            <input type="text" class="form-control" placeholder="广告内容" name="content">
-	        </div>
-	    </div>
+            <label for="description" class="col-sm-2 control-label">广告内容</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" placeholder="广告内容" name="content"> {{ old('content')}}</textarea>
+            </div>
+        </div>
 	    
 	    <div class="form-group">
 	        <div class="col-sm-offset-2 col-sm-10">

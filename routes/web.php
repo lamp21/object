@@ -70,11 +70,9 @@ Route::get('admin/advert/create','Admin\catesController@create');
 // 广告
 Route::resource('admin/advert','Admin\AdvertController');
 
-<<<<<<< HEAD
 // 用户管理
 Route::resource('admin/users','Admin\UserController');
 
-=======
 // 前台 广告 申请
 Route::resource('home/create','Home\AdvertController');
 
@@ -84,7 +82,6 @@ Route::resource('home/advert','Home\AdvertController');
 
 
 
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 
 
 // 子分类
@@ -108,7 +105,6 @@ Route::resource('admin/cates','Admin\CatesController');
 
 
 
-<<<<<<< HEAD
 Route::group(['namespace' => 'Auth','prefix'=>'auth'],function(){ 
     route::get('/login','AuthController@login'); 
     route::get('/logout','AuthController@getlogout'); 
@@ -123,11 +119,9 @@ Route::get('admin/advert/create','Admin\catesController@create');
 
 // 广告
 Route::resource('admin/advert','Admin\AdvertController');
-=======
 
 
 
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 
 // 前台 广告 申请
 Route::resource('home/create','Home\AdvertController');
@@ -173,7 +167,6 @@ Route::resource('admin/wonderful','Admin\WonderfulController');
 
 
 
-// lcgzexal110
 
 
 
