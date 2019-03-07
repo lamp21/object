@@ -34,13 +34,12 @@
 		  <tr role="row">
 		    <th class="text-center">ID</th>
 		    <th class="text-center">文章标题</th>
+		    <th class="text-center">文章封面图</th>
 		    <th class="text-center">摘自来源</th>
 		    <th class="text-center">发表时间</th>
 		    <th class="text-center">分类</th>
 		    <th class="text-center">正文</th>
 		    <th class="text-center">前台显示</th>
-		    <th class="text-center">点赞数</th>
-		    <th class="text-center">评论条数</th>
 		    <th class="text-center">操作</th>
 		</tr>
     </thead>
@@ -51,15 +50,12 @@
         <td class="text-center">测试</td>
         <td class="text-center">测试</td>
         <td class="text-center">测试</td>
+        <td class="text-center">测试</td>
         <td class="text-center">
         	<abbr title="测试">
         		测试
         	</abbr>
     	</td>
-        <td class="text-center">测试</td>
-        <td class="text-center">
-        	测试
-        </td>
         <td class="text-center">测试</td>
         <td class="text-center">
         	<a href="/" class="btn btn-success">修改</a>

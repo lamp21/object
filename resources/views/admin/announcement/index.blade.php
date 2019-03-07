@@ -62,7 +62,7 @@
 				@endforeach
 		      </tbody>
 		    </table>
-		    <div class="table-responsive">
+		    <!-- <div class="table-responsive"> -->
 			  <div class="row">
 			    <div class="col-sm-12">
 			    	<div style="float:right;">
@@ -74,7 +74,7 @@
 			      </div>
 			    </div>
 			  </div>
-			</div>
+			<!-- </div> -->
 		</div>
 	   </div>
 	</div>
