@@ -58,8 +58,17 @@
         	<form action="/admin/link/{{$v->id}}" method="post" style="display: inline-block;">
         		{{ csrf_field() }}
         		{{ method_field('DELETE')}}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
+				<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">
+        		
+        	</form>
+=======
 				<input type="submit" value="删除" class="btn btn-danger">
 			</form>
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
         	@else
         	<a href="/admin/link/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">已通过审核</a>
 			<form action="/admin/link/{{$v->id}}" method="post" style="display: inline-block;">

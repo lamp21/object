@@ -91,6 +91,9 @@
                                 <li>
                                     <a href="/admin/link">申请列表</a>
                                 </li>
+                                <li>
+                                    <a href="/admin/link/agree">通过审核列表</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -108,10 +111,16 @@
                             <a href="#"><i class="icon-users"></i>网站公告<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/advert">公告列表</a>
+                                    <a href="/admin/announcement">公告列表</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/advert/create">公告告添加</a>
+
+
+                                    <a href="/admin/announcement/create">公告添加</a>
+
+
+                                    
+
                                 </li>
                             </ul>
                         </li>

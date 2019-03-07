@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\AdvertStoreRequest;
 
 use App\Models\Advert;
 
@@ -16,11 +17,14 @@ class AdvertController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        echo "dsadsa";
-        return view('admin.advert.advert');
+        $count = $request->input('count',5);
+        $search = $request->input('search','');
+        $data = Advert::where('content','like','%'.$search.'%')->paginate($count);
+
+        return view('admin.advert.advert',['data'=>$data,'request'=>$request->all()]);
     }
 
     /**
@@ -40,31 +44,36 @@ class AdvertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserStoreRequest $request)
+    
+    public function store(AdvertStoreRequest $request)
     {   
-        dd($request->all());
+        //dd($request->all());
         //
-        DB::beginTransaction();
+        // DB::beginTransaction();
         
         $data = $request->except(['_token']);
         //dump($data);
         $advert = new Advert;
         
-        $advert->pic = $data['pic'];
+        // $advert->pic = $data['pic'];
         $advert->url = $data['url'];
+        $advert->content = $data['content'];
+        // $path = $request->file('pic')->storeAs('public/img/', $advert->advert()->id);
+        $file = $request->file('pic');
+        //dump($file);exit;
+        // 执行 图片上传
+        $advert->pic = $request->pic->store('');
         //dump($advert);
-        dump($advert->save());
         if($advert->save()){
         // 执行 添加 
-            DB::commit();
+            
             return redirect('/admin/advert')->with('success','添加成功');
         }else{
-            DB::rollBack();
+           
             return back()->with('error','添加失败');
-        }
-
-        
+        }       
     }
+
 
     /**
      * Display the specified resource.
@@ -85,7 +94,10 @@ class AdvertController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $advert = Advert::find($id);
+
+        return view('admin.advert.edit',['advert'=>$advert]);
     }
 
     /**
@@ -97,7 +109,27 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // DB::beginTransaction();
+        
+        // echo $id;
+        $advert = Advert::find($id);
+        // $advert->pic = $request->input('pic','');
+        $file = $request->file('pic','');
+        //dump($file);exit;
+        // 执行 图片上传
+        $advert->pic = $request->pic->store('');
+        $advert->url = $request->input('url','');
+        $advert->content = $request->input('content','');
+
+        $res = $advert->save();
+        if($res){
+        // 执行 添加 
+            // DB:commit();
+            return redirect('/admin/advert')->with('success','修改成功');
+        }else{
+            // DB::rollBack();
+            return back()->with('error','修改失败');
+        } 
     }
 
     /**
@@ -108,6 +140,13 @@ class AdvertController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $res = Advert::destroy($id);
+       // $res
+       if($res){
+        // 执行 删除
+            return redirect('/admin/advert')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
     }
 }

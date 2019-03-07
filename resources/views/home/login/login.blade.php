@@ -19,8 +19,8 @@
 </head>
 <body>
 	<div class='login'>
-	  <div class='login_title'>
-	    <h1 class="text-center" style="font-size: 25px;top: 10px">Homie action用户登录</h1>
+	  <div class='login_title' style="height: 40px;">
+	    <center style="position: absolute;top: 60PX;left: 50PX;"><h1 class="text-center" style="font-size: 25px;top: 10px">Homie action用户登录</h1></center>
 	  </div>
 	  <div class='login_fields'>
 	  	<form action="/home/index/dologin" method="post">
@@ -43,7 +43,7 @@
 		        <img alt="" src='/home_public/images/img/tick.png'>
 		      </div>
 		    </div>
-		   <!--  <div class='login_fields__password'>
+		    <div class='login_fields__password'>
 		      <div class='icon'>
 		        <img alt="" src='/home_public/images/img/key.png'>
 		      </div>
@@ -51,10 +51,9 @@
 		      <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
 	          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
 		      </div>
-		    </div> -->
-		    <div class='login_fields__submit' style="float:left;padding: 35px;">
-		      <input type="submit" class="btn btn-info" style="width:264px;margin: auto;" value='登录'>
-		    <!-- <input type="submit" class="btn btn-success" value="注册" /> -->
+		    </div>
+		    <div class='login_fields__submit' style="left:0px;top: 32px;">
+		      <input type="submit" class="btn btn-info" style="width:260px;margin: auto;" value='登录'>
 		    </div>
 		  </div>
 	  </form>
@@ -64,7 +63,7 @@
 	  <div class='success'>
 	  </div>
 	  <div class='disclaimer'>
-	    <p style="font-size: 18px;margin: 10px;float: left;">Homie action&nbsp;&nbsp;&nbsp;<a href="/home/index/register" style="color:lightblue;">首页</a></p>
+	    <p style="font-size: 18px;margin: 10px;float: left;">Homie action&nbsp;&nbsp;&nbsp;<a href="/home/index/register" style="color:lightblue;">首页</a>&nbsp;&nbsp;&nbsp;<a href="/home/index/register" style="color:lightblue;">注册</a></p>
 	  </div>
 	</div>
 	<div class='authent'>

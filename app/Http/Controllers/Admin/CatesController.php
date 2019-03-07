@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CatesStoreRequest;
 use App\Models\Cates;
 use DB;
 class CatesController extends Controller
@@ -28,13 +29,15 @@ class CatesController extends Controller
      */
     public function index(Request $request)
     {   
+        // 显示页数
         $count = $request->input('count',5);
+        // 搜索
         $search = $request->input('search','');
-
+        // 搜索 + 分页
         $fy_data = Cates::where('cname','like','%'.$search.'%')->paginate($count);
 
         //显示模板
-        return view('admin.cates.index',['cates_data'=>$fy_data]);
+        return view('admin.cates.index',['cates_data'=>$fy_data,'request'=>$request->all()]);
     }
 
     /**
@@ -54,7 +57,7 @@ class CatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CatesStoreRequest $request)
     {
         //接收数据
         $data = $request->all();

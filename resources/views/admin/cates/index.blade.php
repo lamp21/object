@@ -28,11 +28,11 @@
                 		</div>
                 			<div class="col-sm-6">
                 				<div id="dataTables-example_filter" class="dataTables_filter" style="float:right;">
-                					<label text="align:righ" >关键字: 
-                						<input type="text" class="form-control input-sm" name="search" aria-controls="dataTables-example" value="{{ $request['search'] or ''}}">
-                					</label>
-                						<input type="submit" value="搜索" class="btn btn-info">
-                				</div>
+                                    <label text="align:righ" >关键字: 
+                                        <input type="text" class="form-control input-sm" name="search" aria-controls="dataTables-example" value="{{ $request['search'] or ''}}">
+                                    </label>
+                                        <input type="submit" value="搜索" class="btn btn-info">
+                                </div>
                 			</div>
                 		</div>
                 	</form>
@@ -44,11 +44,9 @@
 
                             	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 208px;">分类名称</th>
 
-                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 194px;">所属分类ID</th>
+                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 116px;">所属分类ID</th>
 
                             	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 116px;">分类路径</th>
-
-                            	<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 82px;">状态</th>
 
 								<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 82px;">操作</th>
 
@@ -61,13 +59,12 @@
                             <td class=" ">{{ $v->cname }}</td>
                             <td class=" ">{{ $v->pid }}</td>
                             <td class="center ">{{ $v->path }}</td>
-                            <td class="center ">{{ $v->status == 1 ? '激活' : '未激活'}}</td>
-                            <td class="center">
+                            <td class="center text-center">
                             	<a href="/admin/cates/create/{{ $v->id }}" class="btn btn-info">添加子分类</a>
                             	<form action="/admin/cates/{{ $v->id }}" method="post" style="display: inline-block;">
                             		{{ csrf_field() }}
                             		{{ method_field('DELETE') }}
-									<input type="submit" value="删除" class="btn btn-danger">				
+									<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">				
 								</form>			
                             </td>
                         </tr>

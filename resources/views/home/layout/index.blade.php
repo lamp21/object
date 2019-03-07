@@ -17,8 +17,58 @@
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
+/*.kf {
+    position: fixed;
+    right: 20px;
+    top: 30%;
+    color: #fff;
+    z-index: 999;
+    background: #212121;
+    border: #1c2327 3px solid;
+    width: 175px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.kf h2 span {
+    
+    background: url(/home_public/images/close.png) no-repeat;
+    width: 25px;
+    height: 25px;
+    float: right;
+}*/
+
+/*h2 {
+    display: block;
+    font-size: 15px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+*/
+/*.kfdh {
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+    margin: 10px 0;
+}*/
+
+/*.kfnum img {
+    margin: 10px auto 0;
+}
+
+img {
+    border: 0;
+    display: block;
+    width:160px;
+    height:96px;
+}
+*/
+=======
 .zhuanti li { float: left; width: 32.6%; border-bottom: #eee 1px solid; border-left: #eee 1px solid; overflow: hidden; padding: 25px; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease; }
 .card p { font-size: 15px; padding: 0 0 0 20px; line-height: 25px; text-shadow: 0px 1px 2px rgba(0,0,0,.5); color: #d0d2d4; -webkit-animation: animations2 5s ease-in-out 5s; -moz-animation: animations2 5s ease-in-out 5s; -o-animation: animations2 5s ease-in-out 5s; -ms-animation: animations2 5s ease-in-out 5s; animation: animations2 5s ease-in-out 5s; }
+>>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
 * {
     margin: 0;
     padding: 0;
@@ -51,6 +101,28 @@ a {
     color: #333;
 }
 
+/*p { 
+    font-size: 10px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+<<<<<<< HEAD
+}
+ 
+.aaa a{
+    display: inline;
+    float: left;
+    padding: 0 20px;
+    color:cyan;
+    font-size: 18px;
+    list-style: none;
+    text-decoration: none;
+    line-height: 50px;
+}
+
+}*/
   
 </style>
 </head>
