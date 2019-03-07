@@ -58,14 +58,14 @@ textarea{
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">网址</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="网址 http://" value="http://" name="url">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="网址 http:// https:// ftp://"name="url">
     </div>
   </div>
-
+  
   <div class="form-group">
-    <label class="col-sm-2 control-label">内容</label>
+    <label for="description" class="col-sm-2 control-label">广告内容</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="广告内容" name="content">
+        <textarea class="form-control" placeholder="广告内容" name="content"></textarea>
     </div>
   </div>
 
