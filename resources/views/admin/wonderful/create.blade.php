@@ -41,8 +41,9 @@
 			    <div class="col-sm-10" style="width:600px;">
 			        <select class="form-control" name="cate_uid">
 			        	<option value="0">--请选择--</option>
-					  	<option value="">技术类</option>
-					  	<option value="">生活类</option>
+			        	@foreach ($cate_uid as $k->$v)
+					  	<option value="$v->path">{{$v->name}}</option>
+					  	@endforeach
 					</select>
 			    </div>
 		  	</div>

@@ -26,6 +26,7 @@ class WonderfulController extends Controller
     public function create()
     {
         //加载视图
+        $cate_uid = DB::table('cates')->where('path','*')->get();
         return view('admin.wonderful.create');
     }
 
