@@ -110,12 +110,13 @@ class AdvertController extends Controller
     public function update(Request $request, $id)
     {
         // DB::beginTransaction();
-        
+        dump($request->all());exit;
         // echo $id;
         $advert = Advert::find($id);
-        // $advert->pic = $request->input('pic','');
-        $file = $request->file('pic','');
-        //dump($file);exit;
+        $advert->pic = $request->input('pic','');
+        // $file = $advert->file('pic','');
+        
+        dump($advert->pic);exit;
         // 执行 图片上传
         $advert->pic = $request->pic->store('');
         $advert->url = $request->input('url','');
