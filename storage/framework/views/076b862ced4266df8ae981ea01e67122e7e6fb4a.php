@@ -114,11 +114,8 @@
                                     <a href="/admin/announcement">公告列表</a>
                                 </li>
                                 <li>
-<<<<<<< HEAD
-                                    <a href="/admin/advert/create">公告添加</a>
-=======
                                     <a href="/admin/announcement/create">公告添加</a>
->>>>>>> 2d367ee22ba6ca47fb14240433dcdffe7a475cac
+                                    <a href="/admin/advert/create">公告添加</a>
                                 </li>
                             </ul>
                         </li>
