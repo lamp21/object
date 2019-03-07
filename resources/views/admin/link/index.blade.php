@@ -59,6 +59,9 @@
         		{{ csrf_field() }}
         		{{ method_field('DELETE')}}
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 				<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">
         		
         	</form>

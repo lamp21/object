@@ -17,7 +17,6 @@
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
-<<<<<<< HEAD
 /*.kf {
     position: fixed;
     right: 20px;
@@ -102,7 +101,6 @@ a {
     color: #333;
 }
 
-<<<<<<< HEAD
 /*p { 
     font-size: 10px;
     display: block;
@@ -110,9 +108,21 @@ a {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+<<<<<<< HEAD
+}
+ 
+.aaa a{
+    display: inline;
+    float: left;
+    padding: 0 20px;
+    color:cyan;
+    font-size: 18px;
+    list-style: none;
+    text-decoration: none;
+    line-height: 50px;
+}
+
 }*/
-=======
->>>>>>> f0b112a3f222ed83c52e27473393736a9b10f133
   
 </style>
 </head>

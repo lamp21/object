@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\AdvertStoreRequest;
 
 use App\Models\Advert;
 
@@ -44,11 +45,11 @@ class AdvertController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function store(Request $request)
+    public function store(AdvertStoreRequest $request)
     {   
         //dd($request->all());
         //
-        DB::beginTransaction();
+        // DB::beginTransaction();
         
         $data = $request->except(['_token']);
         //dump($data);
@@ -93,7 +94,10 @@ class AdvertController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $advert = Advert::find($id);
+
+        return view('admin.advert.edit',['advert'=>$advert]);
     }
 
     /**
@@ -105,7 +109,27 @@ class AdvertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // DB::beginTransaction();
+        
+        // echo $id;
+        $advert = Advert::find($id);
+        // $advert->pic = $request->input('pic','');
+        $file = $request->file('pic','');
+        //dump($file);exit;
+        // 执行 图片上传
+        $advert->pic = $request->pic->store('');
+        $advert->url = $request->input('url','');
+        $advert->content = $request->input('content','');
+
+        $res = $advert->save();
+        if($res){
+        // 执行 添加 
+            // DB:commit();
+            return redirect('/admin/advert')->with('success','修改成功');
+        }else{
+            // DB::rollBack();
+            return back()->with('error','修改失败');
+        } 
     }
 
     /**

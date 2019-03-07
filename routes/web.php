@@ -12,6 +12,7 @@
 
 Route::get('/', function () {
    echo '123';
+    return view('welcome');
 });
 
 /**
@@ -48,7 +49,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
     $this->post('login', 'LoginController@login');
     $this->post('logout', 'LoginController@logout')->name('admin.logout');
-    Route::middleware('auth.admin:admin')->name('admin.')->group(function () {
+    Route::middleware('auth.login:login')->name('admin.login.login')->group(function () {
         Route::get('/', 'LoginController@index');
     });
 });
@@ -69,13 +70,31 @@ Route::get('admin/advert/create','Admin\catesController@create');
 // 广告
 Route::resource('admin/advert','Admin\AdvertController');
 
+// 用户管理
+Route::resource('admin/users','Admin\UserController');
+
 // 前台 广告 申请
 Route::resource('home/create','Home\AdvertController');
 
 // 前台 广告 申请
 Route::resource('home/advert','Home\AdvertController');
-// gg
- Route::get('admin/advert/create','Admin\catesController@create');
+
+
+
+
+
+
+// 子分类
+Route::get('admin/cates/create/{id}','Admin\CatesController@create');
+
+// 添加 分类
+Route::get('admin/cates/create','Admin\CatesController@create');
+
+// 查看 子分类
+Route::get('admin/cates/{id}','Admin\CatesController@index');
+
+// 分类管理
+Route::resource('admin/cates','Admin\CatesController');
 
 
 
@@ -86,18 +105,29 @@ Route::resource('home/advert','Home\AdvertController');
 
 
 
+Route::group(['namespace' => 'Auth','prefix'=>'auth'],function(){ 
+    route::get('/login','AuthController@login'); 
+    route::get('/logout','AuthController@getlogout'); 
+    route::post('/login','AuthController@auth'); 
+});
+
+// 后台登录
+Route::resource('admin/login','Admin\LoginController');
+
+// 广告列表
+Route::get('admin/advert/create','Admin\catesController@create');
+
+// 广告
+Route::resource('admin/advert','Admin\AdvertController');
 
 
 
 
+// 前台 广告 申请
+Route::resource('home/create','Home\AdvertController');
 
-
-
-
-
-
-
-
+// 前台 广告 申请
+Route::resource('home/advert','Home\AdvertController');
 
 
 

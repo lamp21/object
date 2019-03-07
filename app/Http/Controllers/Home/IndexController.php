@@ -26,7 +26,6 @@ class IndexController extends Controller
      */
 
     public function index()
-
     {   
         $data_advert = Advert::all();
         //dump($data_advert);
