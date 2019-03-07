@@ -14,7 +14,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+
+        $cates_data = Controller::cates_data();
+        return view('home.about.about',['cates_data'=>$cates_data]);
     }
 
     /**
