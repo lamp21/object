@@ -39,9 +39,9 @@
 		      </thead>
 		      <tbody>
 		      	@foreach($data as $k=>$v)
-		        <tr class="gradeA odd">
-		          <td class="sorting_1">{{ $v->id }}</td>
-		          <td class=" ">{{ $v->announcement_title }}</td>
+		        <tr class="gradeA odd text-center">
+		          <td class="sorting_1"><p>{{ $v->id }}</p></td>
+		          <td class=" "><p>{{ $v->announcement_title }}</p></td>
 		          <td class=" ">
 					<abbr title="{{ $v->announcement_content }}">	
 						<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
@@ -49,14 +49,14 @@
 		          		</p>
 		          	</abbr>
 		          </td>
-		          <td class="center ">{{ $v->created_at }}</td>
-		          <td class="center ">
+		          <td class="center "><p>{{ $v->created_at }}</p></td>
+		          <td class="center "><p>
 		          	<a href="/admin/announcement/{{ $v->id}}/edit" class="btn btn-warning">修改</a>
 		          	<form action="/admin/announcement/{{ $v->id }}" method="post" style="display: inline-block;">
 		          		{{ csrf_field()}}
 		          		{{ method_field('DELETE')}}
 		          		<input type="submit" value="删除" name="" class="btn btn-danger">
-		          	</form>
+		          	</form></p>
 		          	</td>
 		        </tr>
 				@endforeach

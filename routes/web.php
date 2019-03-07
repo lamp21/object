@@ -222,3 +222,10 @@ Route::resource('admin/users','Admin\UserController');
 Route::resource('home/index','Home\IndexController');
 //后台 网站公告
 Route::resource('admin/announcement','Admin\AnnouncementController');
+//用户个人信息
+Route::resource('home/about','Home\AboutController');
+
+
+
+
+

@@ -30,7 +30,17 @@
                     <div class="form-group">
                         <label for="announcement_content" class="col-sm-2 control-label">公告内容</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" rows="10" name="announcement_content">{{ old('announcement_content') }}</textarea>
+                        <script id="container" name="announcement_content" type="text/plain" value="">
+                        {{ old('announcement_content')}}
+                        </script>
+                        <!-- 配置文件 -->
+                        <script type="text/javascript" src="/admin_public/assets/text/ueditor.config.js"></script>
+                        <!-- 编辑器源码文件 -->
+                        <script type="text/javascript" src="/admin_public/assets/text/ueditor.all.js"></script>
+                        <!-- 实例化编辑器 -->
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('container');
+                        </script>
                         </div>
                     </div>
     				<div class="form-group">
