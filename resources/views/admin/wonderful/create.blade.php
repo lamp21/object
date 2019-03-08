@@ -9,7 +9,7 @@
         		<h2><div class="title">推荐文章管理</div></h2>
    			</div>
     	</div>
-		<form class="form-horizontal" action="/admin/wonderful" method="post" enctype="multipart/form-data">
+		<form class="form-horizontal" action="/admin/wonderful" method="post">
 		  	{{ csrf_field() }}
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">标题</label>
@@ -20,8 +20,10 @@
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">文章封面图</label>
 			    <div class="col-sm-10" style="width:600px;">
-			       <input id="file" class="filepath" onchange="changepic(this)" type="file" accept="image/png, image/jpeg, image/gif, image/jpg" name="wd_img" value=""><br>
-    				<img src="" id="show" width="200">
+			      
+
+
+
 			    </div>
 			</div>
 		   	<div class="form-group">
@@ -33,7 +35,7 @@
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">发表时间</label>
 			    <div class="col-sm-10" style="width:600px;">
-			        <input type="text" class="form-control" placeholder="发表时间" name="wd_time" value="">
+			        <input type="text" class="form-control" placeholder="发表时间" name="wd_time" >
 			    </div>
 		  	</div>
 		  	<div class="form-group">
@@ -41,9 +43,9 @@
 			    <div class="col-sm-10" style="width:600px;">
 			        <select class="form-control" name="cate_uid">
 			        	<option value="0">--请选择--</option>
-			        	@foreach ($cate_uid as $k->$v)
-					  	<option value="$v->path">{{$v->name}}</option>
-					  	@endforeach
+			        	@foreach($cate_uid as $k=>$v)
+		                <option value="{{ $v->id }}" @if($id == $v->id) selected @endif>{{ $v->cname }}</option>
+		                @endforeach
 					</select>
 			    </div>
 		  	</div>
@@ -83,15 +85,7 @@
 		</form>
     </div>
 </div>
+<script>  
 
-<script>
-   function changepic() {
-        var reads= new FileReader();
-        f=document.getElementById('file').files[0];
-        reads.readAsDataURL(f);
-        reads.onload=function (e) {
-            document.getElementById('show').src=this.result;
-        };
-    }
 </script>
 @endsection
