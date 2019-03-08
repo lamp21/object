@@ -33,8 +33,8 @@ class LoginController extends Controller
 
     protected $redirectTo = '/home';
 
-    protected $redirectTo = '/admin';
-    protected $redirectTo = '/admin';
+    // protected $redirectTo = '/admin';
+    // protected $redirectTo = '/admin';
     protected $redirectTo = '/admin';
     /**
      * Create a new controller instance.

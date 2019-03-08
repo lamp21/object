@@ -82,15 +82,16 @@ class LoginController extends Controller
 
         // dump($request->all());
         // $users = new admin_user;
-        DB::beginTransaction();
-        //
-        $data = $request->except(['_token']);
+        // DB::beginTransaction();
+        // //
+        // $data = $request->except(['_token']);
                 //dd($data['uname']);
-        $users = new admin_user;
-        $users->uname = $data['uname'];
-        $users->password = Hash::make($data['password']);
+        
+        // $users = new admin_user;
+        $uname = $_POST['uname'];
+        $password = Hash::make($_POST['password']);
         //dd($users->uname);
-        $data_info = DB::table('admin_user')->first();
+        // $data_info = DB::table('admin_user')->first();
         //dd($data_info);
         // $data_info['uname'] =  $users->uname;
         // $data_info['password'] =  $users->password;
@@ -99,14 +100,25 @@ class LoginController extends Controller
         //     return redirect('/admin/index/')->intended('dashboard','登录成功');
         // }
         // dd($userinfo);
-        
-        if($data_info){
-            //DB::commit();
+            
+        if ($uname == DB::table('admin_user','uname')->first()){
+            return $uname = false;
+            if ($password == DB::table('admin_user','password')->first()) {
+                return $password = false;
+            }
             return redirect('/admin/users/')->with('success','登录成功');
         }else{
-            //DB::rollBack();
             return back()->with('error','登录失败');
         }
+
+
+        // if($data_info){
+        //     //DB::commit();
+        //     return redirect('/admin/users/')->with('success','登录成功');
+        // }else{
+        //     //DB::rollBack();
+        //     return back()->with('error','登录失败');
+        // }
     }
     /**
      * Display the specified resource.
