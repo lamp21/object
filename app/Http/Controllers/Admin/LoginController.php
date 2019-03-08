@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Foundation\Auth\ThrottlesLogins; 
+use Illuminate\Foundation\Auth\AuthenticatesUsers; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
@@ -13,18 +15,37 @@ use DB;
 
 use Auth;
 class LoginController extends Controller
-{
+{   
+
+    use AuthenticatesUsers;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+
+    protected $redirectTo = '/admin/index'; 
+    protected $username;
+
+    public function __construct() 
+    { 
+        $this->middleware('guest:admin', ['except' => 'logout']); 
+        $this->username = config('admin.global.username'); 
+    } 
+
+    
+
+    public function index()
     {
-        //echo "aaaa";
-        
-        return view('admin.login.login');
+        // echo "aaaa";exit;
+        //echo 1;
+        return view('admin.login.index');
     }
+
+    protected function guard() 
+    { 
+        return auth()->guard('admin'); 
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +54,7 @@ class LoginController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -45,87 +66,46 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {   
-        // $data = $request->all();
         
-
-        // $username = $data['uname'];
-        // $password = md5($data['upass']);
-
-        // //判断长度是否一致,正则
-        
-        // //判断数据库是否有该用户
-        // $map['uname'] = $username;
-        // $map['password'] = $password;
-
-        // //判断是否禁用
-        // /*$map['status'] = 0;
-
-        // //判断是不是管理员
-        // $map['level'] = array('gt',1);*/
-
-        // $user = new Admin_User;
-        // $userinfo = $user->where($map)->select();
-        // //var_dump($userinfo);
-        // if($userinfo){
-        //     unset($userinfo[0]['password']);
-        //     $_SESSION['admin'] = $userinfo[0];
-        //     //var_dump($_SESSION);
-            
-          
-        //     return redirect('/admin/')->with('success','登录成功');
-        // }else{
-           
-        //      return back()->with('error','登录失败');
-        // }
-    
-
-
-        // dump($request->all());
-        // $users = new admin_user;
-        // DB::beginTransaction();
-        // //
-        // $data = $request->except(['_token']);
-                //dd($data['uname']);
-        
-        // $users = new admin_user;
         $uname = $_POST['uname'];
-        $password = Hash::make($_POST['password']);
-        //dd($users->uname);
-        // $data_info = DB::table('admin_user')->first();
-        //dd($data_info);
-        // $data_info['uname'] =  $users->uname;
-        // $data_info['password'] =  $users->password;
-        // if (Auth::attempt(['uname' => $users->uname, 'password' =>$users->password]) == $data_info) {
-        //     // 认证通过...
-        //     return redirect('/admin/index/')->intended('dashboard','登录成功');
-        // }
-        // dd($userinfo);
-            
-        if ($uname == DB::table('admin_user','uname')->first()){
-            return $uname = false;
-            if ($password == DB::table('admin_user','password')->first()) {
-                return $password = false;
-            }
-            return redirect('/admin/users/')->with('success','登录成功');
-        }else{
-            return back()->with('error','登录失败');
+        $password = $_POST['password'];
+
+        $data = admin_user::where('uname',$uname)->first();
+
+        if ($data = false){
+            return redirect()->route('admin.login',['error'=>'404']);
         }
 
+        $pass = $data['password'];
 
-        // if($data_info){
-        //     //DB::commit();
-        //     return redirect('/admin/users/')->with('success','登录成功');
-        // }else{
-        //     //DB::rollBack();
-        //     return back()->with('error','登录失败');
-        // }
+        if (Hash::check($password,$pass)) {
+            echo "ky";
+        }else{
+            return redirect()->route('admin.login',['error'=>'404']);
+        }
+
+        session(['login.'.'1' => $pass,'login.'.'2' => $uname]);
+
+        if (session()->exists('login')) {
+            return redirect('admin');        
+        }
+        
     }
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+     */ 
+    
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+        $request->session()->forget($this->guard()->getName());
+        $request->session()->regenerate();
+        return redirect('/admin');
+    }
+
     public function show($id)
     {
         //

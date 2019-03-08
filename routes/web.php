@@ -36,33 +36,20 @@ Route::resource('admin/cates','Admin\CatesController');
 Route::resource('home/index','Home\IndexController');
 
 // 后台 登录 测试
-Route::prefix('admin')->namespace('Admin')->group(function () {
-    // 后台 首页
-    $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
-    $this->post('login', 'LoginController@login');
-    $this->post('logout', 'LoginController@logout')->name('admin.logout');
-});
+Route::group(['prefix' => 'admin','namespace' => 'Admin'],function ($router) 
+{ 
+    $router->get('login', 'LoginController@showLogin')->name('admin.login'); 
+    $router->post('login', 'LoginController@login'); 
+    $router->post('logout', 'LoginController@logout'); 
+ 
+    $router->get('index', 'AdminController@index'); 
+}); 
 
-// 后台 登录 测试
-Route::prefix('admin')->namespace('Admin')->group(function () {
-    // 后台 首页
-    $this->get('login', 'LoginController@showLoginForm')->name('admin.login');
-    $this->post('login', 'LoginController@login');
-    $this->post('logout', 'LoginController@logout')->name('admin.logout');
-    Route::middleware('auth.login:login')->name('admin.login.login')->group(function () {
-        Route::get('/', 'LoginController@index');
-    });
-});
+// // 后台 登录
+// Route::resource('admin/login','Admin\LoginController');
 
-// 后台 登录 测试
-Route::group(['namespace' => 'Auth','prefix'=>'auth'],function(){ 
-    route::get('/login','AuthController@login'); 
-    route::get('/logout','AuthController@getlogout'); 
-    route::post('/login','AuthController@auth'); 
-});
+// Route::get('admin/login','Admin\LoginController@store');
 
-// 后台 登录
-Route::resource('admin/login','Admin\LoginController');
 
 // 广告 列表
 Route::get('admin/advert/create','Admin\catesController@create');

@@ -47,8 +47,8 @@
         
         <td><?php echo e($v->created_at); ?></td>
         <td>
-        	<abbr title="<?php echo e($v->usersinfo->description); ?>">
-	        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; "><?php echo e($v->usersinfo->description); ?></p>
+        	<abbr title="<?php echo e($v->usersinfo['description']); ?>">
+	        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; "><?php echo e($v->usersinfo['description']); ?></p>
 	    	</abbr>
         </td>
         <td class="text-center">
