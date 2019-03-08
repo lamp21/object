@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
 use App\Models\Advert;
+use App\Models\Announcement;
+use DB;
 class IndexController extends Controller
 {   
 
@@ -27,17 +29,11 @@ class IndexController extends Controller
 
     public function index()
     {   
-        $data_advert = Advert::all();
-        //dump($data_advert);
+        $data_advert = Advert::limit(4)->get();
+        $data_announcement = Announcement::limit(5)->get();
+        // dd($data_announcement);
         $data = Controller::cates_data();
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert]);
-
-    {
-        $a = Controller::cates_data();
-
-        return view('home.index.index',['cates_data'=>$a]);
-
-        }
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement]);
     }
 
     /**
@@ -63,14 +59,18 @@ class IndexController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * //网站公告详情
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        // $data_announcement = Announcement::find($id);
+        $data_announcement = DB::table('announcement')->where('id',$id)->get();
+        // dd($data_announcement);
+        $cates_data = Controller::cates_data();
+        return view('home.detail.detail',['cates_data'=>$cates_data,'data_announcement'=>$data_announcement]);
     }
 
     /**
@@ -111,5 +111,11 @@ class IndexController extends Controller
     public function login(){
         return view('home.login.login');
     }
-
 }
+
+
+
+
+
+
+

@@ -25,12 +25,12 @@
 		{{ method_field('PUT') }}
 		{{ csrf_field() }}
 	    <div class="form-group">
-	        <label class="col-sm-2 control-label">图片</label>
-	        <div class="col-sm-10" style="width:600px;">	
+	        <label class="col-sm-2 control-label">图片</label>	
+	        <div class="col-sm-10" style="width:600px;">
 	      		<input type="file" placeholder="广告图片" name="pic"  id="file1" onchange="change('pic1','file1')" value="{{ $advert['pic'] }}">
 	      			<br>
 					<br>
-				<img src="{{ asset('/img') }}{{ '/'.$advert['pic'] }} " id="pic1" alt="" style="width:100px;">	
+				<img src="{{ asset('/img') }}{{ '/'.$advert['pic'] }}" id="pic1" alt="" style="width:100px;">
 	        </div>
 	    </div>
 

@@ -40,7 +40,7 @@
                 		
                     	<thead>
                             <tr role="row">
-                            	<th class="sorting_asc text-center" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column ascending" style="width: 139px;">ID</th>
+                            	<th class="sorting_asc text-center" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column ascending" style="width: 50px;">ID</th>
 
                             	<th class="sorting text-center" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 100px;">图片</th>
 
@@ -67,12 +67,14 @@
                                 {{ $v->url }}
                                 </p>
                             </td>
-                            <td class="center" >
-                                <p>
-                                {{ $v->content }}
-                                </p>
+                            <td class="center text-center" >
+                                <abbr title="{{ $v->content }}">
+                                    <p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;"> 
+                                    {{ $v->content }}
+                                    </p>
+                                </abbr> 
                             </td>
-                            <td class="center">
+                            <td class="center" style="width:100px;">
                                 <br>
                             	<form action="/admin/advert/{{ $v->id }}" method="post" style="display: inline-block;">
                                 <a href="/admin/advert/{{ $v->id}}/edit" class="btn btn-success">修改</a>
