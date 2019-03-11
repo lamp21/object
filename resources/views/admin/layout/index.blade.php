@@ -48,6 +48,8 @@
                         <ul class="dropdown-menu dropdown-user">
                             <li><a href="#"><i class="fa fa-user fa-fw"></i>头像</a>
                             </li>
+                            <li><a href="admin/login"><i class="fa fa-user fa-fw"></i>登录</a>
+                            </li>
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                             </li>
                             <li class="divider"></li>
