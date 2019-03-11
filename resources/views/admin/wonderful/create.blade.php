@@ -20,9 +20,8 @@
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">文章封面图</label>
 			    <div class="col-sm-10" style="width:600px;">
-			      
-
-
+			    <input type="file" name="wd_img" onchange="showPreview(this)" class="file" /> 
+         		<img id="portrait" src="" width="70" height="75"> 
 
 			    </div>
 			</div>
@@ -85,7 +84,5 @@
 		</form>
     </div>
 </div>
-<script>  
 
-</script>
 @endsection

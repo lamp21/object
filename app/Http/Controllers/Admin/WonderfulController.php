@@ -50,39 +50,41 @@ class WonderfulController extends Controller
     public function store(Request $request)
     {
         //开启事务
-        /*DB::beginTransaction();
+        DB::beginTransaction();
         //dump($request->input('wd_img'));
 
         //添加数据到数据库
-        $wonderfuladd = DB::table('wonderful')->insert([
-            'wd_img' => $request->input('wd_img'),
-            'title' => $request->input('title'),
-            'wd_form' => $request->input('wd_form'),
-            'wd_time' => $request->input('wd_time'),
-            'cate_uid' => $request->input('cate_uid'),
-            'content' => $request->input('content'),
-            'status' => $request->input('status'),
-            ]);
-        if ($wonderfuladd) {
-           // 执行 添加 
+        // $wonderfuladd = DB::table('wonderful')->insert([
+        //     'wd_img' => $request->input('wd_img'),
+        //     'title' => $request->input('title'),
+        //     'wd_form' => $request->input('wd_form'),
+        //     'wd_time' => $request->input('wd_time'),
+        //     'cate_uid' => $request->input('cate_uid'),
+        //     'content' => $request->input('content'),
+        //     'status' => $request->input('status'),
+        //     ]);
+        // if ($wonderfuladd) {
+        //    // 执行 添加 
+        //     DB::commit();
+        //     return redirect('/admin/wonderful')->with('success','添加成功');
+        // }else{
+        //     DB::rollBack();
+        //     return back()->with('error','添加失败');
+        // }
+        if($_FILES['wd_img']['error']>0){ 
+            DB::rollBack();
+            return back()->with('error','提交失败');
+        }
+        $dir='/public/admin_public/assets/img'; 
+        $type=substr($_FILES['wd_img']['name'],strrpos($_FILES['wd_img']['name'],'.')); 
+        $filename=time().rand(1000,9999).$type; 
+        if(is_uploaded_file($_FILES['wd_img']['tmp_name'])){ 
+            move_uploaded_file($_FILES['wd_img']['tmp_name'],$dir.$filename);
             DB::commit();
             return redirect('/admin/wonderful')->with('success','添加成功');
         }else{
             DB::rollBack();
             return back()->with('error','添加失败');
-        }*/
-        if($_FILES['photo']['error']>0){  
-            echo "上传文件失败";  
-            die;  
-        }
-        $dir='/admin_public/assets/img';  
-        $type=substr($_FILES['photo']['name'],strrpos($_FILES['photo']['name'],'.'));  
-        $filename=time().rand(1000,9999).$type;  
-        if(is_uploaded_file($_FILES['photo']['tmp_name'])){  
-            move_uploaded_file($_FILES['photo']['tmp_name'],$dir.$filename);  
-            echo "上传成功";  
-        }else{  
-            echo "上传文件失败";  
         }
     }
 
