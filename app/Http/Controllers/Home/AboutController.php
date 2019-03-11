@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Usersinfo;
+use App\Models\Users;
 class AboutController extends Controller
 {
     /**
@@ -16,7 +17,11 @@ class AboutController extends Controller
     {
 
         $cates_data = Controller::cates_data();
-        return view('home.about.about',['cates_data'=>$cates_data]);
+        $about_data = Usersinfo::where('id',5)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
+        return view('home.about.about',['cates_data'=>$cates_data,'value'=>$value]);
     }
 
     /**s
@@ -38,9 +43,30 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {   
-        echo "<pre>";
-            print_r($request->all());
-        echo "</pre>";
+        $data = $request->except(['_token']);
+        $userinfo = new Usersinfo;
+        $users = new Users;
+        //接收返回的id
+        $id = $users->id;
+        $userinfo->uid = $id =11;
+        $userinfo->nick_name = $data['nick_name'];
+        $userinfo->real_name = $data['real_name'];
+        $userinfo->sex = $data['sex'];
+        $userinfo->uname_img = $data['uname_img'];
+        $userinfo->work = $data['work'];
+        $userinfo->personal_label = $data['personal_label'];
+        $userinfo->location = $data['location'];
+        $userinfo->email = $data['email'];
+        $userinfo->QQ = $data['QQ'];
+        $userinfo->chat = $data['chat'];
+        $userinfo->description = $data['description'];
+        $res = $userinfo->save();
+        
+        if($res){
+            return redirect('home/about');
+        }else{
+            return back();
+        }
     }
 
     /**

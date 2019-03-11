@@ -7,9 +7,12 @@
 @section('content')
 	<article>
 	  <div class="whitebg about">
-	    <div class="ab_box"> <i class="avatar_pic"><a href=""><img src="/home_public/images/avatar.jpg"></a></i>
-	      <h3>测试用户</h3>
-	      <p>个性签名栏。。。。</p>
+	    <div class="ab_box">
+	    	<i class="avatar_pic">
+	    		<img src="{{ $value->uname_img }}">
+	    	</i>
+	      <h3>{{ $value->nick_name }}</h3>
+	      <p>个性签名:<br>{{ $value->personal_label }}</p>
 	    </div>
 	    <h2 class="gd_title">基本信息</h2>
 	    <div class="container" style="width: 800px;">
@@ -18,49 +21,49 @@
 		      <tbody>
 		      <tr>
 		        <td id="add_a">昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</td>
-		        <td>测试</td>
+		        <td>{{ $value->nick_name }}</td>
 		      </tr><br>
 		      <tr>
 		        <td id="add_a">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</td>
-		        <td>测试</td>
+		        <td>{{ $value->sex }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</td>
-		        <td>测试</td>
+		        <td>{{ $value->work }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">真实姓名</td>
-		        <td>测试</td>
+		        <td>{{ $value->real_name }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">所&nbsp;&nbsp;在&nbsp;&nbsp;地</td>
-		        <td>测试</td>
+		        <td>{{ $value->location }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">个性签名</td>
-		        <td>测试</td>
+		        <td>{{ $value->personal_label }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</td>
-		        <td>测试</td>
+		        <td>{{ $value->email }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q</td>
-		        <td>测试</td>
+		        <td>{{ $value->QQ }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信</td>
-		        <td>测试</td>
+		        <td>{{ $value->chat }}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">个人标签</td>
-		        <td>测试</td>
+		        <td>{{ $value->description }}</td>
 		      </tr>
 		  </tbody>
 		</table>
 		</div>
 	</div>
-	<span class="ly_button"><a href="/home/about/create">完善资料</a></span>
+	<span class="ly_button"><a href="/home/about/create">完善资料</a></span><br>
 	    <h2 class="gd_title">加入我们</h2>
 	    <ul class="qq_join">
 	      <li>

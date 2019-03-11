@@ -215,6 +215,7 @@ Route::get('admin/users/setdata','Admin\UserController@setdata');
 // 前台 登录
 Route::get('home/login','Home\IndexController@login');
 // 前台  注册
+Route::get('home/register/sendPhone','Home\RegisterController@sendPhone');
 Route::resource('home/register','Home\RegisterController');
 // 用户 管理
 Route::resource('admin/users','Admin\UserController');
