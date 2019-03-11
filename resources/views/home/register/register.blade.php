@@ -18,55 +18,13 @@
     <link href="/home_public/css/loaders.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-	<div class='login'>
-	  <div class='login_title'>
-	    <h1 class="text-center" style="width:120px;font-size: 30px;line-height: 10px;padding: 10px 0px;">注&nbsp;&nbsp;册</h1>
-	  </div>
-	  <div class='login_fields'>
-	  	<form action="/home/index/dologin" method="post">
-	  		{{ csrf_field() }}
-		    <div class='login_fields__user'>
-		      <div class='icon'>
-		        <img alt="" src='/home_public/images/img/user_icon_copy.png'>
-		      </div>
-		      <input name="uname" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value=""/>
-		        <div class='validation'>
-		          <img alt="" src='/home_public/images/img/tick.png'>
-		        </div>
-		    </div>
-		    <div class='login_fields__password'>
-		      <div class='icon'>
-		        <img alt="" src='/home_public/images/img/lock_icon_copy.png'>
-		      </div>
-		      <input name="pwd" placeholder='密码' maxlength="16" type='password' autocomplete="off">
-		      <div class='validation'>
-		        <img alt="" src='/home_public/images/img/tick.png'>
-		      </div>
-		    </div>
-		    <div class='login_fields__password'>
-		      <div class='icon'>
-		        <img alt="" src='/home_public/images/img/key.png'>
-		      </div>
-		      <input name="code" placeholder='验证码' maxlength="4" type='text' name="ValidateNum" autocomplete="off">
-		      <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
-	          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
-		      </div>
-		    </div>
-		    <div class='login_fields__submit' style="float:left;padding: 35px;">
-		      <!-- <input type="submit" class="btn btn-info" style="width:264px;margin: auto;" value='登录'> -->
-		    <input type="submit" class="btn btn-success" value="注册" style="width:250px;" />
-		    </div>
->>>>>>> 354196929f76f1e9df9ac59256e58bd7d9bb90f9
 	<div class='login' style="position: absolute;height: 350px;">
 		<div class="content">
 		  <div class='login_title' style="height: 40px;">
 		    <center style="position: absolute;top: 50PX;left: 110PX;"><h1 style="font-size: 30px;width: 58px;bottom: 10px;">注&nbsp;&nbsp;册</h1></center>
 		  </div>
 		  <div class='login_fields'>
-		  	<form action="/home/login" method="post">
+		  	<form action="" method="post">
 		  		{{ csrf_field() }}
 		  		<div class='login_fields__user'>
 			      <div class='icon'>
@@ -228,7 +186,7 @@
 	            var code = $('input[name="code"]').val();
 	           /* 验证格式是否正确
 	            var uname_grep = /^[a-zA-Z]{1}[\w]{7,15}$/;
-	            var phone_grep = /^1{1}[3456789]{1}[0-9]{9}$/;
+	            var phone_grep = /^1{1}[345678]{1}[0-9]{9}$/;
 	            var upass_grep = /^1{1}[3-9][\d]{9}$/;
 	            var repassword_grep = /^1{1}[3-9][\d]{9}$/;
 	            if(!uname_grep.test(uname)){
@@ -248,12 +206,16 @@
 				//空值验证
 	            if (uname == '') {
 	                ErroAlert('请输入昵称');
+	                return false;
 	            } else if (phone == '') {
 	                ErroAlert('请输入手机号');
+	                return false;
 	            }else if (upass == '') {
 	                ErroAlert('请输入密码');
+	                return false;
 	            } else if (code == '' || code.length != 4) {
 	                ErroAlert('输入验证码');
+	                return false;
 	            } else {
 	                //认证中..
 	                fullscreen();

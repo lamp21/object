@@ -222,6 +222,8 @@ Route::resource('admin/users','Admin\UserController');
 Route::resource('home/index','Home\IndexController');
 //后台 网站公告
 Route::resource('admin/announcement','Admin\AnnouncementController');
+//用户头像上传
+Route::post('home/about/upload','Home\AboutController@upload');
 //用户个人信息
 Route::resource('home/about','Home\AboutController');
 
