@@ -37,7 +37,9 @@
                 <!-- </div> -->
                 <ul class="nav navbar-top-links navbar-right">
                         <ul class="dropdown-menu dropdown-messages">
-                            <li class="divider"></li>
+                            <li class="divider">
+                            你好,{{ session('userinfo')->uname }}
+                            </li>
                         </ul>
                         <!-- /.dropdown-messages -->
                     <!-- /.dropdown -->
@@ -46,14 +48,14 @@
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i>头像</a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>你好,{{ session('userinfo')->uname }}</a>
                             </li>
-                            <li><a href="admin/login"><i class="fa fa-user fa-fw"></i>登录</a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> 头像</a>
                             </li>
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                            <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -127,10 +129,24 @@
                             <a href="#"><i class="icon-users"></i>推荐文章管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/wonderful">推荐文章列表</a>
+                                    <a href="/admin/nodes">推荐文章列表</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/wonderful/create">文章添加</a>
+                                    <a href="/admin/nodes/create">文章添加</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-users"></i>权限管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/admin/nodes">权限列表</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/nodes/create">添加角色</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/nodes/nodeadd">添加权限节点</a>
                                 </li>
                             </ul>
                         </li>

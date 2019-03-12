@@ -56,6 +56,7 @@
         </td>
         <td class="text-center">
         	<br>
+        	<a href="/admin/users/role/{{ $v->id }}" class="btn btn-info">角色</a>
         	<a href="/admin/users/{{ $v->id }}/edit" class="btn btn-success">修改</a>
         	<form action="/admin/users/{{ $v->id }}" method="post" style="display: inline-block;">
         		{{ csrf_field() }}

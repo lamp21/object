@@ -2,146 +2,62 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Foundation\Auth\ThrottlesLogins; 
-use Illuminate\Foundation\Auth\AuthenticatesUsers; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserStoreRequest;
 
-use App\Models\Users;
-use App\Models\admin_user;
-use Hash;
 use DB;
+use Hash;
 
-use Auth;
 class LoginController extends Controller
 {   
+    // 进展 登录 页面
+    public function login(){
 
-    use AuthenticatesUsers;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    protected $redirectTo = '/admin/index'; 
-    protected $username;
-
-    public function __construct() 
-    { 
-        $this->middleware('guest:admin', ['except' => 'logout']); 
-        $this->username = config('admin.global.username'); 
-    } 
-
-    
-
-    public function index()
-    {
-        // echo "aaaa";exit;
-        //echo 1;
         return view('admin.login.index');
     }
 
-    protected function guard() 
-    { 
-        return auth()->guard('admin'); 
-    } 
+    // 处理 登录
+    public function dologin(Request $request){
+        // 接收 数据
+        $data = $request->except(['_token']);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
+        // 通过用户获取密码
+        $userinfo = DB::table('users')->where('uname',$data['uname'])->first();
+        if(!$userinfo){
+            echo "<script>alert('用户不存在');location='/login';</script>";
+        }
+        if(!Hash::check($data['upass'],$userinfo->upass)){
+            echo "<script>alert('密码错误');location='/login';</script>";
+        }
+
+        // 获取用户当前的权限
+        $admin_nodes = DB::select('select n.cname,n.aname from nodes as n,users_roles as ur,roles_nodes as rn where ur.uid = '.$userinfo->id.' and ur.rid = rn.rid and rn.nid = n.id');
+        $arr = [];
+        foreach($admin_nodes as $key => $value){
+            $arr[$value->cname][] = $value->aname;
+            if($value->aname == 'create'){
+                $arr[$value->cname][] = 'store';
+            }
+            if($value->aname == 'edit'){
+                $arr[$value->cname][] = 'update';
+            }
+        }
+        // 赋值 后天 首页操作
+        $arr['indexcontroller'][] = 'index';
+        // 将获取到的权限 放入到session
+        session(['admin_node_type'=>$arr]);
+
+        session(['admin_login'=>true]);
+
+        session(['userinfo'=>$userinfo]);
+
+        // 登录成功
+        echo "<script>alert('登录成功');location='/admin';</script>";
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    public function store(Request $request)
-    {   
-        
-        $uname = $_POST['uname'];
-        $password = $_POST['password'];
-
-        $data = admin_user::where('uname',$uname)->first();
-
-        if ($data = false){
-            return redirect()->route('admin.login',['error'=>'404']);
-        }
-
-        $pass = $data['password'];
-
-        if (Hash::check($password,$pass)) {
-            echo "ky";
-        }else{
-            return redirect()->route('admin.login',['error'=>'404']);
-        }
-
-        session(['login.'.'1' => $pass,'login.'.'2' => $uname]);
-
-        if (session()->exists('login')) {
-            return redirect('admin');        
-        }
-        
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */ 
     
     public function logout(Request $request)
     {
-        $this->guard()->logout();
-        $request->session()->forget($this->guard()->getName());
-        $request->session()->regenerate();
-        return redirect('/admin');
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        session(['users'=>null]);
+        return redirect('admin/login');
     }
 }

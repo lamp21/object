@@ -53,6 +53,7 @@
         </td>
         <td class="text-center">
         	<br>
+        	<a href="/admin/users/role/<?php echo e($v->id); ?>" class="btn btn-info">角色</a>
         	<a href="/admin/users/<?php echo e($v->id); ?>/edit" class="btn btn-success">修改</a>
         	<form action="/admin/users/<?php echo e($v->id); ?>" method="post" style="display: inline-block;">
         		<?php echo e(csrf_field()); ?>

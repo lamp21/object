@@ -1,15 +1,20 @@
-@extends('admin.layout.index')
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <title>Laravel</title>
 
-
-
-@section('content')
-
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
             html, body {
+                background-color: #fff;
+                color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -56,11 +61,6 @@
 
             .m-b-md {
                 margin-bottom: 30px;
-                
-            }
-            .aaa{
-                color:#636b6f;
-                list-style: none;
             }
         </style>
     </head>
@@ -68,10 +68,9 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    <li class="aaa">Welcome to Xiaobai Brothers Backstage</li>
+                    Sorry,Laravel/know,you are a CAI DD.
                 </div>
             </div>
         </div>
-    </body>		
-
-@endsection
+    </body>
+</html>

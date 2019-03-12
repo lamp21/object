@@ -11,7 +11,7 @@
 */
 
 Route::get('/', function () {
-   echo '123';
+	session(['admin_login'=>false]);
     return view('welcome');
 });
 
@@ -20,95 +20,72 @@ Route::get('/', function () {
 加载后台模板
 */
 
-// 子分类
-Route::get('admin/cates/create/{id}','Admin\CatesController@create');
-
-// 添加 分类
-Route::get('admin/cates/create','Admin\CatesController@create');
-
-// 查看 子分类
-Route::get('admin/cates/{id}','Admin\CatesController@index');
-
-// 分类管理
-Route::resource('admin/cates','Admin\CatesController');
-
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
 
+// Route::group(['middleware'=>['login','rbac']],function()
+
 // 后台 登录 测试
-Route::group(['prefix' => 'admin','namespace' => 'Admin'],function ($router) 
-{ 
-    $router->get('login', 'LoginController@showLogin')->name('admin.login'); 
-    $router->post('login', 'LoginController@login'); 
-    $router->post('logout', 'LoginController@logout'); 
- 
-    $router->get('index', 'AdminController@index'); 
+Route::group(['middleware'=>'login'],function()
+{ 	
+	Route::any('/logout', 'Admin\LoginController@logout');
+	// 后台 模板
+	Route::get('admin','Admin\IndexController@index');
+	// 后台 测试
+	Route::get('admin/users/setdata','Admin\UserController@setdata');
+	// 用户 管理
+	Route::resource('admin/users','Admin\UserController');
+	//后台 网站公告
+	Route::resource('admin/announcement','Admin\AnnouncementController');
+	//后台友情链接管理
+	Route::resource('admin/link','Admin\LinkController');
+	//后台精彩文章
+	Route::resource('admin/wonderful','Admin\WonderfulController');
+	// 广告 列表
+	Route::get('admin/advert/create','Admin\catesController@create');
+	// 广告
+	Route::resource('admin/advert','Admin\AdvertController');
+	// 用户管理
+	Route::resource('admin/users','Admin\UserController');
+	// 广告列表
+	Route::get('admin/advert/create','Admin\catesController@create');
+	// 广告
+	Route::resource('admin/advert','Admin\AdvertController');
+	// 后台 权限的理由
+	Route::get('admin/nodes/nodeadd','Admin\NodesController@nodeadd');
+	Route::post('admin/nodes/insert','Admin\NodesController@insert');
+	Route::resource('admin/nodes','Admin\NodesController');
+	// 用户管理
+	Route::get('admin/users/role/{id}','Admin\UserController@role');
+	Route::post('admin/users/updaterole/{uid}','Admin\UserController@updaterole');
+	// 子分类
+	Route::get('admin/cates/create/{id}','Admin\CatesController@create');
+	// 添加 分类
+	Route::get('admin/cates/create','Admin\CatesController@create');
+	// 查看 子分类
+	Route::get('admin/cates/{id}','Admin\CatesController@index');
+	// 分类管理
+	Route::resource('admin/cates','Admin\CatesController');
+
 }); 
+// 登录 首页
+Route::get('login','Admin\LoginController@login');
 
-// // 后台 登录
-// Route::resource('admin/login','Admin\LoginController');
+// 登录 验证
+Route::post('admin/dologin','Admin\LoginController@dologin');
+// 退出 验证
+Route::post('admin/logout','Admin\LoginController@logout');
 
-// Route::get('admin/login','Admin\LoginController@store');
-
-
-// 广告 列表
-Route::get('admin/advert/create','Admin\catesController@create');
-
-// 广告
-Route::resource('admin/advert','Admin\AdvertController');
-
-// 用户管理
-Route::resource('admin/users','Admin\UserController');
-
-// 前台 广告 申请
-Route::resource('home/create','Home\AdvertController');
-
-// 前台 广告 申请
-Route::resource('home/advert','Home\AdvertController');
-
-
-
-
-
-
-// 子分类
-Route::get('admin/cates/create/{id}','Admin\CatesController@create');
-
-// 添加 分类
-Route::get('admin/cates/create','Admin\CatesController@create');
-
-// 查看 子分类
-Route::get('admin/cates/{id}','Admin\CatesController@index');
-
-// 分类管理
-Route::resource('admin/cates','Admin\CatesController');
-
-
-
-
-
-
-
-
-
-
-Route::group(['namespace' => 'Auth','prefix'=>'auth'],function(){ 
-    route::get('/login','AuthController@login'); 
-    route::get('/logout','AuthController@getlogout'); 
-    route::post('/login','AuthController@auth'); 
+// 发错
+Route::get('404',function(){
+	return view('admin.nodes.404');
 });
 
-// 后台登录
-Route::resource('admin/login','Admin\LoginController');
+// 前台 广告 申请
+Route::resource('home/create','Home\AdvertController');
 
-// 广告列表
-Route::get('admin/advert/create','Admin\catesController@create');
-
-// 广告
-Route::resource('admin/advert','Admin\AdvertController');
-
-
-
+// 前台 广告 申请
+Route::resource('home/advert','Home\AdvertController');
 
 // 前台 广告 申请
 Route::resource('home/create','Home\AdvertController');
@@ -130,13 +107,6 @@ Route::resource('home/advert','Home\AdvertController');
 
 
 
-
-
-
-
-
-//后台友情链接管理
-Route::resource('admin/link','Admin\LinkController');
 //前台友情链接列表
 Route::resource('home/link','Home\LinkController');
 
@@ -144,8 +114,6 @@ Route::resource('home/link','Home\LinkController');
 Route::resource('home/article','Home\ArticleController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
-//后台精彩文章
-Route::resource('admin/wonderful','Admin\WonderfulController');
 
 
 
@@ -195,20 +163,16 @@ Route::resource('admin/wonderful','Admin\WonderfulController');
 
 
 
-// 后台 模板
-Route::get('admin','Admin\IndexController@index');
-// 后台 测试
-Route::get('admin/users/setdata','Admin\UserController@setdata');
+
+
 // 前台 登录
 Route::get('home/login','Home\IndexController@login');
 // 前台  注册
 Route::resource('home/register','Home\RegisterController');
-// 用户 管理
-Route::resource('admin/users','Admin\UserController');
+
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
-//后台 网站公告
-Route::resource('admin/announcement','Admin\AnnouncementController');
+
 //用户头像上传
 Route::post('home/about/upload','Home\AboutController@upload');
 //用户个人信息
