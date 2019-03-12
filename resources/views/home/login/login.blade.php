@@ -78,12 +78,10 @@
 	</div>
 	<div class="OverWindows"></div>
 	
-    <link href="/home_public/layui/css/layui.css" rel="stylesheet" type="text/css" />
 	
 	<script type="text/javascript" src="/home_public/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/home_public/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src='js/stopExecutionOnTimeout.js?t=1'></script>
-    <script type="text/javascript" src="/home_public/layui/layui.js"></script>
     <script type="text/javascript" src="/home_public/js/Particleground.js"></script>
     <script type="text/javascript" src="/home_public/js/Treatment.js"></script>
     <script type="text/javascript" src="/home_public/js/jquery.mockjax.js"></script>

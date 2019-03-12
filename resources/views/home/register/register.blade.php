@@ -11,35 +11,52 @@
 			background: url(/register/images/1.jpeg);
 			font-size: 15px;
 		}
+		.container{
+			width: 400px;height: 550px;
+			border: 1px lightblue solid;
+			border-radius: 20px;
+			margin: auto;
+			padding: 18px;
+			margin-top: 40px;
+		}
 	</style>
 </head>
 <body>
 	<div>
-		<h1 class="text-center">注册</h1>
-			<div class="container" style="width: 400px;height: auto;">
-			<form action="insert.php" method="post">
+		<div class="container">
+			<h1 class="text-center" style="color: white;font-size: 35px;">注册</h1>
+			<form action="" method="post" style="margin: 3px;padding: 5px;margin-top: 20px;">
+				{{ csrf_field() }}
+			  <div class="form-group">
+			    <label for="uname" style="color: white;">用户名</label>
+			    <input type="text" class="form-control" name="uname" id="uname" placeholder="用户名" autocomplete="on">
+			  </div>
 			  <div class="form-group">
 			    <label for="phone" style="color: white;">手机号</label>
-			    <input type="text" class="form-control" name="phone" id="phone" placeholder="phone">
+			    <input type="text" class="form-control" name="phone" id="phone" placeholder="手机号" autocomplete="on">
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputPassword1" style="color: white;">密码</label>
-			    <input type="password" class="form-control"name="upass" id="exampleInputPassword1" placeholder="Password">
+			    <label for="upass" style="color: white;">密码</label>
+			    <input type="password" class="form-control" name="upass" id="upass" placeholder="密码">
 			  </div>
-			  <div class="form-group" style="width: 258px;display: inline-block;">
+			  <div class="form-group" style="width: 229px;display: inline-block;">
 			    <label for="code" style="color: white;">验证码</label>
-			    <input type="text" class="form-control" name="code" id="code" placeholder="code">
+			    <input type="text" class="form-control" name="code" id="code" placeholder="验证码">
 			  </div>
 			 	<input type="button" onclick="sendPhone(this);" id="sendBtn" value="获取验证码" class="btn btn-success">
-			  <button type="submit" class="btn btn-info form-control">注册</button>
-			</form>		
+			  <button type="submit" id="btn" class="btn btn-info form-control" style="margin-top: 15px;">注册</button>
+			</form>
+			<div style="float:left;margin: 10px 60px;padding: 20px;">
+				<a href="" style="font-size: 25px;color: ">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/home/index" style="font-size: 25px;">首页</a>
+			</div>
 		</div>
 	</div>
 </body>
 </html>
 <script type="text/javascript">
 	function editCon(){
-		var t = 5;
+		var t = 60;
 		var time =null;
 		if(time == null){
 			time = setInterval(function(){
@@ -57,17 +74,44 @@
 			},1000);
 		}
 	}
+		//非空验证
+		$('#btn').click(function () {
+			var uname = $('#uname').val();
+			var phone = $('#phone').val();
+	        var upass = $('#upass').val();
+	        var code = $('#code').val();
+	        if(uname == ''){
+	        	alert('用户名不能为空');
+	        	return false;
+	        }else if(phone == ''){
+	        	alert('手机号不能为空');
+	        	return false;
+	        }else if(upass == ''){
+	        	alert('密码不能为空');
+	        	return false;
+	        }else if(code == '' || code.length != 4){
+	        	alert('验证码不能为空');
+	        	return false;
+	        }
+	    });
 
 	function sendPhone(obj){
 		// // 接收手机号
 		var phone = $('#phone').val();
+		var upass = $('#upass').val();
 		// 定义正则检查手机号是否格式正确
 		var phone_grep = /^1{1}[345678]{1}[0-9]{9}$/;
+		var upass_grep = /^[\w]{6,18}$/;
 		//验证手机号
 		if(!phone_grep.test(phone)){
+			alert('请输入正确的手机号格式！');
 			return false;
 		}
-
+		//验证密码
+		if(!upass_grep.test(upass)){
+			alert('请输入正确的格式！');
+			return false;
+		}
 		// 将js对象转化成jquery对象
 		var object = $(obj);
 		//设置button状态
@@ -89,6 +133,6 @@
 				},'json');	
 			}else{
 				return false;
-			}
-	}
+		}
+	}		    
 </script>
