@@ -115,13 +115,7 @@
                                     <a href="/admin/announcement">公告列表</a>
                                 </li>
                                 <li>
-
-
                                     <a href="/admin/announcement/create">公告添加</a>
-
-
-                                    
-
                                 </li>
                             </ul>
                         </li>
@@ -129,10 +123,10 @@
                             <a href="#"><i class="icon-users"></i>推荐文章管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/nodes">推荐文章列表</a>
+                                    <a href="/admin/wonderful">推荐文章列表</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/nodes/create">文章添加</a>
+                                    <a href="/admin/wonderful/create">文章添加</a>
                                 </li>
                             </ul>
                         </li>
