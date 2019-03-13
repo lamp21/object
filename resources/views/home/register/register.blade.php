@@ -17,7 +17,7 @@
 			border-radius: 20px;
 			margin: auto;
 			padding: 18px;
-			margin-top: 40px;
+			margin-top: 30px;
 		}
 	</style>
 </head>
@@ -46,7 +46,7 @@
 			 	<input type="button" onclick="sendPhone(this);" id="sendBtn" value="获取验证码" class="btn btn-success">
 			  <button type="submit" id="btn" class="btn btn-info form-control" style="margin-top: 15px;">注册</button>
 			</form>
-			<div style="float:left;margin: 10px 60px;padding: 20px;">
+			<div style="float:left;margin: 5px 95px;padding: 20px;">
 				<a href="/home/login" style="font-size: 25px;color: ">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/home/index" style="font-size: 25px;">首页</a>
 			</div>
