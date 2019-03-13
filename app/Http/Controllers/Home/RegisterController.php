@@ -41,13 +41,13 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {   
-        
-        $data = $request->except(['_token']);
+        $data = $request->except(['_token','code']);
         $users = new Users;
         $users->upass = Hash::make($data['upass']);
+        $users->uname = $data['uname'];
         $users->phone = $data['phone'];
-        // $res = $users->save();
-        // dd($res);
+        $res = $users->save();
+        dd($res);
     }
 
     /**
@@ -124,7 +124,7 @@ class RegisterController extends Controller
             if($error_code == 0){
 
                 //存进session
-                $session = Session::save('code',11111111);
+                $session = Session::save('code',$phone_code);
                 //状态为0，说明短信发送成功
                 $arr = [
                     'code'=>'0',

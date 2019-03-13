@@ -213,7 +213,7 @@ Route::get('admin','Admin\IndexController@index');
 // 后台 测试
 Route::get('admin/users/setdata','Admin\UserController@setdata');
 // 前台 登录
-Route::get('home/login','Home\IndexController@login');
+Route::get('home/login','Home\LoginController@index');
 // 前台  注册
 Route::get('home/register/sendPhone','Home\RegisterController@sendPhone');
 Route::resource('home/register','Home\RegisterController');
