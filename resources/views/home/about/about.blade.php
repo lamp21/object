@@ -25,7 +25,19 @@
 		      </tr><br>
 		      <tr>
 		        <td id="add_a">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</td>
-		        <td>{{ $value->sex }}</td>
+		        <td>
+		        	@switch($value->sex)
+						@case(0)
+							男
+						@break
+						@case(1)
+							女
+						@break
+						@case(2)
+							保密
+						@break
+		        	@endswitch
+		        </td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</td>

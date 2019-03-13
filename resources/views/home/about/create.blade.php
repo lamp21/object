@@ -128,13 +128,28 @@
 	<script type="text/javascript">
     	function uploadImg(){
     		var path = $('#img_thumb').val();
-
+    		var fileSize = $('#img_thumb')[0].files[0].size; //单位b
+    		
     		//判断上传文件的后缀名是否符合
             var exc = path.substr(path.lastIndexOf('.') + 1);
             if (exc != 'jpg' && exc != 'gif' && exc != 'png' && exc != 'jpeg') {
-                alert("请选择正确的图片格式");
+                alert("请选择正确的gif,png,jpg,jpeg图片格式!");
                 return false;
             }
+
+            //图片大小验证
+		    var fileMaxSize = 3072;//1M
+		    // var filePath = file.value;
+		    // if(filePath){
+		        var size = fileSize /1024;
+		        console.log(size);
+		        if (size > fileMaxSize) {
+		            alert("文件大小不能大于3M！");
+		            // file.value = "";
+		            return false;
+		        // }
+		    	}
+		
             // console.log($('#infoLogoForm')[0])
             // debugger;
     		$.ajax({

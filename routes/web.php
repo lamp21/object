@@ -87,11 +87,11 @@ Route::resource('home/create','Home\AdvertController');
 // 前台 广告 申请
 Route::resource('home/advert','Home\AdvertController');
 
-// 前台 广告 申请
-Route::resource('home/create','Home\AdvertController');
 
-// 前台 广告 申请
-Route::resource('home/advert','Home\AdvertController');
+
+
+
+
 
 
 
