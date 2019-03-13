@@ -58,6 +58,6 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         session(['users'=>null]);
-        return redirect('admin/login');
+        return redirect('/login');
     }
 }

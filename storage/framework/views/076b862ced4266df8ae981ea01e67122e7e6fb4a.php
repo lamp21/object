@@ -39,7 +39,6 @@
                         <ul class="dropdown-menu dropdown-messages">
                             <li class="divider">
                             你好,<?php echo e(session('userinfo')->uname); ?>
-
                             </li>
                         </ul>
                         <!-- /.dropdown-messages -->
