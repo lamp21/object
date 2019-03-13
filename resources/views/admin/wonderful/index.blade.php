@@ -44,35 +44,43 @@
 		</tr>
     </thead>
     <tbody>      
+    @foreach($wonderful_info as $k=>$v) 
     <tr style="background:none;">
-        <td class="text-center">测试</td>
-        <td class="text-center">测试</td>
-        <td class="text-center">测试</td>
-        <td class="text-center">测试</td>
-        <td class="text-center">测试</td>
-        <td class="text-center">测试</td>
+        <td class="text-center">{{$v->id}}</td>
+        <td class="text-center">{{$v->title}}</td>
         <td class="text-center">
-        	<abbr title="测试">
-        		测试
+        	<img src="{{$v->wd_img}}" alt="文章封面图" style="width: 50px;">		
+        </td>
+        <td class="text-center">{{$v->wd_form}}</td>
+        <td class="text-center">{{$v->wd_time}}</td>
+        <td class="text-center">{{$v->cate_uid}}</td>
+        <td class="text-center">
+        	<abbr title="{{$v->content}}">
+        		<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
+          			{{$v->content}}
+          		</p>
         	</abbr>
     	</td>
-        <td class="text-center">测试</td>
+    	@if ($v->status == 1) 
+			<td class="text-center"><b style="color: red;">{{'收起'}}</b></td>
+    	@elseif ($v->status == 2) 
+        	<td class="text-center"><b style="color: blue;">{{'展示'}}</b></td>
+        @endif
         <td class="text-center">
-        	<a href="/" class="btn btn-success">修改</a>
+        	<a href="/admin/wonderful/{{ $v->id }}/edit" class="btn btn-success">修改</a>
         	<form action="/" method="post" style="display: inline-block;">
-
         		<input type="submit" value="删除" name="" class="btn btn-danger">
         	</form>
         </td>
     </tr>
-
+@endforeach
 	</tbody>
     </table>
     <div class="table-responsive">
 	  <div class="row">
 	    <div class="col-sm-12">
 	    	<div style="float:right;">
-	    		
+	    		{{ $wonderful_info->appends($request)->links() }}
 	    	</div>
 	     </div>
 	    <div class="col-sm-6">

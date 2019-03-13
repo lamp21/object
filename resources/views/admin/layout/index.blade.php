@@ -91,9 +91,6 @@
                                 <li>
                                     <a href="/admin/link">申请列表</a>
                                 </li>
-                                <li>
-                                    <a href="/admin/link/agree">通过审核列表</a>
-                                </li>
                             </ul>
                         </li>
                         <li>

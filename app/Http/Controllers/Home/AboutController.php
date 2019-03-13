@@ -19,14 +19,15 @@ class AboutController extends Controller
         return view('home.about.about',['cates_data'=>$cates_data]);
     }
 
-    /**
+    /**s
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $cates_data = Controller::cates_data();
+        return view('home.about.create',['cates_data'=>$cates_data]);
     }
 
     /**
@@ -36,8 +37,10 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        echo "<pre>";
+            print_r($request->all());
+        echo "</pre>";
     }
 
     /**
@@ -82,6 +85,31 @@ class AboutController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+    }
+
+    /**
+     * @param  头像上传
+     * @return [type]
+     */
+    public function upload(Request $request)
+    {  
+        //接收数据
+        $file = $request->file('img_thumb');
+        
+        if($file->isValid()){
+            //获取图片的后缀名
+            $extension = $file->extension();
+
+            //存储名称
+            $newfile = md5(date('YmdHis').rand(1000,9999)).'.'.$extension;
+
+            // 将文件上传到本地服务器
+            //将文件从临时目录移动到制定目录
+            $path = $file->move(public_path().'/upload',$newfile);
+            //将上传文件的路径返回给客户端
+            return '/upload/'.$newfile; 
+        }
+
     }
 }

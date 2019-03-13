@@ -9,7 +9,7 @@
         		<h2><div class="title">推荐文章管理</div></h2>
    			</div>
     	</div>
-		<form class="form-horizontal" action="/admin/wonderful" method="post">
+		<form class="form-horizontal" action="/admin/wonderful" method="post" id="ImgForm" enctype="multipart/form-data">
 		  	{{ csrf_field() }}
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">标题</label>
@@ -20,9 +20,8 @@
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">文章封面图</label>
 			    <div class="col-sm-10" style="width:600px;">
-			    <input type="file" name="wd_img" onchange="showPreview(this)" class="file" /> 
-         		<img id="portrait" src="" width="70" height="75"> 
-
+			    <input type="file" onchange="uploadphoto()" id="wd_img" name="wd_img"/>
+			    <img src="" alt="" id="img"  name="img" style="width: 200px;">
 			    </div>
 			</div>
 		   	<div class="form-group">
@@ -34,7 +33,7 @@
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">发表时间</label>
 			    <div class="col-sm-10" style="width:600px;">
-			        <input type="text" class="form-control" placeholder="发表时间" name="wd_time" >
+			        <input type="text" class="form-control" placeholder="发表时间 按照默认格式填写:20xx-xx-xx" name="wd_time" >
 			    </div>
 		  	</div>
 		  	<div class="form-group">
@@ -84,5 +83,33 @@
 		</form>
     </div>
 </div>
-
+<script>
+	function uploadphoto(){
+    		var path = $('#wd_img').val();
+    		//判断上传文件的后缀名是否符合
+            var exc = path.substr(path.lastIndexOf('.') + 1);
+            if (exc != 'jpg' && exc != 'gif' && exc != 'png' && exc != 'jpeg') {
+                alert("请选择正确的图片格式");
+                return false;
+            }
+            // console.log($('#ImgForm')[0])
+            // debugger;
+    		$.ajax({
+				url: "/admin/wonderful/upload",
+				type: 'POST',
+				data: new FormData($('#ImgForm')[0]), // 内置对象 创建表单 
+				//data:form,
+				processData:false, //不限定格式
+				sync : false,
+				contentType:false, //不进行特定格式编码
+				dataType:"text",
+				success : function(data){
+				//alert(data);
+				//成功 修改头像路径
+					//修改图片
+					$('#img').attr('src',data);
+				}
+			});
+    	}
+</script>
 @endsection

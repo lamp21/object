@@ -24,10 +24,14 @@ class WonderfulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $wonderinfo = DB::table('wonderful')->get();
+        $count = $request->input('count',5);
+        $search = $request->input('search','');
+        $wonderful_info = DB::table('wonderful')->where('title','like','%'.$search.'%')->paginate($count);
         //加载视图
-        return view('admin.wonderful.index');
+        return view('admin.wonderful.index',['wonderful_info'=>$wonderful_info,'request'=>$request->all()]);
     }
 
     /**
@@ -52,40 +56,30 @@ class WonderfulController extends Controller
         //开启事务
         DB::beginTransaction();
         //dump($request->input('wd_img'));
+        $wd_img = $this->upload($request);
+        //修改分类uid为分类名
+        $cate_info = $request->input('cate_uid');
+        $cate_uid = DB::table('cates')->where('id',$cate_info)->value('cname');
 
         //添加数据到数据库
-        // $wonderfuladd = DB::table('wonderful')->insert([
-        //     'wd_img' => $request->input('wd_img'),
-        //     'title' => $request->input('title'),
-        //     'wd_form' => $request->input('wd_form'),
-        //     'wd_time' => $request->input('wd_time'),
-        //     'cate_uid' => $request->input('cate_uid'),
-        //     'content' => $request->input('content'),
-        //     'status' => $request->input('status'),
-        //     ]);
-        // if ($wonderfuladd) {
-        //    // 执行 添加 
-        //     DB::commit();
-        //     return redirect('/admin/wonderful')->with('success','添加成功');
-        // }else{
-        //     DB::rollBack();
-        //     return back()->with('error','添加失败');
-        // }
-        if($_FILES['wd_img']['error']>0){ 
-            DB::rollBack();
-            return back()->with('error','提交失败');
-        }
-        $dir='/public/admin_public/assets/img'; 
-        $type=substr($_FILES['wd_img']['name'],strrpos($_FILES['wd_img']['name'],'.')); 
-        $filename=time().rand(1000,9999).$type; 
-        if(is_uploaded_file($_FILES['wd_img']['tmp_name'])){ 
-            move_uploaded_file($_FILES['wd_img']['tmp_name'],$dir.$filename);
+        $wonderfuladd = DB::table('wonderful')->insert([
+            'wd_img' =>$wd_img ,
+            'title' => $request->input('title'),
+            'wd_form' => $request->input('wd_form'),
+            'wd_time' => $request->input('wd_time'),
+            'cate_uid' => $cate_uid,
+            'content' => $request->input('content'),
+            'status' => $request->input('status'),
+            ]);
+        if ($wonderfuladd) {
+           // 执行 添加 
             DB::commit();
             return redirect('/admin/wonderful')->with('success','添加成功');
         }else{
             DB::rollBack();
             return back()->with('error','添加失败');
         }
+       
     }
 
     /**
@@ -105,9 +99,13 @@ class WonderfulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id=0)
     {
-        //
+        //修改内容
+        //dump($id);
+        $update_id = DB::table('wonderful')->find($id);
+        return view('admin.wonderful.edit',['id'=>$id,'cate_uid'=>self::getCates(),'update_id'=>$update_id]);
+            
     }
 
     /**
@@ -119,7 +117,27 @@ class WonderfulController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cate_data = $request->input('cate_uid');
+        $cate_uid = DB::table('cates')->where('id',$cate_data)->value('cname');
+        $upload_file = $this->upload($request);
+        //dump($upload_file);
+        $res = DB::table('wonderful')->where('id',$id)->update([
+            'wd_img' =>$upload_file,
+            'title' => $request->input('title'),
+            'wd_form' => $request->input('wd_form'),
+            'wd_time' => $request->input('wd_time'),
+            'cate_uid' => $cate_uid,
+            'content' => $request->input('content'),
+            'status' => $request->input('status'),
+        ]);
+        if ($res) {
+           // 执行 添加 
+            DB::commit();
+            return redirect('/admin/wonderful')->with('success','添加成功');
+        }else{
+            DB::rollBack();
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -131,5 +149,25 @@ class WonderfulController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function upload(Request $request)
+    {  
+        //接收数据
+        $file = $request->file('wd_img');
+        
+        if($file->isValid()){
+            //获取图片的后缀名
+            $extension = $file->extension();
+
+            //存储名称
+            $newfile = md5(date('YmdHis').rand(1000,9999)).'.'.$extension;
+
+            // 将文件上传到本地服务器
+            //将文件从临时目录移动到制定目录
+            $path = $file->move(public_path().'/upload',$newfile);
+            //将上传文件的路径返回给客户端
+            return '/upload/'.$newfile; 
+        }
     }
 }

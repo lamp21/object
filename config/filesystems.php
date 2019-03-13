@@ -56,6 +56,15 @@ return [
             'visibility' => 'public',
         ],
 
+        /**
+         * 头像上传
+         */
+        'upload' =>[
+            'driver' => 'local',
+            // 'root' => storage_path('app'),
+            'root' => public_path('upload/'.time(date('Ymd'))),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
