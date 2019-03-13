@@ -29,8 +29,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
-                    <div id="sideNav">
+                    <a class="navbar-brand" href="#"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
+                    <div id="sideNav" href="" class="">
                         <i class="fa fa-bars icon"></i> 
                     </div>
                 </div>
@@ -158,7 +158,7 @@
             <div id="page-wrapper" style="top: 0px;">
               <div class="header">
                 <!-- 内容开始 -->       
-                    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+                    <div class="copyrights">Collect from <a href="" >企业网站模板</a></div>
                         <div class="row">
                             <br>
                             <!-- 显示错误信息 -->
