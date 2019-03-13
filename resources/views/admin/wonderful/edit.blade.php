@@ -6,11 +6,10 @@
     <div class="panel panel-default">
 		<div class="panel-heading">       
    		 	<div class="card-title">
-        		<h2><div class="title">推荐文章管理</div></h2>
+        		<h2><div class="title">请修改你的内容</div></h2>
    			</div>
     	</div>
-		<form class="form-horizontal" action="/admin/wonderful" method="post" id="ImgForm" enctype="multipart/form-data">
-		  	{{ csrf_field() }}
+		<form class="form-horizontal" action="/admin/wonderful/{{$update_id->id}}" method="post" id="ImgForm" enctype="multipart/form-data">
 		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">标题</label>
 			    <div class="col-sm-10" style="width:600px;">
@@ -76,10 +75,12 @@
 		  	</div>
 		    <div class="form-group">
 		        <div class="col-sm-offset-2 col-sm-10">
-		            <button type="submit" class="btn btn-default btn btn-info">提交</button>
+		            <button type="submit" class="btn btn-success">修改</button>
 		            <button type="reset" class="btn btn-default">重置</button>
 		        </div>
 		    </div>
+		    {{ method_field('PUT') }}
+		  	{{ csrf_field() }}
 		</form>
     </div>
 </div>

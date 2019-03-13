@@ -114,6 +114,11 @@ Route::resource('home/link','Home\LinkController');
 Route::resource('home/article','Home\ArticleController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
+//后台精彩文章
+Route::resource('admin/wonderful','Admin\WonderfulController');
+//封面图上传
+Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
+
 
 
 
