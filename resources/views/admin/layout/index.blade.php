@@ -38,7 +38,7 @@
                 <ul class="nav navbar-top-links navbar-right">
                         <ul class="dropdown-menu dropdown-messages">
                             <li class="divider">
-                            你好,{{ session('userinfo')->uname }}
+                        
                             </li>
                         </ul>
                         <!-- /.dropdown-messages -->
@@ -48,7 +48,7 @@
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i>你好,{{ session('userinfo')->uname }}</a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>你好,</a>
                             </li>
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> 头像</a>
                             </li>
