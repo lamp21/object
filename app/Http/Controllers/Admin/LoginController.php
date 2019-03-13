@@ -4,164 +4,60 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserStoreRequest;
 
-use App\Models\Users;
-use App\Models\admin_user;
-use Hash;
 use DB;
+use Hash;
 
-use Auth;
 class LoginController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        //echo "aaaa";
-        
-        return view('admin.login.login');
+{   
+    // 进展 登录 页面
+    public function login(){
+
+        return view('admin.login.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    // 处理 登录
+    public function dologin(Request $request){
+        // 接收 数据
+        $data = $request->except(['_token']);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    public function store(Request $request)
-    {   
-        // $data = $request->all();
-        
-
-        // $username = $data['uname'];
-        // $password = md5($data['upass']);
-
-        // //判断长度是否一致,正则
-        
-        // //判断数据库是否有该用户
-        // $map['uname'] = $username;
-        // $map['password'] = $password;
-
-        // //判断是否禁用
-        // /*$map['status'] = 0;
-
-        // //判断是不是管理员
-        // $map['level'] = array('gt',1);*/
-
-        // $user = new Admin_User;
-        // $userinfo = $user->where($map)->select();
-        // //var_dump($userinfo);
-        // if($userinfo){
-        //     unset($userinfo[0]['password']);
-        //     $_SESSION['admin'] = $userinfo[0];
-        //     //var_dump($_SESSION);
-            
-          
-        //     return redirect('/admin/')->with('success','登录成功');
-        // }else{
-           
-        //      return back()->with('error','登录失败');
-        // }
-    
-
-
-        // dump($request->all());
-        // $users = new admin_user;
-        // DB::beginTransaction();
-        // //
-        // $data = $request->except(['_token']);
-                //dd($data['uname']);
-        
-        // $users = new admin_user;
-        $uname = $_POST['uname'];
-        $password = Hash::make($_POST['password']);
-        //dd($users->uname);
-        // $data_info = DB::table('admin_user')->first();
-        //dd($data_info);
-        // $data_info['uname'] =  $users->uname;
-        // $data_info['password'] =  $users->password;
-        // if (Auth::attempt(['uname' => $users->uname, 'password' =>$users->password]) == $data_info) {
-        //     // 认证通过...
-        //     return redirect('/admin/index/')->intended('dashboard','登录成功');
-        // }
-        // dd($userinfo);
-            
-        if ($uname == DB::table('admin_user','uname')->first()){
-            return $uname = false;
-            if ($password == DB::table('admin_user','password')->first()) {
-                return $password = false;
-            }
-            return redirect('/admin/users/')->with('success','登录成功');
-        }else{
-            return back()->with('error','登录失败');
+        // 通过用户获取密码
+        $userinfo = DB::table('users')->where('uname',$data['uname'])->first();
+        if(!$userinfo){
+            echo "<script>alert('用户不存在');location='/login';</script>";
+        }
+        if(!Hash::check($data['upass'],$userinfo->upass)){
+            echo "<script>alert('密码错误');location='/login';</script>";
         }
 
+        // 获取用户当前的权限
+        $admin_nodes = DB::select('select n.cname,n.aname from nodes as n,users_roles as ur,roles_nodes as rn where ur.uid = '.$userinfo->id.' and ur.rid = rn.rid and rn.nid = n.id');
+        $arr = [];
+        foreach($admin_nodes as $key => $value){
+            $arr[$value->cname][] = $value->aname;
+            if($value->aname == 'create'){
+                $arr[$value->cname][] = 'store';
+            }
+            if($value->aname == 'edit'){
+                $arr[$value->cname][] = 'update';
+            }
+        }
+        // 赋值 后天 首页操作
+        $arr['indexcontroller'][] = 'index';
+        // 将获取到的权限 放入到session
+        session(['admin_node_type'=>$arr]);
 
-        // if($data_info){
-        //     //DB::commit();
-        //     return redirect('/admin/users/')->with('success','登录成功');
-        // }else{
-        //     //DB::rollBack();
-        //     return back()->with('error','登录失败');
-        // }
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        session(['admin_login'=>true]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        session(['userinfo'=>$userinfo]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        // 登录成功
+        echo "<script>alert('登录成功');location='/admin';</script>";
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    
+    public function logout(Request $request)
     {
-        //
+        session(['users'=>null]);
+        return redirect('admin/login');
     }
 }

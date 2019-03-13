@@ -3,7 +3,7 @@
 namespace Illuminate\Routing;
 
 use BadMethodCallException;
-
+use App\Http\Controllers\Admin\LoginController;
 abstract class Controller
 {
     /**

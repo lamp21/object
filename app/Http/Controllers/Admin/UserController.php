@@ -16,6 +16,45 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function role($id){
+        // 获取 所有 的 用户
+        $user = Users::find($id);
+
+        // 获取 所有 的 用户 角色的ID
+        $user_role_data = DB::table('users_roles')->select('rid')->where('uid',$id)->get();
+        $user_role_data_rids = [];
+        foreach ($user_role_data as $value) {
+            $rid = $value->rid;
+            $user_role_data_rids[] = $rid;
+        }
+        // 获取 所有 的 角色
+        $roles_data = DB::table('roles')->get();
+        return view('admin.users.role',['user'=>$user,'roles_data'=>$roles_data,'user_role_data_rids'=>$user_role_data_rids]);
+    }
+
+    public function updaterole(Request $request,$uid){
+
+        // 获取 角色ID
+        $rids = $request->input('rids');
+        
+        // 删除 角色ID
+        DB::table('users_roles')->where('uid',$uid)->delete();
+
+        foreach ($rids as $rid) {
+            $temp = [
+                'uid'=>$uid,
+                'rid'=>$rid,
+            ];
+            DB::table('users_roles')->insert($temp);
+        }
+        return back()->with('success','修改成功');
+    }
+
+    public function editnodes(){
+        
+    }
+
     public function index(Request $request)
     {
         

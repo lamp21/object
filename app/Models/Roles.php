@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Admin_user extends Model
+class Roles extends Model
 {
     //
-    public $table = 'admin_user';
+    public $table = 'roles';
     
 }
-?>
