@@ -38,7 +38,7 @@
                 <ul class="nav navbar-top-links navbar-right">
                         <ul class="dropdown-menu dropdown-messages">
                             <li class="divider">
-                            你好,{{ session('userinfo')->uname }}
+                            <!-- 你好,{{ session('userinfo')->uname }} -->
                             </li>
                         </ul>
                         <!-- /.dropdown-messages -->
