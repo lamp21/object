@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Users;
+use App\Models\Home_Users;
 use Hash;
 use DB;
 use Illuminate\Support\Facades\Cookie;
@@ -40,14 +41,32 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {   
-        echo session()->get('login_code');exit;
-        $data = $request->except(['_token','code']);
-        $users = new Users;
+        $data = $request->all();
+        $user_code = $request->session()->get(1);
+        $users = new Home_Users;
         $users->upass = Hash::make($data['upass']);
         $users->uname = $data['uname'];
         $users->phone = $data['phone'];
-        // $res = $users->save();
-        // dd($res);
+        //判断验证码
+        if($data['code'] != $user_code){
+            echo "<script>alert('验证码不正确，请重新输入！');location='/home/register';</script>";
+            return false;
+        }
+        $data = $request->except(['_token','code']);
+        //验证接收过来的号码有没有注册过
+        $phone = DB::table('home_users')->where('phone',$data['phone'])->first();
+        if($data['phone'] = $phone){
+            echo "<script>alert('此号码已经被注册！');location='/home/register';</script>";
+            return false;
+        }
+
+        //写进数据库
+        $res = $users->save();
+        if($res){
+            return redirect('home/login');
+        }else{
+            return back();
+        }
     }
 
     /**
@@ -109,9 +128,9 @@ class RegisterController extends Controller
         $sendUrl = 'http://v.juhe.cn/sms/send'; //短信接口的URL
           
         $smsConf = array(
-            'key'   => '4534b1b4f1fc6e953ee68b97fc86dc92', //您申请的APPKEY
+            'key'   => '4daa6ed7b976953f4edc2273582e9d5a', //您申请的APPKEY
             'mobile'    => $phone, //接受短信的用户手机号码
-            'tpl_id'    => '132638', //您申请的短信模板ID，根据实际情况修改
+            'tpl_id'    => '142856', //您申请的短信模板ID，根据实际情况修改
             'tpl_value' =>'#code#='.$phone_code //您设置的模板变量，根据实际情况修改
         );
          
@@ -124,7 +143,7 @@ class RegisterController extends Controller
             if($error_code == 0){
 
                 //存进session
-                $session = session(['login_code'.'1',$phone_code]);
+                $session = session(['login_code',$phone_code]);
                 // $num = seesion()->get('login_code'.'1');
                 //状态为0，说明短信发送成功
                 $arr = [

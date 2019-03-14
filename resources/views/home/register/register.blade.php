@@ -25,19 +25,19 @@
 	<div>
 		<div class="container">
 			<h1 class="text-center" style="color: white;font-size: 35px;">注册</h1>
-			<form action="" method="post" style="margin: 3px;padding: 5px;margin-top: 20px;">
+			<form action="/home/register" method="post" style="margin: 3px;padding: 5px;margin-top: 20px;">
 				{{ csrf_field() }}
 			  <div class="form-group">
 			    <label for="uname" style="color: white;">用户名</label>
-			    <input type="text" class="form-control" name="uname" id="uname" placeholder="用户名" autocomplete="on">
+			    <input type="text" class="form-control" name="uname" id="uname" placeholder="用户名" autocomplete="on" value="{{ old('uname')}}">
 			  </div>
 			  <div class="form-group">
 			    <label for="phone" style="color: white;">手机号</label>
-			    <input type="text" class="form-control" name="phone" id="phone" placeholder="手机号" autocomplete="on">
+			    <input type="text" class="form-control" name="phone" id="phone" placeholder="手机号" autocomplete="on" value="{{ old('phone')}}">
 			  </div>
 			  <div class="form-group">
 			    <label for="upass" style="color: white;">密码</label>
-			    <input type="password" class="form-control" name="upass" id="upass" placeholder="密码">
+			    <input type="password" class="form-control" name="upass" id="upass" placeholder="请输入6～18位密码">
 			  </div>
 			  <div class="form-group" style="width: 229px;display: inline-block;">
 			    <label for="code" style="color: white;">验证码</label>
@@ -109,7 +109,7 @@
 		}
 		//验证密码
 		if(!upass_grep.test(upass)){
-			alert('请输入正确的格式！');
+			alert('请输入正确的密码格式！');
 			return false;
 		}
 		// 将js对象转化成jquery对象

@@ -79,6 +79,14 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class="icon-users"></i>前台用户管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/admin/home_users">前台用户列表</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#"><i class="icon-users"></i>分类管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

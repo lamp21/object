@@ -152,8 +152,14 @@ a {
           <li><a href="/home/wonderful/">推荐文章</a></li>
           <li><a href="/home/article/create"><b style="color: yellow;">+&nbsp;发布文章</b></a></li>
           <li><a href="/home/about">关于我</a></li>
-          <li><a href="/home/login">登录</a></li>
-          <li><a href="">注册</a></li>
+        
+          @if(isset(session('userinfo')->uname))
+              <li><a href="/home/about">{{ session('userinfo')->uname }}</a></li>
+              <li><a href="/home/logout">退出</a></li>
+          @else
+             <li><a href="/home/login">登录</a></li>
+              <li><a href="/home/register">注册</a></li>
+          @endif
         </div>
       </ul>
     </nav>

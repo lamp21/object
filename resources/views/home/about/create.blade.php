@@ -133,7 +133,7 @@
     		//判断上传文件的后缀名是否符合
             var exc = path.substr(path.lastIndexOf('.') + 1);
             if (exc != 'jpg' && exc != 'gif' && exc != 'png' && exc != 'jpeg') {
-                alert("请选择正确的gif,png,jpg,jpeg图片格式!");
+                alert("请选择正确的gif,png,jpg,jpeg格式!");
                 return false;
             }
 
@@ -141,8 +141,8 @@
 		    var fileMaxSize = 3072;//1M
 		    // var filePath = file.value;
 		    // if(filePath){
-		        var size = fileSize /1024;
-		        console.log(size);
+		        var size = fileSize /3072;
+		        console.log(size);debugger;
 		        if (size > fileMaxSize) {
 		            alert("文件大小不能大于3M！");
 		            // file.value = "";

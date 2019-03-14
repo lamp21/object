@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Usersinfo;
 use App\Models\Users;
+use App\Models\Home_Users;
 class AboutController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class AboutController extends Controller
         return view('home.about.about',['cates_data'=>$cates_data,'value'=>$value]);
     }
 
-    /**s
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -43,9 +44,11 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {   
+        $data = $request->all();
+        
         $data = $request->except(['_token']);
         $userinfo = new Usersinfo;
-        $users = new Users;
+        $users = new Home_Users;
         //接收返回的id
         $id = $users->id;
         $userinfo->uid = $id =11;

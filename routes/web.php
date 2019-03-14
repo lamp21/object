@@ -12,6 +12,7 @@
 
 Route::get('/', function () {
 	session(['admin_login'=>false]);
+	session(['home_login'=>true]);
     return view('welcome');
 });
 
@@ -158,7 +159,7 @@ Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
 
 
 
-
+   
 
 
 
@@ -171,19 +172,25 @@ Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
 
 
 // 前台 登录
-Route::get('home/login','Home\LoginController@index');
+Route::get('home/login','Home\LoginController@login');
+Route::any('home/dologin','Home\LoginController@dologin');
 // 前台  注册
 Route::get('home/register/sendPhone','Home\RegisterController@sendPhone');
 Route::resource('home/register','Home\RegisterController');
-
+//退出登录
+Route::any('/home/logout', 'Home\LoginController@logout');
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
-
+//前台用户管理
+Route::resource('admin/home_users','Admin\Home_UsersController');
 //用户头像上传
 Route::post('home/about/upload','Home\AboutController@upload');
 //用户个人信息
 Route::resource('home/about','Home\AboutController');
-
+//读取全部session的值
+Route::any('123',function(){
+	dump(session()->all());
+});
 
 
 
