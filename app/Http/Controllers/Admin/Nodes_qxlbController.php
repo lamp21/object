@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Roles;
 use App\Models\Nodes;
 use DB;
-class NodesController extends Controller
+class Nodes_qxlbController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,7 +43,7 @@ class NodesController extends Controller
         }
         $res = DB::table('nodes')->insert($data);
         if($res){
-           return redirect('admin/nodes')->with('success','添加成功');
+           return redirect('admin/nodes_qxlb')->with('success','添加成功');
        }else{
            return back()->with('success','添加失败');
        }

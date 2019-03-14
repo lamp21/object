@@ -99,15 +99,15 @@ class UserController extends Controller
         $users->phone = $data['phone'];
         $res1 = $users->save();
         //接收返回的id
-        $id = $users->id;
+        // $id = $users->id;
 
 
-        $userinfo = new Usersinfo;
-        $userinfo->uid = $id;
-        $userinfo->description = $data['description'];
-        $res2 = $userinfo->save();
+        // $userinfo = new Usersinfo;
+        // $userinfo->uid = $id;
+        // $userinfo->description = $data['description'];
+        // $res2 = $userinfo->save();
 
-        if($res1 && $res2){
+        if($res1){
             DB::commit();
             return redirect('admin/users')->with('success','添加成功');
         }else{
@@ -159,15 +159,15 @@ class UserController extends Controller
 
         //修改主表
         $user = Users::find($id);
-        $user->email = $request->input('email','');
+        // $user->email = $request->input('email','');
         $user->phone = $request->input('phone','');
         $res1 = $user->save();
-        $description = $request->input('description','');
+        // $description = $request->input('description','');
 
         //修改附表
-        $res2 = Usersinfo::where('uid',$id)->update(['description'=>$description]);
+        // $res2 = Usersinfo::where('uid',$id)->update(['description'=>$description]);
 
-        if($res1 && $res2){
+        if($res1){
             DB::commit();
             return redirect('admin/users')->with('success','修改成功');
         }else{
@@ -191,8 +191,8 @@ class UserController extends Controller
         DB::beginTransaction();
 
         $res1 = Users::destroy($id);
-        $res2 = Usersinfo::where('uid',$id)->delete();
-        if($res1 && $res2){
+        // $res2 = Usersinfo::where('uid',$id)->delete();
+        if($res1){
             DB::commit();
             return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
         }else{

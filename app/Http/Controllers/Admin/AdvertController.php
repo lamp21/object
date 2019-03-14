@@ -113,12 +113,14 @@ class AdvertController extends Controller
         // dump($request->all());exit;
         // echo $id;
         $advert = Advert::find($id);
-        $advert->pic = $request->input('pic','');
+        // $advert->pic = $request->input('pic','');
         // $file = $advert->file('pic','');
         
         // dump($advert->pic);exit;
         // 执行 图片上传
-        $advert->pic = $request->pic->store('');
+        dump($id->pic);exit;
+        
+        // $advert->pic = $id->pic->store('');
         $advert->url = $request->input('url','');
         $advert->content = $request->input('content','');
 
@@ -130,7 +132,7 @@ class AdvertController extends Controller
         }else{
             // DB::rollBack();
             return back()->with('error','修改失败');
-        } 
+        }
     }
 
     /**
