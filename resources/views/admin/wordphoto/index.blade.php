@@ -4,7 +4,7 @@
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-	    <h2>推荐文章列表</h2>
+	    <h2>轮播图管理列表</h2>
 	</div>
 	<div class="panel-body">
     <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
@@ -33,62 +33,55 @@
         <div class="table-responsive">
 		  <tr role="row">
 		    <th class="text-center">ID</th>
-		    <th class="text-center">文章标题</th>
-		    <th class="text-center">文章封面图</th>
-		    <th class="text-center">摘自来源</th>
-		    <th class="text-center">发表时间</th>
-		    <th class="text-center">分类</th>
+		    <th class="text-center">轮播图片</th>
+		    <th class="text-center">标题</th>
+		    <th class="text-center">来源</th>
+		    <th class="text-center">发布时间</th>
 		    <th class="text-center">正文</th>
-		    <th class="text-center">前台显示</th>
+		    <th class="text-center">前台展示</th>
 		    <th class="text-center">操作</th>
 		</tr>
     </thead>
-    <tbody>      
-    @foreach($wonderful_info as $k=>$v) 
-    <tr style="background:none;">
-        <td style="text-align:center;vertical-align:middle;">{{$v->id}}</td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->title}}</td>
-        <td style="text-align:center;vertical-align:middle;">
-        	<img src="{{$v->wd_img}}" alt="文章封面图" style="width: 100px;">		
-        </td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->wd_form}}</td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->wd_time}}</td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->cate_uid}}</td>
-        <td style="text-align:center;vertical-align:middle;">
-        	<abbr title="{{$v->content}}">
-        		{!!$v->content!!}
-        	</abbr>
-    	</td>
-    	@if ($v->status == 1) 
+    <tbody>  
+        @foreach($wordphoto_info as $k=>$v)
+        <tr style="background:none;">
+        	<td style="text-align:center;vertical-align:middle;">{{$v->id}}</td>
+	        <td style="text-align:center;vertical-align:middle;">
+	        	<img src="{{$v->pic}}" alt="轮播图片" style="width: 100px;">	
+	        </td>
+	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_title}}</td>
+	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_form}}</td>
+	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_time}}</td>
+	        <td style="text-align:center;vertical-align:middle;">
+	        	<abbr title="{!!$v->pic_content!!}">
+		      			{!!$v->pic_content!!}
+          		</abbr>
+	        </td>
+	        @if($v->pic_status = 1)
+	        <td style="text-align:center;vertical-align:middle;">
+	        	<b style="color: red;">收起</b>
+	        </td>
+			@elseif($v->pic_status = 2)
 			<td style="text-align:center;vertical-align:middle;">
-				<a href="/admin/wonderful/{{$v->id}}/change">
-					<b style="color: red;">收起</b>
-				</a>
-			</td>
-    	@elseif ($v->status == 2)
-        	<td style="text-align:center;vertical-align:middle;">
-        		<a href="/admin/wonderful/{{$v->id}}/dochange">
-        			<b style="color: blue;">展示</b>
-        		</a>
-        	</td>
-        @endif
-        <td style="text-align:center;vertical-align:middle;">
-        	<a href="/admin/wonderful/{{ $v->id }}/edit" class="btn btn-success">修改</a>
-        	<form action="/admin/wonderful/{{$v->id}}" method="post" style="display: inline-block;">
-        		{{ csrf_field() }}
-        		{{ method_field('DELETE')}}
-        		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">
-        	</form>
-        </td>
-    </tr>
-@endforeach
+	        	<b style="color: blue;">展示</b>
+	        </td>
+	        @endif
+	        <td style="text-align:center;vertical-align:middle;">
+	        	<a href="/admin/wordphoto/{{ $v->id }}/edit" class="btn btn-success">修改</a>
+	        	<form action="" method="post" style="display: inline-block;">
+	        		
+	        		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">
+	        	</form>
+	        </td>
+    	</tr>
+		@endforeach
 	</tbody>
     </table>
     <div class="table-responsive">
 	  <div class="row">
 	    <div class="col-sm-12">
 	    	<div style="float:right;">
-	    		{{ $wonderful_info->appends($request)->links() }}
+	    		{{ $wordphoto_info->appends($request)->links() }}
 	    	</div>
 	     </div>
 	    <div class="col-sm-6">

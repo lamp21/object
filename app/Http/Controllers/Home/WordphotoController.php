@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
-class WonderfulController extends Controller
+
+class WordphotoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class WonderfulController extends Controller
      */
     public function index()
     {
-        //加载视图
-        $a = Controller::cates_data();
-        return view('home.wonderful.wonderful',['cates_data'=>$a]);
+        //
     }
 
     /**
@@ -37,9 +35,7 @@ class WonderfulController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $a = Controller::cates_data();
-        return view('home.wonderful.wordinfo',['cates_data'=>$a,'show'=>$show]);
+        //
     }
 
     /**
@@ -50,7 +46,7 @@ class WonderfulController extends Controller
      */
     public function show($id)
     {
-       
+        //
     }
 
     /**

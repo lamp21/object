@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LinkStoreRequest;
 use DB;
 class LinkController extends Controller
 {
@@ -45,7 +46,7 @@ class LinkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LinkStoreRequest $request)
     {
         //开启事务
         DB::beginTransaction();

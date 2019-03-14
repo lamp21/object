@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WonderfulStoreRequest;
+use App\Http\Requests\WonderfulUpdateRequest;
 use DB;
 class WonderfulController extends Controller
 {
@@ -51,7 +53,7 @@ class WonderfulController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WonderfulStoreRequest $request)
     {
         //开启事务
         DB::beginTransaction();
@@ -68,8 +70,8 @@ class WonderfulController extends Controller
             'wd_form' => $request->input('wd_form'),
             'wd_time' => $request->input('wd_time'),
             'cate_uid' => $cate_uid,
-            'content' => $request->input('content'),
             'status' => $request->input('status'),
+            'content' => $request->input('content'),
             ]);
         if ($wonderfuladd) {
            // 执行 添加 
@@ -90,7 +92,7 @@ class WonderfulController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -115,29 +117,32 @@ class WonderfulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(WonderfulUpdateRequest $request, $id)
     {
+        //开启事务
+        DB::beginTransaction();
         $cate_data = $request->input('cate_uid');
         $cate_uid = DB::table('cates')->where('id',$cate_data)->value('cname');
         $upload_file = $this->upload($request);
         //dump($upload_file);
         $res = DB::table('wonderful')->where('id',$id)->update([
-            'wd_img' =>$upload_file,
-            'title' => $request->input('title'),
-            'wd_form' => $request->input('wd_form'),
-            'wd_time' => $request->input('wd_time'),
-            'cate_uid' => $cate_uid,
-            'content' => $request->input('content'),
-            'status' => $request->input('status'),
+        'wd_img' =>$upload_file,
+        'title' => $request->input('title'),
+        'wd_form' => $request->input('wd_form'),
+        'wd_time' => $request->input('wd_time'),
+        'cate_uid' => $cate_uid,
+        'status'=>$request->input('status'),
+        'content' => $request->input('content'),
         ]);
         if ($res) {
            // 执行 添加 
             DB::commit();
-            return redirect('/admin/wonderful')->with('success','添加成功');
+            return redirect('/admin/wonderful')->with('success','修改成功');
         }else{
             DB::rollBack();
-            return back()->with('error','添加失败');
+            return back()->with('error','修改失败');
         }
+      
     }
 
     /**
@@ -148,14 +153,28 @@ class WonderfulController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //dd($id);
+         /**
+        *开启事务
+        */
+        DB::beginTransaction(); 
+        $delete = DB::table('wonderful')->where('id',$id)->delete();
+        if($delete){
+                DB::commit();
+                return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+            }else{
+                DB::rollBack();
+                return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+            }
+        
     }
 
     public function upload(Request $request)
     {  
+        //开启事务
+        DB::beginTransaction();
         //接收数据
         $file = $request->file('wd_img');
-        
         if($file->isValid()){
             //获取图片的后缀名
             $extension = $file->extension();
@@ -168,6 +187,35 @@ class WonderfulController extends Controller
             $path = $file->move(public_path().'/upload',$newfile);
             //将上传文件的路径返回给客户端
             return '/upload/'.$newfile; 
+        }
+    }
+    public function change($id)
+    {
+         /**
+        *开启事务
+        */
+        DB::beginTransaction(); 
+        //dump($id);
+        $change = DB::table('wonderful')->where('id',$id)->value('status');
+        if ($change = 1) {
+            DB::table('wonderful')->where('id',$id)->update(['status'=>2]);
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','修改成功'); 
+        }
+
+    }
+    public function dochange($id)
+    {
+         /**
+        *开启事务
+        */
+        DB::beginTransaction(); 
+        //dump($id);
+        $change = DB::table('wonderful')->where('id',$id)->value('status');
+        if ($change = 2) {
+            DB::table('wonderful')->where('id',$id)->update(['status'=>1]);
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','修改成功'); 
         }
     }
 }

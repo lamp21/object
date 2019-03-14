@@ -15,6 +15,16 @@
 </div>
 <!--top end-->
 <article>
+  <!-- 显示错误信息 -->
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+    </div>
+    @endif  
   <div class="whitebg about">
     <div class="ab_box"> <i class="avatar_pic"><a href=""><img src="/home_public/images/avatar.jpg"></a></i>
     <h3>测试用户</h3>

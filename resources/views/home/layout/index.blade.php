@@ -123,6 +123,47 @@ a {
 }*/
   
 </style>
+<style>
+.comment {
+  width: 700px;
+  margin: 100px auto 0px auto;
+}
+
+.comment-text-area {
+  width: 700px;
+}
+
+.text-area {
+  width: 680px;
+  max-width: 680px;
+  max-height: 150px;
+  border: 5px #ebebeb solid;
+  height: 150px;
+  overflow: hidden;
+  color: #999999;
+}
+
+.text-area-input-length span {
+  margin: 0px 5px 0px 5px;
+  color: red;
+}
+
+.text-area-bottom {
+  text-align: right;
+  margin: 5px 0px 0px 0px;
+  float: right;
+  padding: 0px 0px 0px 0px;
+}
+
+.text-area-bottom a {
+  border: #ebebeb 2px solid;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+}
+</style>
+
 </head>
 <body>
 <!--top begin-->
