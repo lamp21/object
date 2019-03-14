@@ -22,7 +22,7 @@
                                     <option value="25" @if(isset($request['count']) && $request['count'] == 25) selected @endif>25</option>
                                     <option value="50" @if(isset($request['count']) && $request['count'] == 50) selected @endif>50</option>
                                     <option value="100" @if(isset($request['count']) && $request['count'] == 100) selected @endif>100</option>
-                                </select> 条
+                                </select> 条    
                             </label>
                             </div>
                         </div>
