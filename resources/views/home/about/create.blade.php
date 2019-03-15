@@ -12,15 +12,15 @@
 		    <div class="ab_box">
 			    	<i class="avatar_pic">	
 		    			<label for="img_thumb">
-		    				<img src="/home_public/images/avatar.jpg" id="img" title="点击更换头像">
+		    				<img src="{{ $value->uname_img }}" id="img" title="点击更换头像">
 		    			</label>
 		    			<form action="" id="infoLogoForm"  enctype="multipart/form-data"> 
 		    				{{ csrf_field() }}
 		    				<input type="file" onchange="uploadImg()" id="img_thumb" name="img_thumb" style="display: none"/>
 		    			</form>
 			    	</i>
-			    <h3>测试用户</h3>
-			    <p>个性签名栏。。。。</p>
+			    <h3>{{ $value->nick_name }}</h3>
+			    <p>{{ $value->personal_label }}</p>
 		   </div>
 		<h2 class="gd_title">完善信息</h2>
 		<div class="container" style="width: 800px;">
@@ -129,6 +129,7 @@
     	function uploadImg(){
     		var path = $('#img_thumb').val();
     		var fileSize = $('#img_thumb')[0].files[0].size; //单位b
+
     		
     		//判断上传文件的后缀名是否符合
             var exc = path.substr(path.lastIndexOf('.') + 1);
@@ -138,20 +139,11 @@
             }
 
             //图片大小验证
-		    var fileMaxSize = 3072;//1M
-		    // var filePath = file.value;
-		    // if(filePath){
-		        var size = fileSize /3072;
-		        console.log(size);debugger;
-		        if (size > fileMaxSize) {
-		            alert("文件大小不能大于3M！");
-		            // file.value = "";
-		            return false;
-		        // }
-		    	}
+	    	if(fileSize > 204800){
+                 alert('请上传大小小于200k的图片');
+                 return false;
+                }
 		
-            // console.log($('#infoLogoForm')[0])
-            // debugger;
     		$.ajax({
 				url: "/home/about/upload",
 				type: 'POST',

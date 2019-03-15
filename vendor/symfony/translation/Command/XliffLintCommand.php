@@ -12,7 +12,10 @@
 namespace Symfony\Component\Translation\Command;
 
 use Symfony\Component\Console\Command\Command;
+<<<<<<< HEAD
 use Symfony\Component\Console\Exception\RuntimeException;
+=======
+>>>>>>> origin/changgao
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -27,8 +30,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  */
 class XliffLintCommand extends Command
 {
-    protected static $defaultName = 'lint:xliff';
-
     private $format;
     private $displayCorrectFiles;
     private $directoryIteratorProvider;
@@ -48,6 +49,7 @@ class XliffLintCommand extends Command
     protected function configure()
     {
         $this
+            ->setName('lint:xliff')
             ->setDescription('Lints a XLIFF file and outputs encountered errors')
             ->addArgument('filename', null, 'A file or a directory or STDIN')
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'The output format', 'txt')
@@ -82,17 +84,24 @@ EOF
 
         if (!$filename) {
             if (!$stdin = $this->getStdin()) {
-                throw new RuntimeException('Please provide a filename or pipe file content to STDIN.');
+                throw new \RuntimeException('Please provide a filename or pipe file content to STDIN.');
             }
 
-            return $this->display($io, [$this->validate($stdin)]);
+            return $this->display($io, array($this->validate($stdin)));
         }
 
         if (!$this->isReadable($filename)) {
+<<<<<<< HEAD
             throw new RuntimeException(sprintf('File or directory "%s" is not readable.', $filename));
         }
 
         $filesInfo = [];
+=======
+            throw new \RuntimeException(sprintf('File or directory "%s" is not readable.', $filename));
+        }
+
+        $filesInfo = array();
+>>>>>>> origin/changgao
         foreach ($this->getFiles($filename) as $file) {
             $filesInfo[] = $this->validate(file_get_contents($file), $file);
         }
@@ -104,7 +113,7 @@ EOF
     {
         // Avoid: Warning DOMDocument::loadXML(): Empty string supplied as input
         if ('' === trim($content)) {
-            return ['file' => $file, 'valid' => true];
+            return array('file' => $file, 'valid' => true);
         }
 
         libxml_use_internal_errors(true);
@@ -112,6 +121,7 @@ EOF
         $document = new \DOMDocument();
         $document->loadXML($content);
         if ($document->schemaValidate(__DIR__.'/../Resources/schemas/xliff-core-1.2-strict.xsd')) {
+<<<<<<< HEAD
             return ['file' => $file, 'valid' => true];
         }
 
@@ -121,12 +131,27 @@ EOF
                 'column' => $error->column,
                 'message' => trim($error->message),
             ];
+=======
+            return array('file' => $file, 'valid' => true);
+        }
+
+        $errorMessages = array_map(function ($error) {
+            return array(
+                'line' => $error->line,
+                'column' => $error->column,
+                'message' => trim($error->message),
+            );
+>>>>>>> origin/changgao
         }, libxml_get_errors());
 
         libxml_clear_errors();
         libxml_use_internal_errors(false);
 
+<<<<<<< HEAD
         return ['file' => $file, 'valid' => false, 'messages' => $errorMessages];
+=======
+        return array('file' => $file, 'valid' => false, 'messages' => $errorMessages);
+>>>>>>> origin/changgao
     }
 
     private function display(SymfonyStyle $io, array $files)
@@ -137,13 +162,13 @@ EOF
             case 'json':
                 return $this->displayJson($io, $files);
             default:
-                throw new InvalidArgumentException(sprintf('The format "%s" is not supported.', $this->format));
+                throw new \InvalidArgumentException(sprintf('The format "%s" is not supported.', $this->format));
         }
     }
 
     private function displayTxt(SymfonyStyle $io, array $filesInfo)
     {
-        $countFiles = \count($filesInfo);
+        $countFiles = count($filesInfo);
         $erroredFiles = 0;
 
         foreach ($filesInfo as $info) {
@@ -193,7 +218,7 @@ EOF
         }
 
         foreach ($this->getDirectoryIterator($fileOrDirectory) as $file) {
-            if (!\in_array($file->getExtension(), ['xlf', 'xliff'])) {
+            if (!in_array($file->getExtension(), array('xlf', 'xliff'))) {
                 continue;
             }
 
@@ -225,7 +250,11 @@ EOF
         };
 
         if (null !== $this->directoryIteratorProvider) {
+<<<<<<< HEAD
             return \call_user_func($this->directoryIteratorProvider, $directory, $default);
+=======
+            return call_user_func($this->directoryIteratorProvider, $directory, $default);
+>>>>>>> origin/changgao
         }
 
         return $default($directory);
@@ -238,7 +267,11 @@ EOF
         };
 
         if (null !== $this->isReadableProvider) {
+<<<<<<< HEAD
             return \call_user_func($this->isReadableProvider, $fileOrDirectory, $default);
+=======
+            return call_user_func($this->isReadableProvider, $fileOrDirectory, $default);
+>>>>>>> origin/changgao
         }
 
         return $default($fileOrDirectory);

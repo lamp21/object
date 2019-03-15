@@ -48,6 +48,6 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         session()->forget('userinfo');
-        return back();
+        return redirect('/home/index');
     }
 }

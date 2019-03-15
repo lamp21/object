@@ -11,8 +11,8 @@
 	    	<i class="avatar_pic">
 	    		<img src="{{ $value->uname_img }}">
 	    	</i>
-	      <h3>{{ $value->nick_name }}</h3>
-	      <p>个性签名:<br>{{ $value->personal_label }}</p>
+	      <h3>{{ $value->nick_name or ''}}</h3>
+	      <p>个性签名:<br>{{ $value->personal_label or ''}}</p>
 	    </div>
 	    <h2 class="gd_title">基本信息</h2>
 	    <div class="container" style="width: 800px;">
@@ -21,19 +21,19 @@
 		      <tbody>
 		      <tr>
 		        <td id="add_a">昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</td>
-		        <td>{{ $value->nick_name }}</td>
+		        <td>{{ $value->nick_name or ''}}</td>
 		      </tr><br>
 		      <tr>
 		        <td id="add_a">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</td>
 		        <td>
 		        	@switch($value->sex)
-						@case(0)
+						@case(0 or '')
 							男
 						@break
-						@case(1)
+						@case(1 or '')
 							女
 						@break
-						@case(2)
+						@case(2 or '')
 							保密
 						@break
 		        	@endswitch
@@ -41,35 +41,35 @@
 		      </tr>
 		      <tr>
 		        <td id="add_a">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</td>
-		        <td>{{ $value->work }}</td>
+		        <td>{{ $value->work or ''}}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">真实姓名</td>
-		        <td>{{ $value->real_name }}</td>
+		        <td>{{ $value->real_name or ''}}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">所&nbsp;&nbsp;在&nbsp;&nbsp;地</td>
-		        <td>{{ $value->location }}</td>
+		        <td>{{ $value->location or ''}}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">个性签名</td>
-		        <td>{{ $value->personal_label }}</td>
+		        <td>{{ $value->personal_label or ''}}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</td>
-		        <td>{{ $value->email }}</td>
+		        <td>{{ $value->email or ''}}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q</td>
-		        <td>{{ $value->QQ }}</td>
+		        <td>{{ $value->QQ or ''}}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信</td>
-		        <td>{{ $value->chat }}</td>
+		        <td>{{ $value->chat or ''}}</td>
 		      </tr>
 		      <tr>
 		        <td id="add_a">个人标签</td>
-		        <td>{{ $value->description }}</td>
+		        <td>{{ $value->description or ''}}</td>
 		      </tr>
 		  </tbody>
 		</table>

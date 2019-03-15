@@ -21,7 +21,7 @@
         </div>
     </div>
 
-	<form class="form-horizontal" action="/admin/nodes/insert" method="post" enctype="multipart/form-data">
+	<form class="form-horizontal" action="/admin/nodes_qxlb" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 	    <div class="form-group">
 	        <label class="col-sm-2 control-label">节点描述</label>

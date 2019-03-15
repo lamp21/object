@@ -17,7 +17,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="card-title">
-                    <div class="title">用户添加</div>
+                    <div class="title">角色权限添加</div>
                 </div>
             </div>
             <div class="panel-body">
@@ -38,14 +38,12 @@
                             	<div class="radio3 radio-check radio-inline">
                                 	
                                 	@foreach($nodes_data as $k=>$v)
-                                	<input type="checkbox" id="radio4" name="nids[]" @if(in_array($v->id,$role_nodes_data_nid)) checked @endif value="{{ $v->id }}" ><label for="radio4">{{ $v->ndesc }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                	<input type="checkbox" id="radio4" name="nids[]" @if(in_array($v->id,$role_nodes_data_nid)) checked @endif value="{{ $v->id }}" ><label for="radio4">{{ $v->ndesc }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                 	@endforeach
                               	</div>                              	
                             </div>
                         </div>
-                    </div>
-
-					                    
+                    </div>              
 
     				<div class="form-group">
                         <label for="" class="col-sm-2 control-label"></label>

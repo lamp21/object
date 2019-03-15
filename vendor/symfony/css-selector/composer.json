@@ -20,7 +20,11 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "php": "^5.5.9|>=7.0.8"
+=======
+        "php": ">=5.5.9"
+>>>>>>> origin/changgao
     },
     "autoload": {
         "psr-4": { "Symfony\\Component\\CssSelector\\": "" },
@@ -31,7 +35,11 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
+<<<<<<< HEAD
             "dev-master": "3.4-dev"
+=======
+            "dev-master": "3.3-dev"
+>>>>>>> origin/changgao
         }
     }
 }

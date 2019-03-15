@@ -18,7 +18,7 @@
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>后台登录 - H-ui.admin v3.1</title>
+<title>后台登录</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
@@ -27,6 +27,7 @@
 <div class="header"></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
+    <!-- <center><h1 style="color:#696969;font-size:50px;font-family:楷体;position:relative;top:-70px;left:-3px;">小白的后台 管理-系统</h1></center> -->
     <form class="form form-horizontal" action="/admin/dologin" method="post">
       {{ csrf_field() }}
       <div class="row cl">
@@ -51,17 +52,10 @@
           @endif
         </div>
       </div>
-      <div class="row cl">
-        <div class="formControls col-xs-8 col-xs-offset-3">
-          <label for="online">
-            <input type="checkbox" name="online" id="online" value="">
-            使我保持登录状态</label>
-        </div>
-      </div>
+      <br>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
           <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
-          <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
         </div>
       </div>
     </form>

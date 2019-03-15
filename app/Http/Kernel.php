@@ -61,6 +61,7 @@ class Kernel extends HttpKernel
         'auth.admin' => \App\Http\Middleware\AuthAdmin::class,
         'guest.admin' => \App\Http\Middleware\GuestAdmin::class,   
         'login' => \App\Http\Middleware\LoginMiddleware::class, 
+        'home_login' => \App\Http\Middleware\Home_LoginMiddleware::class, 
         'rbac' => \App\Http\Middleware\RbacMiddleware::class, 
     ];
 }

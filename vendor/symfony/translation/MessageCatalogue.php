@@ -15,22 +15,30 @@ use Symfony\Component\Config\Resource\ResourceInterface;
 use Symfony\Component\Translation\Exception\LogicException;
 
 /**
+ * MessageCatalogue.
+ *
  * @author Fabien Potencier <fabien@symfony.com>
  */
 class MessageCatalogue implements MessageCatalogueInterface, MetadataAwareInterface
 {
-    private $messages = [];
-    private $metadata = [];
-    private $resources = [];
+    private $messages = array();
+    private $metadata = array();
+    private $resources = array();
     private $locale;
     private $fallbackCatalogue;
     private $parent;
 
     /**
+     * Constructor.
+     *
      * @param string $locale   The locale
      * @param array  $messages An array of messages classified by domain
      */
+<<<<<<< HEAD
     public function __construct($locale, array $messages = [])
+=======
+    public function __construct($locale, array $messages = array())
+>>>>>>> origin/changgao
     {
         $this->locale = $locale;
         $this->messages = $messages;
@@ -61,7 +69,11 @@ class MessageCatalogue implements MessageCatalogueInterface, MetadataAwareInterf
             return $this->messages;
         }
 
+<<<<<<< HEAD
         return isset($this->messages[$domain]) ? $this->messages[$domain] : [];
+=======
+        return isset($this->messages[$domain]) ? $this->messages[$domain] : array();
+>>>>>>> origin/changgao
     }
 
     /**
@@ -69,7 +81,7 @@ class MessageCatalogue implements MessageCatalogueInterface, MetadataAwareInterf
      */
     public function set($id, $translation, $domain = 'messages')
     {
-        $this->add([$id => $translation], $domain);
+        $this->add(array($id => $translation), $domain);
     }
 
     /**
@@ -117,7 +129,11 @@ class MessageCatalogue implements MessageCatalogueInterface, MetadataAwareInterf
      */
     public function replace($messages, $domain = 'messages')
     {
+<<<<<<< HEAD
         $this->messages[$domain] = [];
+=======
+        $this->messages[$domain] = array();
+>>>>>>> origin/changgao
 
         $this->add($messages, $domain);
     }
@@ -247,7 +263,7 @@ class MessageCatalogue implements MessageCatalogueInterface, MetadataAwareInterf
     public function deleteMetadata($key = '', $domain = 'messages')
     {
         if ('' == $domain) {
-            $this->metadata = [];
+            $this->metadata = array();
         } elseif ('' == $key) {
             unset($this->metadata[$domain]);
         } else {

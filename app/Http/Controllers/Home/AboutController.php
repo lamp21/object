@@ -18,7 +18,7 @@ class AboutController extends Controller
     {
 
         $cates_data = Controller::cates_data();
-        $about_data = Usersinfo::where('id',5)->get();
+        $about_data = Usersinfo::where('id',7)->get();
         foreach ($about_data as $k => $v) {
             $value = $v;
         }
@@ -33,7 +33,11 @@ class AboutController extends Controller
     public function create()
     {
         $cates_data = Controller::cates_data();
-        return view('home.about.create',['cates_data'=>$cates_data]);
+        $about_data = Usersinfo::where('id',5)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
+        return view('home.about.create',['cates_data'=>$cates_data,'value'=>$value]);
     }
 
     /**
@@ -51,7 +55,7 @@ class AboutController extends Controller
         $users = new Home_Users;
         //接收返回的id
         $id = $users->id;
-        $userinfo->uid = $id =11;
+        $userinfo->uid = $id;
         $userinfo->nick_name = $data['nick_name'];
         $userinfo->real_name = $data['real_name'];
         $userinfo->sex = $data['sex'];
