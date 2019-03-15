@@ -41,7 +41,6 @@
 		    <th>工作</th>
 		    <th>地址</th>
 		    <th>创建时间</th>
-		    <!-- <th>操作</th> -->
 		</tr>
     </thead>
     <tbody>
@@ -69,14 +68,6 @@
         <td>{{ $v->usersinfo->work }}</td>
         <td>{{ $v->usersinfo->location }}</td>
         <td>{{ $v->created_at }}</td>
-        <!-- <td class="text-center">
-        	<br>
-        	<form action="/admin/users/{{ $v->id }}" method="post" style="display: inline-block;">
-        		{{ csrf_field() }}
-        		{{ method_field('DELETE') }}
-        		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" name="" class="btn btn-danger">
-        	</form>
-        </td> -->
     </tr>
     @endforeach
 	</tbody>
