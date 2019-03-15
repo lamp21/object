@@ -31,7 +31,7 @@
 		  <div class="form-group">
 		    <label for="nick_name" class="col-sm-2 control-label">新密码</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="" name="" placeholder="新密码">
+		      <input type="text" class="form-control" id="upass_1" name="upass_1" placeholder="新密码">
 		    </div>
 		  </div>
 		  <div class="form-group">

@@ -35,8 +35,6 @@ Route::group(['middleware'=>'login'],function()
 	Route::get('admin/users/setdata','Admin\UserController@setdata');
 	// 广告 列表
 	Route::get('admin/advert/create','Admin\catesController@create');
-	// 广告列表
-	Route::get('admin/advert/create','Admin\catesController@create');
 	// 后台 角色的理由
 	Route::get('admin/nodes/nodeadd','Admin\NodesController@nodeadd');
 	Route::post('admin/nodes/insert','Admin\NodesController@insert');
