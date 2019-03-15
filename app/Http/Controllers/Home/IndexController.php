@@ -33,7 +33,9 @@ class IndexController extends Controller
         $data_announcement = Announcement::limit(5)->get();
         // dd($data_announcement);
         $data = Controller::cates_data();
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement]);
+        $show = DB::table('wonderful')->get();
+        //dd($show);
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show]);
     }
 
     /**
@@ -110,6 +112,10 @@ class IndexController extends Controller
     //登录
     public function login(){
         return view('home.login.login');
+    }
+    public function wonderful($id)
+    {
+        
     }
 }
 

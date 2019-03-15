@@ -115,11 +115,17 @@ Route::resource('home/link','Home\LinkController');
 Route::resource('home/article','Home\ArticleController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
+//显示文章
+Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
+Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
 //后台精彩文章
 Route::resource('admin/wonderful','Admin\WonderfulController');
-//封面图上传
+//精彩文章封面图上传
 Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
-
+//后台轮播图
+Route::resource('admin/wordphoto','Admin\WordphotoController');
+//轮播图片上传
+Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
 
 
 

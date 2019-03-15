@@ -1,7 +1,16 @@
 @extends('admin.layout.index')
 
 @section('content')
-	
+<!-- 显示错误信息 -->
+		@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<ul>
+			    @foreach ($errors->all() as $error)
+			        <li>{{ $error }}</li>
+			    @endforeach
+			</ul>
+		</div>
+		@endif	
 <div class="col-xs-12">
     <div class="panel panel-default">
 		<div class="panel-heading">       
@@ -40,7 +49,7 @@
 			    <label class="col-sm-2 control-label">分类</label>
 			    <div class="col-sm-10" style="width:600px;">
 			        <select class="form-control" name="cate_uid">
-			        	<option value="0">--请选择--</option>
+			        	<option value="" selected disabled style="display: none;">--请选择--</option>
 			        	@foreach($cate_uid as $k=>$v)
 		                <option value="{{ $v->id }}" @if($id == $v->id) selected @endif>{{ $v->cname }}</option>
 		                @endforeach
@@ -64,16 +73,16 @@
 				    </script>
 			    </div>
 		 	</div>
-		  	<div class="form-group"> 
+		 	<div class="form-group">
 			    <label class="col-sm-2 control-label">是否展示</label>
 			    <div class="col-sm-10" style="width:600px;">
-			        <select class="form-control" name="status" value="">
-					  <option value="0">--请选择--</option>
-					  <option value="1">收起</option>
-					  <option value="2">展示</option>
-					</select>
+			        <select class="form-control" name="status">
+						<option value="" selected disabled style="display: none;">--请选择--</option>
+						<option value="1">收起</option>
+						<option value="2">展示</option>
+			        </select>
 			    </div>
-		  	</div>
+		 	</div>
 		    <div class="form-group">
 		        <div class="col-sm-offset-2 col-sm-10">
 		            <button type="submit" class="btn btn-default btn btn-info">提交</button>
