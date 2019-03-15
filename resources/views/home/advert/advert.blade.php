@@ -39,11 +39,6 @@ textarea{
 </div>
 <!--top end-->
 <article>
-  <div class="whitebg about">
-    <div class="ab_box"> <i class="avatar_pic"><a href=""><img  src="/home_public/images/avatar.jpg" style="height:100px;"></a></i>
-    <h3>测试用户</h3>
-    <p>个性签名栏。。。。</p>
-  </div>
 <h2 class="gd_title">广告链接</h2>
 <div>
 <form class="form-horizontal" action="/home/advert" method="post" enctype="multipart/form-data"> 

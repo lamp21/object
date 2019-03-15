@@ -51,8 +51,6 @@ class LoginController extends Controller
 
         session(['userinfo'=>$userinfo]);
 
-        session(['value'=>'!empty($data->user_info->userinfo)?$data->user_info->userinfo:""']);
-
         // 登录成功
         echo "<script>alert('登录成功');location='/admin';</script>";
     }

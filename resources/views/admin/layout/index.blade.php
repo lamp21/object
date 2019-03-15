@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
-                    <div id="sideNav" href="" class="">
+                    <div id="sideNav" href="">
                         <i class="fa fa-bars icon"></i> 
                     </div>
                 </div>
@@ -48,10 +48,6 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li><a href="#"><i class="fa fa-user fa-fw"></i>你好,{{ session('userinfo')->uname }}</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> 头像</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
@@ -151,17 +147,19 @@
                                 </li>
                                 <li>
                                     <a href="/admin/nodes/nodeadd">添加权限节点</a>
-                            <a href="#"><i class="icon-users"></i>轮播图内容管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/admin/wordphoto">前台显示列表</a>
                                 </li>
-                                <li>
-                                    <a href="/admin/wordphoto/create">轮播数据添加</a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>轮播图内容管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/wordphoto">前台显示列表</a>
+                            </li>
+                            <li>
+                                <a href="/admin/wordphoto/create">轮播数据添加</a>
+                            </li>
+                        </ul>
+                    </li>
                 </div>
             </nav>
             <!-- /. NAV SIDE  -->
