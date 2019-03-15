@@ -38,7 +38,13 @@ class LoginController extends Controller
             if($value->aname == 'create'){
                 $arr[$value->cname][] = 'store';
             }
+            if($value->aname == 'nodeadd'){
+                $arr[$value->cname][] = 'store';
+            }
             if($value->aname == 'edit'){
+                $arr[$value->cname][] = 'update';
+            }
+            if($value->aname == 'role'){
                 $arr[$value->cname][] = 'update';
             }
         }

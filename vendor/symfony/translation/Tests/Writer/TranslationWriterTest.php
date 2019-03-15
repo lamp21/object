@@ -18,6 +18,7 @@ use Symfony\Component\Translation\Writer\TranslationWriter;
 
 class TranslationWriterTest extends TestCase
 {
+<<<<<<< HEAD
     /**
      * @group legacy
      * @expectedDeprecation The "Symfony\Component\Translation\Writer\TranslationWriter::writeTranslations()" method is deprecated since Symfony 3.4 and will be removed in 4.0. Use write() instead.
@@ -35,6 +36,9 @@ class TranslationWriterTest extends TestCase
     }
 
     public function testWrite()
+=======
+    public function testWriteTranslations()
+>>>>>>> origin/changgao
     {
         $dumper = $this->getMockBuilder('Symfony\Component\Translation\Dumper\DumperInterface')->getMock();
         $dumper
@@ -43,7 +47,11 @@ class TranslationWriterTest extends TestCase
 
         $writer = new TranslationWriter();
         $writer->addDumper('test', $dumper);
+<<<<<<< HEAD
         $writer->write(new MessageCatalogue([]), 'test');
+=======
+        $writer->writeTranslations(new MessageCatalogue(array()), 'test');
+>>>>>>> origin/changgao
     }
 
     public function testDisableBackup()
@@ -62,7 +70,7 @@ class TranslationWriterTest extends TestCase
 
 class NonBackupDumper implements DumperInterface
 {
-    public function dump(MessageCatalogue $messages, $options = [])
+    public function dump(MessageCatalogue $messages, $options = array())
     {
     }
 }
@@ -71,7 +79,7 @@ class BackupDumper implements DumperInterface
 {
     public $backup = true;
 
-    public function dump(MessageCatalogue $messages, $options = [])
+    public function dump(MessageCatalogue $messages, $options = array())
     {
     }
 

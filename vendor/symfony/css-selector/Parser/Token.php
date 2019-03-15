@@ -31,8 +31,19 @@ class Token
     const TYPE_NUMBER = 'number';
     const TYPE_STRING = 'string';
 
+    /**
+     * @var int
+     */
     private $type;
+
+    /**
+     * @var string
+     */
     private $value;
+
+    /**
+     * @var int
+     */
     private $position;
 
     /**
@@ -80,9 +91,17 @@ class Token
     }
 
     /**
+<<<<<<< HEAD
      * @return bool
      */
     public function isDelimiter(array $values = [])
+=======
+     * @param array $values
+     *
+     * @return bool
+     */
+    public function isDelimiter(array $values = array())
+>>>>>>> origin/changgao
     {
         if (self::TYPE_DELIMITER !== $this->type) {
             return false;
@@ -92,7 +111,7 @@ class Token
             return true;
         }
 
-        return \in_array($this->value, $values);
+        return in_array($this->value, $values);
     }
 
     /**

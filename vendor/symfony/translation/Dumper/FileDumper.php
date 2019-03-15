@@ -11,9 +11,9 @@
 
 namespace Symfony\Component\Translation\Dumper;
 
+use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Component\Translation\Exception\InvalidArgumentException;
 use Symfony\Component\Translation\Exception\RuntimeException;
-use Symfony\Component\Translation\MessageCatalogue;
 
 /**
  * FileDumper is an implementation of DumperInterface that dump a message catalogue to file(s).
@@ -53,7 +53,11 @@ abstract class FileDumper implements DumperInterface
     /**
      * Sets backup flag.
      *
+<<<<<<< HEAD
      * @param bool $backup
+=======
+     * @param bool
+>>>>>>> origin/changgao
      */
     public function setBackup($backup)
     {
@@ -63,9 +67,9 @@ abstract class FileDumper implements DumperInterface
     /**
      * {@inheritdoc}
      */
-    public function dump(MessageCatalogue $messages, $options = [])
+    public function dump(MessageCatalogue $messages, $options = array())
     {
-        if (!\array_key_exists('path', $options)) {
+        if (!array_key_exists('path', $options)) {
             throw new InvalidArgumentException('The file dumper needs a path option.');
         }
 
@@ -75,11 +79,19 @@ abstract class FileDumper implements DumperInterface
             $fullpath = $options['path'].'/'.$this->getRelativePath($domain, $messages->getLocale());
             if (file_exists($fullpath)) {
                 if ($this->backup) {
+<<<<<<< HEAD
                     @trigger_error('Creating a backup while dumping a message catalogue is deprecated since Symfony 3.1 and will be removed in 4.0. Use TranslationWriter::disableBackup() to disable the backup.', E_USER_DEPRECATED);
                     copy($fullpath, $fullpath.'~');
                 }
             } else {
                 $directory = \dirname($fullpath);
+=======
+                    @trigger_error('Creating a backup while dumping a message catalogue is deprecated since version 3.1 and will be removed in 4.0. Use TranslationWriter::disableBackup() to disable the backup.', E_USER_DEPRECATED);
+                    copy($fullpath, $fullpath.'~');
+                }
+            } else {
+                $directory = dirname($fullpath);
+>>>>>>> origin/changgao
                 if (!file_exists($directory) && !@mkdir($directory, 0777, true)) {
                     throw new RuntimeException(sprintf('Unable to create directory "%s".', $directory));
                 }
@@ -98,7 +110,7 @@ abstract class FileDumper implements DumperInterface
      *
      * @return string representation
      */
-    abstract public function formatCatalogue(MessageCatalogue $messages, $domain, array $options = []);
+    abstract public function formatCatalogue(MessageCatalogue $messages, $domain, array $options = array());
 
     /**
      * Gets the file extension of the dumper.
@@ -117,10 +129,10 @@ abstract class FileDumper implements DumperInterface
      */
     private function getRelativePath($domain, $locale)
     {
-        return strtr($this->relativePathTemplate, [
+        return strtr($this->relativePathTemplate, array(
             '%domain%' => $domain,
             '%locale%' => $locale,
             '%extension%' => $this->getExtension(),
-        ]);
+        ));
     }
 }

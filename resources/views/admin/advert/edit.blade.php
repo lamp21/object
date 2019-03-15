@@ -27,10 +27,10 @@
 	    <div class="form-group">
 	        <label class="col-sm-2 control-label">图片</label>	
 	        <div class="col-sm-10" style="width:600px;">
-	      		<input type="file" placeholder="广告图片" name="pic"  id="file1" onchange="change('pic1','file1')" value="{{ $advert['pic'] }}">
+	      		<input type="file" placeholder="广告图片" name="pic"  id="file1" onchange="change('pic1','file1')" >
 	      			<br>
 					<br>
-				<img src="{{ asset('/img') }}{{ '/'.$advert['pic'] }}" onerror="errorIcon()" id="pic1" alt="" style="width:100px;">
+				<img src="{{ asset('/img') }}{{ '/'.$advert['pic'] }}" onchange="uploadImage()" id="pic1" alt="" style="width:100px;">
 				
 	        </div>
 	    </div>
@@ -51,7 +51,7 @@
 
 	    <div class="form-group">
 	        <div class="col-sm-offset-2 col-sm-10">
-	            <button type="submit" class="btn btn-default btn btn-info">修改</button>
+	            <button type="submit" class="btn btn-default btn btn-info" onclick="getElementById('img-upload').click()">修改</button>
 	            <button type="reset" class="btn btn-default">重置</button>
 	        </div>
 	    </div>
@@ -89,11 +89,34 @@
 		            }
 		        }
 		    }
-		    	document.addEventListener("error",function errorIcon(e){
-	            	var elem = e.target;
-	            	if(elem.tagName.toLowerCase() === 'pic'){
-	            	elem.src = "{{ asset('/img') }}{{ '/'.$advert['pic'] }}";
-	            	}
-	        	},true);
+		    	// document.addEventListener("error",function errorIcon(e){
+	      //       	var elem = e.target;
+	      //       	if(elem.tagName.toLowerCase() === 'pic'){
+	      //       	elem.src = "{{ asset('/img') }}{{ '/'.$advert['pic'] }}";
+	      //       	}
+	      //   	},true);
+
+	     //    	function uploadImage() {
+		    //     //创建FormData对象
+		    //     var data = new FormData();
+		    //     //为FormData对象添加数据
+		    //     $.each($('#pic1')[0].files, function(i, file) {
+		    //         data.append('pic', file);
+		    //         data.append('_token', '{{csrf_token()}}');
+		    //     });
+		    //     $.ajax({
+		    //         // url:'{{url('Admin/upload/Image')}}',
+		    //         pic:"{{ asset('/img') }}{{ '/'.$advert['pic'] }}",
+		    //         type: 'POST',
+		    //         data: data,
+		    //         cache: false,
+		    //         contentType: false,    //不可缺
+		    //         processData: false,    //不可缺
+		    //         dataType:'json',
+		    //         success:function(data){
+		    //             $('#file1').val(data.url);
+		    //         }
+		    //     });
+		    // }
 		</script>
 @endsection

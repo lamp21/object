@@ -16,6 +16,7 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "php": "^5.5.9|>=7.0.8"
     },
     "require-dev": {
@@ -23,6 +24,15 @@
         "symfony/expression-language": "~2.8|~3.0|~4.0",
         "symfony/config": "~2.8|~3.0|~4.0",
         "symfony/stopwatch": "~2.8|~3.0|~4.0",
+=======
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "symfony/dependency-injection": "~3.3",
+        "symfony/expression-language": "~2.8|~3.0",
+        "symfony/config": "~2.8|~3.0",
+        "symfony/stopwatch": "~2.8|~3.0",
+>>>>>>> origin/changgao
         "psr/log": "~1.0"
     },
     "conflict": {
@@ -41,7 +51,11 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
+<<<<<<< HEAD
             "dev-master": "3.4-dev"
+=======
+            "dev-master": "3.3-dev"
+>>>>>>> origin/changgao
         }
     }
 }

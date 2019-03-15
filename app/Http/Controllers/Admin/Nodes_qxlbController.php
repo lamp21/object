@@ -20,33 +20,13 @@ class Nodes_qxlbController extends Controller
         $search = $request->input('search','');
         $data = Roles::where('rname','like','%'.$search.'%')->paginate($count);
 
-        $count = $request->input('count',8);
+        $count = $request->input('count',4);
         $search = $request->input('search','');
         $res = Nodes::where('ndesc','like','%'.$search.'%')->paginate($count);
 
         $roles_data = DB::table('roles')->get();  // 角色
         $nodes_data = DB::table('nodes')->get();  // 节点
-        return view('admin.nodes.index',['roles_data'=>$roles_data,'nodes_data'=>$nodes_data,'data'=>$data,'res'=>$res,'request'=>$request->all()]);
-    }
-
-    public function nodeadd(){
-
-        return view('admin.nodes.nodeadd');
-    }
-
-    public function insert(Request $request){
-
-        $data = $request->except(['_token']);
-        // 权限处理
-        if($data['cname'] != $data['cname'].'controller') {
-            $data['cname'] = $data['cname'].'controller';
-        }
-        $res = DB::table('nodes')->insert($data);
-        if($res){
-           return redirect('admin/nodes_qxlb')->with('success','添加成功');
-       }else{
-           return back()->with('success','添加失败');
-       }
+        return view('admin.nodes.index_qxlb',['roles_data'=>$roles_data,'nodes_data'=>$nodes_data,'data'=>$data,'res'=>$res,'request'=>$request->all()]);
     }
 
     /**
@@ -56,7 +36,7 @@ class Nodes_qxlbController extends Controller
      */
     public function create()
     {
-        return view('admin.nodes.create');
+        return view('admin.nodes.nodeadd');
     }
 
     /**
@@ -68,9 +48,13 @@ class Nodes_qxlbController extends Controller
     public function store(Request $request)
     {
        $data = $request->except(['_token']);
-       $res = DB::table('roles')->insert($data);
-       if($res){
-           return redirect('admin/nodes')->with('success','添加成功');
+        // 权限处理
+        if($data['cname'] != $data['cname'].'controller') {
+            $data['cname'] = $data['cname'].'controller';
+        }
+        $res = DB::table('nodes')->insert($data);
+        if($res){
+           return redirect('admin/nodes_qxlb')->with('success','添加成功');
        }else{
            return back()->with('success','添加失败');
        }

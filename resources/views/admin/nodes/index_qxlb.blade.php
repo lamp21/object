@@ -17,11 +17,11 @@
                             <div class="dataTables_length" id="dataTables-example_length">
                                 <label>显示：
                                     <select name="count" aria-controls="dataTables-example" class="form-control input-sm">
-                                    <option value="5" @if(isset($request['count']) && $request['count'] == 5) selected @endif>5</option>
-                                    <option value="10" @if(isset($request['count']) && $request['count'] == 10) selected @endif>10</option>
-                                    <option value="25" @if(isset($request['count']) && $request['count'] == 25) selected @endif>25</option>
-                                    <option value="50" @if(isset($request['count']) && $request['count'] == 50) selected @endif>50</option>
-                                    <option value="100" @if(isset($request['count']) && $request['count'] == 100) selected @endif>100</option>
+                                    <option value="4" @if(isset($request['count']) && $request['count'] == 5) selected @endif>4</option>
+                                    <option value="8" @if(isset($request['count']) && $request['count'] == 10) selected @endif>8</option>
+                                    <option value="24" @if(isset($request['count']) && $request['count'] == 25) selected @endif>24</option>
+                                    <option value="44" @if(isset($request['count']) && $request['count'] == 50) selected @endif>44</option>
+                                    <option value="88" @if(isset($request['count']) && $request['count'] == 100) selected @endif>88</option>
                                 </select> 条    
                             </label>
                             </div>

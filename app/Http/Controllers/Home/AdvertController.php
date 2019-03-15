@@ -56,7 +56,7 @@ class AdvertController extends Controller
         $file = $request->file('pic');
         //dump($file);exit;
         // 执行 图片上传
-        $advert->pic = $request->pic->store('img');
+        $advert->pic = $request->pic->store('');
         //dump($advert);
         if($advert->save()){
         // 执行 添加

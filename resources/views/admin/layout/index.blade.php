@@ -148,8 +148,8 @@
                                 <li>
                                     <a href="/admin/nodes/nodeadd">添加权限节点</a>
                                 </li>
-                    </ul>
-                    <li>
+                            </ul>
+                        <li>
                         <a href="#"><i class="icon-users"></i>轮播图内容管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
