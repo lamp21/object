@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Usersinfo;
 use App\Models\Users;
 use App\Models\Home_Users;
+use DB;
 class AboutController extends Controller
 {
     /**
@@ -16,9 +17,12 @@ class AboutController extends Controller
      */
     public function index()
     {
-
         $cates_data = Controller::cates_data();
         $about_data = Usersinfo::where('id',7)->get();
+        $data1 = DB::table('home_users as u')
+        ->join('users_info as i','u.id','=','i.uid')
+        ->select('i.id as i_id','u.id as u_id')
+        ->get();
         foreach ($about_data as $k => $v) {
             $value = $v;
         }

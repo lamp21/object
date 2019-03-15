@@ -10,6 +10,6 @@ class Home_Users extends Model
     //一对一
     public function usersinfo()
     {
-    	return $this->hasOne('App\Models\Usersinfo','uid');
+    	return $this->hasOne('App\Models\Usersinfo','id');
     }
 }
