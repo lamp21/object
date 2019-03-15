@@ -25,11 +25,6 @@
       </ul>
     </div>
     @endif  
-  <div class="whitebg about">
-    <div class="ab_box"> <i class="avatar_pic"><a href=""><img src="/home_public/images/avatar.jpg"></a></i>
-    <h3>测试用户</h3>
-    <p>个性签名栏。。。。</p>
-  </div>
 <h2 class="gd_title">友情链接</h2>
 <div>
 <form class="form-horizontal" method="post" action="/home/link">

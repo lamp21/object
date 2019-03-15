@@ -47,7 +47,9 @@
     @foreach($wonderful_info as $k=>$v) 
     <tr style="background:none;">
         <td style="text-align:center;vertical-align:middle;">{{$v->id}}</td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->title}}</td>
+        <td style="text-align:center;vertical-align:middle;">
+        	<marquee behavior="" direction="" style="height: 30px;width: 60px;">{{$v->title}}</marquee>
+        </td>
         <td style="text-align:center;vertical-align:middle;">
         	<img src="{{$v->wd_img}}" alt="文章封面图" style="width: 100px;">		
         </td>
@@ -55,9 +57,9 @@
         <td style="text-align:center;vertical-align:middle;">{{$v->wd_time}}</td>
         <td style="text-align:center;vertical-align:middle;">{{$v->cate_uid}}</td>
         <td style="text-align:center;vertical-align:middle;">
-        	<abbr title="{{$v->content}}">
-        		{!!$v->content!!}
-        	</abbr>
+        	<span style="overflow: hidden; text-overflow: ellipsis; -o-text-overflow: ellipsis;white-space:nowrap;width:100px;height:24px;display:block;">
+        		{!!$v->content!!} 
+        	</span>
     	</td>
     	@if ($v->status == 1) 
 			<td style="text-align:center;vertical-align:middle;">

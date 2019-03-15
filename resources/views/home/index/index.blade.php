@@ -209,8 +209,7 @@
             <img src="{{$v->wd_img}}"></a>
         </i>
         <b>{{$v->title}}</b>
-        <span>
-          <abbr title="{!!$v->content!!}">
+        <span style="width: 300px !important;float: left !important;overflow: hidden !important;text-overflow: ellipsis !important;"abbr title="{!!$v->content!!}">
               {!!$v->content!!}
           </abbr>
         </span>
