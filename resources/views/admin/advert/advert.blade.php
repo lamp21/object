@@ -76,7 +76,7 @@
                             </td>
                             <td class="center" style="width:100px;">
                                 <br>
-                            	<form action="/admin/advert/{{ $v->id }}" method="post" style="display: inline-block;">
+                            	<form action="/admin/advert/{{ $v->id }}" style="display: inline-block;" method="post" style="display: inline-block;">
                                 <a href="/admin/advert/{{ $v->id}}/edit" class="btn btn-success">修改</a>
                             		{{ csrf_field() }}
                             		{{ method_field('DELETE') }}

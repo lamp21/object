@@ -38,7 +38,6 @@
                 <ul class="nav navbar-top-links navbar-right">
                         <ul class="dropdown-menu dropdown-messages">
                             <li class="divider">
-                            你好,{{ session('userinfo')->uname }}
                             </li>
                         </ul>
                         <!-- /.dropdown-messages -->
@@ -142,7 +141,10 @@
                             <a href="#"><i class="icon-users"></i>权限管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/nodes">权限列表</a>
+                                    <a href="/admin/nodes">角色列表</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/nodes_qxlb">权限节点列表</a>
                                 </li>
                                 <li>
                                     <a href="/admin/nodes/create">添加角色</a>

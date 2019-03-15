@@ -34,7 +34,7 @@
 		    <th>手机号</th>
 		    
 		    <th>创建时间</th>
-		    <th>用户简介</th>
+		    <!-- <th>用户简介</th> -->
 		    <th>操作</th>
 		</tr>
     </thead>
@@ -46,11 +46,11 @@
         <td><?php echo e($v->phone); ?></td>
         
         <td><?php echo e($v->created_at); ?></td>
-        <td>
+<!--    <td>
         	<abbr title="<?php echo e($v->usersinfo['description']); ?>">
 	        	<p style="width: 100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; "><?php echo e($v->usersinfo['description']); ?></p>
 	    	</abbr>
-        </td>
+        </td> -->
         <td class="text-center">
         	<br>
         	<a href="/admin/users/role/<?php echo e($v->id); ?>" class="btn btn-info">角色</a>

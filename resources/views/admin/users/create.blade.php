@@ -42,24 +42,24 @@
                             <input type="password" class="form-control" id="repassword" name="repassword">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="email" name="email" value="{{ old('email')}}">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="phone" class="col-sm-2 control-label">手机号</label>
                         <div class="col-sm-10">
                             <input type="phone" class="form-control" id="phone" name="phone" value="{{ old('phone')}}">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="description" class="col-sm-2 control-label">个人介绍</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" name="description"> {{ old('description') }}</textarea>
                         </div>
-                    </div>
+                    </div> -->
     				<div class="form-group">
                         <label for="" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10">

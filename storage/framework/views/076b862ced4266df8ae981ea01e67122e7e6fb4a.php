@@ -29,8 +29,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
-                    <div id="sideNav">
+                    <a class="navbar-brand" href="#"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
+                    <div id="sideNav" href="" class="">
                         <i class="fa fa-bars icon"></i> 
                     </div>
                 </div>
@@ -38,7 +38,6 @@
                 <ul class="nav navbar-top-links navbar-right">
                         <ul class="dropdown-menu dropdown-messages">
                             <li class="divider">
-                            你好,<?php echo e(session('userinfo')->uname); ?>
                             </li>
                         </ul>
                         <!-- /.dropdown-messages -->
@@ -115,13 +114,7 @@
                                     <a href="/admin/announcement">公告列表</a>
                                 </li>
                                 <li>
-
-
                                     <a href="/admin/announcement/create">公告添加</a>
-
-
-                                    
-
                                 </li>
                             </ul>
                         </li>
@@ -129,10 +122,10 @@
                             <a href="#"><i class="icon-users"></i>推荐文章管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/nodes">推荐文章列表</a>
+                                    <a href="/admin/wonderful">推荐文章列表</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/nodes/create">文章添加</a>
+                                    <a href="/admin/wonderful/create">文章添加</a>
                                 </li>
                             </ul>
                         </li>
@@ -140,7 +133,10 @@
                             <a href="#"><i class="icon-users"></i>权限管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/nodes">权限列表</a>
+                                    <a href="/admin/nodes">角色列表</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/nodes_qxlb">权限节点列表</a>
                                 </li>
                                 <li>
                                     <a href="/admin/nodes/create">添加角色</a>
@@ -158,7 +154,7 @@
             <div id="page-wrapper" style="top: 0px;">
               <div class="header">
                 <!-- 内容开始 -->       
-                    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+                    <div class="copyrights">Collect from <a href="" >企业网站模板</a></div>
                         <div class="row">
                             <br>
                             <!-- 显示错误信息 -->

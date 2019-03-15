@@ -41,6 +41,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {   
+
         $data = $request->all();
         $user_code = $request->session()->get(1);
         $users = new Home_Users;

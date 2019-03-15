@@ -2071,6 +2071,7 @@
             "time": "2018-09-21T13:07:52+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "symfony/polyfill-php70",
             "version": "v1.10.0",
             "source": {

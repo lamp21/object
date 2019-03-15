@@ -3787,6 +3787,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "symfony/polyfill-php70",
         "version": "v1.10.0",
         "version_normalized": "1.10.0.0",
@@ -3848,6 +3849,8 @@
         ]
     },
     {
+=======
+>>>>>>> origin/changgao
         "name": "symfony/polyfill-php72",
         "version": "v1.10.0",
         "version_normalized": "1.10.0.0",

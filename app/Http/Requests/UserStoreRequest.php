@@ -28,7 +28,7 @@ class UserStoreRequest extends FormRequest
         'upass' => 'required|regex:/^[\w]{6,18}$/',
         'repassword' => 'required|same:upass',
         'phone' => 'required|regex:/^1{1}[3-9][\d]{9}$/',
-        'description' => 'required',
+        // 'description' => 'required',
             //
         ];
     }
@@ -45,7 +45,7 @@ class UserStoreRequest extends FormRequest
             'repassword.same'=>'两次密码不一致',
             'phone.required'=>'手机号必填',
             'phone.regex'=>'手机号格式不正确',
-            'description.required'=>'个人介绍必填',  
+            // 'description.required'=>'个人介绍必填',  
         ];
     }
 }

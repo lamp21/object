@@ -72,7 +72,7 @@
 				    </script>
 			    </div>
 		 	</div>
-			<div class="form-group">
+		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">是否展示</label>
 			    <div class="col-sm-10" style="width:600px;">
 			        <select class="form-control" name="status">

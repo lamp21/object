@@ -20,13 +20,13 @@ class NodesController extends Controller
         $search = $request->input('search','');
         $data = Roles::where('rname','like','%'.$search.'%')->paginate($count);
 
-        $count = $request->input('count',5);
+        $count = $request->input('count',8);
         $search = $request->input('search','');
         $res = Nodes::where('ndesc','like','%'.$search.'%')->paginate($count);
 
         $roles_data = DB::table('roles')->get();  // 角色
         $nodes_data = DB::table('nodes')->get();  // 节点
-        return view('admin.nodes.index',['roles_data'=>$roles_data,'nodes_data'=>$nodes_data,'data'=>$data,'res'=>$res]);
+        return view('admin.nodes.index',['roles_data'=>$roles_data,'nodes_data'=>$nodes_data,'data'=>$data,'res'=>$res,'request'=>$request->all()]);
     }
 
     public function nodeadd(){

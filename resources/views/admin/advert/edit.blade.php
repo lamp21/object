@@ -30,7 +30,8 @@
 	      		<input type="file" placeholder="广告图片" name="pic"  id="file1" onchange="change('pic1','file1')" value="{{ $advert['pic'] }}">
 	      			<br>
 					<br>
-				<img src="{{ asset('/img') }}{{ '/'.$advert['pic'] }}" id="pic1" alt="" style="width:100px;">
+				<img src="{{ asset('/img') }}{{ '/'.$advert['pic'] }}" onerror="errorIcon()" id="pic1" alt="" style="width:100px;">
+				
 	        </div>
 	    </div>
 
@@ -88,5 +89,11 @@
 		            }
 		        }
 		    }
+		    	document.addEventListener("error",function errorIcon(e){
+	            	var elem = e.target;
+	            	if(elem.tagName.toLowerCase() === 'pic'){
+	            	elem.src = "{{ asset('/img') }}{{ '/'.$advert['pic'] }}";
+	            	}
+	        	},true);
 		</script>
 @endsection

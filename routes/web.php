@@ -27,35 +27,25 @@ Route::resource('home/index','Home\IndexController');
 // Route::group(['middleware'=>['login','rbac']],function()
 
 // 后台 登录 测试
-Route::group(['middleware'=>'login'],function()
+Route::group(['middleware'=>['login','rbac']],function()
 { 	
 	Route::any('/logout', 'Admin\LoginController@logout');
 	// 后台 模板
 	Route::get('admin','Admin\IndexController@index');
 	// 后台 测试
 	Route::get('admin/users/setdata','Admin\UserController@setdata');
-	// 用户 管理
-	Route::resource('admin/users','Admin\UserController');
-	//后台 网站公告
-	Route::resource('admin/announcement','Admin\AnnouncementController');
-	//后台友情链接管理
-	Route::resource('admin/link','Admin\LinkController');
-	//后台精彩文章
-	Route::resource('admin/wonderful','Admin\WonderfulController');
 	// 广告 列表
 	Route::get('admin/advert/create','Admin\catesController@create');
-	// 广告
-	Route::resource('admin/advert','Admin\AdvertController');
-	// 用户管理
-	Route::resource('admin/users','Admin\UserController');
 	// 广告列表
 	Route::get('admin/advert/create','Admin\catesController@create');
-	// 广告
-	Route::resource('admin/advert','Admin\AdvertController');
-	// 后台 权限的理由
+	// 后台 角色的理由
 	Route::get('admin/nodes/nodeadd','Admin\NodesController@nodeadd');
 	Route::post('admin/nodes/insert','Admin\NodesController@insert');
 	Route::resource('admin/nodes','Admin\NodesController');
+	// 后台 权限的理由
+	Route::get('admin/nodes/nodeadd','Admin\Nodes_qxlbController@nodeadd');
+	Route::post('admin/nodes/insert','Admin\Nodes_qxlbController@insert');
+	Route::resource('admin/nodes_qxlb','Admin\Nodes_qxlbController');
 	// 用户管理
 	Route::get('admin/users/role/{id}','Admin\UserController@role');
 	Route::post('admin/users/updaterole/{uid}','Admin\UserController@updaterole');
@@ -65,7 +55,17 @@ Route::group(['middleware'=>'login'],function()
 	Route::get('admin/cates/create','Admin\CatesController@create');
 	// 查看 子分类
 	Route::get('admin/cates/{id}','Admin\CatesController@index');
-	// 分类管理
+	// 用户 管理
+	Route::resource('admin/users','Admin\UserController');
+	//后台 网站公告
+	Route::resource('admin/announcement','Admin\AnnouncementController');
+	//后台友情链接管理
+	Route::resource('admin/link','Admin\LinkController');
+	//后台精彩文章
+	Route::resource('admin/wonderful','Admin\WonderfulController');
+	// 广告
+	Route::resource('admin/advert','Admin\AdvertController');
+	// 分类 管理
 	Route::resource('admin/cates','Admin\CatesController');
 
 }); 
@@ -95,6 +95,16 @@ Route::resource('home/advert','Home\AdvertController');
 
 
 
+	
+
+
+
+
+
+
+
+
+
 
 
 
@@ -110,7 +120,6 @@ Route::resource('home/advert','Home\AdvertController');
 
 //前台友情链接列表
 Route::resource('home/link','Home\LinkController');
-
 //前台发表文章
 Route::resource('home/article','Home\ArticleController');
 //前台精彩文章

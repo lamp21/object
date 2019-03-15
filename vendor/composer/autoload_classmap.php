@@ -3314,7 +3314,10 @@ return array(
     'Symfony\\Polyfill\\Iconv\\Iconv' => $vendorDir . '/symfony/polyfill-iconv/Iconv.php',
     'Symfony\\Polyfill\\Intl\\Idn\\Idn' => $vendorDir . '/symfony/polyfill-intl-idn/Idn.php',
     'Symfony\\Polyfill\\Mbstring\\Mbstring' => $vendorDir . '/symfony/polyfill-mbstring/Mbstring.php',
+<<<<<<< HEAD
     'Symfony\\Polyfill\\Php70\\Php70' => $vendorDir . '/symfony/polyfill-php70/Php70.php',
+=======
+>>>>>>> origin/changgao
     'Symfony\\Polyfill\\Php72\\Php72' => $vendorDir . '/symfony/polyfill-php72/Php72.php',
     'Symfony\\Thanks\\Command\\ThanksCommand' => $vendorDir . '/symfony/thanks/src/Command/ThanksCommand.php',
     'Symfony\\Thanks\\GitHubClient' => $vendorDir . '/symfony/thanks/src/GitHubClient.php',
