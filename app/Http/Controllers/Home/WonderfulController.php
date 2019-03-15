@@ -38,8 +38,6 @@ class WonderfulController extends Controller
     public function store(Request $request)
     {
         
-        $a = Controller::cates_data();
-        return view('home.wonderful.wordinfo',['cates_data'=>$a,'show'=>$show]);
     }
 
     /**
@@ -50,7 +48,10 @@ class WonderfulController extends Controller
      */
     public function show($id)
     {
-       
+        $a = Controller::cates_data();
+        $word = DB::table('wonderful')->where('id',$id)->get();
+        //dump($word);
+        return view('home.wonderful.wordinfo',['cates_data'=>$a,'word'=>$word]);
     }
 
     /**

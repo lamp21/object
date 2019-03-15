@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class WordphotoController extends Controller
 {
     /**
@@ -46,7 +46,10 @@ class WordphotoController extends Controller
      */
     public function show($id)
     {
-        //
+        //dump($id);
+        $a = Controller::cates_data();
+        $wordinfo = DB::table('wordphoto')->where('id',$id)->get();
+        return view('home.wordphoto.wordinfo',['cates_data'=>$a,'wordinfo'=>$wordinfo]);
     }
 
     /**

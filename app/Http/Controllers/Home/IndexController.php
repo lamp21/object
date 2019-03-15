@@ -34,8 +34,8 @@ class IndexController extends Controller
         // dd($data_announcement);
         $data = Controller::cates_data();
         $show = DB::table('wonderful')->get();
-        //dd($show);
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show]);
+        $default = DB::table('wordphoto')->limit(5)->get();
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default]);
     }
 
     /**

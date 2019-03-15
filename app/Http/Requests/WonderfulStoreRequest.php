@@ -29,7 +29,7 @@ class WonderfulStoreRequest extends FormRequest
             'wd_form'=>'required',
             'wd_time'=>'required',
             'cate_uid'=>'required',
-            'connect'=>'required',
+            'content'=>'required',
             'status'=>'required'
         ];
     }
@@ -41,7 +41,7 @@ class WonderfulStoreRequest extends FormRequest
             'wd_form.required'=>'请填写来源',
             'wd_time.required'=>'请填写发表时间',
             'cate_uid.required'=>'请填选择分类',
-            'connect.required'=>'请填写正文',
+            'content.required'=>'请填写正文',
             'status.required'=>'请选择是否展示',
         ];
     }
