@@ -29,7 +29,7 @@ class IndexController extends Controller
 
     public function index()
     {   
-        $data_advert = Advert::limit(4)->get();
+        $data_advert = Advert::limit(6)->get();
         $data_announcement = Announcement::limit(5)->get();
         // dd($data_announcement);
         $data = Controller::cates_data();

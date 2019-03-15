@@ -17,7 +17,7 @@
                 <div class="panel-heading">
                                     
         <div class="card-title">
-            <h2><div class="title">权限添加</div></h2>
+            <h2><div class="title">角色添加</div></h2>
         </div>
     </div>
 

@@ -38,7 +38,13 @@ class LoginController extends Controller
             if($value->aname == 'create'){
                 $arr[$value->cname][] = 'store';
             }
+            if($value->aname == 'nodeadd'){
+                $arr[$value->cname][] = 'store';
+            }
             if($value->aname == 'edit'){
+                $arr[$value->cname][] = 'update';
+            }
+            if($value->aname == 'role'){
                 $arr[$value->cname][] = 'update';
             }
         }
@@ -50,9 +56,6 @@ class LoginController extends Controller
         session(['admin_login'=>true]);
 
         session(['userinfo'=>$userinfo]);
-
-        session(['value'=>'!empty($data->user_info->userinfo)?$data->user_info->userinfo:""']);
-
         // 登录成功
         echo "<script>alert('登录成功');location='/admin';</script>";
     }

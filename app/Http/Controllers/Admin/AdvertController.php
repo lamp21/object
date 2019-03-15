@@ -113,14 +113,17 @@ class AdvertController extends Controller
         // dump($request->all());exit;
         // echo $id;
         $advert = Advert::find($id);
-        // $advert->pic = $request->input('pic','');
         // $file = $advert->file('pic','');
         
-        // dump($advert->pic);exit;
+        // dump($_FILES['pic']['name']);exit;
         // 执行 图片上传
-        dump($id->pic);exit;
-        
-        // $advert->pic = $id->pic->store('');
+        if(!empty($_FILES['pic']['name'])){
+            // echo 1;
+            $advert->pic = $request->input('pic','');
+            $advert->pic = $request->pic->store('');
+        }
+
+        // exit;
         $advert->url = $request->input('url','');
         $advert->content = $request->input('content','');
 
