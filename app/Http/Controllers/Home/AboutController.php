@@ -22,7 +22,7 @@ class AboutController extends Controller
         $data1 = DB::table('home_users as u')
         ->join('users_info as i','u.id','=','i.uid')
         ->select('i.id as i_id','u.id as u_id')
-        ->get();
+        ->get();  
         foreach ($about_data as $k => $v) {
             $value = $v;
         }
