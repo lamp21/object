@@ -23,10 +23,9 @@
     <div class="banbox">
       <div class="banner">
         <div id="banner" class="fader">
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/1.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/2.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/3.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/4.jpg"></a></li>
+          @foreach($default as $k=>$v)
+          <li class="slide" ><a href="/home/wordphoto/{{$v->id}}" target="_blank"><img src="{{$v->pic}}"></a></li>
+          @endforeach
           <div class="fader_controls">
             <div class="page prev" data-target="prev"></div>
             <div class="page next" data-target="next"></div>
@@ -203,9 +202,10 @@
       <h2 class="htitle">精彩专题</h2>
       <ul>
         @foreach($show as $k=>$v)
+        @if($v->status == 2)
       <li>
         <i class="ztpic">
-          <a href="/home/wonderful/wordinfo" target="_blank">
+          <a href="/home/wonderful/{{$v->id}}" target="_blank">
             <img src="{{$v->wd_img}}"></a>
         </i>
         <b>{{$v->title}}</b>
@@ -216,6 +216,9 @@
         </span>
         <a href="" target="_blank" class="readmore">文章阅读</a>
       </li>
+      @elseif($v->status == 1)
+      <a href="/admin/"><span>请前往后台添加内容</span></a>
+      @endif
       @endforeach
     </ul>
     </div>

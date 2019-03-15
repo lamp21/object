@@ -57,19 +57,24 @@
 		      			{!!$v->pic_content!!}
           		</abbr>
 	        </td>
-	        @if($v->pic_status = 1)
-	        <td style="text-align:center;vertical-align:middle;">
-	        	<b style="color: red;">收起</b>
-	        </td>
-			@elseif($v->pic_status = 2)
+	        @if ($v->pic_status == 1) 
 			<td style="text-align:center;vertical-align:middle;">
-	        	<b style="color: blue;">展示</b>
-	        </td>
-	        @endif
+				<a href="/admin/wordphoto/{{$v->id}}/turn">
+					<b style="color: red;">收起</b>
+				</a>
+			</td>
+    		@elseif ($v->pic_status == 2)
+        	<td style="text-align:center;vertical-align:middle;">
+        		<a href="/admin/wordphoto/{{$v->id}}/doturn">
+        			<b style="color: blue;">展示</b>
+        		</a>
+        	</td>
+        	@endif
 	        <td style="text-align:center;vertical-align:middle;">
 	        	<a href="/admin/wordphoto/{{ $v->id }}/edit" class="btn btn-success">修改</a>
-	        	<form action="" method="post" style="display: inline-block;">
-	        		
+	        	<form action="/admin/wordphoto/{{$v->id}}" method="post" style="display: inline-block;">
+	        		{{ csrf_field() }}
+        			{{ method_field('DELETE')}}
 	        		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">
 	        	</form>
 	        </td>

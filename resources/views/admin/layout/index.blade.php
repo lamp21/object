@@ -151,17 +151,19 @@
                                 </li>
                                 <li>
                                     <a href="/admin/nodes/nodeadd">添加权限节点</a>
-                            <a href="#"><i class="icon-users"></i>轮播图内容管理<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/admin/wordphoto">前台显示列表</a>
                                 </li>
-                                <li>
-                                    <a href="/admin/wordphoto/create">轮播数据添加</a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>轮播图内容管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/wordphoto">前台显示列表</a>
+                            </li>
+                            <li>
+                                <a href="/admin/wordphoto/create">轮播数据添加</a>
+                            </li>
+                        </ul>
+                    </li>
                 </div>
             </nav>
             <!-- /. NAV SIDE  -->
