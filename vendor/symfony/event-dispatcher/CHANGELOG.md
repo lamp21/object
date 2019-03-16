@@ -1,14 +1,11 @@
 CHANGELOG
 =========
 
-<<<<<<< HEAD
 3.4.0
 -----
 
   * Implementing `TraceableEventDispatcherInterface` without the `reset()` method has been deprecated.
 
-=======
->>>>>>> origin/changgao
 3.3.0
 -----
 

@@ -18,7 +18,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="/admin_public/assets/js/Lightweight-Chart/cssCharts.css"> 
      <style>
-    span img{
+    abbr img{
         display: none;
     }
     

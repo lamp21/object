@@ -48,7 +48,11 @@
     <tr style="background:none;">
         <td style="text-align:center;vertical-align:middle;">{{$v->id}}</td>
         <td style="text-align:center;vertical-align:middle;">
-        	<marquee behavior="" direction="" style="height: 30px;width: 60px;">{{$v->title}}</marquee>
+        	<abbr title="{{$v->title }}">
+        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
+        		{{$v->title}}
+        	</p>
+        	</abbr>
         </td>
         <td style="text-align:center;vertical-align:middle;">
         	<img src="{{$v->wd_img}}" alt="文章封面图" style="width: 100px;">		
@@ -57,9 +61,11 @@
         <td style="text-align:center;vertical-align:middle;">{{$v->wd_time}}</td>
         <td style="text-align:center;vertical-align:middle;">{{$v->cate_uid}}</td>
         <td style="text-align:center;vertical-align:middle;">
-        	<span style="overflow: hidden; text-overflow: ellipsis; -o-text-overflow: ellipsis;white-space:nowrap;width:100px;height:24px;display:block;">
-        		{!!$v->content!!} 
-        	</span>
+        	<abbr title="{{$v->content }}">
+        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
+        		{{$v->content}}
+        	</p>
+        	</abbr>
     	</td>
     	@if ($v->status == 1) 
 			<td style="text-align:center;vertical-align:middle;">

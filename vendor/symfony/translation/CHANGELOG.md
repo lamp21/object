@@ -1,7 +1,6 @@
 CHANGELOG
 =========
 
-<<<<<<< HEAD
 3.4.0
 -----
 
@@ -17,8 +16,6 @@ CHANGELOG
  * Added `PhpExtractor`
  * Added `PhpStringTokenParser`
 
-=======
->>>>>>> origin/changgao
 3.2.0
 -----
 
