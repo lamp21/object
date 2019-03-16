@@ -195,7 +195,7 @@ a {
           <li><a href="/home/about">关于我</a></li>
         
           @if(isset(session('userinfo')->uname))
-              <li><a href="/home/about">{{ session('userinfo')->uname }}</a></li>
+              <li><img src="/home_public/images/qq1.png" style="width: 30px;height: auto;float: right;border-radius:50%; position: relative;top: 10px;"><a href="/home/about">{{ session('userinfo')->uname }}</a></li>
               <li><a href="/home/logout">退出</a></li>
           @else
              <li><a href="/home/login">登录</a></li>

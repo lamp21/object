@@ -9,7 +9,7 @@ use App\Models\Advert;
 use App\Models\Announcement;
 use DB;
 class IndexController extends Controller
-{   
+{
 
     public static function getPidCates($pid = 0){
         //echo "aaa";

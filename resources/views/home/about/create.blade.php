@@ -12,7 +12,7 @@
 		    <div class="ab_box">
 			    	<i class="avatar_pic">	
 		    			<label for="img_thumb">
-		    				<img src="{{ $value->uname_img }}" id="img" title="点击更换头像">
+		    				<img src="/img/1.jpeg" id="img" title="点击更换头像">
 		    			</label>
 		    			<form action="" id="infoLogoForm"  enctype="multipart/form-data"> 
 		    				{{ csrf_field() }}
@@ -38,7 +38,6 @@
 		    <div class="col-sm-10">
 			    <input type="radio" name="sex" value="0" checked>&nbsp;男&nbsp;&nbsp;&nbsp;
 			    <input type="radio" name="sex" value="1">&nbsp;女&nbsp;&nbsp;&nbsp;	
-			    <input type="radio" name="sex" value="2">&nbsp;保密
 			</div>
 		  </div>
 		  <div class="form-group">
