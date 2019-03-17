@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Usersinfo;
-
+use App\Models\Home_Users;
 class RepasswordController extends Controller
 {
     /**
@@ -15,8 +15,12 @@ class RepasswordController extends Controller
      */
     public function index()
     {
+        $home_users = new Home_Users;
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
         $cates_data = Controller::cates_data();
-        $about_data = Usersinfo::where('id',5)->get();
+        $about_data = Usersinfo::where('uid',$id)->get();
         foreach ($about_data as $k => $v) {
             $value = $v;
         }
