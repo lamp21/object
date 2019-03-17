@@ -13,6 +13,7 @@
 Route::get('/', function () {
 	session(['admin_login'=>false]);
 	session(['home_login'=>false]);
+	session(['value'=>false]);
     return view('welcome');
 });
 

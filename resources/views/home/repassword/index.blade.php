@@ -20,18 +20,18 @@
 		  <div class="form-group">
 		    <label for="nick_name" class="col-sm-2 control-label">原始密码</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="upass" name="upass" placeholder="原始密码">
+		      <input type="password" class="form-control" id="upass" name="upass" placeholder="原始密码">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label for="nick_name" class="col-sm-2 control-label">新密码</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="upass_1" name="upass_1" placeholder="新密码">
+		      <input type="password" class="form-control" id="new_upass" name="new_upass" placeholder="新密码">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		      <button type="submit" class="btn btn-success">提交</button>
+		      <button type="submit" id="bt" class="btn btn-success">提交</button>
 		    </div>
 		  </div>
 		</form>
@@ -65,4 +65,18 @@
 		    </ul>
 		  </div>
 	</article>
+	<script type="text/javascript">
+		//非空验证
+		$('#bt').click(function () {
+			var upass = $('#upass').val();
+	        var new_upass = $('#new_upass').val();
+	        if(upass == ''){
+	        	alert('请输入原密码！');
+	        	return false;
+	        }else if(new_upass == ''){
+	        	alert('密码不能为空！');
+	        	return false;
+	   		}
+	    });
+	</script>
 @endsection

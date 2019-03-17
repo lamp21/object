@@ -37,15 +37,8 @@ class IndexController extends Controller
         $data = Controller::cates_data();
         $show = DB::table('wonderful')->get();
         $default = DB::table('wordphoto')->limit(5)->get();
-        $home_users = new Home_Users;
-        //读取session中的id
-        $id = session('userinfo')->id;
-        $userinfo = new Usersinfo;
-        $about_data = Usersinfo::where('uid',$id)->get();
-        foreach ($about_data as $k => $v) {
-            $value = $v;
-        }
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'value'=>$value]);
+        
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default]);
     }
 
     /**
