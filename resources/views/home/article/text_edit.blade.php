@@ -2,22 +2,23 @@
 
 @section('content')
 <article>
-	<form action="/home/article" method="post">
-
+	<form action="/home/article/{{$update_id->id}}" method="post">
+    {{ method_field('PUT') }}
     {{ csrf_field() }}
     <div class="whitebg about">
     <div>
-      <h1 class="text-center" style="text-align:center;color:gray;">发表贴文</h1>
+      <h1 class="text-center" style="text-align:center;color:black;">修改文章</h1>
     </div>
-      @foreach($user as $k=>$v)
+      @foreach($users_res as $k=>$v)
       <div class="ab_box"> <i class="avatar_pic"><img src="{{$v->uname_img}}"></i>
       <h3>{{$v->nick_name}}</h3>
       <p>{{$v->personal_label}}</p>
       </div>
       @endforeach
+      @foreach($default as $k=>$v)
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">标题</label>
-	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题" name="art_title">
+	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题" name="art_title" value="{{$v->art_title}}">
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputPassword1">文章类型</label>
@@ -41,33 +42,12 @@
 	    <!-- 实例化编辑器 -->
 	    <script type="text/javascript">
 	        var ue = UE.getEditor('container');
-	    </script>
-	    
+	    </script> 
 	  </div>
-	  <button type="submit" class="btn btn-info">发表贴文</button>
+      @endforeach
+	  <button type="submit" class="btn btn-success">确认修改</button>
 	</form>
 </div>
-    <h2 class="gd_title">我的博客</h2>
-    <ul class="myblog">
-      <li><b>创建时间</b>
-        <p>2011年01月12日</p>
-        <p><a href="http://www.yangqq.com" target="_blank" class="buttons">主页</a></p>
-      </li>
-      <li><b>主题模板</b>
-        <p><a href="http://www.yangqq.com" target="_blank">《今夕何夕》</a></p>
-        <p><a href="/" class="buttons">下载</a></p>
-      </li>
-      <li><b>网站程序</b>
-        <p>帝国CMS7.5</p>
-        <p><a href="http://www.yangqq.com" target="_blank" class="buttons">下载</a></p>
-      </li>
-      <li><b>服务器商</b>
-        <p>阿里云服务器</p>
-        <a href="/" class="buttons">1888代金券领取</a></li>
-      <li><b>免费空间</b>
-        <p><a href="http://www.4562.com/?u=3CE3E8" target="_blank">金牛云服</a></p>
-        <a href="/" class="buttons">国内主机免费领</a></li>
-    </ul>
     <h2 class="gd_title">加入我们</h2>
     <ul class="qq_join">
       <li>

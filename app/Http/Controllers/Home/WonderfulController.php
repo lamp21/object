@@ -50,7 +50,6 @@ class WonderfulController extends Controller
     {
         $a = Controller::cates_data();
         $word = DB::table('wonderful')->where('id',$id)->get();
-        //dump($word);
         return view('home.wonderful.wordinfo',['cates_data'=>$a,'word'=>$word]);
     }
 

@@ -59,12 +59,6 @@
         		{{ csrf_field() }}
         		{{ method_field('DELETE')}}
 				<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">
-        		
-        	</form>
-
-				<input type="submit" value="删除" class="btn btn-danger">
-			</form>
-
         	@else
         	<a href="/admin/link/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">已通过审核</a>
 			<form action="/admin/link/{{$v->id}}" method="post" style="display: inline-block;">
