@@ -8,6 +8,8 @@ use App\Models\Cates;
 use App\Models\Advert;
 use App\Models\Announcement;
 use DB;
+use App\Models\Home_Users;
+use App\Models\Usersinfo;
 class IndexController extends Controller
 {
 
@@ -35,7 +37,15 @@ class IndexController extends Controller
         $data = Controller::cates_data();
         $show = DB::table('wonderful')->get();
         $default = DB::table('wordphoto')->limit(5)->get();
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default]);
+        $home_users = new Home_Users;
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'value'=>$value]);
     }
 
     /**
@@ -109,10 +119,6 @@ class IndexController extends Controller
         //
     }
  
-    //登录
-    public function login(){
-        return view('home.login.login');
-    }
     public function wonderful($id)
     {
         

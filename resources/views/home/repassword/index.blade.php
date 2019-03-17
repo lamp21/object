@@ -1,18 +1,12 @@
 @extends('home.layout.index')
-<style type="text/css">
-	#img{
-		/*cursor: pointer;*/
-		width: 100%;
-    	border-radius: 50%;
-	}
-</style>
+
 @section('content')
 	<article>
 		  <div class="whitebg about">
 		    <div class="ab_box">
 			    	<i class="avatar_pic">	
 		    			<label for="img_thumb">
-		    				<img src="{{ $value->uname_img }}" id="img" title="点击更换头像">
+		    				<img src="{{ $value->uname_img ? $value->uname_img : '/img/1.jpeg'}}" id="img" title="点击更换头像">
 		    			</label>
 			    	</i>
 			    <h3>{{ $value->nick_name }}</h3>
@@ -20,8 +14,9 @@
 		   </div>
 		<h2 class="gd_title">修改密码</h2>
 		<div class="container" style="width: 800px;">
-		<form class="form-horizontal" action="/home/repassword" method="post" >
+		<form class="form-horizontal" action="/home/repassword/{{ $value->id }}" method="post" >
 			{{ csrf_field() }}
+			{{ method_field("PUT")}}
 		  <div class="form-group">
 		    <label for="nick_name" class="col-sm-2 control-label">原始密码</label>
 		    <div class="col-sm-10">

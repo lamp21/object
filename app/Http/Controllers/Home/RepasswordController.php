@@ -79,7 +79,13 @@ class RepasswordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //修改主表
+        $user = Usersinfo::find($id);
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        dd($about_data);
     }
 
     /**
