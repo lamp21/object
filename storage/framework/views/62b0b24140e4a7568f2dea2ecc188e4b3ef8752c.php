@@ -21,10 +21,9 @@
     <div class="banbox">
       <div class="banner">
         <div id="banner" class="fader">
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/1.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/2.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/3.jpg"></a></li>
-          <li class="slide" ><a href="/" target="_blank"><img src="/home_public/images/4.jpg"></a></li>
+          <?php $__currentLoopData = $default; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <li class="slide" ><a href="/home/wordphoto/<?php echo e($v->id); ?>" target="_blank"><img src="<?php echo e($v->pic); ?>"></a></li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <div class="fader_controls">
             <div class="page prev" data-target="prev"></div>
             <div class="page next" data-target="next"></div>
@@ -201,9 +200,10 @@
       <h2 class="htitle">精彩专题</h2>
       <ul>
         <?php $__currentLoopData = $show; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if($v->status == 2): ?>
       <li>
         <i class="ztpic">
-          <a href="/home/wonderful/wordinfo" target="_blank">
+          <a href="/home/wonderful/<?php echo e($v->id); ?>" target="_blank">
             <img src="<?php echo e($v->wd_img); ?>"></a>
         </i>
         <b><?php echo e($v->title); ?></b>
@@ -215,6 +215,9 @@
         </span>
         <a href="" target="_blank" class="readmore">文章阅读</a>
       </li>
+      <?php elseif($v->status == 1): ?>
+      <a href="/admin/"><span>请前往后台添加内容</span></a>
+      <?php endif; ?>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
     </div>

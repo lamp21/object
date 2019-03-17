@@ -2,7 +2,7 @@
 
 @section('content')
 		<!-- 显示错误信息 -->
-		<!-- @if (count($errors) > 0)
+		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<ul>
 			    @foreach ($errors->all() as $error)
@@ -10,7 +10,7 @@
 			    @endforeach
 			</ul>
 		</div>
-		@endif -->		
+		@endif		
 		<p></p>
 		<div class="col-xs-12">
             <div class="panel panel-default">

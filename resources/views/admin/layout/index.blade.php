@@ -54,7 +54,6 @@
                             @else
                             <li class="divider"></li>
                             @endif
-                            </li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>

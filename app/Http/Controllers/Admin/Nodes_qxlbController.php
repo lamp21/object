@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Nodes_qxlbStoreRequest;
 use App\Models\Roles;
 use App\Models\Nodes;
 use DB;
@@ -45,7 +46,7 @@ class Nodes_qxlbController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Nodes_qxlbStoreRequest $request)
     {
        $data = $request->except(['_token']);
         // 权限处理

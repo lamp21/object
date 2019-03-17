@@ -160,7 +160,13 @@ class UserController extends Controller
         //修改主表
         $user = Users::find($id);
         // $user->email = $request->input('email','');
-        $user->phone = $request->input('phone','');
+        // $user->phone = $request->input('phone','');
+        dump($_FILES);exit;
+        
+        if(!empty($_FILES['uname'])){
+            $user->uname = $request->input('uname','');
+            $user->upass = Hash::make($request->input('upass',''));
+        }
         $res1 = $user->save();
         // $description = $request->input('description','');
 
