@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Models\Home_Users;
+use App\Models\Usersinfo;
 class WordphotoController extends Controller
 {
     /**
@@ -47,9 +49,16 @@ class WordphotoController extends Controller
     public function show($id)
     {
         //dump($id);
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
         $a = Controller::cates_data();
         $wordinfo = DB::table('wordphoto')->where('id',$id)->get();
-        return view('home.wordphoto.wordinfo',['cates_data'=>$a,'wordinfo'=>$wordinfo]);
+        return view('home.wordphoto.wordinfo',['cates_data'=>$a,'wordinfo'=>$wordinfo,'value'=>$value]);
     }
 
     /**

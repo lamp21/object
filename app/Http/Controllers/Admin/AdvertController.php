@@ -96,8 +96,16 @@ class AdvertController extends Controller
     {
         
         $advert = Advert::find($id);
-
-        return view('admin.advert.edit',['advert'=>$advert]);
+        //审核通过
+        //echo $id;
+        $change = DB::table('advert')->find($id);
+        //dump($change); 
+        $change_advert['advert_agree'] = $change->advert_agree;
+        //dd($change_link);
+            
+        DB::table('advert')->where('id',$id)->update(['advert_agree' => 1]);
+        return redirect($_SERVER['HTTP_REFERER'])->with('SUCCESS','通过审核');
+        
     }
 
     /**

@@ -24,7 +24,7 @@ class CatesStoreRequest extends FormRequest
     public function rules()
     {
         return [
-        'cname' => 'required|regex:/^[a-zA-Z]/',
+        'cname' => 'required',
             //
         ];
     }
@@ -33,7 +33,7 @@ class CatesStoreRequest extends FormRequest
     {
         return [
             'cname.required'=>'分类名称必填',
-            'cname.regex'=>'分类名称格式不正确',  
+            // 'cname.regex'=>'分类名称格式不正确',  
         ];
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LinkStoreRequest;
 use DB;
+use App\Models\Home_Users;
+use App\Models\Usersinfo;
 class LinkController extends Controller
 {
     /**
@@ -15,10 +17,17 @@ class LinkController extends Controller
      */
     public function index()
     { 
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
         $a = Controller::cates_data();
         //加载页面 获取数据
         $link_list = DB::table('link')->where('link_agree', '1')->get();
-        return view('home.link.link_list',['cates_data'=>$a,'link_list'=>$link_list]);
+        return view('home.link.link_list',['cates_data'=>$a,'link_list'=>$link_list,'value'=>$value]);
     }
 
     /**

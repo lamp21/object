@@ -104,6 +104,8 @@ class RepasswordController extends Controller
         if($result){
             echo "<script>alert('修改成功');location='/home/about';</script>";
         }
+    
+
     }
 
     /**
