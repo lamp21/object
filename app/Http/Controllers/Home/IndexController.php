@@ -81,8 +81,15 @@ class IndexController extends Controller
         // $data_announcement = Announcement::find($id);
         $data_announcement = DB::table('announcement')->where('id',$id)->get();
         // dd($data_announcement);
+        // //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
         $cates_data = Controller::cates_data();
-        return view('home.detail.detail',['cates_data'=>$cates_data,'data_announcement'=>$data_announcement]);
+        return view('home.detail.detail',['cates_data'=>$cates_data,'data_announcement'=>$data_announcement,'value'=>$value]);
     }
 
     /**

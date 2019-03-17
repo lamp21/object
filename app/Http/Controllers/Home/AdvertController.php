@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
-
 use App\Models\Advert;
-
 use DB;
+use App\Models\Home_Users;
+use App\Models\Usersinfo;
 class AdvertController extends Controller
 {
     /**
@@ -18,9 +18,15 @@ class AdvertController extends Controller
      */
     public function index()
     {
-        //
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
         $a = Controller::cates_data();
-        return view('home.advert.advert',['cates_data'=>$a]);
+        return view('home.advert.advert',['cates_data'=>$a,'value'=>$value]);
     }
 
     /**

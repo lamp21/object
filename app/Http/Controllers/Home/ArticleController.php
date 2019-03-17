@@ -30,7 +30,14 @@ class ArticleController extends Controller
         $uid = session('userinfo')->id;
         $userinfo = DB::table('users_info')->where('uid',$uid)->get();
         $word_res = DB::table('article')->where('users_uid',$uid)->get();
-        return view('home.article.own_list',['cates_data'=>$a,'userinfo'=>$userinfo,'word_res'=>$word_res]);
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
+        return view('home.article.own_list',['cates_data'=>$a,'userinfo'=>$userinfo,'word_res'=>$word_res,'value'=>$value]);
     }
 
     /**
