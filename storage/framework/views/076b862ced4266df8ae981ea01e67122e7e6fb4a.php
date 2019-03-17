@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#"><strong><i class="icon fa fa-plane"></i>Homie action后台</strong></a>
-                    <div id="sideNav" href="" class="">
+                    <div id="sideNav" href="">
                         <i class="fa fa-bars icon"></i> 
                     </div>
                 </div>
@@ -47,15 +47,14 @@
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
+                            <?php if(isset(session('userinfo')->uname)): ?>
                             <li><a href="#"><i class="fa fa-user fa-fw"></i>你好,<?php echo e(session('userinfo')->uname); ?></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> 头像</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
-                            </li>
-                            <li class="divider"></li>
                             <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                             </li>
+                            <?php else: ?>
+                            <li class="divider"></li>
+                            <?php endif; ?>
+                            </li>  
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>

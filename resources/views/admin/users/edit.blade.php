@@ -33,7 +33,7 @@
                             <input type="text" class="form-control" disabled id="uname" name="uname" value="{{ $users['uname']}}">
                         </div>
                     </div>
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label for="upass" class="col-sm-2 control-label">密码</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="upass" name="upass">
@@ -42,21 +42,21 @@
                     <div class="form-group">
                         <label for="repassword" class="col-sm-2 control-label">确认密码</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="repassword" name="repassword">
+                            <input type="password" class="form-control" id="repassword" name="upass">
                         </div>
-                    </div> -->
+                    </div>
 <!--                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="email" name="email" value="{{ $users['email']}}">
                         </div>
                     </div> -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="phone" class="col-sm-2 control-label">手机号</label>
                         <div class="col-sm-10">
                             <input type="phone" class="form-control" id="phone" name="phone" value="{{ $users['phone']}}">
                         </div>
-                    </div>
+                    </div> -->
     				<div class="form-group">
                         <label for="" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10">

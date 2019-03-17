@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NodesStoreRequest;
 use App\Models\Roles;
 use App\Models\Nodes;
 use DB;
@@ -65,7 +66,7 @@ class NodesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NodesStoreRequest $request)
     {
        $data = $request->except(['_token']);
        $res = DB::table('roles')->insert($data);

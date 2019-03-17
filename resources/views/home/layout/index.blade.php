@@ -174,9 +174,8 @@ a {
     <nav>
       <ul id="starlist" style="font-size: 18px;">
         <li><a href="/home/index">首页</a></li>
-          
-              <li class="menu"><a href="list2.html" onclick="return false;">文章分类</a>
                 @foreach($cates_data as $k=>$v)
+              <li class="menu"><a href="list2.html" onclick="return false;">{{ $v->cname }}</a>
                   <ul class="sub">   
                       @foreach($v['sub'] as $kk=>$vv)     
                         <li><a href="/8">{{ $vv->cname }}</a>
