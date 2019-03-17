@@ -49,13 +49,21 @@
 	        <td style="text-align:center;vertical-align:middle;">
 	        	<img src="{{$v->pic}}" alt="轮播图片" style="width: 100px;">	
 	        </td>
-	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_title}}</td>
+	        <td style="text-align:center;vertical-align:middle;">
+	        	<abbr title="{{$v->pic_title }}">
+	        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
+	        		{{$v->pic_title}}
+	        	</p>
+        	</abbr>
+	        </td>
 	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_form}}</td>
 	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_time}}</td>
 	        <td style="text-align:center;vertical-align:middle;">
-	        	<abbr title="{!!$v->pic_content!!}">
-		      			{!!$v->pic_content!!}
-          		</abbr>
+	        	<abbr title="{{$v->pic_content }}">
+	        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
+	        		{{$v->pic_content}}
+	        	</p>
+        	</abbr>
 	        </td>
 	        @if ($v->pic_status == 1) 
 			<td style="text-align:center;vertical-align:middle;">

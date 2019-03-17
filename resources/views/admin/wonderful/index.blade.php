@@ -47,7 +47,13 @@
     @foreach($wonderful_info as $k=>$v) 
     <tr style="background:none;">
         <td style="text-align:center;vertical-align:middle;">{{$v->id}}</td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->title}}</td>
+        <td style="text-align:center;vertical-align:middle;">
+        	<abbr title="{{$v->title }}">
+        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
+        		{{$v->title}}
+        	</p>
+        	</abbr>
+        </td>
         <td style="text-align:center;vertical-align:middle;">
         	<img src="{{$v->wd_img}}" alt="文章封面图" style="width: 100px;">		
         </td>
@@ -55,8 +61,10 @@
         <td style="text-align:center;vertical-align:middle;">{{$v->wd_time}}</td>
         <td style="text-align:center;vertical-align:middle;">{{$v->cate_uid}}</td>
         <td style="text-align:center;vertical-align:middle;">
-        	<abbr title="{{$v->content}}">
-        		{!!$v->content!!}
+        	<abbr title="{{$v->content }}">
+        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
+        		{{$v->content}}
+        	</p>
         	</abbr>
     	</td>
     	@if ($v->status == 1) 
