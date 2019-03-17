@@ -39,7 +39,12 @@
     <!--headline begin-->
     <div class="headline">
       <ul>
-        <li><a href="/" title="为什么说10月24日是程序员的节日？"><img src="/home_public/images/h1.jpg" alt="为什么说10月24日是程序员的节日？"><span>为什么说10月24日是程序员的节日？</span></a></li>
+        <li>
+          <a href="/" title="为什么说10月24日是程序员的节日？">
+            <img src="/home_public/images/h1.jpg" alt="为什么说10月24日是程序员的节日？">
+            <span>为什么说10月24日是程序员的节日？</span>
+          </a>
+        </li>
         <li><a href="/" title="个人网站做好了，百度不收录怎么办？来，看看他们怎么做的"><img src="/home_public/images/h2.jpg" alt="个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</span></a></li>
       </ul>
     </div>
@@ -202,7 +207,6 @@
       <h2 class="htitle">精彩专题</h2>
       <ul>
         @foreach($show as $k=>$v)
-        @if($v->status == 2)
       <li>
         <i class="ztpic">
           <a href="/home/wonderful/{{$v->id}}" target="_blank">
@@ -213,11 +217,8 @@
               {!!$v->content!!}
           </abbr>
         </span>
-        <a href="" target="_blank" class="readmore">文章阅读</a>
+        <a href="/home/wonderful/{{$v->id}}" target="_blank" class="readmore">文章阅读</a>
       </li>
-      @elseif($v->status == 1)
-      <a href="/admin/"><span>请前往后台添加内容</span></a>
-      @endif
       @endforeach
     </ul>
     </div>

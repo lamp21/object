@@ -166,6 +166,14 @@
                             </li>
                         </ul>
                     </li>
+                        <li>
+                        <a href="#"><i class="icon-users"></i>文章管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/wordphoto">文章列表</a>
+                            </li>
+                        </ul>
+                    </li>
                 </div>
             </nav>
             <!-- /. NAV SIDE  -->

@@ -195,8 +195,8 @@ a {
           @endforeach
           <li><a href="/home/wonderful/">推荐文章</a></li>
           <li><a href="/home/article/create"><b style="color: yellow;">+&nbsp;发布文章</b></a></li>
-          <li><a href="/home/about">关于我</a></li>
-        
+          <li><a href="/home/about">个人中心</a></li>
+          <li><a href="/home/article">我的发布</a></li>
           @if(isset(session('userinfo')->uname))
               <li><a href="/home/about">{{ session('userinfo')->uname }}</a></li>
               <li><a href="/home/logout">退出</a></li>

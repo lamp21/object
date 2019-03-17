@@ -146,8 +146,8 @@ Route::get('admin/wordphoto/{id}/doturn','Admin\WordphotoController@doturn');
 Route::resource('home/wordphoto','Home\WordphotoController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
-
-
+//前台我的文章
+Route::resource('home/article','Home\ArticleController');
 
 
 
