@@ -164,8 +164,7 @@ Route::get('admin/wordphoto/{id}/doturn','Admin\WordphotoController@doturn');
 Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
 Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
 
-//前台我的文章
-Route::resource('home/article','Home\ArticleController');
+
 
 
 
@@ -232,6 +231,8 @@ Route::group(['middleware'=>'home_login'],function(){
 	Route::resource('home/advert','Home\AdvertController');
 	//用户修改密码
 	Route::resource('home/repassword','Home\RepasswordController');
+	//前台我的文章
+	Route::resource('home/article','Home\ArticleController');
 });
 // 前台 登录
 Route::get('home/login','Home\LoginController@login');
