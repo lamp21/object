@@ -47,9 +47,9 @@
     @foreach($data as $k=>$v)       
     <tr style="background:none;">
         <td>{{ $v->id }}</td>
-        <td>{{ $v->usersinfo->nick_name }}</td>
+        <td>{{ $v->usersinfo['nick_name'] }}</td>
         <td>
-        	@switch($v->usersinfo->sex)
+        	@switch($v->usersinfo['sex'])
 				@case(0)
 					男
 				@break
@@ -62,11 +62,11 @@
 		    @endswitch
         </td>
         <td>{{ $v->phone }}</td>
-        <td>{{ $v->usersinfo->email }}</td>
-        <td>{{ $v->usersinfo->QQ }}</td>
-        <td>{{ $v->usersinfo->real_name }}</td>
-        <td>{{ $v->usersinfo->work }}</td>
-        <td>{{ $v->usersinfo->location }}</td>
+        <td>{{ $v->usersinfo['email'] }}</td>
+        <td>{{ $v->usersinfo['QQ'] }}</td>
+        <td>{{ $v->usersinfo['real_name'] }}</td>
+        <td>{{ $v->usersinfo['work'] }}</td>
+        <td>{{ $v->usersinfo['location'] }}</td>
         <td>{{ $v->created_at }}</td>
     </tr>
     @endforeach
