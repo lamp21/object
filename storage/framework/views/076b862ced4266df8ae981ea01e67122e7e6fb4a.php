@@ -54,7 +54,10 @@
                             <?php else: ?>
                             <li class="divider"></li>
                             <?php endif; ?>
+<<<<<<< HEAD
                             </li>
+=======
+>>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>

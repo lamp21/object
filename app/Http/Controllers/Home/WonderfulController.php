@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Models\Home_Users;
+use App\Models\Usersinfo;
 class WonderfulController extends Controller
 {
     /**
@@ -16,8 +18,19 @@ class WonderfulController extends Controller
     {
         //加载视图
         $a = Controller::cates_data();
+<<<<<<< HEAD
         $articles = DB::table('wonderful')->get();
         return view('home.wonderful.wonderful',['cates_data'=>$a,'articles'=>$articles]);
+=======
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
+        return view('home.wonderful.wonderful',['cates_data'=>$a,'value'=>$value]);
+>>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
     }
 
     /**
@@ -51,7 +64,6 @@ class WonderfulController extends Controller
     {
         $a = Controller::cates_data();
         $word = DB::table('wonderful')->where('id',$id)->get();
-        //dump($word);
         return view('home.wonderful.wordinfo',['cates_data'=>$a,'word'=>$word]);
     }
 

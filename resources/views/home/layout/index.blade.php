@@ -65,6 +65,9 @@ img {
     height:96px;
 }
 */
+#sp img{
+  display: none;
+}
 .zhuanti li { float: left; width: 32.6%; border-bottom: #eee 1px solid; border-left: #eee 1px solid; overflow: hidden; padding: 25px; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease; }
 .card p { font-size: 15px; padding: 0 0 0 20px; line-height: 25px; text-shadow: 0px 1px 2px rgba(0,0,0,.5); color: #d0d2d4; -webkit-animation: animations2 5s ease-in-out 5s; -moz-animation: animations2 5s ease-in-out 5s; -o-animation: animations2 5s ease-in-out 5s; -ms-animation: animations2 5s ease-in-out 5s; animation: animations2 5s ease-in-out 5s; }
 * {
@@ -174,9 +177,8 @@ a {
     <nav>
       <ul id="starlist" style="font-size: 18px;">
         <li><a href="/home/index">首页</a></li>
-          
-              <li class="menu"><a href="list2.html" onclick="return false;">文章分类</a>
                 @foreach($cates_data as $k=>$v)
+              <li class="menu"><a href="list2.html" onclick="return false;">{{ $v->cname }}</a>
                   <ul class="sub">   
                       @foreach($v['sub'] as $kk=>$vv)     
                         <li><a href="/8">{{ $vv->cname }}</a>
@@ -192,10 +194,10 @@ a {
           @endforeach
           <li><a href="/home/wonderful/">推荐文章</a></li>
           <li><a href="/home/article/create"><b style="color: yellow;">+&nbsp;发布文章</b></a></li>
-          <li><a href="/home/about">关于我</a></li>
-        
+          <li><a href="/home/about">个人中心</a></li>
+          <li><a href="/home/article">我的发布</a></li>
           @if(isset(session('userinfo')->uname))
-              <li><img src="/home_public/images/qq1.png" style="width: 30px;height: auto;float: right;border-radius:50%; position: relative;top: 10px;"><a href="/home/about">{{ session('userinfo')->uname }}</a></li>
+               <li><a href="/home/about"><font style="color: #228EAA;">Hello,</font>{{ session('userinfo')->uname }}</a></li>
               <li><a href="/home/logout">退出</a></li>
           @else
              <li><a href="/home/login">登录</a></li>

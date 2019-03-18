@@ -13,6 +13,7 @@
 Route::get('/', function () {
 	session(['admin_login'=>false]);
 	session(['home_login'=>false]);
+	session(['value'=>false]);
     return view('welcome');
 });
 
@@ -81,6 +82,15 @@ Route::group(['middleware'=>'login'],function()
 	Route::resource('admin/wordphoto','Admin\WordphotoController');
 	//轮播图片上传
 	Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
+	//后台精彩文章
+	Route::resource('admin/wonderful','Admin\WonderfulController');
+	//精彩文章封面图上传
+	Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
+	//后台轮播图
+	Route::resource('admin/wordphoto','Admin\WordphotoController');
+	//后台轮播图片上传
+	Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
+
 }); 
 // 登录 首页
 Route::get('login','Admin\LoginController@login');
@@ -138,7 +148,7 @@ Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
 //后台轮播图
 Route::resource('admin/wordphoto','Admin\WordphotoController');
 //后台轮播图片上传
-Route::post('admin/wordphoto/upload','Adturnmin\WordphotoController@upload');
+Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
 //显示轮播图
 Route::get('admin/wordphoto/{id}/turn','Admin\WordphotoController@turn');
 Route::get('admin/wordphoto/{id}/doturn','Admin\WordphotoController@doturn');
@@ -147,9 +157,27 @@ Route::resource('home/wordphoto','Home\WordphotoController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
 
+//显示文章
+Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
+Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
 
 
 
+
+
+
+//前台我的文章
+Route::resource('home/article','Home\ArticleController');
+//后台文章审核列表
+Route::resource('admin/article','admin\ArticleController');
+//后台文章审核
+Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
+Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
+//后台文章展示
+Route::get('admin/article/{id}/display','Admin\ArticleController@display');
+Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
+//前台评论
+Route::resource('home/message','home\MessageController');
 
 
 
@@ -213,6 +241,8 @@ Route::group(['middleware'=>'home_login'],function(){
 	Route::resource('home/advert','Home\AdvertController');
 	//用户修改密码
 	Route::resource('home/repassword','Home\RepasswordController');
+	//前台我的文章
+	Route::resource('home/article','Home\ArticleController');
 });
 // 前台 登录
 Route::get('home/login','Home\LoginController@login');

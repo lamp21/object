@@ -3,6 +3,11 @@
 	#add_a{
 	font-size: 20px;
 	}
+	#img{
+		cursor: pointer;
+		width: 100%;
+    	border-radius: 50%;
+	}
 </style>
 @section('content')
 <article>

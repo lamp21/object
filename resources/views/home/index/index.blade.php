@@ -39,7 +39,12 @@
     <!--headline begin-->
     <div class="headline">
       <ul>
-        <li><a href="/" title="为什么说10月24日是程序员的节日？"><img src="/home_public/images/h1.jpg" alt="为什么说10月24日是程序员的节日？"><span>为什么说10月24日是程序员的节日？</span></a></li>
+        <li>
+          <a href="/" title="为什么说10月24日是程序员的节日？">
+            <img src="/home_public/images/h1.jpg" alt="为什么说10月24日是程序员的节日？">
+            <span>为什么说10月24日是程序员的节日？</span>
+          </a>
+        </li>
         <li><a href="/" title="个人网站做好了，百度不收录怎么办？来，看看他们怎么做的"><img src="/home_public/images/h2.jpg" alt="个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</span></a></li>
       </ul>
     </div>
@@ -50,10 +55,10 @@
       <div class="tab_buttons">
         <ul>
           <li class="newscurrent">个人博客</li>
-          <li>工作日记</li>
+          <!-- <li>工作日记</li>
           <li>心路历程</li>
           <li>我的博客</li>
-          <li>前端技术</li>
+          <li>前端技术</li> -->
         </ul>
       </div>
       <div class="newstab">
@@ -71,28 +76,6 @@
               <a href="/">个人博客，属于我的小世界！</a>
               <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
             </li>
-            <li>
-              <i></i>
-              <a href="/">安静地做一个爱设计的女子</a>
-            <li><i></i><a href="/">个人博客，属于我的小世界！</a>
-              <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
-            </li>
-            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
-              <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
-            </li>
-            <li><i></i><a href="/">我是怎么评价自己的？</a>
-              <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
-            </li>
-            <li>
-              <i></i>
-              <a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
-
-            <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
-              <p>不管你是学前端的还是后端的，作为一个程序员，做一个自己的博客，那是必然的。咱们的圈子就这么大，想让更多的人了解你，看看你的技术多牛逼，扔一个博客地址就行了</p>
-            </li>
-            <li><i></i><a href="/">做个人博客如何用帝国cms美化留言增加头像选择</a>
-              <p>帝国cms的留言板系统很简单，用户名，邮箱，电话，没有头像显示，如果要增加头像选择，而又不增加表或者字段的情况下，选择改用其中一个字段，比如电话这个，修改一下即可</p>
-            </li>
           </ul>
         </div>
         <div class="newsitem">
@@ -102,23 +85,6 @@
               <li><a href="/"><img src="/home_public/images/1.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
             </ul>
           </div>
-          <ul class="newslist">
-            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
-              <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
-            </li>
-            <li><i></i><a href="/">我是怎么评价自己的？</a>
-              <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
-            </li>
-            <li><i></i><a href="/">个人博客，属于我的小世界！</a>
-              <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
-            </li>
-            <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
-              <p>不管你是学前端的还是后端的，作为一个程序员，做一个自己的博客，那是必然的。咱们的圈子就这么大，想让更多的人了解你，看看你的技术多牛逼，扔一个博客地址就行了</p>
-            </li>
-            <li><i></i><a href="/">做个人博客如何用帝国cms美化留言增加头像选择</a>
-              <p>帝国cms的留言板系统很简单，用户名，邮箱，电话，没有头像显示，如果要增加头像选择，而又不增加表或者字段的情况下，选择改用其中一个字段，比如电话这个，修改一下即可</p>
-            </li>
-          </ul>
         </div>
         <div class="newsitem">
           <div class="newspic">
@@ -127,23 +93,7 @@
               <li><a href="/"><img src="/home_public/images/3.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
             </ul>
           </div>
-          <ul class="newslist">
-            <li><i></i><a href="/">我是怎么评价自己的？</a>
-              <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
-            </li>
-            <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
-              <p>不管你是学前端的还是后端的，作为一个程序员，做一个自己的博客，那是必然的。咱们的圈子就这么大，想让更多的人了解你，看看你的技术多牛逼，扔一个博客地址就行了</p>
-            </li>
-            <li><i></i><a href="/">做个人博客如何用帝国cms美化留言增加头像选择</a>
-              <p>帝国cms的留言板系统很简单，用户名，邮箱，电话，没有头像显示，如果要增加头像选择，而又不增加表或者字段的情况下，选择改用其中一个字段，比如电话这个，修改一下即可</p>
-            </li>
-            <li><i></i><a href="/">个人博客，属于我的小世界！</a>
-              <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
-            </li>
-            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
-              <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
-            </li>
-          </ul>
+          
         </div>
         <div class="newsitem" >
           <div class="newspic">
@@ -152,48 +102,6 @@
               <li><a href="/"><img src="/home_public/images/4.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
             </ul>
           </div>
-          <ul class="newslist">
-            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
-              <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
-            </li>
-            <li><i></i><a href="/">我是怎么评价自己的？</a>
-              <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
-            </li>
-            <li><i></i><a href="/">个人博客，属于我的小世界！</a>
-              <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
-            </li>
-            <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
-              <p>不管你是学前端的还是后端的，作为一个程序员，做一个自己的博客，那是必然的。咱们的圈子就这么大，想让更多的人了解你，看看你的技术多牛逼，扔一个博客地址就行了</p>
-            </li>
-            <li><i></i><a href="/">做个人博客如何用帝国cms美化留言增加头像选择</a>
-              <p>帝国cms的留言板系统很简单，用户名，邮箱，电话，没有头像显示，如果要增加头像选择，而又不增加表或者字段的情况下，选择改用其中一个字段，比如电话这个，修改一下即可</p>
-            </li>
-          </ul>
-        </div>
-        <div class="newsitem" >
-          <div class="newspic">
-            <ul>
-              <li><a href="/"><img src="/home_public/images/h2.jpg"><span>个人博客，属于我的小世界！</span></a></li>
-              <li><a href="/"><img src="/home_public/images/h1.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
-            </ul>
-          </div>
-          <ul class="newslist">
-            <li><i></i><a href="/">我是怎么评价自己的？</a>
-              <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
-            </li>
-            <li><i></i><a href="/">个人博客，属于我的小世界！</a>
-              <p>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</p>
-            </li>
-            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
-              <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
-            </li>
-            <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a>
-              <p>不管你是学前端的还是后端的，作为一个程序员，做一个自己的博客，那是必然的。咱们的圈子就这么大，想让更多的人了解你，看看你的技术多牛逼，扔一个博客地址就行了</p>
-            </li>
-            <li><i></i><a href="/">做个人博客如何用帝国cms美化留言增加头像选择</a>
-              <p>帝国cms的留言板系统很简单，用户名，邮箱，电话，没有头像显示，如果要增加头像选择，而又不增加表或者字段的情况下，选择改用其中一个字段，比如电话这个，修改一下即可</p>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
@@ -205,88 +113,48 @@
         @if($v->status == 2)
       <li>
         <i class="ztpic">
-          <a href="/home/wonderful/{{$v->id}}" target="_blank">
-            <img src="{{$v->wd_img}}"></a>
+          <a href=" >id}}" target="_blank">
+            <img src="{{$v->wd_img}}"></a >
         </i>
         <b>{{$v->title}}</b>
-        <span>
-          <abbr title="{!!$v->content!!}">
+        <span id="sp" style="width: 300px !important;float: left !important;overflow: hidden !important;text-overflow: ellipsis !important;"abbr title="{!!$v->content!!}">
               {!!$v->content!!}
           </abbr>
         </span>
-        <a href="" target="_blank" class="readmore">文章阅读</a>
+        <a href="/home/wonderful/{{$v->id}}" target="_blank" class="readmore">文章阅读</a >
       </li>
-      @elseif($v->status == 1)
-      <a href="/admin/"><span>请前往后台添加内容</span></a>
       @endif
       @endforeach
     </ul>
     </div>
     <div class="ad whitebg"> <img src="/home_public/images/longad.jpg"> </div>
     <div class="whitebg bloglist">
-      <h2 class="htitle">最新博文</h2>
-      <ul>
-        <!--多图模式 置顶设计-->
+      <h2 class="htitle">文章列表</h2>
+      <ul> 
+      @foreach($article_res as $k=>$v)
+      @if($v->display == 0)
         <li>
-          <h3 class="blogtitle">
-            <a href="/" target="_blank">
-              <b>【顶】</b>别让这些闹心的套路，毁了你的网页设计!</a>
-          </h3>
-          <span class="bplist">
-            <a href="/">
-              <img src="/home_public/images/b02.jpg" alt=""></a>
-            <a href="/">
-              <img src="/home_public/images/b03.jpg" alt=""></a>
-            <a href="/">
-              <img src="/home_public/images/b04.jpg" alt=""></a>
-            <a href="/">
-              <img src="/home_public/images/b05.jpg" alt=""></a>
-          </span>
-          <p class="blogtext">如图，要实现上图效果，我采用如下方法：1、首先在数据库模型，增加字段，分别是图片2，图片3。2、增加标签模板，用if，else if 来判断，输出。思路已打开，样式调用就可以多样化啦！...</p>
-          <p class="bloginfo">
-            <i class="avatar">
-              <img src="/home_public/images/avatar.jpg"></i>
-            <span>杨青青</span>
-            <span>2018-10-28</span>
-            <span>【
-              <a href="/">原创模板</a>】</span></p>
+          <h3 class="blogtitle">暂无数据</h3>
         </li>
-        <!-- 单图 -->
+      @else
         <li>
           <h3 class="blogtitle">
-            <a href="/" target="_blank">
-            【个人博客网站制作】自己不会个人博客网站制作，你会选择用什么博客程序源码？
-            </a>
+            <a href="/home/article/{{$v->id}}" target="_blank">{{$v->art_title}}</a>
           </h3>
-          <span class="blogpic imgscale">
-            <i>
-              <a href="/">原创模板</a>
-            </i>
-            <a href="/" title="">
-              <img src="/home_public/images/b01.jpg" alt="">
-            </a>
-          </span>
           <p class="blogtext">
-          这些开源的博客程序源码，都是经过很多次版本测试的，都有固定的使用人群。我所知道的主流的博客程序有，Z-blog，Emlog，WordPress，Typecho等，免费的cms系统有，织梦cms（dedecms），phpcms，帝国cms（EmpireCMS）！... 
+            {!!$v->art_content!!}
           </p>
           <p class="bloginfo">
-            <i class="avatar">
-              <img src="/home_public/images/avatar.jpg">
-            </i>
-            <span>杨青青</span>
-            <span>2018-10-28</span>
+           
+            <i class="avatar"><img src="{{$value->uname_img}}"></i>
+            <span>{{$value->uname}}</span>
+            
+            <span>{{$v->art_time}}</span>
             <span>【<a href="/">原创模板</a>】</span>
           </p>
-          <a href="/" class="viewmore">阅读更多</a> 
-        </li>
-        <!--纯文字-->
-        <!-- <li>
-          <h3 class="blogtitle"><a href="/" target="_blank">别让这些闹心的套路，毁了你的网页设计!</a></h3>
-          <p class="blogtext">如图，要实现上图效果，我采用如下方法：1、首先在数据库模型，增加字段，分别是图片2，图片3。2、增加标签模板，用if，else if 来判断，输出。思路已打开，样式调用就可以多样化啦！... </p>
-          <p class="bloginfo"><i class="avatar"><img src="/home_public/images/avatar.jpg"></i><span>杨青青</span><span>2018-10-28</span><span>【<a href="/">原创模板</a>】</span></p>
-          <a href="/" class="viewmore">阅读更多</a> </li>
-        单图
-        <li> -->
+          <a href="/home/article/{{$v->id}}" class="viewmore">阅读更多</a> </li>
+        @endif
+        @endforeach
       </ul>
     </div>
     <!--bloglist end--> 
@@ -363,7 +231,7 @@
         <a href="/"><img src="/home_public/images/ad02.jpg"></a>
       </ul>
     </div>
-    <div class="whitebg tongji">
+    <!-- <div class="whitebg tongji">
       <h2 class="htitle">站点信息</h2>
       <ul>
         <li><b>建站时间</b>：2018-10-24</li>
@@ -375,7 +243,7 @@
         <li><b>微信公众号</b>：扫描二维码，关注我们</li>
         <img src="/home_public/images/wxgzh.jpg" class="tongji_gzh">
       </ul>
-    </div>
+    </div> -->
     <div class="links whitebg">
       <h2 class="htitle">
         <span class="sqlink">

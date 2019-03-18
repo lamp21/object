@@ -95,6 +95,10 @@ class AdvertController extends Controller
     public function edit($id)
     {
         
+<<<<<<< HEAD
+=======
+        $advert = Advert::find($id);
+>>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
         //审核通过
         //echo $id;
         $change = DB::table('advert')->find($id);
@@ -104,10 +108,14 @@ class AdvertController extends Controller
             
         DB::table('advert')->where('id',$id)->update(['advert_agree' => 1]);
         return redirect($_SERVER['HTTP_REFERER'])->with('SUCCESS','通过审核');
+<<<<<<< HEAD
 
         // $advert = Advert::find($id);
 
         // return view('admin.advert.edit',['advert'=>$advert]);
+=======
+        
+>>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
     }
 
     /**

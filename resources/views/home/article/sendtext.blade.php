@@ -2,27 +2,36 @@
 
 @section('content')
 <article>
-	<form>
+	<form action="/home/article" method="post">
+
+    {{ csrf_field() }}
     <div class="whitebg about">
     <div>
       <h1 class="text-center" style="text-align:center;color:gray;">发表贴文</h1>
     </div>
-      <div class="ab_box"> <i class="avatar_pic"><a href=""><img src="/home_public/images/avatar.jpg"></a></i>
-      <h3>测试用户</h3>
-      <p>个性签名栏。。。。</p>
-    </div>
+      @foreach($user as $k=>$v)
+      <div class="ab_box"> <i class="avatar_pic"><img src="{{$v->uname_img}}"></i>
+      <h3>{{$v->nick_name}}</h3>
+      <p>{{$v->personal_label}}</p>
+      </div>
+      @endforeach
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">标题</label>
-	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题">
+	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题" name="art_title">
 	  </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">关键字</label>
-	    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="关键字">
+	    <label for="exampleInputPassword1">文章类型</label>
+	    <select class="form-control" name="cate_uid" id="">
+        <option value="" selected disabled style="display: none;">--请选择--</option>
+          @foreach($cate_uid as $k=>$v)
+              <option value="{{ $v->id }}" @if($id == $v->id) selected @endif>{{ $v->cname }}</option>
+          @endforeach
+        </select>
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputFile">内容</label>
 	  	<!-- 加载编辑器的容器 -->
-	    <script id="container" name="content" type="text/plain">
+	    <script id="container" name="art_content" type="text/plain">
 	        
 	    </script>
 	    <!-- 配置文件 -->
