@@ -35,10 +35,23 @@ class IndexController extends Controller
         $data_announcement = Announcement::limit(5)->get();
         // dd($data_announcement);
         $data = Controller::cates_data();
-        $show = DB::table('wonderful')->get();
+        $show = DB::table('wonderful')->limit(6)->get();
         $default = DB::table('wordphoto')->limit(5)->get();
-        
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default]);
+
+        $article_res = DB::table('article')->where('display',1)->get();
+        $data_res = DB::table('article as a')
+        ->join('users_info as u','a.users_uid','=','u.uid' )
+        ->join('home_users as h','h.id','=','u.uid')
+        ->select('a.display','a.users_uid','u.nick_name','u.uname_img','h.uname','a.id')
+        ->where('display',1)
+        ->orWhere('a.id')
+        ->get();
+        // dd($data_res);
+        foreach ($data_res as $key => $val) {
+            $value = $val;
+        }
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
+
     }
 
     /**

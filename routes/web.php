@@ -157,9 +157,6 @@ Route::resource('home/wordphoto','Home\WordphotoController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
 
-//显示轮播图
-Route::get('admin/wordphoto/{id}/turn','Admin\WordphotoController@turn');
-Route::get('admin/wordphoto/{id}/doturn','Admin\WordphotoController@doturn');
 //显示文章
 Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
 Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
@@ -168,6 +165,19 @@ Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange')
 
 
 
+
+//前台我的文章
+Route::resource('home/article','Home\ArticleController');
+//后台文章审核列表
+Route::resource('admin/article','admin\ArticleController');
+//后台文章审核
+Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
+Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
+//后台文章展示
+Route::get('admin/article/{id}/display','Admin\ArticleController@display');
+Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
+//前台评论
+Route::resource('home/message','home\MessageController');
 
 
 
