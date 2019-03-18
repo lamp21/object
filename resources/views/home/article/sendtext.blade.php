@@ -101,15 +101,12 @@
     $('#but').click(function () {
       var art_title = $('#art_title').val();
       var cate_uid = $('#cate_uid').val();
-      var art_content = $('.art_content').val();
+      // var art_content = $('.art_content').val();
           if(art_title == ''){
             alert('标题不能为空！');
             return false;
           }else if(cate_uid == ''){
             alert('请选择分类！');
-            return false;
-          }else if(art_content == ''){
-            alert('内容不能为空！');
             return false;
           }
         });

@@ -48,36 +48,20 @@
         <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
           <h3 class="text=control text-info">网友评论</h3>
         </div>
-          <div class="comments">
-
-    <div class="comment-wrap">
-        <div class="photo">
-            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
-        </div>
-        <div class="comment-block">
-            <form action="">
-                <textarea name="" id="" cols="30" rows="3" placeholder="Say somthing..."></textarea>
-            </form>
-        </div>
-    </div>
-
-    <div class="comment-wrap">
-        <div class="photo">
-            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
-        </div>
-        <div class="comment-block">
-            <p class="comment-text">测试</p>
-            <div class="bottom-comment">
-                <div class="comment-date">2019-01-29</div>
-                <ul class="comment-actions">
-                    <li class="complain">点赞</li>
-                    <li class="reply">回复</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-</div>
+          <div class="comments" style="margin:60px;padding: 30px;">
+          <div class="comment-wrap">
+              <div class="photo">
+                  <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+              </div>
+              <div class="comment-right">
+              <h3>帅大叔</h3>
+              <div class="comment-content-header">
+                <span>
+                  <i class="glyphicon glyphicon-time"></i>2017-10-17 11:42:53</span>
+              </div>
+              <p class="content">同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。</p>
+              </div>
+          </div>
         </li>
       </ul>
     </div>
