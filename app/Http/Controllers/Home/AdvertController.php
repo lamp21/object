@@ -20,7 +20,10 @@ class AdvertController extends Controller
     {
         //
         $a = Controller::cates_data();
-        return view('home.advert.advert',['cates_data'=>$a]);
+
+        $advert = DB::table('advert')->where('advert_agree', '1')->get();
+
+        return view('home.advert.advert',['cates_data'=>$a,'advert'=>$advert]);
     }
 
     /**
