@@ -46,9 +46,13 @@ class IndexController extends Controller
         ->where('display',1)
         ->orWhere('a.id')
         ->get();
-        // dd($data_res);
-        foreach ($data_res as $key => $val) {
+        // dd($data_res->first());
+        if($data_res->first() != null){
+            foreach ($data_res as $key => $val) {
             $value = $val;
+            }
+        }else{
+            $value = '';
         }
         return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
 

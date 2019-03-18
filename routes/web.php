@@ -13,7 +13,6 @@
 Route::get('/', function () {
 	session(['admin_login'=>false]);
 	session(['home_login'=>false]);
-	session(['value'=>false]);
     return view('welcome');
 });
 
@@ -32,7 +31,7 @@ Route::resource('home/index','Home\IndexController');
 // 'login'
 
 // 后台 登录 测试
-Route::group(['middleware'=>'login'],function()
+Route::group(['middleware'=>['login','rbac']],function()
 { 	
 	// 后台 模板
 	Route::get('admin','Admin\IndexController@index');
@@ -169,7 +168,7 @@ Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange')
 //前台我的文章
 Route::resource('home/article','Home\ArticleController');
 //后台文章审核列表
-Route::resource('admin/article','admin\ArticleController');
+Route::resource('admin/article','Admin\ArticleController');
 //后台文章审核
 Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
 Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
