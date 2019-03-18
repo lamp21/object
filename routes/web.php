@@ -148,9 +148,16 @@ Route::resource('home/wordphoto','Home\WordphotoController');
 Route::resource('home/wonderful','Home\WonderfulController');
 //前台我的文章
 Route::resource('home/article','Home\ArticleController');
-
-
-
+//后台文章审核列表
+Route::resource('admin/article','admin\ArticleController');
+//后台文章审核
+Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
+Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
+//后台文章展示
+Route::get('admin/article/{id}/display','Admin\ArticleController@display');
+Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
+//前台评论
+Route::resource('home/message','home\MessageController');
 
 
 

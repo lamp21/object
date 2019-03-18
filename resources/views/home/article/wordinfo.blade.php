@@ -49,71 +49,21 @@
       <h2 class="htitle">文章评论</h2>
       <ul>
         <li>
-        <script src="/demos/googlegg.js"></script>
-        <script type="text/javascript">
-        $(function () {
-
-          $('.text-area-input').click(function () {
-            if ($(this).val() == '请输入评论内容......') {
-              $(this).css({
-                color: '#000000'
-              }).val('')
-            }
-          });
-
-          //离开的时候
-          $('.text-area-input').blur(function () {
-            var iNum = $(this).val().length;
-            var fixedLength = 100;//固定长度
-            if (iNum < fixedLength) {
-              $('.text-area-input-length span').html(fixedLength - iNum);
-            } else {
-              $(this).val($(this).val().substr(0, fixedLength - 1));//截取长度
-              $('.text-area-input-length span').html(iNum - fixedLength);
-            }
-          });
-
-          //按下的时候
-          $('.text-area-input').keydown(function () {
-            var iNum = $(this).val().length;
-            var fixedLength = 100;//固定长度
-            if (iNum < fixedLength) {
-              $('.text-area-input-length span').html(fixedLength - iNum);
-            } else {
-              $(this).val($(this).val().substr(0, fixedLength - 1));//截取长度
-              $('.text-area-input-length span').html(iNum - fixedLength);
-            }
-          });
-
-
-          $('.text-area-bottom a').click(function () {
-            var star = $('input[name=star]:checked').val();
-            var content = $('textarea[name=content]').val();
-            alert(content);
-          });
-
-          $('.text-area-star label').click(function () {
-            var labelLength = $('.text-area-star label').length;
-            for (var i = 0; i < labelLength; i++) {
-              if (this == $('.text-area-star label').get(i)) {
-                $('.text-area-star label').eq(i).addClass('red');
-              } else {
-                $('.text-area-star label').eq(i).removeClass('red');
-              }
-            }
-          });
-
-
-        });
-        </script>
         <div class="comment">
         <div class="comment-level"></div>
         <div class="comment-text-area">
-          <div><textarea class="text-area text-area-input" name="content">请输入评论内容......</textarea></div>
-          <div class="text-area-input-length">您还可输入<span>100</span>个字</div>
-          <div class="text-area-bottom "><a href="javascript:void(0);" class="btn btn-info">发送评论</a></div>
+          @foreach($wordres as $k=>$v)
+          <form action="/home/message/{{$v->id}}">
+          <div>
+            <textarea class="text-area text-area-input" name="message">请输入评论内容......</textarea>
+          </div>
+          <div class="text-area-bottom "><input type="submit" value="发送评论" class="btn btn-info">
+        </div>
+        </form>
+         @endforeach
         </div>
         </div>
+        
         <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
           <h3 class="text=control text-info">网友评论</h3>
         </li>
