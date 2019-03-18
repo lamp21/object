@@ -207,6 +207,7 @@
       <h2 class="htitle">精彩专题</h2>
       <ul>
         @foreach($show as $k=>$v)
+        @if($v->status == 2)
       <li>
         <i class="ztpic">
           <a href="/home/wonderful/{{$v->id}}" target="_blank">
@@ -219,6 +220,7 @@
         </span>
         <a href="/home/wonderful/{{$v->id}}" target="_blank" class="readmore">文章阅读</a>
       </li>
+      @endif
       @endforeach
     </ul>
     </div>
