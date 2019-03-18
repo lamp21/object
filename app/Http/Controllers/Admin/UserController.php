@@ -158,27 +158,35 @@ class UserController extends Controller
         DB::beginTransaction();
 
         //修改主表
-        $user = Users::find($id);
-        // $user->email = $request->input('email','');
-        // $user->phone = $request->input('phone','');
-        dump($_FILES);exit;
-        
-        if(!empty($_FILES['uname'])){
-            $user->uname = $request->input('uname','');
-            $user->upass = Hash::make($request->input('upass',''));
+        $old_upass = $request->input('upass');
+        $new_upass = $request->input('u_upass');
+        // 通过用户获取密码
+        $userinfo = DB::table('users')->where('id',$id)->select('upass')->first();
+        // dump($userinfo);
+
+        if(!Hash::check($old_upass,$userinfo->upass)){
+            echo "<script>alert('原密码错误');location='{$id}/edit';</script>";
         }
-        $res1 = $user->save();
-        // $description = $request->input('description','');
+        //判断两次密码是否一样
+        if($old_upass == $new_upass){
+            echo "<script>alert('原密码不能和新密码相同！');location='{$id}/edit';</script>";
+        }
 
-        //修改附表
-        // $res2 = Usersinfo::where('uid',$id)->update(['description'=>$description]);
 
-        if($res1){
-            DB::commit();
+        //赋值
+        $update = array(
+            'upass'=>Hash::make($new_upass)
+        );
+        // dump($update);
+
+
+        //修改
+        $result = DB::table('users')->where('id',$id)->update($update);
+        // dump($result);
+        // dump($new_upass);exit;
+
+        if($result){
             return redirect('admin/users')->with('success','修改成功');
-        }else{
-            DB::rollBack();
-            return back()->with('error','修改失败');
         }
     }
 

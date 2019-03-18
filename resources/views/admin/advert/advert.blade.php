@@ -76,10 +76,7 @@
                             </td>
                             <td class="center" style="width:100px;">
                                 <br>
-<<<<<<< HEAD
                                 
-=======
->>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
                                 @if($v->advert_agree == 0) 
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE')}}
@@ -87,15 +84,12 @@
                                 @else                            
                                 <a href="/admin/advert/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">已通过审核</a>
                                 @endif
-<<<<<<< HEAD
 
                             	<form action="/admin/advert/{{ $v->id }}" style="display: inline-block;" method="post" style="display: inline-block;">
                                 <!-- <a href="/admin/advert/{{ $v->id}}/edit" class="btn btn-success">修改</a> -->
-=======
                                 
                             	<form action="/admin/advert/{{ $v->id }}" style="display: inline-block;" method="post" style="display: inline-block;">
                                 <!-- <a href="/admin/advert/{{ $v->id }}/edit" class="btn btn-success">修改</a> -->
->>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
                             		{{ csrf_field() }}
                             		{{ method_field('DELETE') }}
 									<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" class="btn btn-danger">				

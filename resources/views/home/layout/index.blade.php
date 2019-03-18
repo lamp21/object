@@ -181,7 +181,7 @@ a {
               <li class="menu"><a href="list2.html" onclick="return false;">{{ $v->cname }}</a>
                   <ul class="sub">   
                       @foreach($v['sub'] as $kk=>$vv)     
-                        <li><a href="/8">{{ $vv->cname }}</a>
+                        <li><a href="/home/cates/{{ $vv->id }}">{{ $vv->cname }}</a>
                             <ul>
                               @foreach($vv['sub'] as $kkk=>$vvv)     
                               <li><a href="/8">{{ $vvv->cname }}</a></li>

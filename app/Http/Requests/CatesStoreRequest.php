@@ -33,10 +33,7 @@ class CatesStoreRequest extends FormRequest
     {
         return [
             'cname.required'=>'分类名称必填',
-<<<<<<< HEAD
-=======
             // 'cname.regex'=>'分类名称格式不正确',  
->>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
         ];
     }
 }

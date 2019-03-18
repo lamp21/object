@@ -135,7 +135,7 @@ class CatesController extends Controller
         }
         // 执行删除
         if(Cates::destroy($id)){
-            return redirect('/admin/cates')->with('success','删除成功');
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
         }else{
             return back()->with('error','删除失败');
         }

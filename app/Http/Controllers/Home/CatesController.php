@@ -1,29 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserStoreRequest;
-use App\Models\Advert;
-use DB;
 use App\Models\Home_Users;
 use App\Models\Usersinfo;
-class AdvertController extends Controller
+use App\Models\Wonderful;
+use DB;
+class CatesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        
-        $a = Controller::cates_data();
-
-        $advert = DB::table('advert')->where('advert_agree', '1')->get();
-
-        return view('home.advert.advert',['cates_data'=>$a,'advert'=>$advert]);
+        // $count = $request->input('count',5);
+        // $search = $request->input('search','');
+        // $data = Home_Users::where('uname','like','%'.$search.'%')->paginate($count);
+        // return view('admin.home_users.index',['data'=>$data,'request'=>$request->all()]);
+         
     }
 
     /**
@@ -45,28 +43,6 @@ class AdvertController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request);
-        DB::beginTransaction();
-        
-        $data = $request->except(['_token']);
-        //dump($data);
-        $advert = new Advert;
-        
-        // $advert->pic = $data['pic'];
-        $advert->url = $data['url'];
-        $advert->content = $data['content'];
-        // $path = $request->file('pic')->storeAs('public/img/', $advert->advert()->id);
-        $file = $request->file('pic');
-        //dump($file);exit;
-        // 执行 图片上传
-        $advert->pic = $request->pic->store('');
-        //dump($advert);
-        if($advert->save()){
-        // 执行 添加
-            return redirect('/home/index')->with('success','添加成功');
-        }else{
-            return back()->with('error','添加失败');
-        }
     }
 
     /**
@@ -76,8 +52,19 @@ class AdvertController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        // $data_create = Announcement::find($id);
+        $data_create = DB::table('create')->where('id',$id)->get();
+        // dd($data_create);
+        // //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Wonderful;
+        $about_data = Wonderful::where('id',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
+        $cates_data = Controller::cates_data();
+        return view('home.cates.index',['cates_data'=>$cates_data,'data_create'=>$data_create,'value'=>$value]);
     }
 
     /**

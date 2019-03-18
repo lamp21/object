@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
 use App\Models\Advert;
+use App\Models\Wonderful;
 use App\Models\Announcement;
 use DB;
 use App\Models\Home_Users;
@@ -39,6 +40,8 @@ class IndexController extends Controller
         $show = DB::table('wonderful')->limit(6)->get();
         $default = DB::table('wordphoto')->limit(5)->get();
 
+        $wonderful_data = Wonderful::select('*',DB::raw("concat(wd_time,',',id) as paths"))->limit(6)->orderBy('paths','asc')->get();
+
         $article_res = DB::table('article')->where('display',1)->get();
         $data_res = DB::table('article as a')
         ->join('users_info as u','a.users_uid','=','u.uid' )
@@ -51,7 +54,7 @@ class IndexController extends Controller
         foreach ($data_res as $key => $val) {
             $value = $val;
         }
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'wonderful_data'=>$wonderful_data,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
 
     }
 

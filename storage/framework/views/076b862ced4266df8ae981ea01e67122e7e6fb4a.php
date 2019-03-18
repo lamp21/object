@@ -17,6 +17,12 @@
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="/admin_public/assets/js/Lightweight-Chart/cssCharts.css"> 
+     <style>
+    abbr img{
+        display: none;
+    }
+    
+    </style>
 </head>
 
 <body>
@@ -54,10 +60,6 @@
                             <?php else: ?>
                             <li class="divider"></li>
                             <?php endif; ?>
-<<<<<<< HEAD
-                            </li>
-=======
->>>>>>> 0850afb727c78ebf3c40087389f5688797b94c7f
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
@@ -163,6 +165,14 @@
                             </li>
                             <li>
                                 <a href="/admin/wordphoto/create">轮播数据添加</a>
+                            </li>
+                        </ul>
+                    </li>
+                        <li>
+                        <a href="#"><i class="icon-users"></i>文章管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/article">文章列表</a>
                             </li>
                         </ul>
                     </li>
