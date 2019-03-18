@@ -44,13 +44,14 @@ class WordphotoController extends Controller
         //接收数据
         //dump($request->all());
         $pic = $this->upload($request);
+        $times_res = date('Y-m-d');
         //dd($pic);
         //添加数据到数据库
         $wordphotoadd = DB::table('wordphoto')->insert([
             'pic' =>$pic ,
             'pic_title' => $request->input('pic_title'),
             'pic_form' => $request->input('pic_form'),
-            'pic_time' => $request->input('pic_time'),
+            'pic_time' => $times_res,
             'pic_content' => $request->input('pic_content'),
             'pic_status' => $request->input('pic_status'),
             ]);
@@ -102,11 +103,12 @@ class WordphotoController extends Controller
         DB::beginTransaction();
         $upload_pic = $this->upload($request);
         //dump($upload_pic);
+        $timing = date('Y-m-d');
         $result = DB::table('wordphoto')->where('id',$id)->update([
             'pic' =>$upload_pic ,
             'pic_title' => $request->input('pic_title'),
             'pic_form' => $request->input('pic_form'),
-            'pic_time' => $request->input('pic_time'),
+            'pic_time' =>$timing,
             'pic_content' => $request->input('pic_content'),
             'pic_status' => $request->input('pic_status'),
         ]);

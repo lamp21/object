@@ -44,9 +44,14 @@ class IndexController extends Controller
         ->orWhere('a.id')
         ->get();
         // dd($data_res);
-        foreach ($data_res as $key => $val) {
+        if($data_res->first() != null){
+            foreach ($data_res as $key => $val) {
             $value = $val;
+            }
+        }else{
+            $value = '暂无数据';
         }
+        
         return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
     }
 

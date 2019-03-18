@@ -62,13 +62,13 @@ class WonderfulController extends Controller
         //修改分类uid为分类名
         $cate_info = $request->input('cate_uid');
         $cate_uid = DB::table('cates')->where('id',$cate_info)->value('cname');
-
+        $times = date('Y-m-d');
         //添加数据到数据库
         $wonderfuladd = DB::table('wonderful')->insert([
             'wd_img' =>$wd_img ,
             'title' => $request->input('title'),
             'wd_form' => $request->input('wd_form'),
-            'wd_time' => $request->input('wd_time'),
+            'wd_time' => $times,
             'cate_uid' => $cate_uid,
             'status' => $request->input('status'),
             'content' => $request->input('content'),
@@ -125,11 +125,12 @@ class WonderfulController extends Controller
         $cate_uid = DB::table('cates')->where('id',$cate_data)->value('cname');
         $upload_file = $this->upload($request);
         //dump($upload_file);
+        $time_info = date('Y-m-d');
         $res = DB::table('wonderful')->where('id',$id)->update([
         'wd_img' =>$upload_file,
         'title' => $request->input('title'),
         'wd_form' => $request->input('wd_form'),
-        'wd_time' => $request->input('wd_time'),
+        'wd_time' => $time_info,
         'cate_uid' => $cate_uid,
         'status'=>$request->input('status'),
         'content' => $request->input('content'),

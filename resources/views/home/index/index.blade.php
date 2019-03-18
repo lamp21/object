@@ -242,7 +242,7 @@
             {!!$v->art_content!!}
           </p>
           <p class="bloginfo">
-           
+
             <i class="avatar"><img src="{{$value->uname_img}}"></i>
             <span>{{$value->uname}}</span>
             
@@ -266,7 +266,7 @@
       <ul class="linkmore">
         <li><a href="http://www.yangqq.com" target="_blank" class="iconfont icon-zhuye" title="网站地址"></a></li>
         <li><a href="http://mail.qq.com/cgi-bin/qm_share" target="_blank" class="iconfont icon-youxiang" title="我的邮箱"></a></li>
-        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=978952042&site=qq&menu=yes" target="_blank" class="iconfont icon---" title="QQ联系我"></a></li>
+        <li><a href="tencent://message/?Site=baidu.com&uin=978952042&Menu=yes" target="_blank" class="iconfont icon---" title="QQ联系我"></a></li>
         <li id="weixin"><a href="#" target="_blank" class="iconfont icon-weixin" title="关注我的微信"></a><i><img src="/home_public/images/wx.png"></i></li>
       </ul>
     </div>

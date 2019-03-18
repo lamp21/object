@@ -23,28 +23,9 @@
       <div class="con_text">
         {!!$v->art_content!!}
         @endforeach
-        <div class="nextinfo">
-          <p>上一篇：<a href="/download/f/886.html">html5 个人博客模板《蓝色畅想》</a></p>
-          <p>下一篇：<a href="/download/f/907.html">个人博客模板《tree》-响应式个人网站模板</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="whitebg">
-      <h2 class="htitle">相关文章</h2>
-      <ul class="otherlink">
-        <li><a href="/download/div/2018-04-22/815.html" title="html5个人博客模板《黑色格调》">html5个人博客模板《黑色格调》</a></li>
-        <li><a href="/download/div/2018-04-18/814.html" title="html5个人博客模板主题《清雅》">html5个人博客模板主题《清雅》</a></li>
-        <li><a href="/download/div/2018-03-18/807.html" title="html5个人博客模板《绅士》">html5个人博客模板《绅士》</a></li>
-        <li><a href="/download/div/2018-02-22/798.html" title="html5时尚个人博客模板-技术门户型">html5时尚个人博客模板-技术门户型</a></li>
-        <li><a href="/download/div/2017-09-08/789.html" title="html5个人博客模板主题《心蓝时间轴》">html5个人博客模板主题《心蓝时间轴》</a></li>
-        <li><a href="/download/div/2017-07-16/785.html" title="古典个人博客模板《江南墨卷》">古典个人博客模板《江南墨卷》</a></li>
-        <li><a href="/download/div/2017-07-13/783.html" title="古典风格-个人博客模板">古典风格-个人博客模板</a></li>
-        <li><a href="/download/div/2015-06-28/748.html" title="个人博客《草根寻梦》—手机版模板">个人博客《草根寻梦》—手机版模板</a></li>
-        <li><a href="/download/div/2015-04-10/746.html" title="【活动作品】柠檬绿兔小白个人博客模板">【活动作品】柠檬绿兔小白个人博客模板</a></li>
-        <li><a href="/jstt/bj/2015-01-09/740.html" title="【匆匆那些年】总结个人博客经历的这四年…">【匆匆那些年】总结个人博客经历的这四年…</a></li>
-      </ul>
-    </div>
-
+              </div>
+            </div>
+           
     <div class="whitebg gbook">
       <h2 class="htitle">文章评论</h2>
       <ul>
@@ -66,6 +47,37 @@
         
         <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
           <h3 class="text=control text-info">网友评论</h3>
+        </div>
+          <div class="comments">
+
+    <div class="comment-wrap">
+        <div class="photo">
+            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
+        </div>
+        <div class="comment-block">
+            <form action="">
+                <textarea name="" id="" cols="30" rows="3" placeholder="Say somthing..."></textarea>
+            </form>
+        </div>
+    </div>
+
+    <div class="comment-wrap">
+        <div class="photo">
+            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+        </div>
+        <div class="comment-block">
+            <p class="comment-text">测试</p>
+            <div class="bottom-comment">
+                <div class="comment-date">2019-01-29</div>
+                <ul class="comment-actions">
+                    <li class="complain">点赞</li>
+                    <li class="reply">回复</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
         </li>
       </ul>
     </div>

@@ -27,7 +27,6 @@ class WonderfulStoreRequest extends FormRequest
             'title'=>'required',
             'wd_img'=>'required',
             'wd_form'=>'required',
-            'wd_time'=>'required',
             'cate_uid'=>'required',
             'content'=>'required',
             'status'=>'required'
@@ -39,7 +38,6 @@ class WonderfulStoreRequest extends FormRequest
             'title.required'=>'请填写标题',
             'wd_img.required'=>'请选择封面图',
             'wd_form.required'=>'请填写来源',
-            'wd_time.required'=>'请填写发表时间',
             'cate_uid.required'=>'请填选择分类',
             'content.required'=>'请填写正文',
             'status.required'=>'请选择是否展示',
