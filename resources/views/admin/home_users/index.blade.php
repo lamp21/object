@@ -49,15 +49,12 @@
         <td>{{ $v->id }}</td>
         <td>{{ $v->usersinfo['nick_name'] }}</td>
         <td>
-        	@switch($v->usersinfo['sex'])
+        	@switch($v->usersinfo['sex'] )
 				@case(0)
 					男
 				@break
 				@case(1)
 					女
-				@break
-				@case(2)
-					保密
 				@break
 		    @endswitch
         </td>

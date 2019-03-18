@@ -48,13 +48,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <?php if(isset(session('userinfo')->uname)): ?>
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i>你好,<?php echo e(session('userinfo')->uname); ?></a>
-                            <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                            <li><a href=" "><i class="fa fa-user fa-fw"></i>你好,<?php echo e(session('userinfo')->uname); ?></a >
+                            <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-sign-out fa-fw"></i> 退出</a >
                             </li>
                             <?php else: ?>
                             <li class="divider"></li>
                             <?php endif; ?>
-                            </li>  
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
