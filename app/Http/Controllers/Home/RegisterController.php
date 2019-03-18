@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Users;
 use App\Models\Home_Users;
+use App\Models\Usersinfo;
 use Hash;
 use DB;
 use Illuminate\Support\Facades\Cookie;
@@ -56,14 +57,21 @@ class RegisterController extends Controller
         $data = $request->except(['_token','code']);
         //验证接收过来的号码有没有注册过
         $phone = DB::table('home_users')->where('phone',$data['phone'])->first();
+        // dd($phone->id);
         if($data['phone'] = $phone){
             echo "<script>alert('此号码已经被注册！');location='/home/register';</script>";
             return false;
         }
-
+        $res1 = $users->save();
+        $id = $users->id;
         //写进数据库
-        $res = $users->save();
-        if($res){
+        
+        $usersinfo = new Usersinfo;
+        $usersinfo->uid = $id;
+        $usersinfo->uid = $usersinfo['uid'];
+        $res2 = $usersinfo->save();
+        // dd($res2);
+        if($res1 && $res2){
             return redirect('home/login');
         }else{
             return back();

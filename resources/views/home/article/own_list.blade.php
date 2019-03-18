@@ -1,11 +1,11 @@
-@extends('home.layout.index')
+ @extends('home.layout.index')
 
 @section('content')
 <article> 
   <!--lbox begin-->
   @foreach($userinfo as $k=>$v)
   <div class="lbox">
-    <div class="whitebg lanmu"> <i class="avatar_pic"><img src="{{$v->uname_img}}"></i>
+    <div class="whitebg lanmu"> <i class="avatar_pic"><img src="{{ $v->uname_img ? $v->uname_img : '/img/1.jpeg'}}"></i>
       <h1>{{session('userinfo')->uname}}</h1>
       <p>{{$v->personal_label}}</p>
     </div>

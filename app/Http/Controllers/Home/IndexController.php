@@ -46,7 +46,7 @@ class IndexController extends Controller
         ->where('display',1)
         ->orWhere('a.id')
         ->get();
-        // dd($data_res->first());
+        // dd($data_res);
         if($data_res->first() != null){
             foreach ($data_res as $key => $val) {
             $value = $val;

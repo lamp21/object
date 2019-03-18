@@ -146,7 +146,7 @@
           </p>
           <p class="bloginfo">
            
-            <i class="avatar"><img src="{{$value->uname_img}}"></i>
+            <i class="avatar"><img src="{{ $value->uname_img ? $value->uname_img : '/img/1.jpeg'}}"></i>
             <span>{{$value->uname}}</span>
             
             <span>{{$v->art_time}}</span>

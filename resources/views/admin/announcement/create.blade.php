@@ -30,7 +30,7 @@
                     <div class="form-group">
                         <label for="announcement_content" class="col-sm-2 control-label">公告内容</label>
                         <div class="col-sm-10">
-                        <script id="container" name="announcement_content" type="text/plain" value="">
+                        <script id="container" name="announcement_content" class="announcement_content" type="text/plain" value="">
                         {{ old('announcement_content')}}
                         </script>
                         <!-- 配置文件 -->
@@ -46,7 +46,7 @@
     				<div class="form-group">
                         <label for="" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10">
-                            <input type="submit" value="添加" class="btn btn-info">
+                            <input type="submit" id="but" value="添加" class="btn btn-info">
                             <input type="reset" value="重置" class="btn btn-warning">
                         </div>
                     </div>

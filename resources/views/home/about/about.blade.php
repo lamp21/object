@@ -11,7 +11,7 @@
 	    	<i class="avatar_pic">
 	    		<img src="{{ $value->uname_img ? $value->uname_img : '/img/1.jpeg'}}">
 	    	</i>
-	      <h3>{{ $value->nick_name }}</h3>
+	      <h3>{{ $value->nick_name ? $value->nick_name : ''}}</h3>
 	      <p>个性签名:<br>{{ $value->personal_label ? $value->personal_label : '' }}</p>
 	    </div>
 	    <h2 class="gd_title">基本信息</h2>

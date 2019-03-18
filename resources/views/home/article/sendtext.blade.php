@@ -16,12 +16,12 @@
       </div>
       @endforeach
 	  <div class="form-group">
-	    <label for="exampleInputEmail1">标题</label>
-	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题" name="art_title">
+	    <label for="art_title">标题</label>
+	    <input type="text" class="form-control" id="art_title" placeholder="标题" name="art_title">
 	  </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">文章类型</label>
-	    <select class="form-control" name="cate_uid" id="">
+	    <label for="cate_uid">文章类型</label>
+	    <select class="form-control" name="cate_uid" id="cate_uid">
         <option value="" selected disabled style="display: none;">--请选择--</option>
           @foreach($cate_uid as $k=>$v)
               <option value="{{ $v->id }}" @if($id == $v->id) selected @endif>{{ $v->cname }}</option>
@@ -31,7 +31,7 @@
 	  <div class="form-group">
 	    <label for="exampleInputFile">内容</label>
 	  	<!-- 加载编辑器的容器 -->
-	    <script id="container" name="art_content" type="text/plain">
+	    <script id="container" name="art_content" class="art_content" type="text/plain">
 	        
 	    </script>
 	    <!-- 配置文件 -->
@@ -44,7 +44,7 @@
 	    </script>
 	    
 	  </div>
-	  <button type="submit" class="btn btn-info">发表贴文</button>
+	  <button type="submit" id="but" class="btn btn-info">发表贴文</button>
 	</form>
 </div>
     <h2 class="gd_title">我的博客</h2>
@@ -96,4 +96,22 @@
       </li>
     </ul>
 </article>
+<script type="text/javascript">
+  //非空验证
+    $('#but').click(function () {
+      var art_title = $('#art_title').val();
+      var cate_uid = $('#cate_uid').val();
+      var art_content = $('.art_content').val();
+          if(art_title == ''){
+            alert('标题不能为空！');
+            return false;
+          }else if(cate_uid == ''){
+            alert('请选择分类！');
+            return false;
+          }else if(art_content == ''){
+            alert('内容不能为空！');
+            return false;
+          }
+        });
+</script>
 @endsection

@@ -12,7 +12,7 @@
       @foreach($wordres as $k=>$v)
       <h1 class="con_tilte">{{$v->art_title}}</h1>
       <p class="bloginfo">
-        <i class="avatar"><img src="/home_public/images/avatar.jpg"></i>
+        <i class="avatar"><img src="{{ $value->uname_img ? $value->uname_img : '/img/1.jpeg'}}"></i>
         <span><b style="color: black;">转载于:</b>{{session('userinfo')->uname}}</span>
         <span>{{$v->art_time}}</span>
         <span>109990人已围观</span>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Models\Usersinfo;
 class ArticleController extends Controller
 {
     /**
@@ -44,7 +45,7 @@ class ArticleController extends Controller
         $a = Controller::cates_data();
         $user_id = session('userinfo')->id;
         $user = DB::table('users_info')->where('uid',$user_id)->get();
-        //dump($user);
+        // dd($user);
         return view('home.article.sendtext',['cates_data'=>$a,'id'=>$id,'cate_uid'=>self::getCates(),'user'=>$user]);
     }
 
@@ -93,7 +94,15 @@ class ArticleController extends Controller
         //dump($id);
         $a = Controller::cates_data();
         $wordres = DB::table('article')->where('id',$id)->get();
-        return view('home.article.wordinfo',['cates_data'=>$a,'wordres'=>$wordres]);
+        //读取session中的id
+        $id = session('userinfo')->id;
+        $userinfo = new Usersinfo;
+        $cates_data = Controller::cates_data();
+        $about_data = Usersinfo::where('uid',$id)->get();
+        foreach ($about_data as $k => $v) {
+            $value = $v;
+        }
+        return view('home.article.wordinfo',['cates_data'=>$a,'wordres'=>$wordres,'value'=>$value]);
     }
 
     /**

@@ -24,9 +24,15 @@ class AboutController extends Controller
         $cates_data = Controller::cates_data();
         $about_data = Usersinfo::where('uid',$id)->get();
         // dd($about_data);
-        foreach ($about_data as $k => $v) {
+        if($about_data->first() != null){
+            foreach ($about_data as $k => $v) {
             $value = $v;
+            }
+        }else{
+            // $value = '';
+            echo "<script>alert('请先完善资料！');location='/home/about/create'</script>";
         }
+        
         return view('home.about.about',['cates_data'=>$cates_data,'value'=>$value]);
     }
 
@@ -40,10 +46,13 @@ class AboutController extends Controller
         $cates_data = Controller::cates_data();
         $id = session('userinfo')->id;
         $about_data = Usersinfo::where('uid',$id)->get();
-        dd($about_data);
-        foreach ($about_data as $k => $v) {
+        // dd($about_data->count());
+        // if($about_data->count != 0){
+            foreach ($about_data as $k => $v) {
             $value = $v;
-        }
+            }
+        
+        
         return view('home.about.create',['cates_data'=>$cates_data,'value'=>$value]);
     }
 
