@@ -65,7 +65,7 @@ img {
     height:96px;
 }
 */
-span img{
+#sp img{
   display: none;
 }
 .zhuanti li { float: left; width: 32.6%; border-bottom: #eee 1px solid; border-left: #eee 1px solid; overflow: hidden; padding: 25px; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; transition: all .5s ease; }

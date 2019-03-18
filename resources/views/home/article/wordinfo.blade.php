@@ -23,10 +23,10 @@
       <div class="con_text">
         {!!$v->art_content!!}
         @endforeach
-        <div class="nextinfo">
+<!--         <div class="nextinfo">
           <p>上一篇：<a href="/download/f/886.html">html5 个人博客模板《蓝色畅想》</a></p>
           <p>下一篇：<a href="/download/f/907.html">个人博客模板《tree》-响应式个人网站模板</a></p>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="whitebg">
