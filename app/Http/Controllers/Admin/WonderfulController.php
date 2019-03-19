@@ -28,12 +28,17 @@ class WonderfulController extends Controller
      */
     public function index(Request $request)
     {
-        $wonderinfo = DB::table('wonderful')->get();
-        $count = $request->input('count',5);
-        $search = $request->input('search','');
-        $wonderful_info = DB::table('wonderful')->where('title','like','%'.$search.'%')->paginate($count);
+        // $wonderinfo = DB::table('wonderful')->get();
+        // $count = $request->input('count',5);
+        // $search = $request->input('search','');
+        // $wonderful_info = DB::table('wonderful')->where('title','like','%'.$search.'%')->paginate($count);
+        $wonderful_info = DB::table('wonderful as ww')
+            ->join('cates as ee','ww.cate_uid','=','ee.id')
+            ->select('ww.id','ww.wd_img','ww.title','ww.wd_form','ww.wd_time','ww.content','ww.status','ee.cname')
+            ->get();
+            //dd($wonderful_info);
         //加载视图
-        return view('admin.wonderful.index',['wonderful_info'=>$wonderful_info,'request'=>$request->all()]);
+        return view('admin.wonderful.index',['wonderful_info'=>$wonderful_info]);
     }
 
     /**
@@ -59,9 +64,6 @@ class WonderfulController extends Controller
         DB::beginTransaction();
         //dump($request->input('wd_img'));
         $wd_img = $this->upload($request);
-        //修改分类uid为分类名
-        $cate_info = $request->input('cate_uid');
-        $cate_uid = DB::table('cates')->where('id',$cate_info)->value('cname');
         $times = date('Y-m-d');
         //添加数据到数据库
         $wonderfuladd = DB::table('wonderful')->insert([
@@ -69,7 +71,7 @@ class WonderfulController extends Controller
             'title' => $request->input('title'),
             'wd_form' => $request->input('wd_form'),
             'wd_time' => $times,
-            'cate_uid' => $cate_uid,
+            'cate_uid' => $request->input('cate_uid'),
             'status' => $request->input('status'),
             'content' => $request->input('content'),
             ]);

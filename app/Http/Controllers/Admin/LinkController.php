@@ -18,9 +18,6 @@ class LinkController extends Controller
     	$count = $request->input('count',5);
     	$search = $request->input('search','');
     	$link_data = DB::table('link')->where('link_name','like','%'.$search.'%')->paginate($count);
-    	//$a = Link::all();
-    	//dump($link_data);
-    	//$link_data = Link::paginate(5);
         //加载视图
         return view('admin.link.index',['data'=>$link_data,'request'=>$request->all()]);
     }

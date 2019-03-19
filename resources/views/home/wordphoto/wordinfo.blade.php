@@ -13,105 +13,56 @@
       <h1 class="con_tilte">{{$v->pic_title}}</h1>
       <p class="bloginfo">
         <i class="avatar"><img src="/home_public/images/avatar.jpg"></i>
-        <span><b style="color: black;">转载于:</b>{{$v->pic_form}}</span>
+        <span><b style="color: black;">来源于:</b>{{$v->pic_form}}</span>
         <span>{{$v->pic_time}}</span><span>109990人已围观</span>
       </p>
       <div class="con_text">
         {!!$v->pic_content!!}
         @endforeach
-        <div class="nextinfo">
-          <p>上一篇：<a href="/download/f/886.html">html5 个人博客模板《蓝色畅想》</a></p>
-          <p>下一篇：<a href="/download/f/907.html">个人博客模板《tree》-响应式个人网站模板</a></p>
-        </div>
       </div>
     </div>
-    <div class="whitebg">
-      <h2 class="htitle">相关文章</h2>
-      <ul class="otherlink">
-        <li><a href="/download/div/2018-04-22/815.html" title="html5个人博客模板《黑色格调》">html5个人博客模板《黑色格调》</a></li>
-        <li><a href="/download/div/2018-04-18/814.html" title="html5个人博客模板主题《清雅》">html5个人博客模板主题《清雅》</a></li>
-        <li><a href="/download/div/2018-03-18/807.html" title="html5个人博客模板《绅士》">html5个人博客模板《绅士》</a></li>
-        <li><a href="/download/div/2018-02-22/798.html" title="html5时尚个人博客模板-技术门户型">html5时尚个人博客模板-技术门户型</a></li>
-        <li><a href="/download/div/2017-09-08/789.html" title="html5个人博客模板主题《心蓝时间轴》">html5个人博客模板主题《心蓝时间轴》</a></li>
-        <li><a href="/download/div/2017-07-16/785.html" title="古典个人博客模板《江南墨卷》">古典个人博客模板《江南墨卷》</a></li>
-        <li><a href="/download/div/2017-07-13/783.html" title="古典风格-个人博客模板">古典风格-个人博客模板</a></li>
-        <li><a href="/download/div/2015-06-28/748.html" title="个人博客《草根寻梦》—手机版模板">个人博客《草根寻梦》—手机版模板</a></li>
-        <li><a href="/download/div/2015-04-10/746.html" title="【活动作品】柠檬绿兔小白个人博客模板">【活动作品】柠檬绿兔小白个人博客模板</a></li>
-        <li><a href="/jstt/bj/2015-01-09/740.html" title="【匆匆那些年】总结个人博客经历的这四年…">【匆匆那些年】总结个人博客经历的这四年…</a></li>
-      </ul>
-    </div>
-
     <div class="whitebg gbook">
       <h2 class="htitle">文章评论</h2>
       <ul>
         <li>
-        <script src="/demos/googlegg.js"></script>
-        <script type="text/javascript">
-        $(function () {
-
-          $('.text-area-input').click(function () {
-            if ($(this).val() == '请输入评论内容......') {
-              $(this).css({
-                color: '#000000'
-              }).val('')
-            }
-          });
-
-          //离开的时候
-          $('.text-area-input').blur(function () {
-            var iNum = $(this).val().length;
-            var fixedLength = 20;//固定长度
-            if (iNum < fixedLength) {
-              $('.text-area-input-length span').html(fixedLength - iNum);
-            } else {
-              $(this).val($(this).val().substr(0, fixedLength - 1));//截取长度
-              $('.text-area-input-length span').html(iNum - fixedLength);
-            }
-          });
-
-          //按下的时候
-          $('.text-area-input').keydown(function () {
-            var iNum = $(this).val().length;
-            var fixedLength = 20;//固定长度
-            if (iNum < fixedLength) {
-              $('.text-area-input-length span').html(fixedLength - iNum);
-            } else {
-              $(this).val($(this).val().substr(0, fixedLength - 1));//截取长度
-              $('.text-area-input-length span').html(iNum - fixedLength);
-            }
-          });
-
-
-          $('.text-area-bottom a').click(function () {
-            var star = $('input[name=star]:checked').val();
-            var content = $('textarea[name=content]').val();
-            alert(content);
-          });
-
-          $('.text-area-star label').click(function () {
-            var labelLength = $('.text-area-star label').length;
-            for (var i = 0; i < labelLength; i++) {
-              if (this == $('.text-area-star label').get(i)) {
-                $('.text-area-star label').eq(i).addClass('red');
-              } else {
-                $('.text-area-star label').eq(i).removeClass('red');
-              }
-            }
-          });
-
-
-        });
-        </script>
         <div class="comment">
         <div class="comment-level"></div>
         <div class="comment-text-area">
-          <div><textarea class="text-area text-area-input" name="content">请输入评论内容......</textarea></div>
-          <div class="text-area-input-length">您还可输入<span>20</span>个字</div>
-          <div class="text-area-bottom "><a href="javascript:void(0);" class="btn btn-info">发送评论</a></div>
+          @foreach($wordinfo as $k=>$v)
+          <form action="/home/wordphoto/{{$v->id}}">
+            {{ csrf_field() }}
+          <div>
+            <textarea class="text-area text-area-input" name="message">请输入评论内容......</textarea>
+          </div>
+          <div class="text-area-bottom "><input type="submit" value="发送评论" class="btn btn-info">
+        </div>
+        </form>
+         @endforeach
         </div>
         </div>
+        
         <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
           <h3 class="text=control text-info">网友评论</h3>
+        </div>
+          <!-- 遍历评论 -->
+
+          <div class="comments" style="margin:60px;padding: 30px;">
+          <div class="comment-wrap">
+              <div class="photo">
+                  <div class="avatar" style="background-image: url('/')"></div>
+              </div>
+              <div class="comment-right">
+              <h3>名字</h3>
+              <div class="comment-content-header">
+                <span>
+                  <p class="content" style="color:grey;"><b>评论内容</b></p>
+                </span>
+              </div>
+              <i class="glyphicon glyphicon-time" style="color: blue;">2019-01-23</i>
+              </div>  
+          </div>
+        </div>
+
         </li>
       </ul>
     </div>

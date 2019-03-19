@@ -51,7 +51,9 @@ class IndexController extends Controller
         }else{
             $value = '暂无数据';
         }
-        
+
+       /* //首页中间栏的分类
+        DB::table('cates')->get();*/
         return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
     }
 

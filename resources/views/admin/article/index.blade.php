@@ -43,8 +43,13 @@
 		    <th class="text-center">操作</th>
 		</tr>
     </thead>
-    <tbody>      
-	@foreach($article as $k=>$v)
+    <tbody> 
+	@if($uid_res == [])
+	<tr>
+		{{'暂无数据'}}
+	</tr>
+	@else
+	@foreach($uid_res as $k=>$v)
     <tr style="background:none;">
         <td style="text-align:center;vertical-align:middle;">{{$v->id}}</td>
         <td style="text-align:center;vertical-align:middle;">
@@ -54,13 +59,13 @@
         	</p>
         	</abbr>
         </td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->users_uid}}</td>
+        <td style="text-align:center;vertical-align:middle;">{{$v->uname}}</td>
         <td style="text-align:center;vertical-align:middle;">{{$v->art_time}}</td>
-        <td style="text-align:center;vertical-align:middle;">	{{$v->cate_uid}}</td>
+        <td style="text-align:center;vertical-align:middle;">{{$v->cname}}</td>
         <td style="text-align:center;vertical-align:middle;">
-        	<abbr title="{!!$v->art_content!!}">
-        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:60px;height: 20px;"> 
-				{!!$v->art_content!!}
+        	<abbr title="{{$v->art_content}}">
+        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
+        		{{$v->art_content}}
         	</p>
         	</abbr>
     	</td>
@@ -100,6 +105,7 @@
         </td>
     </tr>
 @endforeach
+@endif
 	</tbody>
     </table>
     <div class="table-responsive">

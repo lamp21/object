@@ -295,6 +295,7 @@ a {
   </div>
   <a href="#">
   <div class="top"></div>
-  </a> </footer>
+  </a>
+</footer>
 </body>
 </html>
