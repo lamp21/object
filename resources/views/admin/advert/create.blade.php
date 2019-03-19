@@ -35,7 +35,7 @@
 	    <div class="form-group">
 	        <label class="col-sm-2 control-label">URL</label>
 	        <div class="col-sm-10" style="width:600px;">
-	            <input type="text" class="form-control" placeholder="广告网址" name="url">
+	            <input type="text" class="form-control" placeholder="广告网址" value="https://" name="url">
 	        </div>
 	    </div>
 

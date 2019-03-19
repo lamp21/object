@@ -36,7 +36,7 @@
 		  <div class="form-group">
 		    <label for="sex" class="col-sm-2 control-label">性别</label>&nbsp;&nbsp;&nbsp;
 		    <div class="col-sm-10">
-			    <input type="radio" name="sex" value="0" checked>&nbsp;男&nbsp;&nbsp;&nbsp;
+			    <input type="radio" name="sex" value="0" checked>&nbsp;男&nbsp;&nbsp;
 			    <input type="radio" name="sex" value="1">&nbsp;女&nbsp;&nbsp;&nbsp;	
 			</div>
 		  </div>

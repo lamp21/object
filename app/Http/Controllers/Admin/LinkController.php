@@ -72,6 +72,7 @@ class LinkController extends Controller
         DB::table('link')->where('id',$id)->update(['link_agree' => 1]);
         return redirect($_SERVER['HTTP_REFERER'])->with('SUCCESS','通过审核');	
     }
+
     /**
      * Update the specified resource in storage.
      *

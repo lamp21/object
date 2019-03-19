@@ -14,13 +14,12 @@ class WonderfulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$id)
+    public function index(Request $request)
     {
 
         //加载视图
         $a = Controller::cates_data();
         $articles = DB::table('wonderful')->get();
-        return view('home.wonderful.wonderful',['cates_data'=>$a,'articles'=>$articles]);
         //读取session中的id
         $id = session('userinfo')->id;
         $userinfo = new Usersinfo;
@@ -28,7 +27,7 @@ class WonderfulController extends Controller
         foreach ($about_data as $k => $v) {
             $value = $v;
         }
-        return view('home.wonderful.wonderful',['cates_data'=>$a,'value'=>$value]);
+        return view('home.wonderful.wonderful',['cates_data'=>$a,'value'=>$value,'articles'=>$articles]);
     }
 
     /**

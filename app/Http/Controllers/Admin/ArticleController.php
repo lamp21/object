@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-
 use DB;
 class ArticleController extends Controller
 {
@@ -14,16 +12,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
-        // $article = DB::table('article')->get();
         $uid_res = DB::table('article as aa')
             ->join('home_users as hh','aa.users_uid','=','hh.id')
             ->join('cates as cc','aa.cate_uid','=','cc.id')
             ->select('hh.uname','cc.cname','aa.art_title','aa.art_time','aa.art_content','aa.art_status','aa.display','aa.id')
             ->get();
-            //dd($uid_res);
+            // dd($uid_res);
             return view('admin.article.index',['uid_res'=>$uid_res]);
     }
 

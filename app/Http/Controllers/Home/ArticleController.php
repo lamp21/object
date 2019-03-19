@@ -69,7 +69,7 @@ class ArticleController extends Controller
         //$cate_result = DB::table('cates')->where('id',$cate_res)->value('cname');
         $res = DB::table('article')->insert([
                 'art_title'=>$request->input('art_title'),
-                'users_uid'=>$users_id,
+                'users_uid'=>$users,
                 'art_time'=>$time,
                 'cate_uid'=>$request->input('cate_uid'),
                 'art_content'=>$request->input('art_content'),

@@ -8,7 +8,7 @@
 	</div>
 	<div class="panel-body">
     <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
-    <form action="/admin/wordphoto" method="get">
+    <form action="/admin/users" method="get">
 	    <div class="row">
 	      <div class="col-sm-6">
 	        <div class="dataTables_length" id="dataTables-example_length">
