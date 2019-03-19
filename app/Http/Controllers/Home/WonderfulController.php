@@ -14,8 +14,9 @@ class WonderfulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$id)
     {
+
         //加载视图
         $a = Controller::cates_data();
         $articles = DB::table('wonderful')->get();
@@ -35,9 +36,9 @@ class WonderfulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request,$id)
     {
-        //
+
     }
 
     /**
@@ -46,9 +47,9 @@ class WonderfulController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        
+        dump($id);
     }
 
     /**
@@ -57,10 +58,16 @@ class WonderfulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
         $a = Controller::cates_data();
         $word = DB::table('wonderful')->where('id',$id)->get();
+        // $message = DB::table('wonderful as oo')
+        //     ->join('article as ww','uu.message_uid','=','ww.id')
+        //     ->join('users_info as dd','uu.user_mid','=','dd.id')
+        //     ->join('home_users as ff','ff.id','=','dd.uid')
+        //     ->select('uu.message','dd.uname_img','ff.uname','uu.time_res')
+        //     ->get();
         return view('home.wonderful.wordinfo',['cates_data'=>$a,'word'=>$word]);
     }
 
@@ -95,6 +102,6 @@ class WonderfulController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
     }
 }

@@ -48,18 +48,22 @@ class MessageController extends Controller
     {
         //开启事务
         DB::beginTransaction();
-        //dump($);
+        //添加评论
+        $timing_res = date('Y-m-d');
+        $userid_res = DB::table('article')->where('id',$id)->value('users_uid');
         $res = DB::table('user_message')->insert([
+            'user_mid'=>$userid_res,
             'message_uid'=>$id,
-            'message'=>$request->input('message')
+            'message'=>$request->input('message'),
+            'time_res'=>$timing_res
         ]);
         //dd($res);
         if($res){
             DB::commit();
-            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','评论成功');
         }else{
             DB::rollBack();
-            return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','评论失败');
         }
     }
 
@@ -71,7 +75,7 @@ class MessageController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
@@ -94,6 +98,19 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //dump($id);
+         /**
+        *开启事务
+        */
+        DB::beginTransaction(); 
+        $mess_res = DB::table('user_message')->where('id',$id)->delete();
+        if($mess_res){
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        }else{
+            DB::rollBack();
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+        }
     }
+
 }

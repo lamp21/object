@@ -35,6 +35,7 @@
         <div class="comment-text-area">
           @foreach($wordres as $k=>$v)
           <form action="/home/message/{{$v->id}}">
+            {{ csrf_field() }}
           <div>
             <textarea class="text-area text-area-input" name="message">请输入评论内容......</textarea>
           </div>
@@ -48,20 +49,34 @@
         <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
           <h3 class="text=control text-info">网友评论</h3>
         </div>
+          <!-- 遍历评论 -->
+           @foreach($message as $k=>$v)
           <div class="comments" style="margin:60px;padding: 30px;">
           <div class="comment-wrap">
               <div class="photo">
-                  <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+                  <div class="avatar" style="background-image: url('{{$v->uname_img}}')"></div>
               </div>
               <div class="comment-right">
-              <h3>帅大叔</h3>
+              <h3>{{$v->uname}}</h3>
               <div class="comment-content-header">
                 <span>
-                  <i class="glyphicon glyphicon-time"></i>2017-10-17 11:42:53</span>
+                  <p class="content" style="color:grey;"><b>{{$v->message}}</b></p>
+                </span>
               </div>
-              <p class="content">同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。</p>
-              </div>
+              <i class="glyphicon glyphicon-time" style="color: blue;">{{$v->time_res}}</i>
+              </div> 
+              <ul class="comment-actions">
+                    <li class="reply">
+                      <form action="/home/message/{{$v->id}}" method="post" style="display: inline-block;">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE')}}
+                        <input type="submit" value="删除" class="btn btn-danger">
+                      </form>
+                    </li>
+              </ul> 
           </div>
+        </div>
+        @endforeach
         </li>
       </ul>
     </div>

@@ -173,10 +173,10 @@ Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
 //后台文章展示
 Route::get('admin/article/{id}/display','Admin\ArticleController@display');
 Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
-//前台评论
-Route::resource('home/message','home\MessageController');
-
-
+//前台文章评论
+Route::resource('home/message','Home\MessageController');
+Route::resource('home/wdfmessage','Home\WdfmessageController');
+Route::resource('home/wpmessage','Home\WpmessageController');
 
 
 

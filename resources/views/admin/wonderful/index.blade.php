@@ -59,7 +59,7 @@
         </td>
         <td style="text-align:center;vertical-align:middle;">{{$v->wd_form}}</td>
         <td style="text-align:center;vertical-align:middle;">{{$v->wd_time}}</td>
-        <td style="text-align:center;vertical-align:middle;">{{$v->cate_uid}}</td>
+        <td style="text-align:center;vertical-align:middle;">{{$v->cname}}</td>
         <td style="text-align:center;vertical-align:middle;">
         	<abbr title="{{$v->content }}">
         	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
@@ -96,7 +96,7 @@
 	  <div class="row">
 	    <div class="col-sm-12">
 	    	<div style="float:right;">
-	    		{{ $wonderful_info->appends($request)->links() }}
+
 	    	</div>
 	     </div>
 	    <div class="col-sm-6">

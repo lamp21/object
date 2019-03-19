@@ -40,12 +40,6 @@
 			    </div>
 		 	</div>
 		  	<div class="form-group">
-			    <label class="col-sm-2 control-label">发表时间</label>
-			    <div class="col-sm-10" style="width:600px;">
-			        <input type="text" class="form-control" placeholder="发表时间 按照默认格式填写:20xx-xx-xx" name="wd_time" >
-			    </div>
-		  	</div>
-		  	<div class="form-group">
 			    <label class="col-sm-2 control-label">分类</label>
 			    <div class="col-sm-10" style="width:600px;">
 			        <select class="form-control" name="cate_uid">

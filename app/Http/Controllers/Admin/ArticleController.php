@@ -16,13 +16,15 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
+
         // $article = DB::table('article')->get();
-
-        $count = $request->input('count',5);
-        $search = $request->input('search','');
-        $article = Article::where('art_title','like','%'.$search.'%')->paginate($count);
-
-        return view('admin.article.index',['article'=>$article,'request'=>$request->all()]);
+        $uid_res = DB::table('article as aa')
+            ->join('home_users as hh','aa.users_uid','=','hh.id')
+            ->join('cates as cc','aa.cate_uid','=','cc.id')
+            ->select('hh.uname','cc.cname','aa.art_title','aa.art_time','aa.art_content','aa.art_status','aa.display','aa.id')
+            ->get();
+            //dd($uid_res);
+            return view('admin.article.index',['uid_res'=>$uid_res]);
     }
 
     /**

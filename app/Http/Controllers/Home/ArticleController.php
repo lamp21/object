@@ -64,13 +64,14 @@ class ArticleController extends Controller
         //dump($request->all());
         //分类id
         //dd($request->input('cate_uid'));
-        $cate_res= $request->input('cate_uid');
-        $cate_result = DB::table('cates')->where('id',$cate_res)->value('cname');
+        //$cate_res= $request->input('cate_uid');
+        // dd($cate_res);
+        //$cate_result = DB::table('cates')->where('id',$cate_res)->value('cname');
         $res = DB::table('article')->insert([
                 'art_title'=>$request->input('art_title'),
                 'users_uid'=>$users_id,
                 'art_time'=>$time,
-                'cate_uid'=>$cate_result,
+                'cate_uid'=>$request->input('cate_uid'),
                 'art_content'=>$request->input('art_content'),
              ]);
         if ($res) {
@@ -102,7 +103,17 @@ class ArticleController extends Controller
         foreach ($about_data as $k => $v) {
             $value = $v;
         }
-        return view('home.article.wordinfo',['cates_data'=>$a,'wordres'=>$wordres,'value'=>$value]);
+
+        //获取遍历评论的数据
+        $message = DB::table('user_message as uu')
+            ->join('article as ww','uu.message_uid','=','ww.id')
+            ->join('users_info as dd','uu.user_mid','=','dd.id')
+            ->join('home_users as ff','ff.id','=','dd.uid')
+            ->select('uu.message','dd.uname_img','ff.uname','uu.time_res','uu.id')
+            ->get();
+            //dd($message);
+        return view('home.article.wordinfo',['cates_data'=>$a,'wordres'=>$wordres,'value'=>$value,'message'=>$message]);
+
     }
 
     /**

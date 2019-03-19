@@ -1,5 +1,12 @@
- @extends('home.layout.index')
+@extends('home.layout.index')
 
+
+@extends('home.layout.index')
+<style>
+  #abc img{
+    display: none;
+  }
+</style>
 @section('content')
 <article> 
   <!--lbox begin-->
@@ -25,7 +32,7 @@
           </i> 
           @endif
           <b>{{$v->art_title}}</b>
-          <span style="width: 300px !important;float: left !important;overflow: hidden !important;text-overflow: ellipsis !important;"abbr title="{!!$v->art_content!!}">
+          <span style="width: 300px !important;float: left !important;overflow: hidden !important;text-overflow: ellipsis !important;"abbr title="{{$v->art_content}}" id="abc">
             {!!$v->art_content!!}
           </span>
           <a href="/home/article/{{$v->id}}" target="_blank" class="readmore">文章预览</a><br>

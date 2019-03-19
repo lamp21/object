@@ -20,7 +20,7 @@
 	    <input type="text" class="form-control" id="art_title" placeholder="标题" name="art_title">
 	  </div>
 	  <div class="form-group">
-	    <label for="cate_uid">文章类型</label>
+	    <label for="exampleInputPassword1">文章类型</label>
 	    <select class="form-control" name="cate_uid" id="cate_uid">
         <option value="" selected disabled style="display: none;">--请选择--</option>
           @foreach($cate_uid as $k=>$v)
@@ -42,10 +42,26 @@
 	    <script type="text/javascript">
 	        var ue = UE.getEditor('container');
 	    </script>
-	    
 	  </div>
-	  <button type="submit" id="but" class="btn btn-info">发表贴文</button>
+	  <button type="submit" class="btn btn-info" id="but">发表贴文</button>
 	</form>
+  <script type="text/javascript">
+  //非空验证
+    $('#but').click(function () {
+      var art_title = $('#art_title').val();
+      var cate_uid = $('#cate_uid').val();
+          if(art_title == ''){
+            alert('标题不能为空！');
+            return false;
+          }else if(cate_uid == ''){
+            alert('请选择分类！');
+            return false;
+          }else if(art_content == ''){
+            alert('内容不能为空！');
+            return false;
+          }
+        });
+  </script>
 </div>
     <h2 class="gd_title">我的博客</h2>
     <ul class="myblog">

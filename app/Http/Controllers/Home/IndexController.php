@@ -56,10 +56,12 @@ class IndexController extends Controller
             $value = $val;
             }
         }else{
-            $value = '';
+            $value = '暂无数据';
         }
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'wonderful_data'=>$wonderful_data,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
 
+       /* //首页中间栏的分类
+        DB::table('cates')->get();*/
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value,'wonderful_data'=>$wonderful_data]);
     }
 
     /**

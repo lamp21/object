@@ -62,15 +62,18 @@
         </ul>
       </div>
       <div class="newstab">
+
         <div class="newsitem">
+          <!-- 工作日记里的两个图 -->
           <div class="newspic">
             <ul>
               <li><a href="/"><img src="/home_public/images/2.jpg"><span>个人博客，属于我的小世界！</span></a></li>
               <li><a href="/"><img src="/home_public/images/4.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
             </ul>
           </div>
+          <!-- 图片结束 -->
+          <!-- 工作日记里的标题条数 -->
           <ul class="newslist">
-
             <li>
               <i></i>
               <a href="/">个人博客，属于我的小世界！</a>
@@ -78,30 +81,74 @@
             </li>
           </ul>
         </div>
+        <!-- 条数结束 -->
+
         <div class="newsitem">
+           <!-- 心路里的两个图 -->
           <div class="newspic">
             <ul>
               <li><a href="/"><img src="/home_public/images/3.jpg"><span>个人博客，属于我的小世界！</span></a></li>
               <li><a href="/"><img src="/home_public/images/1.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
             </ul>
           </div>
+          <!-- 图片结束 -->
+          <!-- 心路里的标题条数 -->
+          <ul class="newslist">
+            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
+              <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
+            </li>
+          </ul>
         </div>
+         <!-- 条数结束 -->
+
         <div class="newsitem">
+          <!-- 博客里的两个图 -->
           <div class="newspic">
             <ul>
               <li><a href="/"><img src="/home_public/images/2.jpg"><span>个人博客，属于我的小世界！</span></a></li>
               <li><a href="/"><img src="/home_public/images/3.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
             </ul>
           </div>
-          
+          <!-- 图片结束 -->
+          <!-- 博客里的标题条数 -->
+          <ul class="newslist">
+            <li><i></i><a href="/">我是怎么评价自己的？</a>
+              <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
+            </li>
+          </ul>
         </div>
+        <!-- 条数结束 -->
+
         <div class="newsitem" >
+          <!-- 技术里的两个图 -->
           <div class="newspic">
             <ul>
               <li><a href="/"><img src="/home_public/images/3.jpg"><span>个人博客，属于我的小世界！</span></a></li>
               <li><a href="/"><img src="/home_public/images/4.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
             </ul>
           </div>
+          <!-- 图片结束 -->
+          <!-- 技术里的标题条数 -->
+          <ul class="newslist">
+            <li><i></i><a href="/">安静地做一个爱设计的女子</a>
+              <p>自从入了这行，很多人跟我说可以做网络教程，我也有考虑，但最终没有实现，因为我觉得在这个教程泛滥的时代，直接做一套免费的原创个人博客模板更为实在。</p>
+            </li>
+          </ul>
+        </div>
+         <!-- 条数结束 -->
+         
+        <div class="newsitem" >
+          <div class="newspic">
+            <ul>
+              <li><a href="/"><img src="/home_public/images/h2.jpg"><span>个人博客，属于我的小世界！</span></a></li>
+              <li><a href="/"><img src="/home_public/images/h1.jpg"><span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的</span></a></li>
+            </ul>
+          </div>
+          <ul class="newslist">
+            <li><i></i><a href="/">我是怎么评价自己的？</a>
+              <p>为了挨打轻一些，问我哪里来的，我瞎说了一个说那个谁家的，结果，打得更凶。最后事情还原了真相，我妈说，你要说说奶奶家的，都不会打你了。从此以后，我知道撒谎是会付出更惨痛的代价的，我不再撒谎，也不喜欢爱撒谎的人。</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -142,13 +189,13 @@
             <a href="/home/article/{{$v->id}}" target="_blank">{{$v->art_title}}</a>
           </h3>
           <p class="blogtext">
-            {!!$v->art_content!!}
+            {{$v->art_content}}
           </p>
           <p class="bloginfo">
+
            
             <i class="avatar"><img src="{{ $value->uname_img ? $value->uname_img : '/img/1.jpeg'}}"></i>
             <span>{{$value->uname}}</span>
-            
             <span>{{$v->art_time}}</span>
             <span>【<a href="/">原创模板</a>】</span>
           </p>

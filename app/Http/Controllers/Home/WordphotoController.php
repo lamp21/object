@@ -58,7 +58,15 @@ class WordphotoController extends Controller
         }
         $a = Controller::cates_data();
         $wordinfo = DB::table('wordphoto')->where('id',$id)->get();
-        return view('home.wordphoto.wordinfo',['cates_data'=>$a,'wordinfo'=>$wordinfo,'value'=>$value]);
+
+        //获取遍历评论的数据
+        /*$message = DB::table('user_message as uu')
+            ->join('article as ww','uu.message_uid','=','ww.id')
+            ->join('users_info as dd','uu.user_mid','=','dd.id')
+            ->join('home_users as ff','ff.id','=','dd.uid')
+            ->select('uu.message','dd.uname_img','ff.uname','uu.time_res')
+            ->get();*/
+        return view('home.wordphoto.wordinfo',['cates_data'=>$a,'wordinfo'=>$wordinfo]);
     }
 
     /**
