@@ -155,7 +155,7 @@ Route::resource('home/wordphoto','Home\WordphotoController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
 //前台 分类
-Route::get('home/cates/{id}','Home\CatesController@show');
+Route::get('home/cates/{$id}','Home\CatesController@show');
 
 
 

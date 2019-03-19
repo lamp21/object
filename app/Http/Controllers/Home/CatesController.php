@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Home_Users;
-use App\Models\Usersinfo;
+use App\Models\Article;
 use App\Models\Wonderful;
 use DB;
 class CatesController extends Controller
@@ -21,7 +21,7 @@ class CatesController extends Controller
         // $search = $request->input('search','');
         // $data = Home_Users::where('uname','like','%'.$search.'%')->paginate($count);
         // return view('admin.home_users.index',['data'=>$data,'request'=>$request->all()]);
-         
+        return view('home.cates.index');
     }
 
     /**
@@ -43,6 +43,7 @@ class CatesController extends Controller
     public function store(Request $request)
     {
         //
+        echo $id;
     }
 
     /**
@@ -53,14 +54,15 @@ class CatesController extends Controller
      */
     public function show($id)
     {   
+        echo $id;
         // $data_create = Announcement::find($id);
         $data_create = DB::table('create')->where('id',$id)->get();
         // dd($data_create);
         // //读取session中的id
         $id = session('userinfo')->id;
         $userinfo = new Wonderful;
-        $about_data = Wonderful::where('id',$id)->get();
-        foreach ($about_data as $k => $v) {
+        $about_data = article::where('uid',$id)->get();
+        foreach ($about_data as $k => $v){
             $value = $v;
         }
         $cates_data = Controller::cates_data();

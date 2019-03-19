@@ -178,13 +178,13 @@ a {
       <ul id="starlist" style="font-size: 18px;">
         <li><a href="/home/index">首页</a></li>
                 @foreach($cates_data as $k=>$v)
-              <li class="menu"><a href="list2.html" onclick="return false;">{{ $v->cname }}</a>
+              <li class="menu"><a href="/home/cates/{{ $v->id }}" onclick="return false;">{{ $v->cname }}</a>
                   <ul class="sub">   
                       @foreach($v['sub'] as $kk=>$vv)     
                         <li><a href="/home/cates/{{ $vv->id }}">{{ $vv->cname }}</a>
                             <ul>
                               @foreach($vv['sub'] as $kkk=>$vvv)     
-                              <li><a href="/8">{{ $vvv->cname }}</a></li>
+                              <li><a href="/home/cates/{{ $vvv->id }}">{{ $vvv->cname }}</a></li>
                               @endforeach
                             </ul>
                         </li>
