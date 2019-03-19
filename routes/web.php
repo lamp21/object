@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
-
+Route::resource('home/index/cates','Home\CatesController');
 // 有权限
 // ['login','rbac']
 
@@ -73,20 +73,12 @@ Route::group(['middleware'=>['login','rbac']],function()
 	//显示文章
 	Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
 	Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
+	
+
+	
+
 	//后台精彩文章
 	Route::resource('admin/wonderful','Admin\WonderfulController');
-	//精彩文章封面图上传
-	Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
-	//后台轮播图
-	Route::resource('admin/wordphoto','Admin\WordphotoController');
-	//轮播图片上传
-	Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
-	//后台精彩文章
-	Route::resource('admin/wonderful','Admin\WonderfulController');
-	//精彩文章封面图上传
-	Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
-	//后台轮播图
-	Route::resource('admin/wordphoto','Admin\WordphotoController');
 	//后台轮播图片上传
 	Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
 	//后台文章审核列表
@@ -109,7 +101,10 @@ Route::post('admin/dologin','Admin\LoginController@dologin');
 Route::get('404',function(){
 	return view('admin.nodes.404');
 });
-
+//轮播图片上传
+Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
+//精彩文章封面图上传
+Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
 
 
 
@@ -175,7 +170,10 @@ Route::get('admin/article/{id}/display','Admin\ArticleController@display');
 Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
 //前台文章评论
 Route::resource('home/message','Home\MessageController');
-
+//后台精彩文章
+Route::resource('admin/wonderful','Admin\WonderfulController');
+//后台轮播图
+Route::resource('admin/wordphoto','Admin\WordphotoController');
 
 
 

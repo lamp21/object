@@ -45,7 +45,7 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request,$id)
-    {
+    {   
         //开启事务
         DB::beginTransaction();
         //添加评论

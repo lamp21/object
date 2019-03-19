@@ -94,7 +94,9 @@ class WonderfulController extends Controller
      */
     public function show($id)
     {
-       
+       //dd($id);
+       $list_result = DB::table('wonderful')->where('id',$id)->get();
+        return view('admin.wonderful.list',['list_result'=>$list_result]);
     }
 
     /**

@@ -29,7 +29,7 @@
         <div class="comment-level"></div>
         <div class="comment-text-area">
           @foreach($wordinfo as $k=>$v)
-          <form action="/home/wordphoto/{{$v->id}}">
+          <form action="/home/message/{{$v->id}}">
             {{ csrf_field() }}
           <div>
             <textarea class="text-area text-area-input" name="message">请输入评论内容......</textarea>

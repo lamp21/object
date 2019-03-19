@@ -59,10 +59,7 @@
 	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_form}}</td>
 	        <td style="text-align:center;vertical-align:middle;">{{$v->pic_time}}</td>
 	        <td style="text-align:center;vertical-align:middle;">
-	        	<abbr title="{{$v->pic_content }}">
-	        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
-	        		{{$v->pic_content}}
-	        	</p>
+	        	<a href="/admin/wordphoto/{{$v->id}}" target="_blank">请点击查看详情</a>
         	</abbr>
 	        </td>
 	        @if ($v->pic_status == 1) 

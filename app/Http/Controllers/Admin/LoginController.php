@@ -22,16 +22,16 @@ class LoginController extends Controller
         $data = $request->except(['_token']);
 
         // 通过用户获取密码
-        $userinfo = DB::table('users')->where('uname',$data['uname'])->first();
-        if(!$userinfo){
+        $usersinfo = DB::table('users')->where('uname',$data['uname'])->first();
+        if(!$usersinfo){
             echo "<script>alert('用户不存在');location='/login';</script>";
         }
-        if(!Hash::check($data['upass'],$userinfo->upass)){
+        if(!Hash::check($data['upass'],$usersinfo->upass)){
             echo "<script>alert('密码错误');location='/login';</script>";
         }
 
         // 获取用户当前的权限
-        $admin_nodes = DB::select('select n.cname,n.aname from nodes as n,users_roles as ur,roles_nodes as rn where ur.uid = '.$userinfo->id.' and ur.rid = rn.rid and rn.nid = n.id');
+        $admin_nodes = DB::select('select n.cname,n.aname from nodes as n,users_roles as ur,roles_nodes as rn where ur.uid = '.$usersinfo->id.' and ur.rid = rn.rid and rn.nid = n.id');
         $arr = [];
         foreach($admin_nodes as $key => $value){
             $arr[$value->cname][] = $value->aname;
@@ -55,7 +55,7 @@ class LoginController extends Controller
 
         session(['admin_login'=>true]);
 
-        session(['userinfo'=>$userinfo]);
+        session(['usersinfo'=>$usersinfo]);
 
         // 登录成功
         echo "<script>alert('登录成功');location='/admin';</script>";

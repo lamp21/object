@@ -61,11 +61,7 @@
         <td style="text-align:center;vertical-align:middle;">{{$v->wd_time}}</td>
         <td style="text-align:center;vertical-align:middle;">{{$v->cname}}</td>
         <td style="text-align:center;vertical-align:middle;">
-        	<abbr title="{{$v->content }}">
-        	<p style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden; width:100px;height: 80px;"> 
-        		{{$v->content}}
-        	</p>
-        	</abbr>
+        	<a href="/admin/wonderful/{{$v->id}}" target="_blank">请点击查看详情</a>
     	</td>
     	@if ($v->status == 1) 
 			<td style="text-align:center;vertical-align:middle;">

@@ -53,8 +53,8 @@
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            @if(isset(session('userinfo')->uname))
-                            <li><a href=" "><i class="fa fa-user fa-fw"></i>你好,{{ session('userinfo')->uname }}</a >
+                            @if(isset(session('usersinfo')->uname))
+                            <li><a href=" "><i class="fa fa-user fa-fw"></i>你好,{{ session('usersinfo')->uname }}</a >
                             <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> 退出</a >
                             </li>
                             @else

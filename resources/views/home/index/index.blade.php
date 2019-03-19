@@ -4,13 +4,13 @@
 <!-- 头部开始 -->
 <div class="searchbox">
   <div class="search">
-    <form action="" method="post" name="searchform" id="searchform">
+    <!-- <form action="" method="post" name="searchform" id="searchform">
       <input name="search" id="keyboard" class="input_text" value="{{ $request['search'] or ''}}" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
       <input name="show" value="title" type="hidden">
       <input name="tempid" value="1" type="hidden">
       <input name="tbname" value="news" type="hidden">
       <input class="input_submit" value="搜索" type="submit">
-    </form>
+    </form> -->
   </div>
   <div class="searchclose"></div>
 </div>
@@ -160,7 +160,7 @@
         @if($v->status == 2)
       <li>
         <i class="ztpic">
-          <a href=" >id}}" target="_blank">
+          <a href="/home/wonderful/{{ $v->id }}" target="_blank">
             <img src="{{$v->wd_img}}"></a >
         </i>
         <b>{{$v->title}}</b>
@@ -189,7 +189,7 @@
             <a href="/home/article/{{$v->id}}" target="_blank">{{$v->art_title}}</a>
           </h3>
           <p class="blogtext">
-            {{$v->art_content}}
+            {!! $v->art_content!!}
           </p>
           <p class="bloginfo">
 
@@ -253,7 +253,7 @@
       <ul>
         @foreach($data_advert as $k=>$v)
         <li>
-          <a href="{{ $v->url }}"><i><img src="{{ asset('/img') }}{{'/'.$v->pic}}"></i>
+          <a href="{{ $v->url }}" target="_blank"><i><img src="{{ asset('/img') }}{{'/'.$v->pic}}"></i>
             <p>{{ $v->content }}</p>
           </a>
         </li>

@@ -52,7 +52,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        //dump($id);
+        $list_res = DB::table('article')->where('id',$id)->get();
+        return view('admin.article.list',['list_res'=>$list_res]);
     }
 
     /**

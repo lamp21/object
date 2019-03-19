@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WordphotoStoreRequest;
 use App\Http\Requests\WordphotoUpdateRequest;
-use App\Models\Wordphoto;
-
 use DB;
 class WordphotoController extends Controller
 {
@@ -18,11 +16,10 @@ class WordphotoController extends Controller
      */
     public function index(Request $request)
     {
-        // $wordphoto = DB::table('wordphoto')->get();
+        $wordphoto = DB::table('wordphoto')->get();
         $count = $request->input('count',5);
         $search = $request->input('search','');
-        $wordphoto_info = Wordphoto::where('pic_title','like','%'.$search.'%')->paginate($count);
-
+        $wordphoto_info = DB::table('wordphoto')->where('pic_title','like','%'.$search.'%')->paginate($count);
         return view('admin.wordphoto.index',['wordphoto_info'=>$wordphoto_info,'request'=>$request->all()]);
     }
 
@@ -76,7 +73,9 @@ class WordphotoController extends Controller
      */
     public function show($id)
     {
-        //
+        //dd($id);
+       $list_data = DB::table('wordphoto')->where('id',$id)->get();
+        return view('admin.wordphoto.list',['list_data'=>$list_data]);
     }
 
     /**
