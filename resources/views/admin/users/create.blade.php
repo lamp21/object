@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label for="repassword" class="col-sm-2 control-label">确认密码</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="repassword" name="repassword">
+                            <input type="password" class="form-control" id="u_upass" name="u_upass">
                         </div>
                     </div>
                     <!-- <div class="form-group">

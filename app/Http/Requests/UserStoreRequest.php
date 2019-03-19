@@ -26,7 +26,7 @@ class UserStoreRequest extends FormRequest
         return [
         'uname' => 'required|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
         'upass' => 'required|regex:/^[\w]{6,18}$/',
-        'repassword' => 'required|same:upass',
+        'u_upass' => 'required|same:upass',
         'phone' => 'required|regex:/^1{1}[3-9][\d]{9}$/',
         // 'description' => 'required',
             //
@@ -41,8 +41,8 @@ class UserStoreRequest extends FormRequest
             'uname.regex'=>'用户名格式不正确',
             'upass.required'=>'密码必填',
             'upass.regex'=>'密码格式不正确',
-            'repassword.required'=>'确认密码必填',
-            'repassword.same'=>'两次密码不一致',
+            'u_upass.required'=>'确认密码必填',
+            'u_upass.same'=>'两次密码不一致',
             'phone.required'=>'手机号必填',
             'phone.regex'=>'手机号格式不正确',
             // 'description.required'=>'个人介绍必填',  

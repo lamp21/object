@@ -18,6 +18,8 @@ class WonderfulController extends Controller
     {
         //加载视图
         $a = Controller::cates_data();
+        $articles = DB::table('wonderful')->get();
+        return view('home.wonderful.wonderful',['cates_data'=>$a,'articles'=>$articles]);
         //读取session中的id
         $id = session('userinfo')->id;
         $userinfo = new Usersinfo;

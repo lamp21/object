@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+
 use DB;
 class ArticleController extends Controller
 {
@@ -12,10 +14,15 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $article = DB::table('article')->get();
-        return view('admin.article.index',['article'=>$article]);
+        // $article = DB::table('article')->get();
+
+        $count = $request->input('count',5);
+        $search = $request->input('search','');
+        $article = Article::where('art_title','like','%'.$search.'%')->paginate($count);
+
+        return view('admin.article.index',['article'=>$article,'request'=>$request->all()]);
     }
 
     /**

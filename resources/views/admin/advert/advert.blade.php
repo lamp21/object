@@ -76,6 +76,7 @@
                             </td>
                             <td class="center" style="width:100px;">
                                 <br>
+                                
                                 @if($v->advert_agree == 0) 
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE')}}
@@ -83,6 +84,9 @@
                                 @else                            
                                 <a href="/admin/advert/{{$v->id}}/edits" class="btn btn-success" disabled="disabled">已通过审核</a>
                                 @endif
+
+                            	<form action="/admin/advert/{{ $v->id }}" style="display: inline-block;" method="post" style="display: inline-block;">
+                                <!-- <a href="/admin/advert/{{ $v->id}}/edit" class="btn btn-success">修改</a> -->
                                 
                             	<form action="/admin/advert/{{ $v->id }}" style="display: inline-block;" method="post" style="display: inline-block;">
                                 <!-- <a href="/admin/advert/{{ $v->id }}/edit" class="btn btn-success">修改</a> -->

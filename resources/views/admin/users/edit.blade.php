@@ -27,12 +27,12 @@
                 <form class="form-horizontal" action="/admin/users/{{ $users->id }}" method="post">
                     {{ method_field('PUT') }}
                 	{{ csrf_field() }}
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="uname" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" disabled id="uname" name="uname" value="{{ $users['uname']}}">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="upass" class="col-sm-2 control-label">密码</label>
                         <div class="col-sm-10">
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="repassword" class="col-sm-2 control-label">确认密码</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="repassword" name="upass">
+                            <input type="password" class="form-control" id="u_upass" name="u_upass">
                         </div>
                     </div>
 <!--                     <div class="form-group">
@@ -68,5 +68,18 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript">
+        //非空验证
+        $('#bt').click(function () {
+            var upass = $('#upass').val();
+            var u_upass = $('#u_upass').val();
+            if(upass == ''){
+                alert('请输入原密码！');
+                return false;
+            }else if(u_upass == ''){
+                alert('密码不能为空！');
+                return false;
+            }
+        });
+    </script>
 @endsection

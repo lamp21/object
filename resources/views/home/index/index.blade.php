@@ -4,12 +4,12 @@
 <!-- 头部开始 -->
 <div class="searchbox">
   <div class="search">
-    <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
-      <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+    <form action="" method="post" name="searchform" id="searchform">
+      <input name="search" id="keyboard" class="input_text" value="{{ $request['search'] or ''}}" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
       <input name="show" value="title" type="hidden">
       <input name="tempid" value="1" type="hidden">
       <input name="tbname" value="news" type="hidden">
-      <input name="Submit" class="input_submit" value="搜索" type="submit">
+      <input class="input_submit" value="搜索" type="submit">
     </form>
   </div>
   <div class="searchclose"></div>
@@ -169,7 +169,7 @@
       <ul class="linkmore">
         <li><a href="http://www.yangqq.com" target="_blank" class="iconfont icon-zhuye" title="网站地址"></a></li>
         <li><a href="http://mail.qq.com/cgi-bin/qm_share" target="_blank" class="iconfont icon-youxiang" title="我的邮箱"></a></li>
-        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=978952042&site=qq&menu=yes" target="_blank" class="iconfont icon---" title="QQ联系我"></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=2213312318&site=qq&menu=yes" target="_blank" class="iconfont icon---" title="QQ联系我"></a></li>
         <li id="weixin"><a href="#" target="_blank" class="iconfont icon-weixin" title="关注我的微信"></a><i><img src="/home_public/images/wx.png"></i></li>
       </ul>
     </div>
@@ -183,21 +183,26 @@
     </div>
     <div class="whitebg paihang">
       <h2 class="htitle">点击排行</h2>
-      <section class="topnews imgscale"><a href="/"><img src="/home_public/images/h1.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
+      <section class="topnews imgscale"><a href="/"><img src="/home_public/images/h1.jpg"><span>6条文章,让你秒变发布文章高手</span></a></section>
       <ul>
-        <li><i></i><a href="/">十条设计原则教你学会如何设计网页布局!</a></li>
-        <li><i></i><a href="/">用js+css3来写一个手机栏目导航</a></li>
-        <li><i></i><a href="/">6条网页设计配色原则,让你秒变配色高手</a></li>
-        <li><i></i><a href="/">三步实现滚动条触动css动画效果</a></li>
-        <li><i></i><a href="/">个人博客，属于我们的小世界！</a></li>
-        <li><i></i><a href="/">无兄弟，不编程！</a></li>
-        <li><i></i><a href="/">个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a></li>
-        <li><i></i><a href="/">做个人博客如何用帝国cms美化留言增加头像选择</a></li>
-      </ul>
+        @foreach($wonderful_data as $k=>$v)
+      <li>
+        <i class="ztpic">
+          <a href=" >id}}" target="_blank">
+        </i>
+        <b>{{$v->title}}</b>
+        <span id="sp" style="width: 300px !important;float: left !important;overflow: hidden !important;text-overflow: ellipsis !important;"abbr title="{!!$v->content!!}">
+              {!!$v->content!!}
+          </abbr>
+        </span>
+        <a href="/home/wonderful/{{$v->id}}" target="_blank" class="readmore">文章阅读</a >
+      </li>
+      @endforeach
+    </ul>
     </div>
     <div class="whitebg tuijian">
       <h2 class="htitle"><span class="sqlink"><a href="/home/advert">申请广告</a></span>站长推荐</h2>
-      <section class="topnews imgscale"><a href="/"><img src="/home_public/images/h2.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
+      <section class="topnews imgscale"><a href="/"><img src="/home_public/images/h2.jpg"><span>6条网址,让你秒变网站高手</span></a></section>
       <ul>
         @foreach($data_advert as $k=>$v)
         <li>

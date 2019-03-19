@@ -89,6 +89,14 @@ Route::group(['middleware'=>['login','rbac']],function()
 	Route::resource('admin/wordphoto','Admin\WordphotoController');
 	//后台轮播图片上传
 	Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
+	//后台文章审核列表
+	Route::resource('admin/article','Admin\ArticleController');
+	//后台文章审核
+	Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
+	Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
+	//显示轮播图
+	Route::get('admin/wordphoto/{id}/turn','Admin\WordphotoController@turn');
+	Route::get('admin/wordphoto/{id}/doturn','Admin\WordphotoController@doturn');
 
 }); 
 // 登录 首页
@@ -140,25 +148,13 @@ Route::resource('home/wonderful','Home\WonderfulController');
 //显示文章
 Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
 Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
-//后台精彩文章
-Route::resource('admin/wonderful','Admin\WonderfulController');
-//精彩文章封面图上传
-Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
-//后台轮播图
-Route::resource('admin/wordphoto','Admin\WordphotoController');
-//后台轮播图片上传
-Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
-//显示轮播图
-Route::get('admin/wordphoto/{id}/turn','Admin\WordphotoController@turn');
-Route::get('admin/wordphoto/{id}/doturn','Admin\WordphotoController@doturn');
+
 //前台轮播文章详情
 Route::resource('home/wordphoto','Home\WordphotoController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
-
-//显示文章
-Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
-Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
+//前台 分类
+Route::get('home/cates/{$id}','Home\CatesController@show');
 
 
 
@@ -167,11 +163,13 @@ Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange')
 
 //前台我的文章
 Route::resource('home/article','Home\ArticleController');
+
 //后台文章审核列表
 Route::resource('admin/article','Admin\ArticleController');
 //后台文章审核
 Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
 Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
+
 //后台文章展示
 Route::get('admin/article/{id}/display','Admin\ArticleController@display');
 Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
@@ -251,9 +249,6 @@ Route::get('home/register/sendPhone','Home\RegisterController@sendPhone');
 Route::resource('home/register','Home\RegisterController');
 //退出登录
 Route::any('/home/logout', 'Home\LoginController@logout');
-// 前台 分类
-Route::resource('home/index','Home\IndexController');
-
 //读取全部session的值
 Route::any('123',function(){
 	dump(session()->all());

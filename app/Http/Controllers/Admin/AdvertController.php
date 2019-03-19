@@ -105,6 +105,10 @@ class AdvertController extends Controller
             
         DB::table('advert')->where('id',$id)->update(['advert_agree' => 1]);
         return redirect($_SERVER['HTTP_REFERER'])->with('SUCCESS','通过审核');
+
+        // $advert = Advert::find($id);
+
+        // return view('admin.advert.edit',['advert'=>$advert]);
         
     }
 
@@ -139,7 +143,7 @@ class AdvertController extends Controller
         if($res){
         // 执行 添加 
             // DB:commit();
-            return redirect('/admin/advert')->with('success','修改成功');
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','修改成功');
         }else{
             // DB::rollBack();
             return back()->with('error','修改失败');
@@ -158,7 +162,7 @@ class AdvertController extends Controller
        // $res
        if($res){
         // 执行 删除
-            return redirect('/admin/advert')->with('success','删除成功');
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
         }else{
             return back()->with('error','删除失败');
         }
