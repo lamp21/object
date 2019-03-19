@@ -90,7 +90,7 @@
 		  </div>
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		      <button type="submit" class="btn btn-success">提交</button>
+		      <button type="submit" id="but" class="btn btn-success">提交</button>
 		    </div>
 		  </div>
 		</form>
@@ -160,5 +160,46 @@
 				}
 			});
     	}
+
+    	//非空验证
+		$('#but').click(function () {
+			var nick_name = $('#nick_name').val();
+			var work = $('#work').val();
+	        var real_name = $('#real_name').val();
+	        var location = $('#location').val();
+	        var personal_label = $('#personal_label').val();
+	        var email = $('#email').val();
+	        var QQ = $('#QQ').val();
+	        var chat = $('#chat').val();
+	        var description = $('#description').val();
+	        if(nick_name == ''){
+	        	alert('昵称不能为空');
+	        	return false;
+	        }else if(work == ''){
+	        	alert('职业不能为空');
+	        	return false;
+	        }else if(real_name == ''){
+	        	alert('真实姓名不能为空');
+	        	return false;
+	        }else if(location == ''){
+	        	alert('所在地不能为空');
+	        	return false;
+	        }else if(personal_label == ''){
+	        	alert('个性签名不能为空');
+	        	return false;
+	        }else if(email == ''){
+	        	alert('邮箱不能为空');
+	        	return false;
+	        }else if(QQ == ''){
+	        	alert('QQ不能为空');
+	        	return false;
+	        }else if(chat == ''){
+	        	alert('微信不能为空');
+	        	return false;
+	        }else if(description == ''){
+	        	alert('个人标签不能为空');
+	        	return false;
+	        }
+	    });
     </script>
 @endsection

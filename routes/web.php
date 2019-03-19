@@ -35,8 +35,6 @@ Route::group(['middleware'=>['login','rbac']],function()
 { 	
 	// 后台 模板
 	Route::get('admin','Admin\IndexController@index');
-	// 后台 测试
-	Route::get('admin/users/setdata','Admin\UserController@setdata');
 	// 广告 列表
 	Route::get('admin/advert/create','Admin\catesController@create');
 	// 后台 角色的理由
@@ -73,22 +71,17 @@ Route::group(['middleware'=>['login','rbac']],function()
 	//显示文章
 	Route::get('admin/wonderful/{id}/change','Admin\WonderfulController@change');
 	Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange');
-	
-
-	
-
-	//后台精彩文章
-	Route::resource('admin/wonderful','Admin\WonderfulController');
-	//后台轮播图片上传
-	Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
 	//后台文章审核列表
 	Route::resource('admin/article','Admin\ArticleController');
-	//后台文章审核
-	Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
-	Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
 	//显示轮播图
 	Route::get('admin/wordphoto/{id}/turn','Admin\WordphotoController@turn');
 	Route::get('admin/wordphoto/{id}/doturn','Admin\WordphotoController@doturn');
+	//后台文章审核
+	Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
+	Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
+	//后台文章展示
+	Route::get('admin/article/{id}/display','Admin\ArticleController@display');
+	Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
 
 }); 
 // 登录 首页
@@ -101,12 +94,12 @@ Route::post('admin/dologin','Admin\LoginController@dologin');
 Route::get('404',function(){
 	return view('admin.nodes.404');
 });
-//轮播图片上传
-Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
 //精彩文章封面图上传
 Route::post('admin/wonderful/upload','Admin\WonderfulController@upload');
-
-
+//后台轮播图片上传
+Route::post('admin/wordphoto/upload','Admin\WordphotoController@upload');
+// 后台 测试
+Route::get('admin/users/setdata','Admin\UserController@setdata');
 
 
 
@@ -159,19 +152,9 @@ Route::get('home/cates/{$id}','Home\CatesController@show');
 //前台我的文章
 Route::resource('home/article','Home\ArticleController');
 
-//后台文章审核列表
-Route::resource('admin/article','Admin\ArticleController');
-//后台文章审核
-Route::get('admin/article/{id}/edit','Admin\ArticleController@edit');
-Route::get('admin/article/{id}/doedit','Admin\ArticleController@doedit');
-
-//后台文章展示
-Route::get('admin/article/{id}/display','Admin\ArticleController@display');
-Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
 //前台文章评论
 Route::resource('home/message','Home\MessageController');
-//后台精彩文章
-Route::resource('admin/wonderful','Admin\WonderfulController');
+
 //后台轮播图
 Route::resource('admin/wordphoto','Admin\WordphotoController');
 
@@ -225,8 +208,6 @@ Route::group(['middleware'=>'home_login'],function(){
 	Route::post('home/about/upload','Home\AboutController@upload');
 	//用户个人信息
 	Route::resource('home/about','Home\AboutController');
-	//前台友情链接列表
-	Route::resource('home/link','Home\LinkController');
 	//前台发表文章
 	Route::resource('home/article','Home\ArticleController');
 	// 前台 广告 申请
@@ -246,6 +227,8 @@ Route::get('home/register/sendPhone','Home\RegisterController@sendPhone');
 Route::resource('home/register','Home\RegisterController');
 //退出登录
 Route::any('/home/logout', 'Home\LoginController@logout');
+//前台友情链接列表
+Route::resource('home/link','Home\LinkController');
 //读取全部session的值
 Route::any('123',function(){
 	dump(session()->all());

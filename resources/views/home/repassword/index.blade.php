@@ -77,6 +77,13 @@
 	        	alert('密码不能为空！');
 	        	return false;
 	   		}
+
+	   		//判断两次密码是否一样
+	   		if(upass == new_upass){
+	   			alert('原密码不能和新密码相同！');
+	   			return false;
+	   		}
 	    });
+
 	</script>
 @endsection

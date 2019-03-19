@@ -15,9 +15,9 @@ class CatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index(Request $request)
     {   
-        dd($id);
+        // dd($id);
         
         // return view('home.cates.index');
     }
@@ -50,13 +50,18 @@ class CatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {   
+    public function show(Request $request,$id)
+    {      
+
+        $count = $request->input('count',2);
+        // $search = $request->input('search','');
+        // $article_data = Article::where('art_title','like','%'.$search.'%')->paginate($count);
+
         // echo $id;
         // 接收  ID
         $data_create = DB::table('cates')->where('id',$id)->get();
         // 链接 article UID
-        $about_data = DB::table('article')->where('cate_uid',$id)->get();
+        $about_data = DB::table('article')->where('cate_uid',$id)->paginate($count);
         if($about_data->first() != null){
             foreach ($about_data as $k => $v){
             $value = $v;
@@ -66,7 +71,7 @@ class CatesController extends Controller
         }
 
         $cates_data = Controller::cates_data();
-        return view('home.cates.index',['cates_data'=>$cates_data,'about_data'=>$about_data,'data_create'=>$data_create,'value'=>$value]);
+        return view('home.cates.index',['cates_data'=>$cates_data,'about_data'=>$about_data,'data_create'=>$data_create,'value'=>$value,'request'=>$request->all()]);
         
     }
 

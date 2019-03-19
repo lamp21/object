@@ -55,7 +55,7 @@
 		          	<form action="/admin/announcement/{{ $v->id }}" method="post" style="display: inline-block;">
 		          		{{ csrf_field()}}
 		          		{{ method_field('DELETE')}}
-		          		<input type="submit" value="删除" name="" class="btn btn-danger">
+		          		<input type="submit" onclick="return confirm('确定要删除吗?');" value="删除" name="" class="btn btn-danger">
 		          	</form></p>
 		          	</td>
 		        </tr>

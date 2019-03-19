@@ -84,14 +84,11 @@ class RepasswordController extends Controller
         // 接收 数据
         $old_upass = $request->input('upass');
         $new_upass = $request->input('new_upass');
+        $user_id = session('userinfo')->id;
         // 通过用户获取密码
-        $userinfo = DB::table('home_users')->where('id',$id)->select('upass')->first();
+        $userinfo = DB::table('home_users')->where('id',$user_id)->select('upass')->first();
         if(!Hash::check($old_upass,$userinfo->upass)){
             echo "<script>alert('密码错误');location='/home/repassword';</script>";
-        }
-        //判断两次密码是否一样
-        if($old_upass == $new_upass){
-            echo "<script>alert('原密码不能和新密码相同！');location='/home/repassword';</script>";
         }
 
         //赋值
@@ -100,7 +97,7 @@ class RepasswordController extends Controller
         );
 
         //修改
-        $result = DB::table('home_users')->where('id',$id)->update($update);
+        $result = DB::table('home_users')->where('id',$user_id)->update($update);
         if($result){
             echo "<script>alert('修改成功');location='/home/about';</script>";
         }

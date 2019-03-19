@@ -253,10 +253,12 @@ a {
              <li><a href="/home/login">登录</a></li>
               <li><a href="/home/register">注册</a></li>
           @endif
+          <!-- 音乐标签 -->
+          <EMBED src="/music/L3V3LS - What Love Is.mp3" width=100px; height=45px; type=audio/mpeg loop="1" autostart="false"></EMBED>
         </div>
       </ul>
     </nav>
-    <div class="searchico"></div>
+<!--     <div class="searchico"></div> -->
   </div>
    <!--  <div class="kf">
       <h2><span id="closed" class="searchclose"></span>客服在线</h2>

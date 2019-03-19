@@ -16,6 +16,9 @@
 			<p style="text-indent:2em;font-size: 15px;"><pre style="white-space: pre-wrap;
                 word-wrap: break-word;">{!! $val->art_content !!}</pre></p>
 	  		@endforeach
+	  		<div style="float: right;">
+            {{ $about_data->links() }}
+			</div>
     </div>
 </div>
 @endsection

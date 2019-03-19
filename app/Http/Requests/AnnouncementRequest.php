@@ -24,8 +24,8 @@ class AnnouncementRequest extends FormRequest
     public function rules()
     {
         return [
-        'announcement_title' => 'required|regex',
-        'announcement_content' => 'required|regex',
+        'announcement_title' => 'required',
+        'announcement_content' => 'required',
         ];
     }
 
@@ -34,9 +34,9 @@ class AnnouncementRequest extends FormRequest
     {
         return [
             'announcement_title.required'=>'标题必填',
-            'announcement_title.regex'=>'',
+            // 'announcement_title.regex'=>'',
             'announcement_content.required'=>'内容必填',
-            'announcement_content.regex'=>'',
+            // 'announcement_content.regex'=>'',
 
         ];
     }
