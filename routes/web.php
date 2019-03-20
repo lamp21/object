@@ -25,6 +25,9 @@ Route::get('/', function () {
 // 前台 分类
 Route::resource('home/index','Home\IndexController');
 
+Route::resource('home/index/cates','Home\CatesController');
+
+
 // 有权限
 // ['login','rbac']
 
@@ -154,8 +157,9 @@ Route::get('admin/wonderful/{id}/dochange','Admin\WonderfulController@dochange')
 Route::resource('home/wordphoto','Home\WordphotoController');
 //前台精彩文章
 Route::resource('home/wonderful','Home\WonderfulController');
-//前台 分类
-Route::get('home/cates/{$id}','Home\CatesController@show');
+
+
+
 
 
 
@@ -170,6 +174,9 @@ Route::get('admin/article/{id}/display','Admin\ArticleController@display');
 Route::get('admin/article/{id}/dodisplay','Admin\ArticleController@dodisplay');
 //前台评论
 Route::resource('home/message','home\MessageController');
+
+//前台 分类
+// Route::get('home/index/cates/index/{id}','Home\CatesController@show');
 
 
 

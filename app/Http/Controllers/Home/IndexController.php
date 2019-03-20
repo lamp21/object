@@ -16,6 +16,9 @@ class IndexController extends Controller
 
     public static function getPidCates($pid = 0){
         //echo "aaa";
+        $article_data = DB::table('article')->get();
+        // dd($article_data);
+
         $cates_data = Cates::where('pid',$pid)->get();//一级分类
         $array = [];
         foreach($cates_data as $key => $value){
@@ -34,11 +37,16 @@ class IndexController extends Controller
     {   
         // $data_advert = Advert::limit(6)->get();
         $data_advert = DB::table('advert')->where('advert_agree', '1')->limit(6)->get();
+
         $data_announcement = Announcement::limit(5)->get();
+
         // dd($data_announcement);
         $data = Controller::cates_data();
+
         $show = DB::table('wonderful')->limit(6)->get();
+
         $default = DB::table('wordphoto')->limit(5)->get();
+
 
         $wonderful_data = Wonderful::select('*',DB::raw("concat(wd_time,',',id) as paths"))->limit(6)->orderBy('paths','asc')->get();
 
@@ -50,11 +58,17 @@ class IndexController extends Controller
         ->where('display',1)
         ->orWhere('a.id')
         ->get();
+
         // dd($data_res);
-        foreach ($data_res as $key => $val) {
-            $value = $val;
+        if($data_res->first() != null){
+            foreach($about_data as $k => $v){
+            $value = $v;
+            }
+
+        }else{
+            $value = '';
         }
-        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'wonderful_data'=>$wonderful_data,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value]);
+        return view('home.index.index',['cates_data'=>$data,'data_advert'=>$data_advert,'data_announcement'=>$data_announcement,'wonderful_data'=>$wonderful_data,'show'=>$show,'default'=>$default,'article_res'=>$article_res,'value'=>$value,'article_data'=>$article_data]);
 
     }
 
@@ -87,7 +101,11 @@ class IndexController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
+    {       
+
+
+        echo "asdadhsadsadkjsadkjsadsadsafasgsagdsfgdsadgfdgfghfsdgf";
+
         // $data_announcement = Announcement::find($id);
         $data_announcement = DB::table('announcement')->where('id',$id)->get();
         // dd($data_announcement);

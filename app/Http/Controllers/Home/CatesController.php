@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,13 +15,11 @@ class CatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
-    {
-        // $count = $request->input('count',5);
-        // $search = $request->input('search','');
-        // $data = Home_Users::where('uname','like','%'.$search.'%')->paginate($count);
-        // return view('admin.home_users.index',['data'=>$data,'request'=>$request->all()]);
-        return view('home.cates.index');
+    public function index(Request $request)
+    {   
+        // dd($id);
+        
+        // return view('home.cates.index');
     }
 
     /**
@@ -52,21 +50,29 @@ class CatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {   
-        echo $id;
-        // $data_create = Announcement::find($id);
-        $data_create = DB::table('create')->where('id',$id)->get();
-        // dd($data_create);
-        // //读取session中的id
-        $id = session('userinfo')->id;
-        $userinfo = new Wonderful;
-        $about_data = article::where('uid',$id)->get();
-        foreach ($about_data as $k => $v){
+    public function show(Request $request,$id)
+    {      
+
+        $count = $request->input('count',1);
+        // $search = $request->input('search','');
+        // $article_data = Article::where('art_title','like','%'.$search.'%')->paginate($count);
+
+        // echo $id;
+        // 接收  ID
+        $data_create = DB::table('cates')->where('id',$id)->get();
+        // 链接 article UID
+        $about_data = DB::table('article')->where('cate_uid',$id)->paginate($count);
+        if($about_data->first() != null){
+            foreach ($about_data as $k => $v){
             $value = $v;
+            }
+        }else{
+            $value = '';
         }
+
         $cates_data = Controller::cates_data();
-        return view('home.cates.index',['cates_data'=>$cates_data,'data_create'=>$data_create,'value'=>$value]);
+        return view('home.cates.index',['cates_data'=>$cates_data,'about_data'=>$about_data,'data_create'=>$data_create,'value'=>$value,'request'=>$request->all()]);
+        
     }
 
     /**
@@ -78,6 +84,8 @@ class CatesController extends Controller
     public function edit($id)
     {
         //
+        echo $id;
+        return view('home.cates.index');
     }
 
     /**
@@ -101,5 +109,11 @@ class CatesController extends Controller
     public function destroy($id)
     {
         //
+        echo $id;
+        return view('home.cates.index');
+    }
+
+    public function dmxy($id){
+        echo $id;
     }
 }
