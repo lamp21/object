@@ -53,7 +53,7 @@ class IndexController extends Controller
         // dd($data_res);
         if($data_res->first() != null){
             foreach ($data_res as $key => $val) {
-            $value = $val;
+                $value = $val;
             }
         }else{
             $value = '暂无数据';

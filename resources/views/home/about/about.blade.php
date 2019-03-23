@@ -76,8 +76,11 @@
 		</table>
 		</div>
 	</div>
-	<a class="btn btn-success" href="/home/about/{{ $value->id }}/edit">修改资料</a>
+	@if($value != '')
+	<a class="btn btn-success" href="/home/about/{{ $value->id }}/edit">修改资料</a><br>
+	@else
 	<a href="/home/about/create" class="btn btn-info">完善资料</a><br>
+	@endif
 	    <h2 class="gd_title">加入我们</h2>
 	    <ul class="qq_join">
 	      <li>

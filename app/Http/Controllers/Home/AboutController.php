@@ -23,13 +23,13 @@ class AboutController extends Controller
         $userinfo = new Usersinfo;
         $cates_data = Controller::cates_data();
         $about_data = Usersinfo::where('uid',$id)->get();
-        // dd($about_data);
+        dd($about_data);
         if($about_data->first() != null){
             foreach ($about_data as $k => $v) {
-            $value = $v;
+                $value = $v;
             }
         }else{
-            // $value = '';
+            $value = '';
             echo "<script>alert('请先完善资料！');location='/home/about/create'</script>";
         }
         
@@ -64,6 +64,7 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {   
+        dd($request->all());
         $data = $request->all();
         
         $data = $request->except(['_token']);

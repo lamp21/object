@@ -30,14 +30,14 @@
 		  <div class="form-group">
 		    <label for="nick_name" class="col-sm-2 control-label">昵称</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="nick_name" name="nick_name" placeholder="昵称">
+		      <input type="text" class="form-control" id="nick_name" name="nick_name" placeholder="输入4～10位">
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="sex" class="col-sm-2 control-label">性别</label>&nbsp;&nbsp;&nbsp;
+		    <label for="sex" class="col-sm-2 control-label">性别</label>
 		    <div class="col-sm-10">
-			    <input type="radio" name="sex" value="0" checked>&nbsp;男&nbsp;&nbsp;
-			    <input type="radio" name="sex" value="1">&nbsp;女&nbsp;&nbsp;&nbsp;	
+			    <input type="radio" name="sex" value="0" checked>&nbsp;男
+			    <input type="radio" name="sex" value="1">&nbsp;女
 			</div>
 		  </div>
 		  <div class="form-group">
@@ -172,7 +172,7 @@
 	        var QQ = $('#QQ').val();
 	        var chat = $('#chat').val();
 	        var description = $('#description').val();
-	        if(nick_name == ''){
+	        /*if(nick_name == ''){
 	        	alert('昵称不能为空');
 	        	return false;
 	        }else if(work == ''){
@@ -199,7 +199,15 @@
 	        }else if(description == ''){
 	        	alert('个人标签不能为空');
 	        	return false;
-	        }
+	        }*/
+
+			var QQ_grep = /^[1-9][0-9]{8,10}$/;
+	   		//验证手机号
+			if(!QQ_grep.test(QQ)){
+				alert('请输入正确的QQ号！');
+				return false;
+			}
+			
 	    });
     </script>
 @endsection

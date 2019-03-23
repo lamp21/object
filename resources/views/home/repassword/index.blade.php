@@ -83,13 +83,6 @@
 	   			alert('原密码不能和新密码相同！');
 	   			return false;
 	   		}
-
-	   		var QQ_grep = /^[1-9][0-9]{4,}$/;
-	   		//验证手机号
-			if(!QQ_grep.test(QQ)){
-				alert('请输入正确的QQ号！');
-				return false;
-		}
 	    });
 
 	</script>
